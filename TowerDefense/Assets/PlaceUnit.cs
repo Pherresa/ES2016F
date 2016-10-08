@@ -15,7 +15,7 @@ public class PlaceUnit : MonoBehaviour {
             
 
         
-            Instantiate(bm.selectedUnit, transform.parent.position, transform.parent.rotation);
+            Instantiate(bm.selectedUnit, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
             Destroy(transform.parent.gameObject);
         }
     }
