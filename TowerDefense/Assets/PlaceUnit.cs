@@ -9,13 +9,9 @@ public class PlaceUnit : MonoBehaviour {
         Debug.Log("TowerSpot clicked.");
         ConstructionManager bm = GameObject.FindObjectOfType<ConstructionManager>();
         if (bm.selectedUnit != null)
-        
         {
             LifeAmountManager sm = GameObject.FindObjectOfType<LifeAmountManager>();
-            
-
-        
-            Instantiate(bm.selectedUnit, transform.parent.position, transform.parent.rotation);
+            Instantiate(bm.selectedUnit, transform.position, transform.rotation);
             Destroy(transform.parent.gameObject);
         }
     }
