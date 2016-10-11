@@ -1,29 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tower : MonoBehaviour {
+public abstract class Tower : MonoBehaviour {
 
-    private GameObject target;
-    public float range = 10f;
-    public string tagOfEnemy = "Enemy";
-    public int life = 50;
-    public int strenght = 3;
+    protected GameObject target;
+    protected float range;
+    protected string tagOfEnemy = "Enemy";
+    protected int life;
+    protected int strenght;
 
-    // Use this for initialization
-    void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        getTarget();
-        if (target == null)
-            return;
-        print(target);
-    }
+    
 
     // get de nearest enemy for shooting it or something
-    void getTarget()
+    protected void getTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(tagOfEnemy);
         float tmpDistance = Mathf.Infinity;
@@ -46,16 +35,8 @@ public class Tower : MonoBehaviour {
            //     target = null;
            // }
     }
-    
-    void Shoot()
-    {
-        // TODO
-    }
 
-    void destroy()
-    {
-        // TODO
-    }
+    protected abstract void Shoot();
+    protected abstract void Destroy();
 
-    
 }

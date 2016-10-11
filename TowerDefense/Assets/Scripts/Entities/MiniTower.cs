@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainTower : Tower {
+public class MiniTower : Tower {
 
     // Use this for initialization
     void Start()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        GetComponent<Renderer>().material.color = Color.green;
         iniStates();
     }
 
@@ -21,9 +21,9 @@ public class MainTower : Tower {
 
     void iniStates()
     {
-        range = 25f;
-        life = 200;
-        strenght = 7;
+        range = 10f;
+        life = 50;
+        strenght = 3;
     }
 
 
