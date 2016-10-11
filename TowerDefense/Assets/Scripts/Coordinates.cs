@@ -8,7 +8,7 @@ public class Coordinates
 	private int m_pos_Z;
 	// Use this for initialization
 
-
+	//Constructor
 	public Coordinates (int x, int y, int z)
 	{
 		m_pos_X = x;
@@ -16,6 +16,7 @@ public class Coordinates
 		m_pos_Z = z;
 	}
 
+	//Getters and setters.
 	public int pos_X
 	{
 		get 
