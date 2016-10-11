@@ -17,9 +17,23 @@ public class GeneralLoop : MonoBehaviour {
         if (contin)
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject enemy in enemies) {
+            foreach (GameObject enemy in enemies)
+            {
                 enemy.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z + 1);
             }
+        }
+    }
+
+    // Pressing the button the value of the variable changes
+    public void OnMouseUpAsButton()
+    {
+        if (contin)
+        {
+            contin = false;
+        }
+        else
+        {
+            contin = true;
         }
     }
 }
