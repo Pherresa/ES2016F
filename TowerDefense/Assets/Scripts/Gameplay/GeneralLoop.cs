@@ -15,7 +15,7 @@ public class GeneralLoop : MonoBehaviour {
     }
 
     // Pressing the button the value of the variable changes
-    // To make the pause, the methods have to be in the FixedUpdate functions, not in the Update
+    // To make the pause, the methods have to be in the FixedUpdate functions, or update using Time
     public void OnMouseUpAsButton()
     {
         if(Time.timeScale == 0.0f)
