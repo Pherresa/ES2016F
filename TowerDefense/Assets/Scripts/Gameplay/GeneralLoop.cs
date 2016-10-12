@@ -2,38 +2,29 @@
 using System.Collections;
 
 public class GeneralLoop : MonoBehaviour {
-
-    private bool contin;
+    
 
     // Use this for initialization
     void Start () {
-        contin = false;
 	}
 
 
     // Update is called once per frame
     // Get all the enemies, increases the z position of each of them
     void Update () {
-        if (contin)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject enemy in enemies)
-            {
-                enemy.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z + 1);
-            }
-        }
     }
 
     // Pressing the button the value of the variable changes
+    // To make the pause, the methods have to be in the FixedUpdate functions, not in the Update
     public void OnMouseUpAsButton()
     {
-        if (contin)
+        if(Time.timeScale == 0.0f)
         {
-            contin = false;
+            Time.timeScale = 1.0f;
         }
         else
         {
-            contin = true;
+            Time.timeScale = 0.0f;
         }
     }
 }
