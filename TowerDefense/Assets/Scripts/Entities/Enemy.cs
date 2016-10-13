@@ -11,9 +11,12 @@ public class Enemy : MonoBehaviour {
     void Start () {
            
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    // For every frame moves the character his speed to get the movement per second instead of per frame multiply 
+    // the speed DeltaTime, face the enemy and tell a unit to move forward if the initial position is equal to the 
+    // end we get another point the FIFO queue.
+    void Update () {
         Vector3 position_aprox = new Vector3((int)this.transform.position.x, (int)this.transform.position.y, (int)this.transform.position.z);
         if (position_aprox == m_movi_actu)
         {
