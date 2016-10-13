@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692522, g: 0.49678677, b: 0.5750848, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -104,9 +104,11 @@ GameObject:
   - 114: {fileID: 3582264}
   - 114: {fileID: 3582263}
   - 95: {fileID: 3582268}
+  - 114: {fileID: 3582269}
+  - 65: {fileID: 3582270}
   m_Layer: 0
   m_Name: OptionButton
-  m_TagString: Untagged
+  m_TagString: options
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +261,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &3582269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3582261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 1
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &3582270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3582261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &54160168
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,9 +603,11 @@ GameObject:
   - 114: {fileID: 156963545}
   - 114: {fileID: 156963544}
   - 95: {fileID: 156963549}
+  - 114: {fileID: 156963550}
+  - 65: {fileID: 156963551}
   m_Layer: 0
   m_Name: LoadGameButton
-  m_TagString: Untagged
+  m_TagString: loadGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,6 +760,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &156963550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156963542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 1
+--- !u!65 &156963551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 156963542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &163634249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1161,7 @@ GameObject:
   - 225: {fileID: 436126569}
   m_Layer: 0
   m_Name: GameModeMenu
-  m_TagString: Untagged
+  m_TagString: gameModeMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1301,6 +1369,8 @@ GameObject:
   - 114: {fileID: 523103374}
   - 114: {fileID: 523103373}
   - 95: {fileID: 523103372}
+  - 114: {fileID: 523103378}
+  - 65: {fileID: 523103379}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1456,6 +1526,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523103370}
+--- !u!114 &523103378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523103370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 1
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &523103379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523103370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &531295659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1570,7 @@ GameObject:
   - 225: {fileID: 531295661}
   m_Layer: 0
   m_Name: PlayGameMenu
-  m_TagString: Untagged
+  m_TagString: battleMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2116,7 +2218,7 @@ GameObject:
   - 225: {fileID: 972917351}
   m_Layer: 0
   m_Name: MainMenu
-  m_TagString: Untagged
+  m_TagString: initMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2516,6 +2618,8 @@ GameObject:
   - 114: {fileID: 1112251497}
   - 114: {fileID: 1112251496}
   - 95: {fileID: 1112251495}
+  - 114: {fileID: 1112251501}
+  - 65: {fileID: 1112251502}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -2671,6 +2775,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1112251493}
+--- !u!114 &1112251501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112251493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 1
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1112251502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112251493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1137598023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,6 +2821,8 @@ GameObject:
   - 114: {fileID: 1137598027}
   - 114: {fileID: 1137598026}
   - 95: {fileID: 1137598025}
+  - 114: {fileID: 1137598031}
+  - 65: {fileID: 1137598032}
   m_Layer: 0
   m_Name: ArcadeButton
   m_TagString: Untagged
@@ -2840,6 +2978,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1137598023}
+--- !u!114 &1137598031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137598023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 1
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1137598032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137598023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1137712765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,6 +5157,8 @@ GameObject:
   - 114: {fileID: 1410437514}
   - 114: {fileID: 1410437513}
   - 95: {fileID: 1410437512}
+  - 114: {fileID: 1410437518}
+  - 65: {fileID: 1410437519}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -5142,6 +5314,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1410437510}
+--- !u!114 &1410437518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410437510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 1
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1410437519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410437510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 290, y: 120, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1443868057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,9 +5360,11 @@ GameObject:
   - 114: {fileID: 1443868060}
   - 114: {fileID: 1443868059}
   - 95: {fileID: 1443868064}
+  - 114: {fileID: 1443868065}
+  - 65: {fileID: 1443868066}
   m_Layer: 0
   m_Name: ExitButton
-  m_TagString: Untagged
+  m_TagString: gameExit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5311,6 +5517,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1443868065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1443868057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 1
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1443868066
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1443868057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1551487620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,6 +5746,8 @@ GameObject:
   - 114: {fileID: 1673849208}
   - 114: {fileID: 1673849207}
   - 95: {fileID: 1673849206}
+  - 114: {fileID: 1673849212}
+  - 65: {fileID: 1673849213}
   m_Layer: 0
   m_Name: AdventureButton
   m_TagString: Untagged
@@ -5663,6 +5903,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1673849204}
+--- !u!114 &1673849212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673849204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 1
+  isLoadGameButton: 0
+--- !u!65 &1673849213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673849204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1726225408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5785,6 +6057,8 @@ GameObject:
   - 114: {fileID: 1808468653}
   - 114: {fileID: 1808468652}
   - 95: {fileID: 1808468651}
+  - 114: {fileID: 1808468657}
+  - 65: {fileID: 1808468658}
   m_Layer: 0
   m_Name: MinasTirithButton
   m_TagString: Untagged
@@ -5940,6 +6214,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1808468649}
+--- !u!114 &1808468657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808468649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 1
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1808468658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808468649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1834857078
 GameObject:
   m_ObjectHideFlags: 0
@@ -6014,7 +6320,7 @@ GameObject:
   - 225: {fileID: 1835310520}
   m_Layer: 0
   m_Name: OptionsMenu
-  m_TagString: Untagged
+  m_TagString: optMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6442,6 +6748,8 @@ GameObject:
   - 114: {fileID: 1947353316}
   - 114: {fileID: 1947353315}
   - 95: {fileID: 1947353314}
+  - 114: {fileID: 1947353320}
+  - 65: {fileID: 1947353321}
   m_Layer: 0
   m_Name: IsengardButton
   m_TagString: Untagged
@@ -6597,6 +6905,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947353312}
+--- !u!114 &1947353320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947353312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 0
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 1
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &1947353321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947353312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1966660682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,6 +7217,8 @@ GameObject:
   - 114: {fileID: 2028399095}
   - 114: {fileID: 2028399094}
   - 95: {fileID: 2028399093}
+  - 65: {fileID: 2028399100}
+  - 114: {fileID: 2028399099}
   m_Layer: 0
   m_Name: PlayButton
   m_TagString: Untagged
@@ -7032,6 +7374,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028399091}
+--- !u!114 &2028399099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2028399091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 1
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+--- !u!65 &2028399100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2028399091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 220, y: 68, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2066713866
 GameObject:
   m_ObjectHideFlags: 0
