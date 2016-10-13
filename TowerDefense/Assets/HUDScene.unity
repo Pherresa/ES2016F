@@ -186,9 +186,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Power: XXXX
-
-    Cost: XXXX'
+  m_Text: 
 --- !u!222 &204755877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -371,6 +369,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2142781472}
         m_MethodName: SelectUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1000013301374014, guid: a5a2d157380322e4bbcaa96de9678892,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2142781475}
+        m_MethodName: showInfo
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1000013301374014, guid: a5a2d157380322e4bbcaa96de9678892,
@@ -585,6 +595,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2142781472}
         m_MethodName: SelectUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1000011792050314, guid: a859b7a9dd478bf4793e6e18290ffe46,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2142781475}
+        m_MethodName: showInfo
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1000011792050314, guid: a859b7a9dd478bf4793e6e18290ffe46,
@@ -1440,6 +1462,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2142781475}
+        m_MethodName: showInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1000012353052334, guid: 36a2e0eae57e01c4d8791b2bc7cc37f3,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1306974211
@@ -1616,6 +1650,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2142781472}
         m_MethodName: SelectUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1000011437469620, guid: 55cb3ba24233e0a49b3ee5493162c121,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2142781475}
+        m_MethodName: showInfo
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1000011437469620, guid: 55cb3ba24233e0a49b3ee5493162c121,
