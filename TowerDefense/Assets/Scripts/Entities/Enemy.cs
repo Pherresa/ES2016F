@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-           
+        m_moviments = new Queue();
+        m_movi_actu = (Vector3)m_moviments.Dequeue();
     }
 
     // Update is called once per frame
