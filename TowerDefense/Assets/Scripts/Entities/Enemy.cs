@@ -3,10 +3,14 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public int m_velocity;
+    private Queue m_moviments;
+    private Vector3 m_movi_actu;
+
+    // Use this for initialization
+    void Start () {
+           
+    }
 	
 	// Update is called once per frame
 	void Update () {
