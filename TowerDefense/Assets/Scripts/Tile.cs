@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // Class to wrap all the data related to a Tile
 public class Tile : MonoBehaviour {
 
-	private Coordinates position = GetComponent<Coordinates>();
+    private Coordinates position;
 	private bool m_IsDestroyable;
 
 
