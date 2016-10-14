@@ -9,15 +9,21 @@ public class Tile : MonoBehaviour {
 	private bool m_IsDestroyable;
 
 
-	public Tile (int x, int z, int y, bool destroyable)
-	{
-		position = new Coordinates(x,y,z);
-		m_IsDestroyable = destroyable;
-	}
+    //Getters and setters
+    public Coordinates coord
+    {
+        get
+        {
+            return coord;
+        }
 
-
-	// Use this for initialization
-	void Start () {
+        set
+        {
+            coord = value;
+        }
+    }
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
