@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 // Class to store everything related to Coordinates.
-public class Coordinates
-{
+public class Coordinates: MonoBehaviour {
+
 	private int m_pos_X;
 	private int m_pos_Y;
 	private int m_pos_Z;
