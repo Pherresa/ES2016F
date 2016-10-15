@@ -5,12 +5,14 @@ using System.Collections;
 public class Path : Tile {
 
     private Tile direction;
+    private Tile actual_pos;
     private double m_speed;
 
     //Constructor
-    public Path (Tile tile, double spd)
+    public Path (Tile tile, Tile pos, double spd)
     {
         direction = tile;
+        actual_pos = pos;
         m_speed = spd;
     }
 
@@ -25,6 +27,19 @@ public class Path : Tile {
         set
         {
             direction = value;
+        }
+    }
+
+    public Tile pos
+    {
+        get
+        {
+            return actual_pos;
+        }
+
+        set
+        {
+            actual_pos = value;
         }
     }
 
