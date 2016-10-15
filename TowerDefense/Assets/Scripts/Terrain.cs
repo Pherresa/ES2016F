@@ -1,10 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Terrain : MonoBehaviour {
+public class Terrain : Tile {
 
-	// Use this for initialization
-	void Start () {
+    private Tile actual_pos;
+    private bool m_IsOccupied;
+
+
+    //Constructor
+    public Terrain (Tile pos, bool occupied)
+    {
+        actual_pos = pos;
+        m_IsOccupied = occupied;
+    }
+
+
+    public Tile pos
+    {
+        get
+        {
+            return actual_pos;
+        }
+
+        set
+        {
+            actual_pos = value;
+        }
+    }
+
+    public bool occupied
+    {
+        get
+        {
+            return m_IsOccupied;
+        }
+
+        set
+        {
+            m_IsOccupied = value;
+        }
+    }
+    // Use this for initialization
+    void Start () {
 	
 	}
 	

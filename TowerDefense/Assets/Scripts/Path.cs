@@ -6,14 +6,12 @@ public class Path : Tile {
 
     private Tile direction;
     private Tile actual_pos;
-    private double m_speed;
 
     //Constructor
-    public Path (Tile tile, Tile pos, double spd)
+    public Path (Tile tile, Tile pos)
     {
         direction = tile;
         actual_pos = pos;
-        m_speed = spd;
     }
 
     //Getters and setters
@@ -40,19 +38,6 @@ public class Path : Tile {
         set
         {
             actual_pos = value;
-        }
-    }
-
-    public double speed
-    {
-        get
-        {
-            return m_speed;
-        }
-
-        set
-        {
-            m_speed = value;
         }
     }
 

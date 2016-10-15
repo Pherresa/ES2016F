@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class Tile : MonoBehaviour {
 
     private Coordinates position;
-	private bool m_IsDestroyable;
 
 
     //Getters and setters
