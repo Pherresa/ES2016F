@@ -28,6 +28,19 @@ public class Path : Tile {
         }
     }
 
+    public double speed
+    {
+        get
+        {
+            return m_speed;
+        }
+
+        set
+        {
+            m_speed = value;
+        }
+    }
+
     // Use this for initialization
     void Start () {
 	
