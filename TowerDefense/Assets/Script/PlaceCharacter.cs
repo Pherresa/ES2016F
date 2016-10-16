@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class PlaceCharacter : MonoBehaviour {
 
 	public Transform[] points;
 	private int currentPoint;
