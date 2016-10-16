@@ -16,8 +16,7 @@ public class PlaceUnit : MonoBehaviour {
             LifeAmountManager sm = GameObject.FindObjectOfType<LifeAmountManager>();
 
             GameObject obj = (GameObject) Instantiate(bm.selectedUnit, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
-            Destroy(transform.parent.gameObject);
-
+            
             var scriptAsset = AssetDatabase.FindAssets("SellUpgradeUnit");
             if (scriptAsset.Length > 0)
             {
@@ -25,8 +24,18 @@ public class PlaceUnit : MonoBehaviour {
                 obj.AddComponent(Type.GetType("SellUpgradeUnit"));
                 SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
                 su.selectedUnit = obj;
+                su.showCanvas();
             }
             else{Debug.Log("script error");}
+
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 
         }
     }

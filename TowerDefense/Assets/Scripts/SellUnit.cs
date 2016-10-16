@@ -34,6 +34,12 @@ public class SellUnit : MonoBehaviour {
 
         Destroy(selectedUnit);
         selectedUnit = null;
+
+        GameObject canvasSU = GameObject.Find("CanvasSU");
+        canvasSU.GetComponent<CanvasGroup>().alpha = 0;
+        canvasSU.GetComponent<CanvasGroup>().interactable = false;
+        canvasSU.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
         //TO DO: Money back?
     }
 }

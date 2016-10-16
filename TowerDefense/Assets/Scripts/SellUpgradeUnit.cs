@@ -7,8 +7,12 @@ public class SellUpgradeUnit : MonoBehaviour {
     void OnMouseUp()
     {
         //GameObject selectedUnit = transform.parent.gameObject;
-        Debug.Log("selected " + transform.name);
-        Debug.Log("working");
+        
+
+    }
+
+    public void showCanvas()
+    {
         GameObject canvasSU = GameObject.Find("CanvasSU");
         canvasSU.GetComponent<CanvasGroup>().alpha = 1;
         canvasSU.GetComponent<CanvasGroup>().interactable = true;
@@ -17,7 +21,6 @@ public class SellUpgradeUnit : MonoBehaviour {
         su.selectedUnit = this.selectedUnit;
         UpgradeUnit up = GameObject.FindObjectOfType<UpgradeUnit>();
         up.selectedUnit = this.selectedUnit;
-
     }
 
 }
