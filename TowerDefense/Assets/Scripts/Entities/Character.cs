@@ -120,7 +120,7 @@ public abstract class Character : MonoBehaviour {
 		set{reflection = value;}
 	}
 
-	public string Speed 
+	public int Speed 
 	{
 		get{return speed;}
 		set{speed = value;} 
@@ -162,7 +162,7 @@ public abstract class Character : MonoBehaviour {
 
 		Vector3 movement = new Vector3 (moveHoritzontal, 0.0f, moveVertical);
 
-		rigidbody.AddForce (movement * speed * Time.deltaTime);
+        GetComponent<Rigidbody>().AddForce (movement * speed * Time.deltaTime);
 
 	}
 
