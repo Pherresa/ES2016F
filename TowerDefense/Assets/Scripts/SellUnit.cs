@@ -41,5 +41,6 @@ public class SellUnit : MonoBehaviour {
         canvasSU.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         //TO DO: Money back?
+        GameObject.FindObjectOfType<LifeAmountManager>().GainAmount(40);
     }
 }
