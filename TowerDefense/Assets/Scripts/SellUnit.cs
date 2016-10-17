@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 using System;
 
 public class SellUnit : MonoBehaviour {
@@ -24,13 +23,7 @@ public class SellUnit : MonoBehaviour {
         GameObject empty = (GameObject) Resources.Load("prefabs/Empty", typeof(GameObject));
         GameObject newObj = (GameObject) Instantiate(empty, selectedUnit.transform.position - new Vector3(0, 0.5f, 0), selectedUnit.transform.rotation);
 
-        var scriptAsset = AssetDatabase.FindAssets("PlaceUnit");
-        if (scriptAsset.Length > 0)
-        {
-            newObj.AddComponent(Type.GetType("PlaceUnit"));
-
-        }
-        else { Debug.Log("script error"); }
+        newObj.AddComponent(Type.GetType("PlaceUnit"));
 
         Destroy(selectedUnit);
         selectedUnit = null;
@@ -41,5 +34,6 @@ public class SellUnit : MonoBehaviour {
         canvasSU.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         //TO DO: Money back?
+        GameObject.FindObjectOfType<LifeAmountManager>().GainAmount(40);
     }
 }
