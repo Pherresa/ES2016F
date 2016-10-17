@@ -35,7 +35,7 @@ public class MiniTower : Tower
         getTarget();
     }
 
-    protected override void decreLife()
+    protected  void decreLife()
     {
         life = life - 1;
     }
