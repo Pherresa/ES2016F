@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 using System;
 
 public class PlaceUnit : MonoBehaviour {
@@ -19,16 +18,11 @@ public class PlaceUnit : MonoBehaviour {
             // TODO: Depending of the type of unit...
             GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(40);
 
-            var scriptAsset = AssetDatabase.FindAssets("SellUpgradeUnit");
-            if (scriptAsset.Length > 0)
-            {
-                Debug.Log("script attached");
-                obj.AddComponent(Type.GetType("SellUpgradeUnit"));
-                SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
-                su.selectedUnit = obj;
-                su.showCanvas();
-            }
-            else{Debug.Log("script error");}
+            obj.AddComponent(Type.GetType("SellUpgradeUnit"));
+            SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
+            su.selectedUnit = obj;
+            su.showCanvas();
+            GameObject.FindObjectOfType<UnitInfo>().hideInfo();
 
             if (transform.parent != null)
             {
