@@ -37,6 +37,6 @@ public abstract class Tower : MonoBehaviour {
     }
 
     protected abstract void Shoot();
-    protected abstract void Destroy();
+    protected abstract void DestroyTower();
 
 }

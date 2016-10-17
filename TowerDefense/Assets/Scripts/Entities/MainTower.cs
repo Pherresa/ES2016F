@@ -60,7 +60,7 @@ public class MainTower : Tower
     {
         Destroy(this.gameObject);
     }
-    protected override void decreLife()
+    protected  void decreLife()
     {
         life = life - 1;
     }
