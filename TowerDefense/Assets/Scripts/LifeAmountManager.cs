@@ -22,7 +22,7 @@ public class LifeAmountManager : MonoBehaviour
     void Start()
     {
         setRemainingTime(60f);
-        amountText.text = "Amount: $" + amount.ToString();
+        amountText.text = amount.ToString();
         InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
 
 
@@ -41,13 +41,11 @@ public class LifeAmountManager : MonoBehaviour
     }
     void UpdateAmountText()
     {
-        amountText.text = "Amount: $" + amount.ToString();
+        amountText.text = amount.ToString();
 
     }
     void UpdateTimeText()
     {
-
-        //TODO: minutes, sec fotmat
         minuteCount = (int)(remainingTime/60f);
         secCount = (int)(remainingTime%60f);
         timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
