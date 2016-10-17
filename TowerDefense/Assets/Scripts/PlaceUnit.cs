@@ -16,7 +16,9 @@ public class PlaceUnit : MonoBehaviour {
             LifeAmountManager sm = GameObject.FindObjectOfType<LifeAmountManager>();
 
             GameObject obj = (GameObject) Instantiate(bm.selectedUnit, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
-            
+            // TODO: Depending of the type of unit...
+            GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(40);
+
             var scriptAsset = AssetDatabase.FindAssets("SellUpgradeUnit");
             if (scriptAsset.Length > 0)
             {

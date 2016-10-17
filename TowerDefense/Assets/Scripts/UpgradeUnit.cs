@@ -24,6 +24,7 @@ public class UpgradeUnit : MonoBehaviour {
 
         selectedUnit.transform.localScale += new Vector3(0, 1.1F, 0);
 
-        //TO DO: Money back?
+        //TO DO: Money?
+        GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(20);
     }
 }
