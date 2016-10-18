@@ -72,7 +72,8 @@ public class mainMenu : MonoBehaviour {
         if (isExitButton)
         {            
             print("exit");
-            mEnablePanel("initMenu");
+            //mEnablePanel("initMenu");
+            Application.Quit();
         }
 
         if (isReturnMMButton)
