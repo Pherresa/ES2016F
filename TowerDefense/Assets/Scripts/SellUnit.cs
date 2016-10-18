@@ -25,6 +25,10 @@ public class SellUnit : MonoBehaviour {
 
         newObj.AddComponent(Type.GetType("PlaceUnit"));
 
+        PlaceUnit pu = newObj.GetComponent<PlaceUnit>();
+        pu.free = true;
+
+
         Destroy(selectedUnit);
         selectedUnit = null;
 

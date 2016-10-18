@@ -13,6 +13,10 @@ public class LifeAmountManager : MonoBehaviour
     private int minuteCount;
     private int secCount;
 
+    private bool newSec;
+    private GeneralEnemy[] enemies;
+
+
     public Text amountText;
     public Text lifeText;
     public Text timeText;
@@ -21,6 +25,8 @@ public class LifeAmountManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        newSec = false;
+        enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
         setRemainingTime(60f);
         amountText.text = amount.ToString();
         InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
@@ -47,9 +53,22 @@ public class LifeAmountManager : MonoBehaviour
     void UpdateTimeText()
     {
         minuteCount = (int)(remainingTime/60f);
+        if(secCount!=(int)(remainingTime%60f)){
+            newSec = true;
+        }
+        else{
+            newSec = false;
+        }
         secCount = (int)(remainingTime%60f);
         timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
-
+        // For example make enemies life down by time
+        foreach (var en in enemies){
+            if(en.alive==true){
+                if(secCount>0 && newSec){
+                   en.downLife((60-secCount));
+                }
+            }
+        }
     }
 
     public void LoseAmount(int a)
