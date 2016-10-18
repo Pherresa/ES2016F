@@ -111,31 +111,48 @@ public class LifeAmountManager : MonoBehaviour
         if (amount >= 150) //TO DO: COST OF UNIT 1
         {
             GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.red;
-        } else GameObject.Find("ImageUnit1").GetComponent<Image>().color=Color.gray;
-
+        }
+        else
+        {
+            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ButtonUnit1").GetComponent<Button>().enabled = false;
+        }
         if (amount >= 450) //TO DO: COST OF UNIT 2
         {
             GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.blue;
         }
-        else GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
-
-        if(amount >= 700) //TO DO: COST OF UNIT 3
+        else
+        {
+            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ButtonUnit2").GetComponent<Button>().enabled = false;
+        }
+        if (amount >= 700) //TO DO: COST OF UNIT 3
         {
             GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.green;
         }
-        else GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
-
+        else
+        {
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ButtonUnit3").GetComponent<Button>().enabled = false;
+        }
         if (amount >= 900) //TO DO: COST OF UNIT 4
         {
             GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.magenta;
         }
-        else GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
-
+        else
+        {
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ButtonUnit4").GetComponent<Button>().enabled = false;
+        }
         if (amount >= 1000) //TO DO: COST OF UNIT 5
         {
             GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.yellow;
         }
-        else GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+        else
+        {
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ButtonUnit5").GetComponent<Button>().enabled = false;
+        }
 
     }
 
