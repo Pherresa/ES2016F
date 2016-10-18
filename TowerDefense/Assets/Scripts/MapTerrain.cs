@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Terrain : Tile {
+public class MapTerrain : Tile {
 
     private Tile actual_pos;
     private bool m_IsOccupied;
 
 
     //Constructor
-    public Terrain (Tile pos, bool occupied)
+    public MapTerrain (Tile pos, bool occupied)
     {
         actual_pos = pos;
         m_IsOccupied = occupied;
