@@ -533,7 +533,7 @@ GameObject:
   - 114: {fileID: 378834951}
   - 114: {fileID: 378834950}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: ButtonUnit4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ GameObject:
   - 222: {fileID: 408942142}
   - 114: {fileID: 408942141}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: ImageUnit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,6 +815,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4d0b3250e81e40911325200d20078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  WaitTime: 0
+  ResetPoint: 0
+  rend: {fileID: 0}
+  free: 0
+  clicked: 0
+  origColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &514418080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1033,7 @@ GameObject:
   - 114: {fileID: 569082581}
   - 114: {fileID: 569082580}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: ButtonUnit5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1223,7 +1230,7 @@ GameObject:
   - 114: {fileID: 716597746}
   - 114: {fileID: 716597745}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,6 +1518,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4d0b3250e81e40911325200d20078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  WaitTime: 0
+  ResetPoint: 0
+  rend: {fileID: 0}
+  free: 0
+  clicked: 0
+  origColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &814025558
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2006,7 +2020,7 @@ GameObject:
   - 222: {fileID: 1057844392}
   - 114: {fileID: 1057844391}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: ImageUnit5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2203,6 +2217,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4d0b3250e81e40911325200d20078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  WaitTime: 0
+  ResetPoint: 0
+  rend: {fileID: 0}
+  free: 0
+  clicked: 0
+  origColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1282909521
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2263,7 +2284,7 @@ GameObject:
   - 114: {fileID: 1306974211}
   - 114: {fileID: 1306974210}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ButtonUnit3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2550,7 +2571,7 @@ GameObject:
   - 114: {fileID: 1350741642}
   - 114: {fileID: 1350741641}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ButtonUnit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2988,6 +3009,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4d0b3250e81e40911325200d20078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  WaitTime: 0
+  ResetPoint: 0
+  rend: {fileID: 0}
+  free: 0
+  clicked: 0
+  origColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1578884143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3134,7 +3162,7 @@ GameObject:
   - 222: {fileID: 1607194091}
   - 114: {fileID: 1607194090}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: ImageUnit4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3283,7 +3311,7 @@ GameObject:
   - 222: {fileID: 1679935736}
   - 114: {fileID: 1679935735}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageUnit3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3383,6 +3411,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4d0b3250e81e40911325200d20078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  WaitTime: 0
+  ResetPoint: 0
+  rend: {fileID: 0}
+  free: 0
+  clicked: 0
+  origColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &1769897448
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3693,7 +3728,7 @@ GameObject:
   - 222: {fileID: 2005407215}
   - 114: {fileID: 2005407214}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
