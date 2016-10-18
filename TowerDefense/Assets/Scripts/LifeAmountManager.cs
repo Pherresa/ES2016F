@@ -24,7 +24,7 @@ public class LifeAmountManager : MonoBehaviour
         setRemainingTime(60f);
         amountText.text = amount.ToString();
         InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
-
+        UpdateAvailableUnits();
 
     }
 
@@ -59,6 +59,7 @@ public class LifeAmountManager : MonoBehaviour
             amount -= a;
         }
         UpdateAmountText();
+        UpdateAvailableUnits();
     }
 
     public void GainAmount(int a)
@@ -68,6 +69,7 @@ public class LifeAmountManager : MonoBehaviour
             amount += a;
         }
         UpdateAmountText();
+        UpdateAvailableUnits();
     }
 
     public void LoseLife(int l = 1)
@@ -102,6 +104,39 @@ public class LifeAmountManager : MonoBehaviour
     void Update()
     {
         UpdateTimeText();
+    }
+
+    void UpdateAvailableUnits()
+    {
+        if (amount >= 150) //TO DO: COST OF UNIT 1
+        {
+            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.red;
+        } else GameObject.Find("ImageUnit1").GetComponent<Image>().color=Color.gray;
+
+        if (amount >= 450) //TO DO: COST OF UNIT 2
+        {
+            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.blue;
+        }
+        else GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
+
+        if(amount >= 700) //TO DO: COST OF UNIT 3
+        {
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.green;
+        }
+        else GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
+
+        if (amount >= 900) //TO DO: COST OF UNIT 4
+        {
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.magenta;
+        }
+        else GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
+
+        if (amount >= 1000) //TO DO: COST OF UNIT 5
+        {
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.yellow;
+        }
+        else GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+
     }
 
 
