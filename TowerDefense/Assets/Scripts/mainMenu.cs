@@ -108,12 +108,12 @@ public class mainMenu : MonoBehaviour {
             {
                 if(sPath[1].Equals("isen"))
                 {
-                    //SceneManager.LoadScene(sceneToLoad);
+                    SceneManager.LoadScene(1);
                     print("Cargando Arcade isengard");
                 }
                 else
                 {
-                    //SceneManager.LoadScene(sceneToLoad);
+                    SceneManager.LoadScene(1);
                     print("Cargando Arcade Tirith");
                 }
             }
@@ -131,12 +131,12 @@ public class mainMenu : MonoBehaviour {
             {
                 if (sPath[1].Equals("isen"))
                 {
-                    //SceneManager.LoadScene(sceneToLoad);
+                    SceneManager.LoadScene(1);
                     print("Cargando Adventurer isengard");
                 }
                 else
                 {
-                    //SceneManager.LoadScene(sceneToLoad);
+                    SceneManager.LoadScene(1);
                     print("Cargando adventurer Tirith");
                 }
             }
