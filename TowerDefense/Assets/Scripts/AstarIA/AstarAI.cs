@@ -8,7 +8,7 @@ public class AstarAI : MonoBehaviour {
 
 	private Seeker seeker;
 
-	float speed = 20;
+	public float speed;
 
 	float nextWaypointDistance = 2f;
 
@@ -64,4 +64,6 @@ public class AstarAI : MonoBehaviour {
 	void Update () {
 
 	}
+
+	public float Speed { get; set; }
 }
