@@ -2,16 +2,19 @@
 using System.Collections;
 
 public class GeneralLoop : MonoBehaviour {
+
     
 
     // Use this for initialization
     void Start () {
-	}
+        
+    }
 
 
     // Update is called once per frame
     // Get all the enemies, increases the z position of each of them
     void Update () {
+        
     }
 
     // Pressing the button the value of the variable changes
