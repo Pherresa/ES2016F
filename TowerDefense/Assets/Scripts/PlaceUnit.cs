@@ -28,7 +28,7 @@ public class PlaceUnit : MonoBehaviour {
 
     }
 
-
+    // Un problema que veiem es que cada PlaceUnit pardadeja a un ritme diferent. Es pot solucionar tenint mes en compte el deltatime, per millorar el parpadeig.
     void Update(){
         // If one button is clicked, placeUnit blinks
         if (clicked){
@@ -50,7 +50,7 @@ public class PlaceUnit : MonoBehaviour {
             rend.material.color = origColor;
         }
     }
-
+    // es millor anomenarla setter. ja que les funcions que comencen amb 'is' solen retornar booleans.
     public void isClicked(bool b){
         clicked = b;
     }
@@ -59,7 +59,10 @@ public class PlaceUnit : MonoBehaviour {
 
 
 
+     // les variables de  free es una variable per saber si hi ha un objecte, i la de iscliked(false) es un setter per posar si
+     // esta clicat o no. Es podria pensar de fe-ho amb una variable generica per a tots el placeunits.
 
+     // En el cas de vendre, els place units no parpadejen com a lliures. S'ha de controlar aquest aspecte.
     void OnMouseUp()
     {
         Debug.Log("TowerSpot clicked.");

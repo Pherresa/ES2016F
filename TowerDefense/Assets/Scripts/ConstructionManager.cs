@@ -37,6 +37,8 @@ public class ConstructionManager : MonoBehaviour
 
     }
 
+    // Com s'ha comebtat en PlaceUnit.cs, no caldria dos variables per fer la mateixa utilitat.
+    // Amb la variable free es podria fer directament.
     public void SelectUnit(GameObject prefab)
     {
         // For each placeUnit
@@ -51,6 +53,7 @@ public class ConstructionManager : MonoBehaviour
 
         selectedUnit = prefab;
     }
+
 
     public void stopBlinking(){
         int i = 0;
