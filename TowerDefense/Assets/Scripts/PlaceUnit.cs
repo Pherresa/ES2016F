@@ -18,10 +18,13 @@ public class PlaceUnit : MonoBehaviour {
             // TODO: Depending of the type of unit...
             GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(40);
 
+			//add the sellUpgradeUnit component to the obj to upgrade it.
+			// Get the component SellUpgradeUnit of obj and call the function showCanvas where appear the sell and upgrade buttons.
             obj.AddComponent(Type.GetType("SellUpgradeUnit"));
             SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
             su.selectedUnit = obj;
             su.showCanvas();
+
             GameObject.FindObjectOfType<UnitInfo>().hideInfo();
 
             if (transform.parent != null)
