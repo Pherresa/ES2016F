@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 	public GameObject prefab;
@@ -134,4 +135,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Vector3 midPoint = Vector3.Slerp (vertRealWorldPositions [0], vertRealWorldPositions [1], 0.5f);
 		return midPoint;
 	}
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        
+    }
 }
