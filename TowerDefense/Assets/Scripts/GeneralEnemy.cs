@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GeneralEnemy : MonoBehaviour {
 
-
+    // aquesta variable no caldria. Si l'bjcte esta creat es que esta viu.
 	public bool alive;
 	public int maxLife;
 	public int life;
@@ -16,8 +16,8 @@ public class GeneralEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//For example
-		maxLife = 100;
-		life = 100;
+		maxLife = 10;
+		life = 10;
 
 		// Todo
 		damage = 0;
@@ -46,6 +46,7 @@ public class GeneralEnemy : MonoBehaviour {
 		
 	}
 
+    // En comptes de no renderitzarlo, s'hauria de destuir.
 	public void downLife(int damage){
 		life = life-damage;
 		if (life<=0){
@@ -53,6 +54,7 @@ public class GeneralEnemy : MonoBehaviour {
 			//Animation to make it disappear
 			
 			GetComponent<MeshRenderer>().enabled = false;
+			//Destroy(this);
 
 		}
 
