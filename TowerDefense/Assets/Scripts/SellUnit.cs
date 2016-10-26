@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 /*
- * SellUnit class handles the sell of the units.
+ * SellUnit class handles the sell of the units
  */
 public class SellUnit : MonoBehaviour {
 
