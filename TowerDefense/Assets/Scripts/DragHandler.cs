@@ -8,7 +8,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public GameObject[] availableSlots;
 	GameObject activeSlot;
 
-	// Use this for initialization
+	/**
+     * Prefab Unit instantation still not active, ready to be drag 
+     * */
 	void Start () {
 		hoverPrefab = Instantiate (prefab);
 		
@@ -17,7 +19,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	
-
+    /**
+     * Color change for hoverPrefab 
+     * */
 	void AdjustPrefabAlpha() {
 		MeshRenderer[] meshRenderers = hoverPrefab.GetComponentsInChildren<MeshRenderer> ();
 		for (int i = 0; i < meshRenderers.Length; i++) {
@@ -25,16 +29,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			meshRenderers [i].material.color = new Color (mat.color.r, mat.color.g, mat.color.b, 0.5f);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-	void IBeginDragHandler.OnBeginDrag(PointerEventData eventData) {
-		// Debug.Log("Beginning drag");
-	}
-
+    /**
+     * Method called every time the object is dragged 
+     */
 	public void OnDrag(PointerEventData eventData) {
 		RaycastHit[] hits; 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -70,6 +68,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
+    /**
+     * Placing the object in the terrain position
+     */
 	void MaybeShowHoverPrefab(RaycastHit[] hits) {
 		int terrainCollderQuadIndex = GetTerrainColliderQuadIndex (hits);
 		if (terrainCollderQuadIndex != -1) {
@@ -80,6 +81,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
+    /**
+     * Looking for Terrain hit 
+     * Returning the corresponding index into the hits array
+     * */
 	int GetTerrainColliderQuadIndex(RaycastHit[] hits) {
 		for (int i = 0; i < hits.Length; i++) {
 			if (hits [i].collider.gameObject.name.Equals ("Terrain")) {
@@ -100,6 +105,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		return -1;
 	}
 
+    /**
+     * Instantiating prefab into de Quad, setting the slot inactive, deactivating hoverPrefab
+     * */
 	public void OnEndDrag(PointerEventData eventData) {
 		if (activeSlot != null) {
 			// MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
@@ -112,6 +120,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		hoverPrefab.SetActive (false);
 	}
 
+    /**
+     * Quad center for prefab position instance
+     * */
 	Vector3 GetQuadCentre(GameObject quad) {
 		Vector3[] meshVerts = quad.GetComponent<MeshFilter>().mesh.vertices;
 		Vector3[] vertRealWorldPositions = new Vector3[meshVerts.Length];
