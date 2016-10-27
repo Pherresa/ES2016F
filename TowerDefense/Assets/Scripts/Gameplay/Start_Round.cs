@@ -9,8 +9,8 @@ public class Start_Round : MonoBehaviour {
    
     private float cnt_time;
     private bool cnt_time_end; // When it reaches zero is activated
-    public Text indicator_time;
-    public Text buttonText;
+    //public Text indicator_time;
+    //public Text buttonText;
 
     // Use this for initialization
     void Start () {
@@ -41,40 +41,21 @@ public class Start_Round : MonoBehaviour {
         }*/
     }
 
-	public void play_or_pause() {
-        if (cnt_time_end) { //switch to play or pause
-            if (Time.timeScale == 0.0f)
-            {
-                Time.timeScale = 1.0f;
-                buttonText.text = "Pause";
-            }
-            else
-            {
-                Time.timeScale = 0.0f;
-                buttonText.text = "Play";
-            }
-        }
-        else // If you activate the button before the time runs out the game begins
-        { 
-            GameObject.Destroy(indicator_time);
-            Time.timeScale = 1.0f;
-            cnt_time_end = true;
-            buttonText.text = "Pause";
-        }
+    public void OnMouseUpAsButton() {
+
     }
 
     private void countDown() {
         act_time -= 1;
         if (act_time == 0) // countdown_finish start game
         {
-            GameObject.Destroy(indicator_time);
             Time.timeScale = 1.0f;
             cnt_time_end = true;
-            buttonText.text = "Pause";
+            //buttonText.text = "Pause";
         }
         else
         {
-            indicator_time.text = act_time.ToString();
+            //indicator_time.text = act_time.ToString();
         }
     }
 }
