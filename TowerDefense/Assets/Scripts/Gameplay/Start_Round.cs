@@ -5,57 +5,50 @@ using UnityEngine.UI;
 public class Start_Round : MonoBehaviour {
 
     public int act_time;
+    public int total_round;
+    
 
-   
-    private float cnt_time;
-    private bool cnt_time_end; // When it reaches zero is activated
-    //public Text indicator_time;
+    private int cnt_time;
+    private int cont_round;
+    private bool act_time_cont;
+    public TextMesh indicator_time;
+    
     //public Text buttonText;
 
     // Use this for initialization
     void Start () {
-        //Time.timeScale = 0.0f;
-        cnt_time = 0.0f;
-        cnt_time_end = false;
-        InvokeRepeating("countDown", 0f, 1f);
+        indicator_time = GameObject.FindGameObjectWithTag("Time_Cont").GetComponent<TextMesh>();
+        indicator_time.text = act_time.ToString();
+        cnt_time = act_time;
+        act_time_cont = true;
     }
 
     // Update is called once per frame
     void Update() {
-        /*cnt_time += Time.fixedDeltaTime; // We count the time between frame
-        if (cnt_time >= 1.0f)
-        {
-            act_time -= 1;
-            if (act_time == 0) // countdown_finish start game
-            {
-                GameObject.Destroy(indicator_time);
-                Time.timeScale = 1.0f;
-                cnt_time_end = true;
-                this.gameObject.GetComponent<TextMesh>().text = "Pause";
-            }
-            else
-            {
-                indicator_time.GetComponent<TextMesh>().text = act_time.ToString();
-            }
-            cnt_time = 0.0f;
-        }*/
     }
 
     public void OnMouseUpAsButton() {
-
+        new_round();
+        if (act_time_cont) {
+            InvokeRepeating("countDown", 0f, 1f); // active countdown
+            act_time_cont = false;
+        }
     }
 
     private void countDown() {
         act_time -= 1;
-        if (act_time == 0) // countdown_finish start game
+        indicator_time.text = act_time.ToString();
+        if (act_time <= 0) // countdown_finish start game
         {
-            Time.timeScale = 1.0f;
-            cnt_time_end = true;
-            //buttonText.text = "Pause";
+            new_round();
         }
-        else
-        {
-            //indicator_time.text = act_time.ToString();
-        }
+    }
+
+    private void new_round() {
+        float time_tmp = cnt_time * 1.3f;
+        act_time = (int)time_tmp;
+        cnt_time = act_time;
+        // Function Generate Round
+        //Debug.Log("Generate Round");
     }
 }
