@@ -12,4 +12,16 @@ public class Game_Pause : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void OnMouseUpAsButton()
+    {
+        if (Time.timeScale == 0.0f)
+        {
+            Time.timeScale = 1.0f;
+        }
+        else
+        {
+            Time.timeScale = 0.0f;
+        }
+    }
 }
