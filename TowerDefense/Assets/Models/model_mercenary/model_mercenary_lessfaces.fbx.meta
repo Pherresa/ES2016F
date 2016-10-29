@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0864bba74e322634f969a941b0548397
-timeCreated: 1476796738
+guid: 6329498b5bbceb34ca9057f6bc644694
+timeCreated: 1477682249
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -47,7 +47,9 @@ ModelImporter:
     100078: LightPreset
     100080: //RootNode
     100082: Quiver
-    100084: Torso
+    100084: Smoke Domain
+    100086: Sphere
+    100088: Torso
     400000: Armature
     400002: arms
     400004: Arrow
@@ -90,39 +92,50 @@ ModelImporter:
     400078: LightPreset
     400080: //RootNode
     400082: Quiver
-    400084: Torso
+    400084: Smoke Domain
+    400086: Sphere
+    400088: Torso
     2300000: Arrow
     2300002: Arrow.001
     2300004: Arrow.002
     2300006: Bow
     2300008: Quiver
+    2300010: Smoke Domain
+    2300012: Sphere
+    2300014: //RootNode
     3300000: Arrow
     3300002: Arrow.001
     3300004: Arrow.002
     3300006: Bow
     3300008: Quiver
-    4300000: Torso
-    4300002: arms
-    4300004: face
-    4300006: feets
-    4300008: fingers
-    4300010: hands
-    4300012: hat
-    4300014: legs
-    4300016: Arrow
-    4300018: Arrow.002
-    4300020: Arrow.001
-    4300022: Quiver
-    4300024: Bow
+    3300010: Smoke Domain
+    3300012: Sphere
+    3300014: //RootNode
+    4300000: Sphere
+    4300002: Smoke Domain
+    4300004: Torso
+    4300006: arms
+    4300008: face
+    4300010: feets
+    4300012: fingers
+    4300014: hands
+    4300016: hat
+    4300018: legs
+    4300020: Arrow
+    4300022: Arrow.002
+    4300024: Arrow.001
+    4300026: Quiver
+    4300028: Bow
     9500000: //RootNode
-    13700000: arms
-    13700002: face
-    13700004: feets
-    13700006: fingers
-    13700008: hands
-    13700010: hat
-    13700012: legs
-    13700014: Torso
+    11100000: arms
+    13700000: face
+    13700002: feets
+    13700004: fingers
+    13700006: hands
+    13700008: hat
+    13700010: legs
+    13700012: Torso
+    13700014: arms
   materials:
     importMaterials: 1
     materialName: 0
