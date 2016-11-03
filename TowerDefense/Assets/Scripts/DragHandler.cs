@@ -13,10 +13,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * Prefab Unit instantation still not active, ready to be drag 
      * */
 	void Start () {
-		hoverPrefab = Instantiate (prefab);
+		/*hoverPrefab = Instantiate (prefab);
 		
 		AdjustPrefabAlpha ();
-		hoverPrefab.SetActive (false);
+		hoverPrefab.SetActive (false);*/
 	}
 
 	
@@ -110,15 +110,20 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * Instantiating prefab into de Quad, setting the slot inactive, deactivating hoverPrefab
      * */
 	public void OnEndDrag(PointerEventData eventData) {
-		if (activeSlot != null) {
-			// MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
-			Vector3 quadCentre = GetQuadCentre (activeSlot);
-			Instantiate (prefab, quadCentre, Quaternion.identity);
-			activeSlot.SetActive (false);
-		}
+        if (activeSlot != null)
+        {
+            // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
+            Vector3 quadCentre = GetQuadCentre(activeSlot);
+            //Instantiate (prefab, quadCentre, Quaternion.identity);
+            hoverPrefab.transform.position = quadCentre;
+            activeSlot.SetActive(false);
+        }
+        else {
+            Destroy(hoverPrefab);
+        }
 
 		// Then set it to inactive ready for the next drag!
-		hoverPrefab.SetActive (false);
+		//hoverPrefab.SetActive (false);
 	}
 
     /**
@@ -138,6 +143,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        hoverPrefab = Instantiate(prefab);
+        AdjustPrefabAlpha();
+        hoverPrefab.SetActive(false);
     }
 }
