@@ -18,11 +18,11 @@ public class PlaceUnit : MonoBehaviour {
             // TODO: Depending of the type of unit...
             GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(40);
 
-            obj.AddComponent(Type.GetType("SellUpgradeUnit"));
-            SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
-            su.selectedUnit = obj;
-            su.showCanvas();
-            GameObject.FindObjectOfType<UnitInfo>().hideInfo();
+            //obj.AddComponent(Type.GetType("SellUpgradeUnit"));
+            //SellUpgradeUnit su = (SellUpgradeUnit) obj.GetComponent(typeof(SellUpgradeUnit));
+            //su.selectedUnit = obj;
+            //su.showCanvas();
+            //GameObject.FindObjectOfType<UnitInfo>().hideInfo();
 
             if (transform.parent != null)
             {
