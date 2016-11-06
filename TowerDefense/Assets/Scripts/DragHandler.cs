@@ -7,12 +7,18 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public GameObject prefab;
 	GameObject hoverPrefab;
 	public GameObject[] availableSlots;
-	GameObject activeSlot;
+	public Slot[] Slots;
+
+	Slot activeSlot;
 
 	/**
      * Prefab Unit instantation still not active, ready to be drag 
      * */
 	void Start () {
+
+        Slots = FindObjectsOfType(typeof(Slot)) as Slot[]; 
+
+
 		hoverPrefab = Instantiate (prefab);
 		
 		AdjustPrefabAlpha ();
@@ -43,7 +49,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 			int slotIndex = GetSlotIndex (hits);
 			if (slotIndex != -1) {
-				GameObject slotQuad = hits [slotIndex].collider.gameObject;
+				GameObject slotQuadObject = hits [slotIndex].collider.gameObject;
+				Slot slotQuad = slotQuadObject.GetComponent<Slot>();
+				//Slot slotQuad = hits [slotIndex].collider.Slot;
 				activeSlot = slotQuad;
 				EnableSlot (slotQuad);
 			}  else {
@@ -53,10 +61,18 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
-	void EnableSlot(GameObject slot) {
-		foreach (GameObject availableSlot in availableSlots) {
+	void EnableSlot(Slot slot) {
+		foreach (Slot availableSlot in Slots) {
 			if (slot.name.Equals(availableSlot.name)) {
-				availableSlot.GetComponent<MeshRenderer> ().enabled = true;
+				if(availableSlot.getIsPath()){
+					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
+					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
+				}
+				else{
+					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
+					availableSlot.GetComponent<Renderer> ().material.color = Color.green;
+				}
+
 			} else {
 				availableSlot.GetComponent<MeshRenderer> ().enabled = false;
 			}
@@ -64,7 +80,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	}
 
 	void DisableAllSlots() {
-		foreach (GameObject availableSlot in availableSlots) {
+		foreach (Slot availableSlot in Slots) {
 			availableSlot.GetComponent<MeshRenderer> ().enabled = false;
 		}
 	}
@@ -112,19 +128,26 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public void OnEndDrag(PointerEventData eventData) {
 		if (activeSlot != null) {
 			// MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
-			Vector3 quadCentre = GetQuadCentre (activeSlot);
-			Instantiate (prefab, quadCentre, Quaternion.identity);
-			activeSlot.SetActive (false);
+			if(!activeSlot.getIsPath()){
+				Vector3 quadCentre = GetQuadCentre (activeSlot);
+				Instantiate (prefab, quadCentre, Quaternion.identity);
+				activeSlot.SetActive (false);
+			}
+			else{
+				activeSlot.SetActive(false);
+			}
+
 		}
 
 		// Then set it to inactive ready for the next drag!
 		hoverPrefab.SetActive (false);
 	}
 
+
     /**
      * Quad center for prefab position instance
      * */
-	Vector3 GetQuadCentre(GameObject quad) {
+	Vector3 GetQuadCentre(Slot quad) {
 		Vector3[] meshVerts = quad.GetComponent<MeshFilter>().mesh.vertices;
 		Vector3[] vertRealWorldPositions = new Vector3[meshVerts.Length];
 
