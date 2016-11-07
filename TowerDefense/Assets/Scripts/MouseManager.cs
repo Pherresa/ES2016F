@@ -48,11 +48,37 @@ public class MouseManager : MonoBehaviour {
 	void select(){
 		if (overObject == null) {
 			selectedObject = null;
-		}
-		if (pressedObject.GetInstanceID () == overObject.GetInstanceID ()) {
-			selectedObject = pressedObject;
+			Debug.Log ("Nothing Selected");
 		} else {
-			selectedObject = null;
+			if ( checkSelectable(pressedObject) && pressedObject.GetInstanceID () == overObject.GetInstanceID () ){
+				if (selectedObject != null) {
+					deselect (selectedObject);
+				}
+				selectedObject = pressedObject;
+				selectedObject.GetComponent<MeshRenderer> ().enabled = true;
+				selectedObject.GetComponent<Renderer> ().material.color = Color.green;
+				Debug.Log (selectedObject.name+" Selected");
+			} else {
+				if (selectedObject != null) {
+					deselect (selectedObject);
+				}
+				selectedObject = null;
+				Debug.Log ("Nothing Selected");
+			}
 		}
 	}
+
+	void deselect(GameObject obj){
+		obj.GetComponent<MeshRenderer> ().enabled = false;
+	}
+
+	bool checkSelectable(GameObject obj){
+		if (pressedObject.name.StartsWith ("Slot")) {
+			return pressedObject.GetComponent<Slot> ().isOccupied;
+		} else { 
+			return false;
+		}
+	}
+
+
 }

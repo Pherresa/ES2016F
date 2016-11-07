@@ -64,7 +64,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	void EnableSlot(Slot slot) {
 		foreach (Slot availableSlot in Slots) {
 			if (slot.name.Equals(availableSlot.name)) {
-				if(availableSlot.getIsPath()){
+				if(availableSlot.getIsPath() || availableSlot.isOccupied){
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
 				}
@@ -128,10 +128,13 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public void OnEndDrag(PointerEventData eventData) {
 		if (activeSlot != null) {
 			// MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
-			if(!activeSlot.getIsPath()){
+			if(!activeSlot.getIsPath() && !activeSlot.isOccupied){
 				Vector3 quadCentre = GetQuadCentre (activeSlot);
-				Instantiate (prefab, quadCentre, Quaternion.identity);
-				activeSlot.SetActive (false);
+				GameObject newUnit = (GameObject) Instantiate (prefab, quadCentre, Quaternion.identity);
+				//activeSlot.SetActive (false);
+				activeSlot.isOccupied = true;
+				activeSlot.unit = newUnit;
+				activeSlot.GetComponent<MeshRenderer> ().enabled = false;
 			}
 			else{
 				activeSlot.SetActive(false);

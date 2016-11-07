@@ -37,7 +37,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			Vector3 newPositionSU = Camera.main.WorldToScreenPoint (mm.selectedObject.transform.position);
 			Vector3 newPositionIU = newPositionSU;
 			newPositionSU.y = newPositionSU.y - 50;
-			newPositionIU.x = newPositionIU.x + 80;
+			newPositionIU.x = newPositionIU.x + 50;
+			newPositionIU.y = newPositionIU.y + 50;
 			canvasSU.transform.position = newPositionSU;
 			canvasIU.transform.position = newPositionIU;
 			canvasIU.alpha = 1;
@@ -58,16 +59,15 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	public void sellSelected(){
 		if (mm.selectedObject != null) {
 			Debug.Log ("Sell");
-			GameObject empty = (GameObject) Resources.Load("prefabs/Empty", typeof(GameObject));
-			GameObject newObj = (GameObject) Instantiate(empty, mm.selectedObject.transform.position - new Vector3(0, 0.5f, 0), mm.selectedObject.transform.rotation);
-
-			newObj.AddComponent(Type.GetType("PlaceUnit"));
-
-			Destroy(mm.selectedObject);
-			mm.selectedObject = null;
+			Slot slot = mm.selectedObject.GetComponent<Slot> ();
+			if (slot.unit != null) {
+				Destroy (slot.unit);
+			} 
+			slot.unit = null;
+			slot.isOccupied = false;
 
 			//TO DO: Money Depending on the unit
-			GameObject.FindObjectOfType<LifeAmountManager> ().GainAmount(20);
+			//GameObject.FindObjectOfType<LifeAmountManager> ().GainAmount(20);
 		} else {
 			Debug.Log ("Nothing Selected");
 		}
