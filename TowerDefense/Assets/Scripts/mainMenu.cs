@@ -85,16 +85,23 @@ public class mainMenu : MonoBehaviour {
 
         if (isBattleTirithButton)
         {
-            mEnablePanel("gameModeMenu");
+            //mEnablePanel("gameModeMenu");
             path += "tiri|";
             //print(path + " -------> " + actualPanelTag);
+
+            SceneManager.LoadScene(2);
+            print("Cargando Tirith");
         }
 
         if (isBattleIsengardButton)
         {
-            mEnablePanel("gameModeMenu");
+            //mEnablePanel("gameModeMenu");
             path += "isen|";
             //print(path + " -------> " + actualPanelTag);
+            SceneManager.LoadScene(1);
+            print("Cargando isengard");
+
+
         }
 
         if (isArcadeGameButton)
