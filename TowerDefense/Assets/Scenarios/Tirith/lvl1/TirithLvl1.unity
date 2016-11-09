@@ -6585,39 +6585,39 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2128887812}
+    m_TransformParent: {fileID: 1852883035}
     m_Modifications:
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -526
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -30
+      value: -339.7574
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: -42.652725
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.043619405
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 5.0779676e-12
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -1.1641534e-10
+      value: -1.1630454e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9990483
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_LocalScale.z
@@ -6625,11 +6625,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011750701088, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1183954372 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011750701088, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 1183954371}
 --- !u!1 &1195754463
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,8 +7183,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 536, y: 319}
-  m_SizeDelta: {x: 1072, y: 638}
+  m_AnchoredPosition: {x: 715, y: 135.5}
+  m_SizeDelta: {x: 1430, y: 271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
@@ -7535,6 +7540,7 @@ GameObject:
   - 4: {fileID: 1495188128}
   - 114: {fileID: 1495188127}
   - 114: {fileID: 1495188126}
+  - 114: {fileID: 1495188129}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7582,6 +7588,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1495188129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495188125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ecf4ab9bfab9c41b2046262a6e0005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escMenu: {fileID: 1183954372}
 --- !u!1 &1501718909
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,6 +10334,7 @@ RectTransform:
   - {fileID: 1691468558}
   - {fileID: 1311859996}
   - {fileID: 1396511787}
+  - {fileID: 165404893}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 0}
@@ -11757,7 +11776,6 @@ Transform:
   m_LocalPosition: {x: 10, y: 10, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
-  m_Children:
-  - {fileID: 165404893}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
