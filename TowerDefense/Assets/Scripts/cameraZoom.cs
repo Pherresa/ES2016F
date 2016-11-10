@@ -5,7 +5,7 @@ public class cameraZoom : MonoBehaviour {
 
 	public float turnSpeed = 4.0f;		// Speed of camera turning when mouse moves in along an axis
 	public float panSpeed = 4.0f;		// Speed of the camera when being panned
-	public float zoomSpeed = 8.0f;		// Speed of the camera whn being zoomed in or out
+	public float zoomSpeed = 4.0f;		// Speed of the camera whn being zoomed in or out
 
 	private Vector3 mouseOrigin;	// Position of cursor when mouse dragging starts
 	private bool isPanning;		// Is the camera being panned?
@@ -19,15 +19,20 @@ public class cameraZoom : MonoBehaviour {
 	void Update () 
 	{
 		// Get the left mouse button
-
-		if(Input.GetMouseButtonDown(2))
+		if(Input.GetMouseButtonDown(0))
 		{
 			// Get mouse origin
 			mouseOrigin = Input.mousePosition;
 			isRotating = true;
 		}
 
-	
+		// Get the middle mouse button
+		if(Input.GetMouseButtonDown(2))
+		{
+			// Get mouse origin
+			mouseOrigin = Input.mousePosition;
+			isPanning = true;
+		}
 
 		// Get the right mouse button
 		if(Input.GetMouseButtonDown(1))
@@ -38,13 +43,12 @@ public class cameraZoom : MonoBehaviour {
 		}
 
 		// Disable movements on button release
-		if (!Input.GetMouseButton(2)) isRotating=false;
+		if (!Input.GetMouseButton(0)) isRotating=false;
 		if (!Input.GetMouseButton(1)) isZooming=false;
-
+		if (!Input.GetMouseButton(2)) isPanning=false; 
 
 		// Rotate camera along X and Y axis
-
-		 if (isRotating)
+		if (isRotating)
 		{
 			Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
@@ -52,16 +56,24 @@ public class cameraZoom : MonoBehaviour {
 			transform.RotateAround(transform.position, Vector3.up, pos.x * turnSpeed);
 		}
 
+		// Move the camera on it's XY plane
+		if (isPanning)
+		{
+			Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+
+			Vector3 move = new Vector3(pos.x * panSpeed, pos.y * panSpeed, 0);
+			transform.Translate(move, Space.Self);
+		}
 
 		// Move the camera linearly along Z axis
 		if (isZooming)
 		{
 			Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-
+			Debug.Log ("Is zooming");
 
 			Vector3 move = pos.y * zoomSpeed * transform.forward; 
 			transform.Translate(move, Space.World);
-
+			Debug.Log ("Is zooming");
 		}
 	}
 }

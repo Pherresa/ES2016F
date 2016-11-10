@@ -1450,8 +1450,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 672.5, y: 289.5}
-  m_SizeDelta: {x: 1345, y: 579}
+  m_AnchoredPosition: {x: 536, y: 319}
+  m_SizeDelta: {x: 1072, y: 638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &193715175
 CanvasGroup:
@@ -7466,22 +7466,22 @@ Prefab:
     - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 672.5
+      value: 536
       objectReference: {fileID: 0}
     - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 289.5
+      value: 319
       objectReference: {fileID: 0}
     - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1345
+      value: 1072
       objectReference: {fileID: 0}
     - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 579
+      value: 638
       objectReference: {fileID: 0}
     - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -8518,10 +8518,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1592831044}
-  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 7, y: 132, z: -37}
+  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: 10, y: 10, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -8531,14 +8531,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1592831044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df9affeab4551b448a373e63dafe244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 4
   panSpeed: 4
-  zoomSpeed: 8
+  zoomSpeed: 4
 --- !u!1 &1593517722
 GameObject:
   m_ObjectHideFlags: 0
