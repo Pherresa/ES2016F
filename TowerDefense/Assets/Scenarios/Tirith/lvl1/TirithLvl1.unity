@@ -6627,6 +6627,71 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.043619405
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -5.0779676e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 1.1630454e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990483
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 672.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 289.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1345
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 579
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
   m_IsPrefabParent: 0
@@ -7183,8 +7248,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 715, y: 135.5}
-  m_SizeDelta: {x: 1430, y: 271}
+  m_AnchoredPosition: {x: 672.5, y: 289.5}
+  m_SizeDelta: {x: 1345, y: 579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
@@ -11704,6 +11769,7 @@ GameObject:
   - 92: {fileID: 2128887810}
   - 124: {fileID: 2128887809}
   - 81: {fileID: 2128887808}
+  - 114: {fileID: 2128887813}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11772,10 +11838,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128887807}
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 10, y: 10, z: -50}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 7, y: 72, z: -92}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &2128887813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128887807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df9affeab4551b448a373e63dafe244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 4
+  panSpeed: 4
+  zoomSpeed: 8
