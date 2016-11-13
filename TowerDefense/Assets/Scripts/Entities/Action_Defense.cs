@@ -5,8 +5,10 @@ using System;
 public class Action_Defense : Tower
 {
     //Animation animation;
-    private float timer = 1f;
-
+    private float timer = 0.6f;
+    private int predict;
+    private Vector3 posIni;
+    private int maxFrameToPredict = 5;
     void Start()
     {
         iniStates();
@@ -14,18 +16,37 @@ public class Action_Defense : Tower
 
     void Update()
     {
+        if(predict==0)
+        {
+            
+            getTarget();
+            if (target != null)
+            {
+                posIni = target.transform.position;
+                predict += 1;
+            }
+        }
+        else
+        {
+            if (predict != maxFrameToPredict)
+            {
+                predictPositionToShoot();
+            }
+        }
+        
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            getTarget();
+            
             if (target == null)
                 return;
-            timer = 1f;
+            timer = 0.6f;
             //anim.Play();
             // if (!anim.isPlaying){
-            if (type!=0)
+            if (type!=0 && predict== maxFrameToPredict)
             {
                 Shoot();
+                predict = 0;
             }
            // }
         }
@@ -33,16 +54,17 @@ public class Action_Defense : Tower
 
     void iniStates()
     {
-        range = 30f;
+        range = 35f;
         strenght = 1;
-        getTarget();
+        predict = 0;
+        //getTarget();
         getTypeOfDefense();
     }
 
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
-        print(name);
+        //print(name);
         if (name == "defense1_Trebuchet_MT")
         {
             type = 1;
@@ -70,12 +92,29 @@ public class Action_Defense : Tower
     {
         if (target != null)
         {
-            float distanceToEnemy = Vector3.Distance(this.transform.position, target.transform.position);
-            if (distanceToEnemy < range)
+            float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
+            if (distanceToEnemy <= range)
             {
                 shootProjectile();
             }
         }
+    }
+
+    private void predictPositionToShoot()
+    {
+        
+        Vector3 tmp;
+        
+        if (predict == maxFrameToPredict - 1) {
+            predict = maxFrameToPredict;
+            tmp = (target.transform.position - posIni);
+            posIni = target.transform.position + (tmp * 20);
+        }
+        if (predict != maxFrameToPredict)
+        {
+            predict += 1;
+        }
+        
     }
 
     private GameObject shootProjectile()
@@ -87,7 +126,8 @@ public class Action_Defense : Tower
         pro.transform.position = tmp;
         pro.transform.localScale = new Vector3(1f, 1f, 1f);
         pro.AddComponent<ShootingMove>();
-        pro.GetComponent<ShootingMove>().target = target;
+        
+        pro.GetComponent<ShootingMove>().pos = posIni;
         if (type == 1)
         {
             pro.GetComponent<Renderer>().material.color = Color.blue;
