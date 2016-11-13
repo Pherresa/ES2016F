@@ -4,26 +4,30 @@ using System;
 
 public class Action_Defense : Tower
 {
+    //Animation animation;
+    private float timer = 1f;
 
-    private float timer = 0.7f;
-
-    // Use this for initialization
     void Start()
     {
         iniStates();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        getTarget();
-        if (target == null)
-            return;
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            timer = 0.7f;
-            Shoot();
+            getTarget();
+            if (target == null)
+                return;
+            timer = 1f;
+            //anim.Play();
+            // if (!anim.isPlaying){
+            if (type!=0)
+            {
+                Shoot();
+            }
+           // }
         }
     }
 
@@ -32,6 +36,29 @@ public class Action_Defense : Tower
         range = 30f;
         strenght = 1;
         getTarget();
+        getTypeOfDefense();
+    }
+
+    private void getTypeOfDefense()
+    {
+        String name = this.gameObject.name.Split('(')[0];
+        print(name);
+        if (name == "defense1_Trebuchet_MT")
+        {
+            type = 1;
+        }
+        if (name == "defense2_RohanBarracks_MT")
+        {
+            type = 2;
+        }
+        if (name == "defense2_OrcArcher_I")
+        {
+            type = 3;
+        }
+        if (name == "defense3_MercenaryHuman_I")
+        {
+            type = 4;
+        }
     }
 
     protected override void DestroyTower()
@@ -46,16 +73,39 @@ public class Action_Defense : Tower
             float distanceToEnemy = Vector3.Distance(this.transform.position, target.transform.position);
             if (distanceToEnemy < range)
             {
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                cube.AddComponent<Rigidbody>();
-                Vector3 tmp = this.transform.position;
-                tmp.y += 2;
-                cube.transform.position = tmp;
-                cube.transform.localScale = new Vector3(1f, 1f, 1f);
-                cube.AddComponent<ShootingMove>();
-                cube.GetComponent<ShootingMove>().target = target;
+                shootProjectile();
             }
         }
+    }
+
+    private GameObject shootProjectile()
+    {
+        GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        pro.AddComponent<Rigidbody>();
+        Vector3 tmp = this.transform.position;
+        tmp.y += 2;
+        pro.transform.position = tmp;
+        pro.transform.localScale = new Vector3(1f, 1f, 1f);
+        pro.AddComponent<ShootingMove>();
+        pro.GetComponent<ShootingMove>().target = target;
+        if (type == 1)
+        {
+            pro.GetComponent<Renderer>().material.color = Color.blue;
+        }
+        if (type == 2)
+        {
+            pro.GetComponent<Renderer>().material.color = Color.green;
+        }
+        if (type == 3)
+        {
+            pro.GetComponent<Renderer>().material.color = Color.red;
+        }
+        if (type == 4)
+        {
+            pro.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        
+        return projectile;
     }
 
     protected override void getTarget()
