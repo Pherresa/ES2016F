@@ -2,6 +2,7 @@
 using System.Collections;
 
 using UnityEngine.UI;
+using System;
 
 public class Enemy : MonoBehaviour {
 
@@ -13,12 +14,18 @@ public class Enemy : MonoBehaviour {
     private Text textLife;
     private RectTransform trans;
 
-    public int life;
-    public int maxlife;
+    public float life;
+    public float maxlife;
+
+    private GameObject explosion;
+    private float lifeVirus;
+
     // Use this for initialization
     void Start () {
-        life = 100;
-        maxlife = 100;
+        explosion = Resources.Load("Prefabs/Explosion") as GameObject;
+        lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
+        life = 100f;
+        maxlife = 100f;
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
@@ -64,6 +71,9 @@ public class Enemy : MonoBehaviour {
     // end we get another point the FIFO queue.
     void Update () {
 
+        //Only for testing TODO: delete it
+        life = life - lifeVirus * Time.deltaTime;
+
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
@@ -77,5 +87,16 @@ public class Enemy : MonoBehaviour {
         }
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
+
+        checkLife();
+    }
+
+    private void checkLife()
+    {
+        if(life <= 0)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
