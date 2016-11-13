@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour {
     void Start () {
         life = 100;
         maxlife = 100;
-        initText();
+        //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
         m_moviments.Enqueue(new Vector3(276, 60, 215)); // TEST
@@ -66,14 +66,14 @@ public class Enemy : MonoBehaviour {
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
-        textLife.transform.position = pos;
-        trans.position = pos;
+        //textLife.transform.position = pos;
+        //trans.position = pos;
 
         Vector3 position_aprox = new Vector3((int)Mathf.Round(this.transform.position.x), (int)Mathf.Round(this.transform.position.y), (int)Mathf.Round(this.transform.position.z)); // We round the value, otherwise in certain cases may not work
         if (position_aprox == m_movi_actu)
         {
             m_movi_actu = (Vector3)m_moviments.Dequeue();
-            textLife.text ="";
+            //textLife.text ="";
         }
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
