@@ -12,7 +12,8 @@ public class Action_Defense : Tower
     private float timer = 0.6f;
     private int predict;
     private Vector3 posIni;
-    private int maxFrameToPredict = 7;
+    private int maxFrameToPredict = 8;
+    private int plusToPredict = 6;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -132,7 +133,7 @@ public class Action_Defense : Tower
                 //}
                 //else
                 //{
-                posIni = target.transform.position + (tmp*7);
+                posIni = target.transform.position + (tmp * plusToPredict);
                 // }
             }
             if (predict != maxFrameToPredict)
@@ -149,12 +150,14 @@ public class Action_Defense : Tower
     {
         GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         pro.AddComponent<Rigidbody>();
+        pro.AddComponent<Collider>();
         Vector3 tmp = this.transform.position;
         tmp.y += 2;
         pro.transform.position = tmp;
         pro.transform.localScale = new Vector3(2f, 2f, 2f);
         pro.AddComponent<ShootingMove>();
         pro.GetComponent<ShootingMove>().pos = posIni;
+        pro.GetComponent<ShootingMove>().tag = "projectile";
         if (type == 1)
         {
             pro.GetComponent<Renderer>().material.color = Color.blue;
