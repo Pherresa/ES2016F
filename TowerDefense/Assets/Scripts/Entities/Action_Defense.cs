@@ -23,8 +23,6 @@ public class Action_Defense : Tower
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
-        print(2);
-        print(predict);
         if (predict==0)
         {
             
@@ -72,7 +70,6 @@ public class Action_Defense : Tower
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
-        //print(name);
         if (name == "defense1_Trebuchet_MT")
         {
             type = 1;
@@ -99,12 +96,10 @@ public class Action_Defense : Tower
     protected override void shoot()
     {
         if (target != null)
-        {
-            
+        {   
             float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
             if (distanceToEnemy <= range)
             {
-                
                 shootProjectile();
             }
         }else
