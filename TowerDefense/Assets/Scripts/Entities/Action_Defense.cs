@@ -1,24 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-
+/*
+ * Clase funcional de la unidades de defensa. Esta clase dispone de las funciones de Tower como asi 
+ * algunas aducionales que han hecho falta. Esta clase la utilizaran generalmente las clases que
+ * disparen desde lejos.
+ */
 public class Action_Defense : Tower
 {
     //Animation animation;
     private float timer = 0.6f;
     private int predict;
     private Vector3 posIni;
-    private int maxFrameToPredict = 5;
+    private int maxFrameToPredict = 4;
+    // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
+    // su valor a los respectivos atributos.
     void Start()
     {
         iniStates();
     }
-
+    // funcion que se ejecuta continuamente.
     void Update()
     {
+        print(predict);
         if(predict==0)
         {
-            
             getTarget();
             if (target != null)
             {
@@ -33,11 +39,9 @@ public class Action_Defense : Tower
                 predictPositionToShoot();
             }
         }
-        
         timer -= Time.deltaTime;
         if (timer <= 0)
-        {
-            
+        {  
             if (target == null)
                 return;
             timer = 0.6f;
@@ -45,22 +49,22 @@ public class Action_Defense : Tower
             // if (!anim.isPlaying){
             if (type!=0 && predict== maxFrameToPredict)
             {
-                Shoot();
+                shoot();
                 predict = 0;
             }
            // }
         }
     }
-
+    // inicializador
     void iniStates()
     {
-        range = 35f;
+        range = 30f;
         strenght = 1;
         predict = 0;
-        //getTarget();
         getTypeOfDefense();
+        active = false;
     }
-
+    // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
@@ -82,13 +86,13 @@ public class Action_Defense : Tower
             type = 4;
         }
     }
-
-    protected override void DestroyTower()
+    // Para destruir la torre
+    protected override void destroyTower()
     {
         Destroy(this.gameObject);
     }
-
-    protected override void Shoot()
+    // simular disparo
+    protected override void shoot()
     {
         if (target != null)
         {
@@ -99,24 +103,38 @@ public class Action_Defense : Tower
             }
         }
     }
-
+    // 'apunta' al enemigo que va a atacar. Obtiene una posicion/coordenadas avanzada
     private void predictPositionToShoot()
     {
-        
         Vector3 tmp;
-        
-        if (predict == maxFrameToPredict - 1) {
-            predict = maxFrameToPredict;
-            tmp = (target.transform.position - posIni);
-            posIni = target.transform.position + (tmp * 20);
-        }
-        if (predict != maxFrameToPredict)
+        if (target != null)
         {
-            predict += 1;
+            if (predict == maxFrameToPredict - 1)
+            {
+                predict = maxFrameToPredict;
+                tmp = (target.transform.position - posIni);
+                float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
+                if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
+                {
+                    posIni = target.transform.position + (tmp * 6);
+                } else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
+                {
+                    posIni = target.transform.position + (tmp * 4);
+                }else
+                {
+                    posIni = target.transform.position + (tmp*2);
+                }
+            }
+            if (predict != maxFrameToPredict)
+            {
+                predict += 1;
+            }
+        }else
+        {
+            predict = 0;
         }
-        
     }
-
+    // crea el proyectil. Como muchos no estan creados todavia, se genera ua sphera
     private GameObject shootProjectile()
     {
         GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -124,9 +142,8 @@ public class Action_Defense : Tower
         Vector3 tmp = this.transform.position;
         tmp.y += 2;
         pro.transform.position = tmp;
-        pro.transform.localScale = new Vector3(1f, 1f, 1f);
+        pro.transform.localScale = new Vector3(2f, 2f, 2f);
         pro.AddComponent<ShootingMove>();
-        
         pro.GetComponent<ShootingMove>().pos = posIni;
         if (type == 1)
         {
@@ -144,10 +161,9 @@ public class Action_Defense : Tower
         {
             pro.GetComponent<Renderer>().material.color = Color.yellow;
         }
-        
         return projectile;
     }
-
+    // obtiene el enemigo mas cercano
     protected override void getTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -170,6 +186,21 @@ public class Action_Defense : Tower
          {
              target = null;
          }
+    }
+    // para saber si esta activa o no.
+    protected override bool isActiveTower()
+    {
+        return active;
+    }
+    // activar la torre para que dispare
+    protected override void activate()
+    {
+        active = true;
+    }
+    // desactivar la torre para que no dispare
+    protected override void disable()
+    {
+        active = false;
     }
 }
 

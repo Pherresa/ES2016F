@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Clase que va a utilizar el proyectil
+ */ 
 public class ShootingMove : MonoBehaviour
 {
 
     //public GameObject target;
-    private float speed = 15f;
-    private float firingAngle = 30.0f;
+    private float speed = 40f;
+    private float firingAngle = 40.0f;
     private float gravity = 9.8f;
     private Transform Projectile;
     private Transform myTransform;
@@ -28,7 +31,6 @@ public class ShootingMove : MonoBehaviour
         myTransform = transform;
         Projectile.position = myTransform.position;
         //pos.x += 2;
-        print(pos);
         Projectile.LookAt(pos);
         float target_Distance = Vector3.Distance(Projectile.position, pos);
         float projectile_Velocity = target_Distance / (Mathf.Sin(2f* firingAngle * Mathf.Deg2Rad) / gravity);
@@ -39,12 +41,11 @@ public class ShootingMove : MonoBehaviour
         Projectile.Translate(0, ((Vy) - (gravity)) * Time.deltaTime, (Vx) * Time.deltaTime);
         elapse_time += Time.deltaTime;
     }
-
+    // cuando colisione con un objeto de los que indico se destruya.
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == ("Enemy") || col.gameObject.name == ("Terrain") || col.gameObject.name == ("A*") || col.gameObject.name == ("Canvas"))
-        {
+        
             Destroy(this.gameObject);
-        }
+        
     }
 }
