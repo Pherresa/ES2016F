@@ -14,7 +14,7 @@ public abstract class Tower : MonoBehaviour {
     protected abstract void getTarget();
     protected abstract void shoot();
     protected abstract void destroyTower();
-    protected abstract bool isActiveTower();
-    protected abstract void activate();
-    protected abstract void disable();
+    public abstract bool isActiveTower();
+    public abstract void activate();
+    public abstract void disable();
 }

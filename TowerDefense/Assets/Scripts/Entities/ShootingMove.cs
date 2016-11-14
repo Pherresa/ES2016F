@@ -8,7 +8,7 @@ public class ShootingMove : MonoBehaviour
 {
 
     //public GameObject target;
-    private float speed = 40f;
+    private float speed = 70f;
     private float firingAngle = 40.0f;
     private float gravity = 9.8f;
     private Transform Projectile;

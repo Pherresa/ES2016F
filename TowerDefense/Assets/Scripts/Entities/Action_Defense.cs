@@ -12,7 +12,7 @@ public class Action_Defense : Tower
     private float timer = 0.6f;
     private int predict;
     private Vector3 posIni;
-    private int maxFrameToPredict = 4;
+    private int maxFrameToPredict = 7;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -20,11 +20,13 @@ public class Action_Defense : Tower
         iniStates();
     }
     // funcion que se ejecuta continuamente.
-    void Update()
+    void FixedUpdate()
     {
+        print(2);
         print(predict);
-        if(predict==0)
+        if (predict==0)
         {
+            
             getTarget();
             if (target != null)
             {
@@ -38,17 +40,18 @@ public class Action_Defense : Tower
             {
                 predictPositionToShoot();
             }
+            
         }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {  
-            if (target == null)
-                return;
+           
             timer = 0.6f;
             //anim.Play();
             // if (!anim.isPlaying){
-            if (type!=0 && predict== maxFrameToPredict)
+            if (type!=0 && predict == maxFrameToPredict)
             {
+           
                 shoot();
                 predict = 0;
             }
@@ -58,7 +61,7 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
-        range = 30f;
+        range = 40f;
         strenght = 1;
         predict = 0;
         getTypeOfDefense();
@@ -96,11 +99,16 @@ public class Action_Defense : Tower
     {
         if (target != null)
         {
+            
             float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
             if (distanceToEnemy <= range)
             {
+                
                 shootProjectile();
             }
+        }else
+        {
+            predict = 0;
         }
     }
     // 'apunta' al enemigo que va a atacar. Obtiene una posicion/coordenadas avanzada
@@ -114,16 +122,18 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
-                {
-                    posIni = target.transform.position + (tmp * 6);
-                } else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
-                {
-                    posIni = target.transform.position + (tmp * 4);
-                }else
-                {
-                    posIni = target.transform.position + (tmp*2);
-                }
+                //if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
+                //{
+                //posIni = target.transform.position + (tmp * 3);
+                //}
+                //else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
+                //{
+                // posIni = target.transform.position + (tmp * 2);
+                //}
+                //else
+                //{
+                posIni = target.transform.position + (tmp*7);
+                // }
             }
             if (predict != maxFrameToPredict)
             {
@@ -185,20 +195,21 @@ public class Action_Defense : Tower
          else
          {
              target = null;
+             predict = 0;
          }
     }
     // para saber si esta activa o no.
-    protected override bool isActiveTower()
+    public override bool isActiveTower()
     {
         return active;
     }
     // activar la torre para que dispare
-    protected override void activate()
+    public override void activate()
     {
         active = true;
     }
     // desactivar la torre para que no dispare
-    protected override void disable()
+    public override void disable()
     {
         active = false;
     }
