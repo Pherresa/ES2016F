@@ -20,10 +20,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     void Start()
     {
     	Slots = FindObjectsOfType(typeof(Slot)) as Slot[]; 
-        /*hoverPrefab = Instantiate (prefab);
-		
-		AdjustPrefabAlpha ();
-		hoverPrefab.SetActive (false);*/
+        hoverPrefab = Instantiate (prefab);
+        AdjustPrefabAlpha();
+		hoverPrefab.SetActive (false);
     }
 
 
@@ -32,12 +31,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     void AdjustPrefabAlpha()
     {
-        MeshRenderer[] meshRenderers = hoverPrefab.GetComponentsInChildren<MeshRenderer>();
-        for (int i = 0; i < meshRenderers.Length; i++)
+        foreach(MeshRenderer meshRenderer in hoverPrefab.GetComponentsInChildren<MeshRenderer>())
         {
-            Material mat = meshRenderers[i].material;
-            meshRenderers[i].material.color = new Color(mat.color.r, mat.color.g, mat.color.b, 0.5f);
-        }
+            meshRenderer.material.SetColor("_Color", new Color(0.0f, 0.0f, 0.0f, 0.25f));
+        };
     }
 
     /**
@@ -47,11 +44,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         RaycastHit[] hits;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        hits = Physics.RaycastAll(ray, 50f);
+        hits = Physics.RaycastAll(ray, 5000f);
         if (hits != null && hits.Length > 0)
         {
             MaybeShowHoverPrefab(hits);
-
+            
             int slotIndex = GetSlotIndex(hits);
             if (slotIndex != -1)
             {
@@ -157,7 +154,13 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			if(!activeSlot.getIsPath() && !activeSlot.isOccupied){
 				Vector3 quadCentre = GetQuadCentre (activeSlot.gameObject);
 				GameObject newUnit = (GameObject) Instantiate (prefab, quadCentre, Quaternion.identity);
-				//activeSlot.SetActive (false);
+                //activeSlot.SetActive (false);
+                newUnit.GetComponent<Action_Defense>().activate();
+                foreach(ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
+                {
+                    particleSystem.Play();
+                }
+
 				activeSlot.isOccupied = true;
 				activeSlot.unit = newUnit;
 				activeSlot.GetComponent<MeshRenderer> ().enabled = false;
