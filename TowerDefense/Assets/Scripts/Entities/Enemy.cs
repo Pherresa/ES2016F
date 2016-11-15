@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
         m_moviments.Enqueue(new Vector3(155, 60, 389)); // TEST
         m_moviments.Enqueue(new Vector3(155, 60, 412)); // TEST
         m_movi_actu = (Vector3)m_moviments.Dequeue();
+        this.gameObject.AddComponent<Collider>();
     }
 
     void initText(){
@@ -97,6 +98,14 @@ public class Enemy : MonoBehaviour {
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "projectile")
+        {
+            life -= 50;
+            checkLife();
         }
     }
 }
