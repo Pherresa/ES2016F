@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour {
 
     protected GameObject target;
     protected float range;
+    private Vector3 posIni;
 
     // Use this for initialization
     void Start () {
@@ -123,7 +124,18 @@ public class Enemy : MonoBehaviour {
 
     protected void shoot()
     {
-
+        GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        pro.AddComponent<Rigidbody>();
+        pro.AddComponent<Collider>();
+        Vector3 tmp = this.transform.position;
+        tmp.y += 2;
+        pro.transform.position = tmp;
+        pro.transform.localScale = new Vector3(2f, 2f, 2f);
+        posIni = target.transform.position;
+        pro.AddComponent<ShootingMove>();
+        pro.GetComponent<ShootingMove>().pos = posIni;
+        pro.GetComponent<ShootingMove>().tag = "projectile";
+        pro.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     void OnCollisionEnter(Collision col)
