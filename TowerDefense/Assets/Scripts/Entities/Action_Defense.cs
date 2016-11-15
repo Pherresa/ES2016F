@@ -63,7 +63,7 @@ public class Action_Defense : Tower
     void iniStates()
     {
         range = 40f;
-        strenght = 1;
+        life = 100;
         predict = 0;
         getTypeOfDefense();
         active = false;
@@ -216,5 +216,12 @@ public class Action_Defense : Tower
     {
         active = false;
     }
-}
 
+    public override void onCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "projectile")
+        {
+            life -= 25;
+        }
+    }
+}

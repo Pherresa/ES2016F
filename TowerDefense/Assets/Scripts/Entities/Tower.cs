@@ -6,7 +6,7 @@ using System.Collections;
 public abstract class Tower : MonoBehaviour {
     protected GameObject target;
     protected float range;
-    protected int strenght;
+    protected int life;
     protected int level;
     protected GameObject projectile;
     protected int type;
@@ -17,4 +17,5 @@ public abstract class Tower : MonoBehaviour {
     public abstract bool isActiveTower();
     public abstract void activate();
     public abstract void disable();
+    public abstract void onCollisionEnter();
 }
