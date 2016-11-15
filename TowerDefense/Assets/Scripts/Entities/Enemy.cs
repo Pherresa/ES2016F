@@ -145,7 +145,7 @@ public class Enemy : MonoBehaviour {
 
             life -= 50;
             checkLife();
-
+   
         }
     }
 }

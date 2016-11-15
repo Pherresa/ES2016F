@@ -14,11 +14,13 @@ public class Action_Defense : Tower
     private Vector3 posIni;
     private int maxFrameToPredict = 8;
     private int plusToPredict = 6;
+    private GameObject explosion;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
     {
         iniStates();
+        explosion = Resources.Load("Prefabs/Explosion") as GameObject;
     }
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
@@ -222,6 +224,15 @@ public class Action_Defense : Tower
         if (col.gameObject.tag == "projectile")
         {
             life -= 25;
+        }
+    }
+
+    protected override void checkLife()
+    {
+        if (life <= 0)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }
