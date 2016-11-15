@@ -25,5 +25,6 @@ public abstract class Tower : MonoBehaviour {
     public abstract void activate();
     public abstract void disable();
     public abstract void onCollisionEnter(Collision col);
+    
 
 }
