@@ -20,19 +20,17 @@ public class Enemy : MonoBehaviour {
     private GameObject explosion;
     private float lifeVirus;
 
+    protected GameObject target;
+    protected float range;
+
     // Use this for initialization
     void Start () {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
         life = 100f;
         maxlife = 100f;
+        range = 40f;
         //initText();
-        m_moviments = new Queue();
-        m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
-        m_moviments.Enqueue(new Vector3(276, 60, 215)); // TEST
-        m_moviments.Enqueue(new Vector3(155, 60, 389)); // TEST
-        m_moviments.Enqueue(new Vector3(155, 60, 412)); // TEST
-        m_movi_actu = (Vector3)m_moviments.Dequeue();
     }
 
     void initText(){
@@ -70,10 +68,6 @@ public class Enemy : MonoBehaviour {
     // the speed DeltaTime, face the enemy and tell a unit to move forward if the initial position is equal to the 
     // end we get another point the FIFO queue.
     void Update () {
-
-        //Only for testing TODO: delete it
-        life = life - lifeVirus * Time.deltaTime;
-
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
@@ -89,6 +83,8 @@ public class Enemy : MonoBehaviour {
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
 
         checkLife();
+        getTarget();
+        
     }
 
     protected void checkLife()
@@ -98,6 +94,36 @@ public class Enemy : MonoBehaviour {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+    }
+
+    protected void getTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Defense");
+        float tmpDistance = Mathf.Infinity;
+        GameObject tmpEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < tmpDistance)
+            {
+                tmpDistance = distanceToEnemy;
+                tmpEnemy = enemy;
+            }
+        }
+        if (tmpEnemy != null && tmpDistance <= range)
+        {
+            target = tmpEnemy;
+            shoot();
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
+    protected void shoot()
+    {
+
     }
     void OnCollisionEnter(Collision col)
     {
