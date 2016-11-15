@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.5750856, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -281,6 +281,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &3582270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -780,6 +781,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 1
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &156963551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1006,6 +1008,7 @@ GameObject:
   - 92: {fileID: 259747314}
   - 124: {fileID: 259747313}
   - 81: {fileID: 259747312}
+  - 82: {fileID: 259747317}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1081,6 +1084,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!82 &259747317
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259747311}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3191ab10cff319d4299ce26a9991b543, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &409420640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1623,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &523103379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2216,6 +2294,7 @@ GameObject:
   - 224: {fileID: 972917349}
   - 95: {fileID: 972917350}
   - 225: {fileID: 972917351}
+  - 82: {fileID: 972917352}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: initMenu
@@ -2270,6 +2349,80 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!82 &972917352
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972917348}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3191ab10cff319d4299ce26a9991b543, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1014681450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +2948,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &1112251502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2998,6 +3152,7 @@ MonoBehaviour:
   isArcadeGameButton: 1
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 0}
 --- !u!65 &1137598032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3317,7 +3472,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3389,7 +3544,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 0
   scalingMode: 1
-  randomSeed: 1034411899
+  randomSeed: 1034411904
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -5334,6 +5489,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &1410437519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5537,6 +5693,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &1443868066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5923,6 +6080,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 1
   isLoadGameButton: 0
+  click: {fileID: 0}
 --- !u!65 &1673849213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6234,6 +6392,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &1808468658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6256,6 +6415,7 @@ GameObject:
   - 4: {fileID: 1834857081}
   - 114: {fileID: 1834857080}
   - 114: {fileID: 1834857079}
+  - 114: {fileID: 1834857082}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6308,6 +6468,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1834857082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834857078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be7a4502e1fe3a499ce63590e46eada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartButton: 1
+  isOptionButton: 0
+  isExitButton: 0
+  isReturnMMButton: 0
+  isBattleTirithButton: 0
+  isBattleIsengardButton: 0
+  isArcadeGameButton: 0
+  isAdventureGameButton: 0
+  isLoadGameButton: 0
+  click: {fileID: 0}
 --- !u!1 &1835310518
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,6 +6637,7 @@ GameObject:
   - 224: {fileID: 1858210988}
   - 222: {fileID: 1858210990}
   - 114: {fileID: 1858210989}
+  - 114: {fileID: 1858210992}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -6520,6 +6702,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1858210987}
+--- !u!114 &1858210992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1858210987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1858210989}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1867613376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6925,6 +7148,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &1947353321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7394,6 +7618,7 @@ MonoBehaviour:
   isArcadeGameButton: 0
   isAdventureGameButton: 0
   isLoadGameButton: 0
+  click: {fileID: 8300000, guid: fb2aa57b3f7071b498498125d2901819, type: 3}
 --- !u!65 &2028399100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7401,7 +7626,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028399091}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 220, y: 68, z: 1}
