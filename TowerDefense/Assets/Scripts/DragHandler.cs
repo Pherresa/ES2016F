@@ -154,8 +154,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			if(!activeSlot.getIsPath() && !activeSlot.isOccupied){
 				Vector3 quadCentre = GetQuadCentre (activeSlot.gameObject);
 				GameObject newUnit = (GameObject) Instantiate (prefab, quadCentre, Quaternion.identity);
-				//activeSlot.SetActive (false);
-
+                //activeSlot.SetActive (false);
+                newUnit.GetComponent<Action_Defense>().activate();
                 foreach(ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                 {
                     particleSystem.Play();

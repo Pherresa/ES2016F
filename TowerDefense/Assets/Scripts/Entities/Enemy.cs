@@ -125,12 +125,15 @@ public class Enemy : MonoBehaviour {
     {
 
     }
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "projectile")
         {
+
             life -= 50;
             checkLife();
+
         }
     }
 }
