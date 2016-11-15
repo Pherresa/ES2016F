@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour {
         checkLife();
     }
 
-    private void checkLife()
+    protected void checkLife()
     {
         if(life <= 0)
         {
