@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9bcaa56705824064b892a8fcb1b2a3cd
-timeCreated: 1477500662
+timeCreated: 1479232138
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -20,6 +20,30 @@ ModelImporter:
     100024: Lamp.001
     100026: Lamp.002
     100028: Lamp.003
+    100030: arm_left_1
+    100032: arm_left_2
+    100034: arm_right_1
+    100036: arm_right_2
+    100038: Armature
+    100040: hand_left
+    100042: hand_left_end
+    100044: hand_right
+    100046: hand_right_end
+    100048: head
+    100050: head_end
+    100052: hip_left
+    100054: hip_right
+    100056: leg_left_1
+    100058: leg_left_2
+    100060: leg_left_2_end
+    100062: leg_right_1
+    100064: leg_right_2
+    100066: leg_right_2_end
+    100068: neck
+    100070: torso_left
+    100072: torso_right
+    100074: trunk_1
+    100076: trunk_2
     400000: armor_body
     400002: armor_hands
     400004: body
@@ -35,6 +59,30 @@ ModelImporter:
     400024: Lamp.001
     400026: Lamp.002
     400028: Lamp.003
+    400030: arm_left_1
+    400032: arm_left_2
+    400034: arm_right_1
+    400036: arm_right_2
+    400038: Armature
+    400040: hand_left
+    400042: hand_left_end
+    400044: hand_right
+    400046: hand_right_end
+    400048: head
+    400050: head_end
+    400052: hip_left
+    400054: hip_right
+    400056: leg_left_1
+    400058: leg_left_2
+    400060: leg_left_2_end
+    400062: leg_right_1
+    400064: leg_right_2
+    400066: leg_right_2_end
+    400068: neck
+    400070: torso_left
+    400072: torso_right
+    400074: trunk_1
+    400076: trunk_2
     2300000: armor_body
     2300002: armor_hands
     2300004: body
@@ -62,6 +110,18 @@ ModelImporter:
     4300012: clothes_skirt
     4300014: clothes_pants
     4300016: body
+    7400000: Armature|IDLE
+    7400002: Armature|IDLE_bow
+    7400004: clothes_skirt|IDLE_bow
+    7400006: bow|IDLE
+    7400008: bow|IDLE_bow
+    7400010: Lamp|IDLE_bow
+    7400012: Camera|IDLE_bow
+    7400014: Lamp.001|IDLE_bow
+    7400016: Lamp.002|IDLE_bow
+    7400018: Lamp.003|IDLE_bow
+    11100000: //RootNode
+    13700000: clothes_skirt
   materials:
     importMaterials: 1
     materialName: 0
@@ -120,7 +180,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
