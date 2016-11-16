@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1260782501}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.15523088, g: 0.17750445, b: 0.17826015, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -506,8 +506,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 535, y: 135.5}
-  m_SizeDelta: {x: 1070, y: 271}
+  m_AnchoredPosition: {x: 320, y: 240}
+  m_SizeDelta: {x: 640, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &193715175
 CanvasGroup:
@@ -961,22 +961,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 535
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 135.5
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1070
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 271
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -3190,15 +3190,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -86.87478
+      value: -87.55
       objectReference: {fileID: 0}
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 90.32411
+      value: 90.59
       objectReference: {fileID: 0}
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalRotation.x
