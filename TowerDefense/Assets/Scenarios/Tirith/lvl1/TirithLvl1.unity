@@ -1579,36 +1579,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 683
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 298.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1366
-      objectReference: {fileID: 0}
-    - target: {fileID: 224000011109667428, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 597
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac8cd8e6320ae3e4b927387f08c24c7e, type: 2}
   m_IsPrefabParent: 0
@@ -2261,13 +2231,6 @@ RectTransform:
   - {fileID: 1974498817}
   m_Father: {fileID: 1311859996}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 683, y: 298.5}
-  m_SizeDelta: {x: 1366, y: 597}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &1311859997
-CanvasGroup:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -464.6, y: -15}
@@ -3223,7 +3186,7 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 432
+      value: 402
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -3233,7 +3196,7 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 864
+      value: 804
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -3892,8 +3855,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 432, y: 154}
-  m_SizeDelta: {x: 864, y: 308}
+  m_AnchoredPosition: {x: 402, y: 154}
+  m_SizeDelta: {x: 804, y: 308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
