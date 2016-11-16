@@ -774,6 +774,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010241238044}
+  - 114: {fileID: 114000011371636380}
   m_Layer: 0
   m_Name: defense2_OrcArcher_I
   m_TagString: Untagged
@@ -9363,3 +9364,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013206484864}
   m_Mesh: {fileID: 4300012, guid: 9bcaa56705824064b892a8fcb1b2a3cd, type: 3}
+--- !u!114 &114000011371636380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011257264620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
