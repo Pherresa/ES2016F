@@ -19,7 +19,7 @@ public class cameraZoom : MonoBehaviour {
 	void Update () 
 	{
 		// Get the left mouse button
-		if(Input.GetMouseButtonDown(2))
+		if(Input.GetMouseButtonDown(1))
 		{
 			// Get mouse origin
 			mouseOrigin = Input.mousePosition;
@@ -28,7 +28,7 @@ public class cameraZoom : MonoBehaviour {
 			
 
 		// Get the right mouse button
-		if(Input.GetMouseButtonDown(1))
+		if(Input.GetMouseButtonDown(2))
 		{
 			// Get mouse origin
 			mouseOrigin = Input.mousePosition;
@@ -36,8 +36,8 @@ public class cameraZoom : MonoBehaviour {
 		}
 
 		// Disable movements on button release
-		if (!Input.GetMouseButton(2)) isRotating=false;
-		if (!Input.GetMouseButton(1)) isZooming=false;
+		if (!Input.GetMouseButton(1)) isRotating=false;
+		if (!Input.GetMouseButton(2)) isZooming=false;
 	
 
 		// Rotate camera along X and Y axis
@@ -47,6 +47,7 @@ public class cameraZoom : MonoBehaviour {
 
 			transform.RotateAround(transform.position, transform.right, -pos.y * turnSpeed); 
 			transform.RotateAround(transform.position, Vector3.up, pos.x * turnSpeed);
+			//Poner límites de rotación.
 		}
 
 
@@ -59,6 +60,7 @@ public class cameraZoom : MonoBehaviour {
 			Vector3 move = pos.y * zoomSpeed * transform.forward; 
 			transform.Translate(move, Space.World);
 			Debug.Log ("Is zooming");
+			//Poner límites de zoom
 		}
 	}
 }
