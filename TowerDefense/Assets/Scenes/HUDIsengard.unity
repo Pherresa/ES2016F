@@ -1236,6 +1236,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &251905277 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 251905276}
 --- !u!1 &369938366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,11 +1718,6 @@ MeshFilter:
 --- !u!1 &540660783 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011750701088, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
-    type: 2}
-  m_PrefabInternal: {fileID: 251905276}
---- !u!4 &540660784 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000010842701038, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
     type: 2}
   m_PrefabInternal: {fileID: 251905276}
 --- !u!1 &543617637
@@ -2345,7 +2345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 540660784}
+  - {fileID: 251905277}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &621443072
@@ -4573,7 +4573,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

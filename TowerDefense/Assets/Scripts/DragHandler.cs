@@ -7,11 +7,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     public GameObject prefab;
     GameObject hoverPrefab;
-    public GameObject[] availableSlots;
+    public Slot[] Slots;
     //GameObject activeSlot;
 
     Slot activeSlot;
-    public Slot[] Slots;
 
 
     /**
@@ -20,9 +19,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     void Start()
     {
     	Slots = FindObjectsOfType(typeof(Slot)) as Slot[]; 
-        hoverPrefab = Instantiate (prefab);
-        AdjustPrefabAlpha();
-		hoverPrefab.SetActive (false);
+  
     }
 
 
