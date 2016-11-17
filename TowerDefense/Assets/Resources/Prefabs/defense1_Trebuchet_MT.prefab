@@ -38,6 +38,7 @@ GameObject:
   - 4: {fileID: 4000012503090674}
   - 95: {fileID: 95000010881317494}
   - 114: {fileID: 114000012639166714}
+  - 114: {fileID: 114000013032938272}
   m_Layer: 0
   m_Name: defense1_Trebuchet_MT
   m_TagString: Untagged
@@ -1749,3 +1750,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013032938272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010240482202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e98c7cd868d02640839534d7c83c9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0, z: 0}
