@@ -20,6 +20,16 @@ public class Action_Defense : Tower
     {
         iniStates();
     }
+
+	// Funcion que se executa por cada frame para poder girar correctamente the towers.
+	void Update() {
+		// vemos que no sea nulo
+		if (target != null) {
+			// llamamos la funcion que gira al towers
+			SpinTower.spin(target.transform.position, this.transform);
+		}
+	}
+
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
@@ -103,8 +113,7 @@ public class Action_Defense : Tower
             
             float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
             if (distanceToEnemy <= range)
-            {
-                
+            { 
                 shootProjectile();
             }
         }else
@@ -159,7 +168,7 @@ public class Action_Defense : Tower
         pro.GetComponent<ShootingMove>().pos = posIni;
         pro.GetComponent<ShootingMove>().tag = "projectile";
         if (type == 1)
-        {
+        { 
             pro.GetComponent<Renderer>().material.color = Color.blue;
         }
         if (type == 2)
