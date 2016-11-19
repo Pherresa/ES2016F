@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
-        lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
         life = 100f;
         maxlife = 100f;
         //initText();
@@ -72,9 +71,6 @@ public class Enemy : MonoBehaviour {
     // end we get another point the FIFO queue.
     void Update () {
 
-        //Only for testing TODO: delete it
-        life = life - lifeVirus * Time.deltaTime;
-
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
@@ -105,7 +101,9 @@ public class Enemy : MonoBehaviour {
     {
         if (col.gameObject.tag == "projectile")
         {
-            Destroy(this.gameObject);
+
+            life -= 50;
+            checkLife();
         }
     }
 }
