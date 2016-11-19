@@ -8,6 +8,8 @@ using System;
  */
 public class Action_Defense : Tower
 {
+    public int towerPrice = 0;
+
     //Animation animation;
     private float timer = 0.6f;
     private int predict;
@@ -33,8 +35,8 @@ public class Action_Defense : Tower
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
-        print(2);
-        print(predict);
+        //print(2);
+        //print(predict);
         if (predict==0)
         {
             

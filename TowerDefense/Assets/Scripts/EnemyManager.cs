@@ -3,9 +3,27 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        for (int i = 0; i < 100; i++)
+    LifeAmountManager lifeAmountManager;
+
+    // Use this for initialization
+    void Start () {
+
+        lifeAmountManager = GameObject.FindObjectOfType<LifeAmountManager>();
+
+        createNewWave();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	    if(lifeAmountManager.remainingTime <= 0.9f)
+        {
+            createNewWave();
+        }
+	}
+
+    void createNewWave()
+    {
+        for (int i = 0; i < 15; i++)
         {
             GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
             GameObject enemy = Instantiate(enemyPrefab);
@@ -14,10 +32,5 @@ public class EnemyManager : MonoBehaviour {
             AstarAI astarAI = enemy.GetComponent<AstarAI>();
             astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 }

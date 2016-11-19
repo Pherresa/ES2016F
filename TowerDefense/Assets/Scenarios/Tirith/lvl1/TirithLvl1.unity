@@ -2537,7 +2537,7 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
-  lastUniqueAreaIndex: 1786
+  lastUniqueAreaIndex: 1946
 --- !u!4 &463740706
 Transform:
   m_ObjectHideFlags: 0
@@ -5817,22 +5817,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 683
+      value: 700.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 319
+      value: 329.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1366
+      value: 1401
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 638
+      value: 659
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -7411,8 +7411,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 683, y: 319}
-  m_SizeDelta: {x: 1366, y: 638}
+  m_AnchoredPosition: {x: 700.5, y: 329.5}
+  m_SizeDelta: {x: 1401, y: 659}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
@@ -8086,11 +8086,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b686b596e453c8f4686e870ff4e90f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1000
-  amount: 44
+  life: 100
+  amount: 50
   amountText: {fileID: 604337992}
   lifeText: {fileID: 483741320}
   timeText: {fileID: 954656998}
+  remainingTime: 0
 --- !u!114 &1475962525
 MonoBehaviour:
   m_ObjectHideFlags: 0
