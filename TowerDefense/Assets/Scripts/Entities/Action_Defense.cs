@@ -35,42 +35,45 @@ public class Action_Defense : Tower
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
-        //print(2);
-        //print(predict);
-        if (predict==0)
+        if (active)
         {
-            
-            getTarget();
-            if (target != null)
+            if (predict == 0)
             {
-                posIni = target.transform.position;
-                predict += 1;
+
+                getTarget();
+                if (target != null)
+                {
+                    posIni = target.transform.position;
+                    predict += 1;
+                }
             }
-        }
-        else
-        {
-            if (predict != maxFrameToPredict)
+            else
             {
-                predictPositionToShoot();
+                if (predict != maxFrameToPredict)
+                {
+                    predictPositionToShoot();
+                }
+
             }
-            
-        }
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {  
-           
-            timer = 0.6f;
-            //anim.Play();
-            // if (!anim.isPlaying){
-            if (type!=0 && predict == maxFrameToPredict)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-           
-                shoot();
-                predict = 0;
+
+                timer = 0.6f;
+                //anim.Play();
+                // if (!anim.isPlaying){
+                if (type != 0 && predict == maxFrameToPredict)
+                {
+                    shoot();
+                    predict = 0;
+                }
+                // }
             }
-           // }
         }
     }
+        
+        
+
     // inicializador
     void iniStates()
     {
@@ -78,13 +81,11 @@ public class Action_Defense : Tower
         strenght = 1;
         predict = 0;
         getTypeOfDefense();
-        active = false;
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
-        //print(name);
         if (name == "defense1_Trebuchet_MT")
         {
             type = 1;
@@ -134,18 +135,21 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                //if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
-                //{
-                //posIni = target.transform.position + (tmp * 3);
-                //}
-                //else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
-                //{
-                // posIni = target.transform.position + (tmp * 2);
-                //}
-                //else
-                //{
                 posIni = target.transform.position + (tmp * plusToPredict);
-                // }
+
+                if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
+                {
+                    posIni *= 4;
+                }
+                else if (distanceToEnemy < range && distanceToEnemy > range / 3.0f)
+                {
+                    posIni *= 3;
+                }
+                else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
+                {
+                    posIni *= 1.5f;
+                }
+                
             }
             if (predict != maxFrameToPredict)
             {
