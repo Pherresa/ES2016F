@@ -28,9 +28,9 @@ public class AstarAI : MonoBehaviour {
 		//Get a reference to the Seeker component we added earlier
 		seeker = GetComponent<Seeker>();
 		characterController = GetComponent<CharacterController>();
-
-		//Start a new path to the targetPosition, return the result to the OnPathComplete function
-		seeker.StartPath (transform.position,target.position, OnPathComplete);
+        target = GameObject.FindGameObjectWithTag("Finish").transform;
+        //Start a new path to the targetPosition, return the result to the OnPathComplete function
+        seeker.StartPath (transform.position,target.position, OnPathComplete);
 	}
 
 	public void OnPathComplete (Path p) {

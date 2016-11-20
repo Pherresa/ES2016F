@@ -12,10 +12,6 @@ public class EnemyManager : MonoBehaviour {
             GameObject enemyOrc = Instantiate(enemyPrefab);
             enemyOrc.transform.parent = transform;
             enemyOrc.tag = "Enemy";
-
-            //get the thing component on your instantiated object
-            AstarAI astarAI = enemyOrc.GetComponent<AstarAI>();
-            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
         }
 	}
 	
