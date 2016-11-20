@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+/* 
 public class MainTower : Tower
 {
 
@@ -64,4 +65,4 @@ public class MainTower : Tower
     {
         life = life - 1;
     }
-}
+}*/

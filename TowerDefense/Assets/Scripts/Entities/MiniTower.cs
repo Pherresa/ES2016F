@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 public class MiniTower : Tower
 {
 
@@ -62,4 +62,4 @@ public class MiniTower : Tower
             }
         }
     }
-}
+}*/
