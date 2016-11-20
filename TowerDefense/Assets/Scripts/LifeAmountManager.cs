@@ -33,9 +33,9 @@ public class LifeAmountManager : MonoBehaviour
     {
         newSec = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
-        setRemainingTime(60f);
+        //setRemainingTime(60f);
         amountText.text = amount.ToString();
-        InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
+        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
 
     }
 

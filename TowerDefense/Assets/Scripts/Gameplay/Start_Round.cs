@@ -12,6 +12,7 @@ public class Start_Round : MonoBehaviour {
     private int cont_round;
     private bool act_time_cont;
     private LifeAmountManager indicator_time;
+    private EnemyManager generate_round;
     
     //public Text buttonText;
 
@@ -19,6 +20,7 @@ public class Start_Round : MonoBehaviour {
     void Start () {
         indicator_time = GameObject.Find("GameManager").GetComponent<LifeAmountManager>();
         indicator_time.setRemainingTime(0);
+        generate_round = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         cnt_time = act_time;
         act_time_cont = true;
     }
@@ -48,7 +50,7 @@ public class Start_Round : MonoBehaviour {
         float time_tmp = cnt_time * 1.3f;
         act_time = (int)time_tmp;
         cnt_time = act_time;
-        // Function Generate Round
+        generate_round.createNewWave();
         //Debug.Log("Generate Round");
     }
 }
