@@ -30,9 +30,9 @@ public class MainTower : Tower
 
     void iniStates()
     {
-        range = 13f;
-        life = 200;
-        strenght = 7;
+        range = (float) Enemy_Values_Gene.m_mt_tower("r");
+        life = Enemy_Values_Gene.m_mt_tower("l");
+        strenght = Enemy_Values_Gene.m_mt_tower("a");
         getTarget();
     }
 

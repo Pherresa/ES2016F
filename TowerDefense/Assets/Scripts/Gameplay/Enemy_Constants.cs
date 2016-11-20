@@ -39,5 +39,13 @@ public static class Enemy_Constants{
 
     // General
     public const int TIME = 15;
-    public const float TIME_INCREMENT = (float)1.3;
+    public const float TIME_INCREMENT = 1.3f;
+    public const int WALLET = 100;
+
+    // Main Tower
+
+    public const int MT_LIFE = 400;
+    public const float MT_RANGE = 13f;
+    public const int MT_ATTACK = 10;
+
 }

@@ -29,9 +29,9 @@ public class MiniTower : Tower
 
     void iniStates()
     {
-        range = 6f;
-        life = 80;
-        strenght = 2;
+        range = (float)Enemy_Values_Gene.m_little_tower("r");
+        life = 20;//Enemy_Values_Gene.m_little_tower("l");
+        strenght = Enemy_Values_Gene.m_little_tower("a");
         getTarget();
     }
 
