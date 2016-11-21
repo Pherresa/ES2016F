@@ -25,12 +25,14 @@ public class Enemy : MonoBehaviour {
     private Vector3 posIni;
 
     private GameObject tower;
+    private Tower tow;
 
     // Use this for initialization
     void Start () {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         tower = GameObject.FindGameObjectWithTag("Tower");
-        lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
+        tow = tower.GetComponentInParent<Tower>;
+
 
         life = 100f;
         maxlife = 100f;
@@ -142,15 +144,19 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col)
-    {
+    {   
+        //If gets hit by projectile
         if (col.gameObject.tag == "projectile")
         {
             life -= 50;
             checkLife();
         }
+        //If gets to the front door the final tower gets its life decrease.
         if(col.gameObject.tag == "Finish")
         {
-            tower.decreaseLife(-1);
+            tow.decreaseLife(-1);
+            //yield return new WaitForSeconds(4);
+            Destroy(this);
         }
     }
 }

@@ -4,13 +4,10 @@ using System;
 
 public class Tower : Defense {
 
-    private GameObject[] enemies;
-    private GameObject finish;
     // Use this for initialization
     void Start()
     {
         life = 200;
-        finish = GameObject.FindGameObjectWithTag("Finish");
     }
 
     // Update is called once per frame
