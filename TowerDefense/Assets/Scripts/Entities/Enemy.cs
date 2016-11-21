@@ -24,10 +24,14 @@ public class Enemy : MonoBehaviour {
     protected float range;
     private Vector3 posIni;
 
+    private GameObject tower;
+
     // Use this for initialization
     void Start () {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
+        tower = GameObject.FindGameObjectWithTag("Tower");
         lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
+
         life = 100f;
         maxlife = 100f;
         range = 40f;
@@ -143,6 +147,10 @@ public class Enemy : MonoBehaviour {
         {
             life -= 50;
             checkLife();
+        }
+        if(col.gameObject.tag == "Finish")
+        {
+            tower.decreaseLife(-1);
         }
     }
 }
