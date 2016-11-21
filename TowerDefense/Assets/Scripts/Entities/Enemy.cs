@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
     void Start () {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         tower = GameObject.FindGameObjectWithTag("Tower");
-        tow = tower.GetComponentInParent<Tower>;
+        tow = tower.GetComponentInParent<Tower>();
 
 
         life = 100f;
