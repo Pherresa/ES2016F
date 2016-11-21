@@ -61,6 +61,11 @@ public class Tower : Defense {
     {
         throw new NotImplementedException();
     }
+  
+    public void decreaseLife (int injury)
+    {
+        life -= injury;
+    }
 
-    
+
 }
