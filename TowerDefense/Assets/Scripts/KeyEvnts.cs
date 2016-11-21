@@ -10,11 +10,14 @@ public class KeyEvnts : MonoBehaviour {
 
     public float maxZ = 110f, minZ = -110f;
     public float maxY = 80f, minY = 0f;
-    public float maxX = 100f, minX = -110f; 
+    public float maxX = 100f, minX = -110f;
 
-	// Use this for initialization
-	void Start () {
+    public float rotXMin = 90f, rotYMin = 0f, rotZMin = 0f;
+
+    // Use this for initialization
+    void Start () {
         escMenu.SetActive(false);
+        mainCamera.transform.rotation = Quaternion.Euler(rotXMin, rotYMin, rotZMin);
     }
 	
 	// Update is called once per frame
@@ -83,19 +86,19 @@ public class KeyEvnts : MonoBehaviour {
             mainCamera.transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
         //Rotation camera
-        else if (Input.GetKey(KeyCode.J))
+        else if (Input.GetKey(KeyCode.K))
         {
             mainCamera.transform.Rotate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        else if (Input.GetKey(KeyCode.L))
+        else if (Input.GetKey(KeyCode.I))
         {
             mainCamera.transform.Rotate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        else if (Input.GetKey(KeyCode.I))
+        else if (Input.GetKey(KeyCode.L))
         {
             mainCamera.transform.Rotate(new Vector3(0, speed * Time.deltaTime, 0));
         }
-        else if (Input.GetKey(KeyCode.K))
+        else if (Input.GetKey(KeyCode.J))
         {
             mainCamera.transform.Rotate(new Vector3(0, -speed * Time.deltaTime, 0));
         }
@@ -110,6 +113,10 @@ public class KeyEvnts : MonoBehaviour {
         mainCamera.transform.position = new Vector3(Mathf.Min(Mathf.Max(minX, mainCamera.transform.position.x), maxX),
             Mathf.Min(Mathf.Max(minY, mainCamera.transform.position.y), maxY),
             Mathf.Min(Mathf.Max(minZ, mainCamera.transform.position.z), maxZ));
+
+        Quaternion q = mainCamera.transform.rotation;
+        q.eulerAngles = new Vector3(q.eulerAngles.x, q.eulerAngles.y, 0);
+        transform.rotation = q;
     }
 
 }
