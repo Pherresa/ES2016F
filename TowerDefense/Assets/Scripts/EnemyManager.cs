@@ -5,7 +5,7 @@ public class EnemyManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 8; i++)
         {
 
             GameObject enemyPrefab = Resources.Load("Prefabs/attack1_Orc_MT") as GameObject;

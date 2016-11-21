@@ -6,7 +6,7 @@ using System;
  * algunas aducionales que han hecho falta. Esta clase la utilizaran generalmente las clases que
  * disparen desde lejos.
  */
-public class Action_Defense : Tower
+public class Action_Defense : Defense
 {
     //Animation animation;
     private float timer = 0.6f;
