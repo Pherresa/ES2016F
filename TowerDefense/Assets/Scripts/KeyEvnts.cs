@@ -102,7 +102,8 @@ public class KeyEvnts : MonoBehaviour {
         {
             mainCamera.transform.Rotate(new Vector3(0, -speed * Time.deltaTime, 0));
         }
-
+        //
+        
 
         limitsCamera();
 
