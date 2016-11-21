@@ -38,7 +38,11 @@ public class Tower : Defense {
 
     protected override void checkLife()
     {
-        throw new NotImplementedException();
+        if(life <= 0)
+        {
+            //TODO: IMPLEMENT WHAT HAPPENS WHEN USER LOOSE.
+            Debug.Log("GAME OVER YOU LOST");
+        }
     }
 
     protected override void destroyTower()
