@@ -4,16 +4,27 @@ using System;
 
 public class Tower : Defense {
 
+    private GameObject[] enemies;
+    private GameObject finish;
     // Use this for initialization
     void Start()
     {
         life = 200;
-
+        finish = GameObject.FindGameObjectWithTag("Finish");
     }
 
     // Update is called once per frame
     void Update()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject Enemy in enemies)
+        {
+            if(Enemy.transform == finish.transform)
+            {
+                life -= 1;
+                Debug.Log("Tower Life: " + life);
+            }
+        }
 
     }
     public override void activate()

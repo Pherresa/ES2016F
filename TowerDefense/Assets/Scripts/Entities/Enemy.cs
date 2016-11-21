@@ -92,8 +92,7 @@ public class Enemy : MonoBehaviour {
     {
         if(life <= 0)
         {
-            //TODO: IMPLEMENT WHAT HAPPENS WHEN USER LOOSES.
-            Debug.Log("GAME OVER YOU LOOSE");
+            Destroy(this);
         }
     }
 
