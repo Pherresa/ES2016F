@@ -142,10 +142,8 @@ public class Enemy : MonoBehaviour {
     {
         if (col.gameObject.tag == "projectile")
         {
-
             life -= 50;
             checkLife();
-   
         }
     }
 }
