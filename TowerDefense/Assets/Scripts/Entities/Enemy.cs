@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour {
 
     protected void getTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Defense");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Target");
         float tmpDistance = Mathf.Infinity;
         GameObject tmpEnemy = null;
         foreach (GameObject enemy in enemies)
