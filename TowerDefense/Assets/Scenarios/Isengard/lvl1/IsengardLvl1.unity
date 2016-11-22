@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1260782501}
-  m_IndirectSpecularColor: {r: 0.15523088, g: 0.17750445, b: 0.17826015, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -680,8 +680,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 358.5, y: 163}
-  m_SizeDelta: {x: 717, y: 326}
+  m_AnchoredPosition: {x: 512, y: 384}
+  m_SizeDelta: {x: 1024, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &193715175
 CanvasGroup:
@@ -1210,22 +1210,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 358.5
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 163
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 717
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 326
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -1504,6 +1504,10 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 188.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011750701088, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eaeb187050eff7a469dd1d1a7a44c4ac, type: 2}
@@ -4873,7 +4877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escMenu: {fileID: 442568176}
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1592831044}
   speed: 1
   maxZ: 110
   minZ: -110

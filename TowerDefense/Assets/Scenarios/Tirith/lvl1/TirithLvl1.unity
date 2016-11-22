@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 892881746}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.7699547, g: 0.7733304, b: 0.75460017, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7475,8 +7475,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 358.5, y: 163}
-  m_SizeDelta: {x: 717, y: 326}
+  m_AnchoredPosition: {x: 512, y: 384}
+  m_SizeDelta: {x: 1024, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
@@ -8122,8 +8122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ecf4ab9bfab9c41b2046262a6e0005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escMenu: {fileID: 0}
-  mainCamera: {fileID: 0}
+  escMenu: {fileID: 2086642375}
+  mainCamera: {fileID: 2128887807}
   speed: 1
   maxZ: 110
   minZ: -110
@@ -10306,22 +10306,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 358.5
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 163
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 717
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 326
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -12798,6 +12798,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed611a3ded592db4082a86450ac3e55f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2086642375 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011750701088, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 1761063490}
 --- !u!1 &2091373662
 GameObject:
   m_ObjectHideFlags: 0
