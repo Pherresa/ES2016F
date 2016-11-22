@@ -19,7 +19,7 @@ public class cameraZoom : MonoBehaviour {
 	void Update () 
 	{
 		// Get the left mouse button
-		if(Input.GetMouseButtonDown(2))
+		if(Input.GetMouseButtonDown(1))
 		{
 			// Get mouse origin
 			mouseOrigin = Input.mousePosition;
@@ -28,7 +28,7 @@ public class cameraZoom : MonoBehaviour {
 			
 
 		// Get the right mouse button
-		if(Input.GetMouseButtonDown(1))
+		if(Input.GetMouseButtonDown(2))
 		{
 			// Get mouse origin
 			mouseOrigin = Input.mousePosition;
@@ -36,8 +36,8 @@ public class cameraZoom : MonoBehaviour {
 		}
 
 		// Disable movements on button release
-		if (!Input.GetMouseButton(2)) isRotating=false;
-		if (!Input.GetMouseButton(1)) isZooming=false;
+		if (!Input.GetMouseButton(1)) isRotating=false;
+		if (!Input.GetMouseButton(2)) isZooming=false;
 	
 
 		// Rotate camera along X and Y axis
