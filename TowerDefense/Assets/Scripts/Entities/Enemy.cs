@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 
         life = 100f;
         maxlife = 100f;
-        range = 40f;
+        range = 100f;
         //initText();
     }
 
@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour {
 
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         
         Vector3 positionEx = new Vector3(0.0f, 160.0f, 0.0f);
         
@@ -144,7 +143,8 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision col)
-    {   
+    {
+        
         //If gets hit by projectile
         if (col.gameObject.tag == "projectile")
         {
@@ -152,11 +152,21 @@ public class Enemy : MonoBehaviour {
             checkLife();
         }
         //If gets to the front door the final tower gets its life decrease.
-        if(col.gameObject.tag == "Finish")
+        else if(col.gameObject.tag == "Finish")
         {
+            Debug.Log("Collision finish");
             tow.decreaseLife(-1);
+            
             //yield return new WaitForSeconds(4);
             Destroy(this);
         }
+    }
+    void onControlColliderHit (ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Finnish")
+        {
+            Debug.Log("Collision finish");
+        }
+
     }
 }

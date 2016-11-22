@@ -62,6 +62,8 @@ public class Tower : Defense {
     public void decreaseLife (int injury)
     {
         life -= injury;
+        Debug.Log("Tower Life: " + life);
+        checkLife();
     }
 
 
