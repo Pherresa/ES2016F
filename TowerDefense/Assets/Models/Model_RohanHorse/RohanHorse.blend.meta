@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: 7933cdd59312a8845b986f03b4b6f8cb
+timeCreated: 1479766444
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AntebrazoDrch
+    100002: AntebrazoIzq
+    100004: AnularExtDrch
+    100006: AnularExtIzq
+    100008: AnularMedioDrch
+    100010: AnularMedioIzq
+    100012: Bone
+    100014: Bone_001
+    100016: Bone_002
+    100018: Bone_003
+    100020: Bone_004
+    100022: Bone_005
+    100024: Bone_006
+    100026: Bone_007
+    100028: Bone_008
+    100030: Bone_009
+    100032: Bone_010
+    100034: Bone_011
+    100036: Bone_012
+    100038: Bone_013
+    100040: Bone_014
+    100042: Bone_015
+    100044: Bone_016
+    100046: Bone_017
+    100048: Bone_018
+    100050: Bone_019
+    100052: Bone_020
+    100054: Bone_021
+    100056: Bone_022
+    100058: Bone_023
+    100060: Bone_024
+    100062: Bone_025
+    100064: Bone_026
+    100066: Bone_027
+    100068: Bone_029
+    100070: BrazoDrch
+    100072: BrazoIzq
+    100074: Cabeza
+    100076: CaderaDrch
+    100078: CaderaIzq
+    100080: CodoIzq
+    100082: CorazonExtDrch
+    100084: CorazonExtIzq
+    100086: CorazonMedioDrch
+    100088: CorazonMedioIzq
+    100090: Cuello
+    100092: FemurDrch
+    100094: FemurIzq
+    100096: horse
+    100098: horse1
+    100100: IndiceExtDrch
+    100102: IndiceExtIzq
+    100104: IndiceMedioDrch
+    100106: IndiceMedioIzq
+    100108: MenyiqueExtDrch
+    100110: MenyiqueExtIzq
+    100112: MenyiqueMedioDrch
+    100114: MenyiqueMedioIzq
+    100116: MetaAnularDrch
+    100118: MetaAnularIzq
+    100120: MetaCorazonDrch
+    100122: MetaCorazonIzq
+    100124: MetaIndiceDrch
+    100126: MetaIndiceIzq
+    100128: MetaMenyiqueDrch
+    100130: MetaMenyiqueIzq
+    100132: MetaPulgarDrch
+    100134: MetaPulgarIzq
+    100136: Move0
+    100138: move1
+    100140: PectoralDrch
+    100142: PectoralIzq
+    100144: PieDrch
+    100146: PieIzq
+    100148: PulgarDrch
+    100150: PulgarIzq
+    100152: //RootNode
+    100154: Sword
+    100156: TibiaDrch
+    100158: TibiaIzq
+    100160: Tronco
+    100162: Warrior
+    100164: Warrior_003
+    400000: AntebrazoDrch
+    400002: AntebrazoIzq
+    400004: AnularExtDrch
+    400006: AnularExtIzq
+    400008: AnularMedioDrch
+    400010: AnularMedioIzq
+    400012: Bone
+    400014: Bone_001
+    400016: Bone_002
+    400018: Bone_003
+    400020: Bone_004
+    400022: Bone_005
+    400024: Bone_006
+    400026: Bone_007
+    400028: Bone_008
+    400030: Bone_009
+    400032: Bone_010
+    400034: Bone_011
+    400036: Bone_012
+    400038: Bone_013
+    400040: Bone_014
+    400042: Bone_015
+    400044: Bone_016
+    400046: Bone_017
+    400048: Bone_018
+    400050: Bone_019
+    400052: Bone_020
+    400054: Bone_021
+    400056: Bone_022
+    400058: Bone_023
+    400060: Bone_024
+    400062: Bone_025
+    400064: Bone_026
+    400066: Bone_027
+    400068: Bone_029
+    400070: BrazoDrch
+    400072: BrazoIzq
+    400074: Cabeza
+    400076: CaderaDrch
+    400078: CaderaIzq
+    400080: CodoIzq
+    400082: CorazonExtDrch
+    400084: CorazonExtIzq
+    400086: CorazonMedioDrch
+    400088: CorazonMedioIzq
+    400090: Cuello
+    400092: FemurDrch
+    400094: FemurIzq
+    400096: horse
+    400098: horse1
+    400100: IndiceExtDrch
+    400102: IndiceExtIzq
+    400104: IndiceMedioDrch
+    400106: IndiceMedioIzq
+    400108: MenyiqueExtDrch
+    400110: MenyiqueExtIzq
+    400112: MenyiqueMedioDrch
+    400114: MenyiqueMedioIzq
+    400116: MetaAnularDrch
+    400118: MetaAnularIzq
+    400120: MetaCorazonDrch
+    400122: MetaCorazonIzq
+    400124: MetaIndiceDrch
+    400126: MetaIndiceIzq
+    400128: MetaMenyiqueDrch
+    400130: MetaMenyiqueIzq
+    400132: MetaPulgarDrch
+    400134: MetaPulgarIzq
+    400136: Move0
+    400138: move1
+    400140: PectoralDrch
+    400142: PectoralIzq
+    400144: PieDrch
+    400146: PieIzq
+    400148: PulgarDrch
+    400150: PulgarIzq
+    400152: //RootNode
+    400154: Sword
+    400156: TibiaDrch
+    400158: TibiaIzq
+    400160: Tronco
+    400162: Warrior
+    400164: Warrior_003
+    2300000: horse1
+    2300002: Sword
+    3300000: horse1
+    3300002: Sword
+    4300000: horse
+    4300002: horse1
+    4300004: Warrior_003
+    4300006: Warrior
+    4300008: Sword
+    7400000: Default Take
+    7400002: Moving_RohanHorse_MT
+    7400004: Moving_RohanHorse_MT_002
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: horse
+    13700002: Warrior
+    13700004: Warrior_003
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: horse
+        weight: 1
+      - path: horse1
+        weight: 1
+      - path: Move0
+        weight: 1
+      - path: Move0/Bone
+        weight: 1
+      - path: Move0/Bone/Bone_001
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027/Bone_029
+        weight: 1
+      - path: Move0/Bone_002
+        weight: 1
+      - path: Move0/Bone_002/Bone_003
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Move0/Bone_018
+        weight: 1
+      - path: Move0/Bone_018/Bone_020
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Move0/Bone_019
+        weight: 1
+      - path: Move0/Bone_019/Bone_023
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: move1
+        weight: 1
+      - path: move1/CaderaDrch
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq/PieIzq
+        weight: 1
+      - path: move1/CaderaIzq
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch/PieDrch
+        weight: 1
+      - path: move1/Tronco
+        weight: 1
+      - path: move1/Tronco/Cuello
+        weight: 1
+      - path: move1/Tronco/Cuello/Cabeza
+        weight: 1
+      - path: move1/Tronco/PectoralDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch/AnularExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch/CorazonExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch/IndiceExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch/MenyiqueExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch/PulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq/AnularExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq/CorazonExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq/IndiceExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq/MenyiqueExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq/PulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/CodoIzq
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: Warrior
+        weight: 1
+      - path: Warrior_003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Moving_RohanHorse_MT
+      takeName: Moving_RohanHorse_MT
+      firstFrame: -1
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: horse
+        weight: 1
+      - path: horse1
+        weight: 1
+      - path: Move0
+        weight: 1
+      - path: Move0/Bone
+        weight: 1
+      - path: Move0/Bone/Bone_001
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027/Bone_029
+        weight: 1
+      - path: Move0/Bone_002
+        weight: 1
+      - path: Move0/Bone_002/Bone_003
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Move0/Bone_018
+        weight: 1
+      - path: Move0/Bone_018/Bone_020
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Move0/Bone_019
+        weight: 1
+      - path: Move0/Bone_019/Bone_023
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: move1
+        weight: 1
+      - path: move1/CaderaDrch
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq/PieIzq
+        weight: 1
+      - path: move1/CaderaIzq
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch/PieDrch
+        weight: 1
+      - path: move1/Tronco
+        weight: 1
+      - path: move1/Tronco/Cuello
+        weight: 1
+      - path: move1/Tronco/Cuello/Cabeza
+        weight: 1
+      - path: move1/Tronco/PectoralDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch/AnularExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch/CorazonExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch/IndiceExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch/MenyiqueExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch/PulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq/AnularExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq/CorazonExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq/IndiceExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq/MenyiqueExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq/PulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/CodoIzq
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: Warrior
+        weight: 1
+      - path: Warrior_003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Moving_RohanHorse_MT_002
+      takeName: Moving_RohanHorse_MT_002
+      firstFrame: -1
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: horse
+        weight: 1
+      - path: horse1
+        weight: 1
+      - path: Move0
+        weight: 1
+      - path: Move0/Bone
+        weight: 1
+      - path: Move0/Bone/Bone_001
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_007/Bone_008/Bone_009
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_010/Bone_011/Bone_012/Bone_013
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_014/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027
+        weight: 1
+      - path: Move0/Bone/Bone_001/Bone_026/Bone_027/Bone_029
+        weight: 1
+      - path: Move0/Bone_002
+        weight: 1
+      - path: Move0/Bone_002/Bone_003
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005
+        weight: 1
+      - path: Move0/Bone_002/Bone_003/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: Move0/Bone_018
+        weight: 1
+      - path: Move0/Bone_018/Bone_020
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021
+        weight: 1
+      - path: Move0/Bone_018/Bone_020/Bone_021/Bone_022
+        weight: 1
+      - path: Move0/Bone_019
+        weight: 1
+      - path: Move0/Bone_019/Bone_023
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024
+        weight: 1
+      - path: Move0/Bone_019/Bone_023/Bone_024/Bone_025
+        weight: 1
+      - path: move1
+        weight: 1
+      - path: move1/CaderaDrch
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq
+        weight: 1
+      - path: move1/CaderaDrch/FemurIzq/TibiaIzq/PieIzq
+        weight: 1
+      - path: move1/CaderaIzq
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch
+        weight: 1
+      - path: move1/CaderaIzq/FemurDrch/TibiaDrch/PieDrch
+        weight: 1
+      - path: move1/Tronco
+        weight: 1
+      - path: move1/Tronco/Cuello
+        weight: 1
+      - path: move1/Tronco/Cuello/Cabeza
+        weight: 1
+      - path: move1/Tronco/PectoralDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaAnularDrch/AnularMedioDrch/AnularExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaCorazonDrch/CorazonMedioDrch/CorazonExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaIndiceDrch/IndiceMedioDrch/IndiceExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaMenyiqueDrch/MenyiqueMedioDrch/MenyiqueExtDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralDrch/BrazoDrch/AntebrazoDrch/MetaPulgarDrch/PulgarDrch
+        weight: 1
+      - path: move1/Tronco/PectoralIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaAnularIzq/AnularMedioIzq/AnularExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaCorazonIzq/CorazonMedioIzq/CorazonExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaIndiceIzq/IndiceMedioIzq/IndiceExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaMenyiqueIzq/MenyiqueMedioIzq/MenyiqueExtIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/AntebrazoIzq/MetaPulgarIzq/PulgarIzq
+        weight: 1
+      - path: move1/Tronco/PectoralIzq/BrazoIzq/CodoIzq
+        weight: 1
+      - path: Sword
+        weight: 1
+      - path: Warrior
+        weight: 1
+      - path: Warrior_003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.4
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
