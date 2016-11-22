@@ -107,8 +107,9 @@ ModelImporter:
     4300034: TejadoDrch
     4300036: TejadoIzq
     4300038: Suelo
-    7400000: Default Take
+    7400000: idle_RohanBarracks_MT
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -129,7 +130,77 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle_RohanBarracks_MT
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BigaIzqEx
+        weight: 1
+      - path: Cubo
+        weight: 1
+      - path: HumoPlano
+        weight: 1
+      - path: Paja1
+        weight: 1
+      - path: Paja2
+        weight: 1
+      - path: Paja3
+        weight: 1
+      - path: Paja5
+        weight: 1
+      - path: ParedDrch_001
+        weight: 1
+      - path: ParedDrch_002
+        weight: 1
+      - path: ParedDrch_003
+        weight: 1
+      - path: ParedIzq
+        weight: 1
+      - path: ParetDrch
+        weight: 1
+      - path: Plano
+        weight: 1
+      - path: Plano_001
+        weight: 1
+      - path: PuertaDrch
+        weight: 1
+      - path: PuertaIzq
+        weight: 1
+      - path: Smoke_Domain
+        weight: 1
+      - path: Suelo
+        weight: 1
+      - path: TejadoDrch
+        weight: 1
+      - path: TejadoIzq
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -167,7 +238,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
