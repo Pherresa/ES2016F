@@ -29,6 +29,7 @@ public class mainMenu : MonoBehaviour {
     private static string actualPanelTag = "initMenu";
 
     void Start () {
+        Time.timeScale = 1.0f;
         mEnablePanel("initMenu");
 		gameObject.AddComponent<AudioSource> ();
 		source.clip = click;
