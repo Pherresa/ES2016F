@@ -351,6 +351,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012986301248}
   - 111: {fileID: 111000011191699780}
+  - 114: {fileID: 114000011299613942}
   m_Layer: 0
   m_Name: defense2P_RohanHorse_MT
   m_TagString: Untagged
@@ -2512,6 +2513,18 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &114000011299613942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011003167612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrice: 50
 --- !u!137 &137000010118465016
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

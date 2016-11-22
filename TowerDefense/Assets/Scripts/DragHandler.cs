@@ -15,6 +15,25 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Action_Defense prefabActionDefense;
     LifeAmountManager lifeAmountManager;
 
+
+
+    public AudioClip soundDrop;
+    public AudioClip soundDragging;
+    private AudioSource source {
+        get{
+            //MainCamera mc = GameObject.FindObjectOfType(typeof(MainCamera)) as MainCamera;
+            return Camera.main.GetComponent<AudioSource> ();
+            //return mc.GetComponent<AudioSource> ();
+
+        }
+    }
+    void playSound(AudioClip audio){
+        source.PlayOneShot (audio);
+    }
+
+
+
+
     /**
      * Prefab Unit instantation still not active, ready to be drag 
      * */
@@ -82,6 +101,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				else{
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.green;
+                    playSound(soundDragging);
 				}
 
             }
@@ -170,6 +190,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     {
                         particleSystem.Play();
                     }
+
+                    playSound(soundDrop);
 
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;

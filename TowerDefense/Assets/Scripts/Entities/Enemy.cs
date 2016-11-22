@@ -18,10 +18,31 @@ public class Enemy : MonoBehaviour {
     public float maxlife;
     public int damage;
 
+
+    public AudioClip soundAttacked;
+    public AudioClip soundDeath;
+
+    private AudioSource source {
+        get{
+            //MainCamera mc = GameObject.FindObjectOfType(typeof(MainCamera)) as MainCamera;
+            return Camera.main.GetComponent<AudioSource> ();
+            //return mc.GetComponent<AudioSource> ();
+
+        }
+    }
+
+
+
+
     private GameObject explosion;
 
     // Use this for initialization
     void Start () {
+
+        soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
+
+        soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
+
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
         maxlife = 100f;
@@ -34,6 +55,13 @@ public class Enemy : MonoBehaviour {
         m_movi_actu = (Vector3)m_moviments.Dequeue();
         this.gameObject.AddComponent<Collider>();
     }
+
+
+
+    void playSound(AudioClip audio){
+        source.PlayOneShot (audio);
+    }
+
 
     void initText(){
         print("initText");
@@ -94,6 +122,8 @@ public class Enemy : MonoBehaviour {
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            playSound(soundDeath);
+
         }
     }
 
@@ -102,6 +132,8 @@ public class Enemy : MonoBehaviour {
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
+            playSound(soundAttacked);
+
             life -= 30f;
         }
     }
