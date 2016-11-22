@@ -680,8 +680,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 643.5, y: 276}
-  m_SizeDelta: {x: 1287, y: 552}
+  m_AnchoredPosition: {x: 340, y: 163}
+  m_SizeDelta: {x: 680, y: 326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &193715175
 CanvasGroup:
@@ -1210,22 +1210,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 643.5
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 276
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1287
+      value: 680
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 552
+      value: 326
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
@@ -2924,6 +2924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000014075000006, guid: a0e84ea5a5e80564880947479215eb17, type: 2}
   Slots: []
+  soundDrop: {fileID: 8300000, guid: 1cd833f6081a11e46bb2ecc96b930c16, type: 3}
+  soundDragging: {fileID: 8300000, guid: d313d74f41bd42b45892374bda13d071, type: 3}
 --- !u!114 &1060380979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3430,6 +3432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000013543340702, guid: 391ef6ea14cea694491b8efb91edd097, type: 2}
   Slots: []
+  soundDrop: {fileID: 0}
+  soundDragging: {fileID: 0}
 --- !u!114 &1284921230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4213,6 +4217,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 4
   zoomSpeed: 4
+  panSpeed: 40
+  ZoomAmount: 0
+  MaxToClamp: 13
+  minX: -45
+  maxX: 45
+  minY: -60
+  maxY: 45
+  sensX: 100
+  sensY: 100
 --- !u!82 &1592831051
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4514,6 +4527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000012045868116, guid: 4b038f161ae2e3d48a3d4b16e127bd7f, type: 2}
   Slots: []
+  soundDrop: {fileID: 8300000, guid: 1cd833f6081a11e46bb2ecc96b930c16, type: 3}
+  soundDragging: {fileID: 8300000, guid: d313d74f41bd42b45892374bda13d071, type: 3}
 --- !u!114 &1620285903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6099,6 +6114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000012887529204, guid: 9232dce783b8cc04db12681f982e1566, type: 2}
   Slots: []
+  soundDrop: {fileID: 0}
+  soundDragging: {fileID: 0}
 --- !u!114 &2108173905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6320,6 +6337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000010885386862, guid: 5db5dccc7a676964796c9ebe2d462c9a, type: 2}
   Slots: []
+  soundDrop: {fileID: 0}
+  soundDragging: {fileID: 0}
 --- !u!114 &2123472252
 MonoBehaviour:
   m_ObjectHideFlags: 0
