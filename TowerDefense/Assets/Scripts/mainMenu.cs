@@ -14,6 +14,14 @@ public class mainMenu : MonoBehaviour {
     public bool isAdventureGameButton = false;
     public bool isLoadGameButton = false;
 
+	public AudioClip click;
+	private AudioSource source {
+		get{
+			return GetComponent<AudioSource> ();
+
+		}
+	}
+
 
     // Use this for initialization
 
@@ -22,6 +30,10 @@ public class mainMenu : MonoBehaviour {
 
     void Start () {
         mEnablePanel("initMenu");
+		gameObject.AddComponent<AudioSource> ();
+		source.clip = click;
+		source.playOnAwake = false;
+
 
     }
 	
@@ -53,10 +65,15 @@ public class mainMenu : MonoBehaviour {
         
     }
 
+	void playSound(){
+		source.PlayOneShot (click);
+	}
     public void OnMouseUpAsButton()
     {
         if (isStartButton)
         {
+			Debug.Log("Pulsando start button");
+			playSound ();
             path += "start|";
             mEnablePanel("battleMenu");            
             //print(path + " -------> " + actualPanelTag);
@@ -64,6 +81,9 @@ public class mainMenu : MonoBehaviour {
 
         if (isOptionButton)
         {
+
+			Debug.Log("Pulsando option button");
+			playSound ();
             path += "option|";
             mEnablePanel("optMenu");
             //print(path + " -------> " + actualPanelTag);
@@ -71,21 +91,26 @@ public class mainMenu : MonoBehaviour {
 
         if (isExitButton)
         {            
-            print("exit");
+			Debug.Log("Pulsando exit button");
+			playSound ();
             //mEnablePanel("initMenu");
             Application.Quit();
         }
 
         if (isReturnMMButton)
         {
-            mEnablePanel("initMenu");
-            path = "";
+			Debug.Log("Pulsando return button");
+			playSound ();
+			mEnablePanel("initMenu");
+			path = "";
             //print(path + " -------> " + actualPanelTag);
+			isReturnMMButton = true;
         }
 
         if (isBattleTirithButton)
         {
             //mEnablePanel("gameModeMenu");
+			playSound ();
             path += "tiri|";
             //print(path + " -------> " + actualPanelTag);
 
@@ -96,6 +121,7 @@ public class mainMenu : MonoBehaviour {
         if (isBattleIsengardButton)
         {
             //mEnablePanel("gameModeMenu");
+			playSound ();
             path += "isen|";
             //print(path + " -------> " + actualPanelTag);
             SceneManager.LoadScene(1);
@@ -151,6 +177,8 @@ public class mainMenu : MonoBehaviour {
 
         if (isLoadGameButton)
         {
+			Debug.Log("Pulsando load button");
+			playSound ();
             mEnablePanel("initMenu");
             path = "load|";
 
