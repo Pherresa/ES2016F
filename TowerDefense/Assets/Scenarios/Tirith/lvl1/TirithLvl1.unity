@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 892881746}
-  m_IndirectSpecularColor: {r: 0.7699547, g: 0.7733304, b: 0.75460017, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7475,8 +7475,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 512, y: 384}
-  m_SizeDelta: {x: 1024, y: 768}
+  m_AnchoredPosition: {x: 358.5, y: 163}
+  m_SizeDelta: {x: 717, y: 326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1311859997
 CanvasGroup:
@@ -8147,9 +8147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   amount: 50
-  amountText: {fileID: 0}
-  lifeText: {fileID: 0}
-  timeText: {fileID: 0}
+  amountText: {fileID: 1890300223}
+  lifeText: {fileID: 1054637331}
+  timeText: {fileID: 167954979}
   remainingTime: 0
 --- !u!114 &1475962525
 MonoBehaviour:
@@ -9587,6 +9587,7 @@ GameObject:
   - 114: {fileID: 1678723238}
   - 114: {fileID: 1678723237}
   - 95: {fileID: 1678723236}
+  - 114: {fileID: 1678723240}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -9668,7 +9669,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1678723238}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1678723240}
+        m_MethodName: OnMouseUpAsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1678723238
@@ -9704,6 +9716,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1678723234}
+--- !u!114 &1678723240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1678723234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95938653d7c39284d9690cdd86959016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  total_round: 5
 --- !u!1 &1687500285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10282,22 +10306,22 @@ Prefab:
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 512
+      value: 358.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 384
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1024
+      value: 717
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 768
+      value: 326
       objectReference: {fileID: 0}
     - target: {fileID: 224000010765542312, guid: eaeb187050eff7a469dd1d1a7a44c4ac,
         type: 2}
