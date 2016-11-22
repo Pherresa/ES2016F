@@ -2,6 +2,7 @@
 using System.Collections;
 
 using UnityEngine.UI;
+using System;
 
 public class Enemy : MonoBehaviour {
 
@@ -13,19 +14,25 @@ public class Enemy : MonoBehaviour {
     private Text textLife;
     private RectTransform trans;
 
-    public int life;
-    public int maxlife;
+    public float life;
+    public float maxlife;
+    public int damage;
+
+    private GameObject explosion;
+
     // Use this for initialization
     void Start () {
-        life = 100;
-        maxlife = 100;
-        initText();
+        explosion = Resources.Load("Prefabs/Explosion") as GameObject;
+        life = 100f;
+        maxlife = 100f;
+        //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
         m_moviments.Enqueue(new Vector3(276, 60, 215)); // TEST
         m_moviments.Enqueue(new Vector3(155, 60, 389)); // TEST
         m_moviments.Enqueue(new Vector3(155, 60, 412)); // TEST
         m_movi_actu = (Vector3)m_moviments.Dequeue();
+        this.gameObject.AddComponent<Collider>();
     }
 
     void initText(){
@@ -66,16 +73,36 @@ public class Enemy : MonoBehaviour {
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
-        textLife.transform.position = pos;
-        trans.position = pos;
+        //textLife.transform.position = pos;
+        //trans.position = pos;
 
         Vector3 position_aprox = new Vector3((int)Mathf.Round(this.transform.position.x), (int)Mathf.Round(this.transform.position.y), (int)Mathf.Round(this.transform.position.z)); // We round the value, otherwise in certain cases may not work
         if (position_aprox == m_movi_actu)
         {
             m_movi_actu = (Vector3)m_moviments.Dequeue();
-            textLife.text ="";
+            //textLife.text ="";
         }
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
+
+        checkLife();
+    }
+
+    private void checkLife()
+    {
+        if(life <= 0)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "projectile")
+        {
+            //Destroy(this.gameObject);
+            life -= 30f;
+        }
     }
 }

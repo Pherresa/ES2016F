@@ -7,23 +7,23 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     public GameObject prefab;
     GameObject hoverPrefab;
-    public GameObject[] availableSlots;
+    public Slot[] Slots;
+    GameManager gm;
     //GameObject activeSlot;
 
     Slot activeSlot;
-    public Slot[] Slots;
-
+    Action_Defense prefabActionDefense;
+    LifeAmountManager lifeAmountManager;
 
     /**
      * Prefab Unit instantation still not active, ready to be drag 
      * */
     void Start()
     {
-    	Slots = FindObjectsOfType(typeof(Slot)) as Slot[]; 
-        /*hoverPrefab = Instantiate (prefab);
-		
-		AdjustPrefabAlpha ();
-		hoverPrefab.SetActive (false);*/
+    	Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
+
+        prefabActionDefense = prefab.GetComponent<Action_Defense>();
+        lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
     }
 
 
@@ -32,12 +32,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     void AdjustPrefabAlpha()
     {
-        MeshRenderer[] meshRenderers = hoverPrefab.GetComponentsInChildren<MeshRenderer>();
-        for (int i = 0; i < meshRenderers.Length; i++)
+        foreach(MeshRenderer meshRenderer in hoverPrefab.GetComponentsInChildren<MeshRenderer>())
         {
-            Material mat = meshRenderers[i].material;
-            meshRenderers[i].material.color = new Color(mat.color.r, mat.color.g, mat.color.b, 0.5f);
-        }
+            meshRenderer.material.SetColor("_Color", new Color(0.0f, 0.0f, 0.0f, 0.25f));
+        };
     }
 
     /**
@@ -45,25 +43,28 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        RaycastHit[] hits;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        hits = Physics.RaycastAll(ray, 50f);
-        if (hits != null && hits.Length > 0)
+        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
         {
-            MaybeShowHoverPrefab(hits);
+            RaycastHit[] hits;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            hits = Physics.RaycastAll(ray, 5000f);
+            if (hits != null && hits.Length > 0)
+            {
+                MaybeShowHoverPrefab(hits);
 
-            int slotIndex = GetSlotIndex(hits);
-            if (slotIndex != -1)
-            {
-                GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
-                Slot slotQuad = slotQuadObject.GetComponent<Slot>();
-                activeSlot = slotQuad;
-                EnableSlot(slotQuad);
-            }
-            else
-            {
-                activeSlot = null;
-                DisableAllSlots();
+                int slotIndex = GetSlotIndex(hits);
+                if (slotIndex != -1)
+                {
+                    GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
+                    Slot slotQuad = slotQuadObject.GetComponent<Slot>();
+                    activeSlot = slotQuad;
+                    EnableSlot(slotQuad);
+                }
+                else
+                {
+                    activeSlot = null;
+                    DisableAllSlots();
+                }
             }
         }
     }
@@ -151,28 +152,42 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (activeSlot != null)
+        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
         {
-			// MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
-			if(!activeSlot.getIsPath() && !activeSlot.isOccupied){
-				Vector3 quadCentre = GetQuadCentre (activeSlot.gameObject);
-				GameObject newUnit = (GameObject) Instantiate (prefab, quadCentre, Quaternion.identity);
-				//activeSlot.SetActive (false);
-				activeSlot.isOccupied = true;
-				activeSlot.unit = newUnit;
-				activeSlot.GetComponent<MeshRenderer> ().enabled = false;
-			}
-			else{
-				activeSlot.SetActive(false);
-			}
-        }
-        else
-        {
-            Destroy(hoverPrefab);
-        }
+            if (activeSlot != null)
+            {
+                // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
+                if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
+                {
+                    Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
+                    GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
+                    Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
-        // Then set it to inactive ready for the next drag!
-        hoverPrefab.SetActive (false);
+                    actionDefense.activate();
+                    lifeAmountManager.LoseAmount(actionDefense.towerPrice);
+
+                    foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
+                    {
+                        particleSystem.Play();
+                    }
+
+                    activeSlot.isOccupied = true;
+                    activeSlot.unit = newUnit;
+                    activeSlot.GetComponent<MeshRenderer>().enabled = false;
+
+                }
+                else
+                {
+                    activeSlot.SetActive(false);
+                }
+            }
+            else
+            {
+                Destroy(hoverPrefab);
+            }
+            // Then set it to inactive ready for the next drag!
+            hoverPrefab.SetActive(false);
+        }
     }
 
     /**
@@ -194,8 +209,13 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        hoverPrefab = Instantiate(prefab);
-        AdjustPrefabAlpha();
-        hoverPrefab.SetActive(false);
+
+        if(lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        {
+            hoverPrefab = Instantiate(prefab);
+            AdjustPrefabAlpha();
+            hoverPrefab.SetActive(false);
+        }
+
     }
 }
