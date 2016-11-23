@@ -4,21 +4,24 @@ using UnityEngine.UI;
 
 public class Start_Round : MonoBehaviour {
 
-    public int act_time;
+    private int act_time;
     public int total_round;
     
 
     private int cnt_time;
     private int cont_round;
     private bool act_time_cont;
-    public TextMesh indicator_time;
+    private LifeAmountManager indicator_time;
+    private EnemyManager generate_round;
     
     //public Text buttonText;
 
     // Use this for initialization
     void Start () {
-        indicator_time = GameObject.FindGameObjectWithTag("Time_Cont").GetComponent<TextMesh>();
-        indicator_time.text = act_time.ToString();
+        indicator_time = GameObject.Find("GameManager").GetComponent<LifeAmountManager>();
+        indicator_time.setRemainingTime(0);
+generate_round = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+        act_time = Enemy_Constants.TIME;
         cnt_time = act_time;
         act_time_cont = true;
     }
@@ -37,7 +40,7 @@ public class Start_Round : MonoBehaviour {
 
     private void countDown() {
         act_time -= 1;
-        indicator_time.text = act_time.ToString();
+        indicator_time.setRemainingTime(act_time);
         if (act_time <= 0) // countdown_finish start game
         {
             new_round();
@@ -45,10 +48,10 @@ public class Start_Round : MonoBehaviour {
     }
 
     private void new_round() {
-        float time_tmp = cnt_time * 1.3f;
+        float time_tmp = cnt_time * Enemy_Constants.TIME_INCREMENT;
         act_time = (int)time_tmp;
         cnt_time = act_time;
-        // Function Generate Round
+        generate_round.createNewWave();
         //Debug.Log("Generate Round");
     }
 }

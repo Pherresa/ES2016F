@@ -16,11 +16,11 @@ public class GeneralEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//For example
-		maxLife = 100;
-		life = 100;
+		maxLife = Enemy_Values_Gene.m_little_enemy("l");
+		life = Enemy_Values_Gene.m_little_enemy("l");
 
 		// Todo
-		damage = 0;
+		damage = Enemy_Values_Gene.m_little_enemy("a");
 		timeAttack = 0;
 		alive = true;
 		EnemyLifeText = GameObject.Find("EnemyLifeText").GetComponent<Text>();
