@@ -15,6 +15,7 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
+	public int currentScore = 0; // TODO: 
     private float startTime; // Used for the timer
     private int minuteCount;
     private int secCount;
@@ -35,13 +36,13 @@ public class LifeAmountManager : MonoBehaviour
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
-        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
+        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
 
     }
 
     public void setRemainingTime(float r)
     {
-        remainingTime = r;
+		remainingTime = r;
     }
 
     void UpdateLifeText()
@@ -65,7 +66,9 @@ public class LifeAmountManager : MonoBehaviour
             newSec = false;
         }
         secCount = (int)(remainingTime%60f);
-        timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
+		timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
+		Debug.Log("TEXTime");
+		Debug.Log(calculateFinalScore());
 
     }
 
@@ -171,6 +174,57 @@ public class LifeAmountManager : MonoBehaviour
         }
 
     }
+
+
+	/**
+	 * The formula will calculate after the player die or after the player finished a specific level.
+	 * This will depend to the life's player, time's remaining, money' remaining and the objects you bought.
+	 */
+	public int calculateFinalScore(){
+
+		// weight value: we give 5 to balance the final score, most reality
+		int weight = 5;
+
+		// life parameter we will use it also for the formula -> life 
+		// the time remaining is important too  -> timeremaining  
+		// player's money remaining is used too -> amount
+
+		// objects that players bougth aslo -> priceObjects 
+		Debug.Log ("Price objects Final");
+		int priceObjects = calculatePriceBoughtObjects(); // TODO: Get the price of the bought objects 
+
+		// the level also is a good parameter to obtain the final score -> level 
+		int level = 1; // TODO: Get the level of the game
+
+		Debug.Log ("remainingRime");
+		Debug.Log((int)(remainingTime));
+		// So now we can define the formula 
+		return weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
+	}
+
+	/**
+	 * Calculates the price of bought objects.
+	 */
+	public int calculatePriceBoughtObjects() {
+		Action_Defense[] objects = (Action_Defense[])GameObject.FindObjectsOfType<Action_Defense> ();
+		Debug.Log ("Price objects 0");
+		int priceObjects = 0;
+		for (int i = 0; i < objects.Length; i++) {
+			Debug.Log (objects [i].towerPrice);
+			priceObjects += objects [i].towerPrice;
+		}
+		return priceObjects / 2;
+	}
+
+
+	/**
+	 * Update value of current score
+	 * 
+	 */
+	public void updateCurrentScore( int value ) {
+		this.currentScore += value;
+	}
+
 
 
 }
