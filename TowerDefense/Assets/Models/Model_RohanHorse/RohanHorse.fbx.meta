@@ -35,6 +35,94 @@ ModelImporter:
     100054: The_Prince
     100056: The_Prince.001
     100058: Punto
+    100060: AntebrazoDrch
+    100062: AntebrazoIzq
+    100064: AnularExtDrch
+    100066: AnularExtDrch_end
+    100068: AnularExtIzq
+    100070: AnularExtIzq_end
+    100072: AnularMedioDrch
+    100074: AnularMedioIzq
+    100076: Bone.007
+    100078: Bone.008
+    100080: Bone.009
+    100082: Bone.009_end
+    100084: Bone.010
+    100086: Bone.011
+    100088: Bone.012
+    100090: Bone.013
+    100092: Bone.013_end
+    100094: Bone.014
+    100096: Bone.015
+    100098: Bone.016
+    100100: Bone.017
+    100102: Bone.017_end
+    100104: Bone.018
+    100106: Bone.019
+    100108: Bone.020
+    100110: Bone.021
+    100112: Bone.022_end
+    100114: Bone.025_end
+    100116: Bone.029
+    100118: Bone.029_end
+    100120: BrazoDrch
+    100122: BrazoIzq
+    100124: Cabeza
+    100126: Cabeza_end
+    100128: CaderaDrch
+    100130: CaderaIzq
+    100132: Camera
+    100134: CodoIzq
+    100136: CodoIzq_end
+    100138: CorazonExtDrch
+    100140: CorazonExtDrch_end
+    100142: CorazonExtIzq
+    100144: CorazonExtIzq_end
+    100146: CorazonMedioDrch
+    100148: CorazonMedioIzq
+    100150: Cuello
+    100152: FemurDrch
+    100154: FemurIzq
+    100156: IndiceExtDrch
+    100158: IndiceExtDrch_end
+    100160: IndiceExtIzq
+    100162: IndiceExtIzq_end
+    100164: IndiceMedioDrch
+    100166: IndiceMedioIzq
+    100168: MenyiqueExtDrch
+    100170: MenyiqueExtDrch_end
+    100172: MenyiqueExtIzq
+    100174: MenyiqueExtIzq_end
+    100176: MenyiqueMedioDrch
+    100178: MenyiqueMedioIzq
+    100180: MetaAnularDrch
+    100182: MetaAnularIzq
+    100184: MetaCorazonDrch
+    100186: MetaCorazonIzq
+    100188: MetaIndiceDrch
+    100190: MetaIndiceIzq
+    100192: MetaMenyiqueDrch
+    100194: MetaMenyiqueIzq
+    100196: MetaPulgarDrch
+    100198: MetaPulgarIzq
+    100200: Move0
+    100202: move1
+    100204: PectoralDrch
+    100206: PectoralIzq
+    100208: PieDrch
+    100210: PieDrch_end
+    100212: PieIzq
+    100214: PieIzq_end
+    100216: PulgarDrch
+    100218: PulgarDrch_end
+    100220: PulgarIzq
+    100222: PulgarIzq_end
+    100224: Sword
+    100226: TibiaDrch
+    100228: TibiaIzq
+    100230: Tronco
+    100232: Warrior
+    100234: Warrior.003
     400000: Bone
     400002: Bone.001
     400004: Bone.001_end
@@ -65,20 +153,121 @@ ModelImporter:
     400054: The_Prince
     400056: The_Prince.001
     400058: Punto
+    400060: AntebrazoDrch
+    400062: AntebrazoIzq
+    400064: AnularExtDrch
+    400066: AnularExtDrch_end
+    400068: AnularExtIzq
+    400070: AnularExtIzq_end
+    400072: AnularMedioDrch
+    400074: AnularMedioIzq
+    400076: Bone.007
+    400078: Bone.008
+    400080: Bone.009
+    400082: Bone.009_end
+    400084: Bone.010
+    400086: Bone.011
+    400088: Bone.012
+    400090: Bone.013
+    400092: Bone.013_end
+    400094: Bone.014
+    400096: Bone.015
+    400098: Bone.016
+    400100: Bone.017
+    400102: Bone.017_end
+    400104: Bone.018
+    400106: Bone.019
+    400108: Bone.020
+    400110: Bone.021
+    400112: Bone.022_end
+    400114: Bone.025_end
+    400116: Bone.029
+    400118: Bone.029_end
+    400120: BrazoDrch
+    400122: BrazoIzq
+    400124: Cabeza
+    400126: Cabeza_end
+    400128: CaderaDrch
+    400130: CaderaIzq
+    400132: Camera
+    400134: CodoIzq
+    400136: CodoIzq_end
+    400138: CorazonExtDrch
+    400140: CorazonExtDrch_end
+    400142: CorazonExtIzq
+    400144: CorazonExtIzq_end
+    400146: CorazonMedioDrch
+    400148: CorazonMedioIzq
+    400150: Cuello
+    400152: FemurDrch
+    400154: FemurIzq
+    400156: IndiceExtDrch
+    400158: IndiceExtDrch_end
+    400160: IndiceExtIzq
+    400162: IndiceExtIzq_end
+    400164: IndiceMedioDrch
+    400166: IndiceMedioIzq
+    400168: MenyiqueExtDrch
+    400170: MenyiqueExtDrch_end
+    400172: MenyiqueExtIzq
+    400174: MenyiqueExtIzq_end
+    400176: MenyiqueMedioDrch
+    400178: MenyiqueMedioIzq
+    400180: MetaAnularDrch
+    400182: MetaAnularIzq
+    400184: MetaCorazonDrch
+    400186: MetaCorazonIzq
+    400188: MetaIndiceDrch
+    400190: MetaIndiceIzq
+    400192: MetaMenyiqueDrch
+    400194: MetaMenyiqueIzq
+    400196: MetaPulgarDrch
+    400198: MetaPulgarIzq
+    400200: Move0
+    400202: move1
+    400204: PectoralDrch
+    400206: PectoralIzq
+    400208: PieDrch
+    400210: PieDrch_end
+    400212: PieIzq
+    400214: PieIzq_end
+    400216: PulgarDrch
+    400218: PulgarDrch_end
+    400220: PulgarIzq
+    400222: PulgarIzq_end
+    400224: Sword
+    400226: TibiaDrch
+    400228: TibiaIzq
+    400230: Tronco
+    400232: Warrior
+    400234: Warrior.003
     2300000: horse
     2300002: horse1
     2300004: The_Prince
+    2300006: Sword
     3300000: horse
     3300002: horse1
     3300004: The_Prince
+    3300006: Sword
     4300000: horse
     4300002: horse1
     4300004: pCube1
     4300006: The_Prince.001
     4300008: The_Prince
+    4300010: Warrior.003
+    4300012: Warrior
+    4300014: Sword
+    7400000: Move0|Moving_RohanHorse_MT
+    7400002: Move0|Moving_RohanHorse_MT.001
+    7400004: move1|Moving_RohanHorse_MT.001
+    7400006: move1|Moving_RohanHorse_MT.002
+    7400008: Sword|Moving_RohanHorse_MT.001
     9500000: //RootNode
     13700000: pCube1
     13700002: The_Prince.001
+    13700004: horse
+    13700006: Warrior
+    13700008: Warrior.003
   materials:
     importMaterials: 1
     materialName: 0
@@ -103,7 +292,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.4
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
