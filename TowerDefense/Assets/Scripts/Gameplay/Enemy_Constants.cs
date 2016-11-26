@@ -37,6 +37,10 @@ public static class Enemy_Constants{
     public const int T_ATTACK_MEDIUM = 20;
     public const int T_ATTACK_BIG = 30;
 
+    public const int T_MONEY_LITTLE = 80;
+    public const int T_MONEY_MEDIUM = 100;
+    public const int T_MONEY_BIG = 150;
+
     // General
     public const int TIME = 60;
     public const float TIME_DECREASE = 0.9f;
