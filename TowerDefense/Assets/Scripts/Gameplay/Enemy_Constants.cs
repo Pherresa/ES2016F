@@ -29,9 +29,9 @@ public static class Enemy_Constants{
 
 
     // Tower
-    public const int T_RANGE_LITTLE = 500;
-    public const int T_RANGE_MEDIUM = 400;
-    public const int T_RANGE_BIG = 300;
+    public const int T_RANGE_LITTLE = 50;
+    public const int T_RANGE_MEDIUM = 40;
+    public const int T_RANGE_BIG = 30;
 
     public const int T_ATTACK_LITTLE = 10;
     public const int T_ATTACK_MEDIUM = 20;

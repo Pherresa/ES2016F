@@ -8,7 +8,7 @@ using System;
  */
 public class Action_Defense : Tower
 {
-    public int towerPrice = 0;
+    public int towerPrice;
     public int towerTama;
 
     //Animation animation;
@@ -17,7 +17,6 @@ public class Action_Defense : Tower
     private Vector3 posIni;
     private int maxFrameToPredict = 8;
     private int plusToPredict = 6;
-    private int price;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -242,17 +241,17 @@ public class Action_Defense : Tower
             case 1:
                 range = Enemy_Values_Gene.m_little_tower("r");
                 strenght = Enemy_Values_Gene.m_little_tower("a");
-                price = Enemy_Values_Gene.m_little_tower("m") / 2;
+                towerPrice = (int) Enemy_Values_Gene.m_little_tower("m") / 2;
                 break;
             case 2:
                 range = Enemy_Values_Gene.m_medium_tower("r");
                 strenght = Enemy_Values_Gene.m_medium_tower("a");
-                price = Enemy_Values_Gene.m_medium_tower("m") / 2;
+                towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m") / 2;
                 break;
             case 3:
                 range = Enemy_Values_Gene.m_big_tower("r");
                 strenght = Enemy_Values_Gene.m_big_tower("a");
-                price = Enemy_Values_Gene.m_big_tower("m") / 2;
+                towerPrice = (int)Enemy_Values_Gene.m_big_tower("m") / 2;
                 break;
             default:
                 Debug.Log("This type does not exist.");

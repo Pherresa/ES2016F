@@ -184,7 +184,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(actionDefense.towerPrice);
+                    decremen_wallet(actionDefense); // no se porque pero al acceder al valor siempre es 0, de esta forma no.
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -239,5 +239,25 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             hoverPrefab.SetActive(false);
         }
 
+    }
+
+    private void decremen_wallet(Action_Defense actionDefense) {
+        int disco = 0;
+        switch (actionDefense.towerTama)
+        {
+            case 1:
+                disco = (int)Enemy_Values_Gene.m_little_tower("m") / 2;
+                break;
+            case 2:
+                disco = (int)Enemy_Values_Gene.m_medium_tower("m") / 2;
+                break;
+            case 3:
+                disco = (int)Enemy_Values_Gene.m_big_tower("m") / 2;
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
+        lifeAmountManager.LoseAmount(disco);
     }
 }
