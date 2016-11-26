@@ -32,6 +32,11 @@ public class LifeAmountManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        amount = Enemy_Constants.WALLET;
+        life = Enemy_Values_Gene.m_mt_tower("l");
+        FIRST_TURRET_PRICE = Enemy_Values_Gene.m_little_tower("m");
+        SECOND_TURRET_PRICE = Enemy_Values_Gene.m_medium_tower("m");
+        THIRTH_TURRET_PRICE = Enemy_Values_Gene.m_big_tower("m");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
