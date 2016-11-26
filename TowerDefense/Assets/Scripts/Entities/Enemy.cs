@@ -122,7 +122,7 @@ public class Enemy : MonoBehaviour {
         if(life <= 0)
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().amount += money;
+            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(money);
             Destroy(gameObject);
             playSound(soundDeath);
 
