@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Slot : MonoBehaviour {
 
@@ -27,5 +28,16 @@ public class Slot : MonoBehaviour {
 	public void SetActive(bool active){
 		gameObject.SetActive(active);
 	}
-    
+
+    void OnMouseDown() {
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.RemoveAllListeners();
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.AddListener(sell_obj);
+        
+    }
+
+    private void sell_obj() {
+        GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(unit.GetComponent<Action_Defense>().towerPrice);
+        isOccupied = false;
+        Destroy(unit);
+    }
 }

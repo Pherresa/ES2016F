@@ -246,13 +246,13 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         switch (actionDefense.towerTama)
         {
             case 1:
-                disco = (int)Enemy_Values_Gene.m_little_tower("m") / 2;
+                disco = (int)Enemy_Values_Gene.m_little_tower("m");
                 break;
             case 2:
-                disco = (int)Enemy_Values_Gene.m_medium_tower("m") / 2;
+                disco = (int)Enemy_Values_Gene.m_medium_tower("m");
                 break;
             case 3:
-                disco = (int)Enemy_Values_Gene.m_big_tower("m") / 2;
+                disco = (int)Enemy_Values_Gene.m_big_tower("m");
                 break;
             default:
                 Debug.Log("Error");

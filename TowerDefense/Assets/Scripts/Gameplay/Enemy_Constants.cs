@@ -44,7 +44,7 @@ public static class Enemy_Constants{
     // General
     public const int TIME = 60;
     public const float TIME_DECREASE = 0.9f;
-    public const int WALLET = 100;
+    public const int WALLET = 200;
 
     // Main Tower
 
