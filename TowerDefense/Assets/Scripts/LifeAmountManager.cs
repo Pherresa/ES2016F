@@ -77,9 +77,6 @@ public class LifeAmountManager : MonoBehaviour
         if(!final_round)
             timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
 
-		Debug.Log("TEXTime");
-		Debug.Log(calculateFinalScore());
-
     }
 
     public bool LoseAmount(int a)
