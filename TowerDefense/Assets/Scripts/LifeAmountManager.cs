@@ -34,6 +34,7 @@ public class LifeAmountManager : MonoBehaviour
     {
         amount = Enemy_Constants.WALLET;
         life = Enemy_Values_Gene.m_mt_tower("l");
+        UpdateLifeText();
         FIRST_TURRET_PRICE = Enemy_Values_Gene.m_little_tower("m");
         SECOND_TURRET_PRICE = Enemy_Values_Gene.m_medium_tower("m");
         THIRTH_TURRET_PRICE = Enemy_Values_Gene.m_big_tower("m");
@@ -54,7 +55,7 @@ public class LifeAmountManager : MonoBehaviour
     void UpdateLifeText()
     {
 
-        lifeText.text = "Tower Life: " + life.ToString();
+        lifeText.text = life.ToString();
 
     }
     void UpdateAmountText()

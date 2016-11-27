@@ -48,7 +48,7 @@ public static class Enemy_Constants{
 
     // Main Tower
 
-    public const int MT_LIFE = 400;
+    public const int MT_LIFE = 100;
     public const float MT_RANGE = 13f;
     public const int MT_ATTACK = 10;
 
