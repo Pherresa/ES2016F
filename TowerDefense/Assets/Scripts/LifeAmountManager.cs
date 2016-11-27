@@ -15,7 +15,12 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
-	public int currentScore = 0; // TODO: 
+
+	public int currentScore = 0; // TODO: TEAM_D show in the play window
+	// This will use to reset the score 
+	// after finishing a round (Start_Round.cs)
+	public int currentScoreNextRound = 0; 
+
     private float startTime; // Used for the timer
     private int minuteCount;
     private int secCount;
@@ -187,7 +192,7 @@ public class LifeAmountManager : MonoBehaviour
 
 
 	/**
-	 * The formula will calculate after the player die or after the player finished a specific level.
+	 * The formula will calculate after the player die or after the player finished a specific level (round).
 	 * This will depend to the life's player, time's remaining, money' remaining and the objects you bought.
 	 */
 	public int calculateFinalScore(){
@@ -201,15 +206,22 @@ public class LifeAmountManager : MonoBehaviour
 
 		// objects that players bougth aslo -> priceObjects 
 		Debug.Log ("Price objects Final");
-		int priceObjects = calculatePriceBoughtObjects(); // TODO: Get the price of the bought objects 
+		int priceObjects = calculatePriceBoughtObjects(); //  Get the price of the bought objects 
 
 		// the level also is a good parameter to obtain the final score -> level 
-		int level = 1; // TODO: Get the level of the game
+		Start_Round st = GameObject.FindObjectOfType<Start_Round>();
+		int level = st.actu_round()+1; // Get the level of the game 
+									   // We do +1 because it's start in 0.
 
 		Debug.Log ("remainingRime");
 		Debug.Log((int)(remainingTime));
-		// So now we can define the formula 
-		return weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
+
+		// We save the value of the finalScore becuase in the next 
+		// round this score will be the current score of the player.
+		// So now we can define the formula: 
+		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
+ 
+		return currentScoreNextRound;
 	}
 
 	/**

@@ -55,14 +55,20 @@ public class Start_Round : MonoBehaviour {
         }
     }
 
-    private void new_round() {
+    private void new_round() { 
+			
         float time_tmp = cnt_time * Enemy_Constants.TIME_DECREASE;
         act_time = (int)time_tmp;
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
         generate_round.createNewWave();
-        Debug.Log("Generate Round");
+        Debug.Log("Generate Round"); 
+ 
+		// After finishing a round, the currentScore is updated
+		// to the finalScoreof the previos round
+		LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
+		lifeAM.currentScore = lifeAM.currentScoreNextRound;
     }
 
     public int actu_round(){
