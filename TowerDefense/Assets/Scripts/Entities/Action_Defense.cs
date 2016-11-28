@@ -8,7 +8,8 @@ using System;
  */
 public class Action_Defense : Tower
 {
-    public int towerPrice = 0;
+    public int towerPrice;
+    public int towerTama;
 
     //Animation animation;
     private float timer = 0.6f;
@@ -77,9 +78,10 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
-        range = 40f;
-        strenght = 1;
-        predict = 0;
+        get_value_tower();
+        //range = 40f;
+        //strenght = 1;
+        //predict = 0;
         getTypeOfDefense();
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
@@ -230,6 +232,32 @@ public class Action_Defense : Tower
     public override void disable()
     {
         active = false;
+    }
+
+    private void get_value_tower()
+    {
+        switch (towerTama)
+        {
+            case 1:
+                range = Enemy_Values_Gene.m_little_tower("r");
+                strenght = Enemy_Values_Gene.m_little_tower("a");
+                towerPrice = (int) Enemy_Values_Gene.m_little_tower("m") / 2;
+                break;
+            case 2:
+                range = Enemy_Values_Gene.m_medium_tower("r");
+                strenght = Enemy_Values_Gene.m_medium_tower("a");
+                towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m") / 2;
+                break;
+            case 3:
+                range = Enemy_Values_Gene.m_big_tower("r");
+                strenght = Enemy_Values_Gene.m_big_tower("a");
+                towerPrice = (int)Enemy_Values_Gene.m_big_tower("m") / 2;
+                break;
+            default:
+                Debug.Log("This type does not exist.");
+                break;
+        }
+        predict = 0;
     }
 }
 
