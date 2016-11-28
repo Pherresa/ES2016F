@@ -5,7 +5,7 @@ public class KeyEvnts : MonoBehaviour {
 
     public GameObject escMenu;
     public GameObject mainCamera;
-    public float speed = 1.0f;
+    public float speed = 30.0f;
     private bool escMenuIsActive = false;
 
     public float maxZ = 110f, minZ = -110f;

@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
 
     public float life;
     public float maxlife;
+    public int damage;
+
 
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
@@ -31,16 +33,15 @@ public class Enemy : MonoBehaviour {
 
 
     private GameObject explosion;
-    private float lifeVirus;
 
     // Use this for initialization
     void Start () {
+
         soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
 
         soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
 
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
-        lifeVirus = UnityEngine.Random.Range(0.5f, 10f);
         life = 100f;
         maxlife = 100f;
         //initText();
@@ -53,10 +54,11 @@ public class Enemy : MonoBehaviour {
         this.gameObject.AddComponent<Collider>();
     }
 
+
+
     void playSound(AudioClip audio){
         source.PlayOneShot (audio);
     }
-
 
 
     void initText(){
@@ -95,9 +97,6 @@ public class Enemy : MonoBehaviour {
     // end we get another point the FIFO queue.
     void Update () {
 
-        //Only for testing TODO: delete it
-        life = life - lifeVirus * Time.deltaTime;
-
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
@@ -122,6 +121,8 @@ public class Enemy : MonoBehaviour {
             playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            playSound(soundDeath);
+
         }
     }
 
@@ -129,8 +130,10 @@ public class Enemy : MonoBehaviour {
     {
         if (col.gameObject.tag == "projectile")
         {
+            //Destroy(this.gameObject);
             playSound(soundAttacked);
-            Destroy(this.gameObject);
+
+            life -= 30f;
         }
     }
 }
