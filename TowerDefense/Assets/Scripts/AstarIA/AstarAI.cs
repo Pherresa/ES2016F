@@ -9,6 +9,9 @@ public class AstarAI : MonoBehaviour {
 	private Seeker seeker;
 
 	public float speed;
+    public float turnSpeed = 10f;
+    public Transform enemyBody;
+    public Transform enemyCompass;
 
 	float nextWaypointDistance = 2f;
 
@@ -19,20 +22,24 @@ public class AstarAI : MonoBehaviour {
 
 	//The waypoint we are currently moving towards
 	private int currentWaypoint = 0;
+    private LifeAmountManager lifeAmountManager;
+    private Enemy enemy;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		//Get a reference to the Seeker component we added earlier
 		seeker = GetComponent<Seeker>();
 		characterController = GetComponent<CharacterController>();
+        lifeAmountManager = GameObject.FindObjectOfType<LifeAmountManager>();
+        enemy = GetComponentInParent<Enemy>();
 
-		//Start a new path to the targetPosition, return the result to the OnPathComplete function
-		seeker.StartPath (transform.position,target.position, OnPathComplete);
+        //Start a new path to the targetPosition, return the result to the OnPathComplete function
+        seeker.StartPath (transform.position,target.position, OnPathComplete);
 	}
 
 	public void OnPathComplete (Path p) {
-		if (!p.error) {
-			path = p;
+        if (!p.error) {
+            path = p;
 			currentWaypoint = 0;
 		} else {
 			Debug.Log (p.error);
@@ -45,18 +52,22 @@ public class AstarAI : MonoBehaviour {
 			return;
 		}
 
-		if (currentWaypoint >= path.vectorPath.Count) {
+		if (currentWaypoint >= path.vectorPath.Count-5) {
 			Debug.Log ("End Of Path Reached");
-			return;
+            checkPosition();
+            return;
 		}
 
 		Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized * speed;
 		characterController.SimpleMove (dir);
+        enemyCompass.LookAt(path.vectorPath[currentWaypoint]);
+        enemyBody.rotation = Quaternion.Lerp(enemyBody.rotation, enemyCompass.rotation, Time.deltaTime * turnSpeed);
 
-		if (Vector3.Distance (transform.position, path.vectorPath [currentWaypoint]) < nextWaypointDistance) {
+        if (Vector3.Distance (transform.position, path.vectorPath [currentWaypoint]) < nextWaypointDistance) {
 			currentWaypoint++;
 			return;
 		}
+        
 
 	}
 
@@ -65,5 +76,11 @@ public class AstarAI : MonoBehaviour {
 
 	}
 
-	public float Speed { get; set; }
+    private void checkPosition()
+    {
+        lifeAmountManager.LoseLife(enemy.damage);
+        Destroy(gameObject);
+    }
+
+    public float Speed { get; set; }
 }
