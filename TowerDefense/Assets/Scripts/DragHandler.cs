@@ -42,6 +42,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     	Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
+        obt_price(prefabActionDefense);
         lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
     }
 
@@ -184,7 +185,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    decremen_wallet(actionDefense); // no se porque pero al acceder al valor siempre es 0, de esta forma no.
+                    lifeAmountManager.LoseAmount(prefabActionDefense.towerPrice);
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -241,23 +242,21 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     }
 
-    private void decremen_wallet(Action_Defense actionDefense) {
-        int disco = 0;
+    private void obt_price(Action_Defense actionDefense) {
         switch (actionDefense.towerTama)
         {
             case 1:
-                disco = (int)Enemy_Values_Gene.m_little_tower("m");
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_little_tower("m");
                 break;
             case 2:
-                disco = (int)Enemy_Values_Gene.m_medium_tower("m");
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m");
                 break;
             case 3:
-                disco = (int)Enemy_Values_Gene.m_big_tower("m");
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_big_tower("m");
                 break;
             default:
                 Debug.Log("Error");
                 break;
         }
-        lifeAmountManager.LoseAmount(disco);
     }
 }
