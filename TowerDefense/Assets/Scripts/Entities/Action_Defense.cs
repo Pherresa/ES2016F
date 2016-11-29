@@ -21,7 +21,7 @@ public class Action_Defense : Tower
     private int plusToPredict = 6;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
-    private float speed = 4f;
+    private float speed = 3f;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -229,18 +229,7 @@ public class Action_Defense : Tower
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
                 posIni = target.transform.position + (tmp * plusToPredict);
 
-                if (distanceToEnemy < range && distanceToEnemy > range / 2.0f)
-                {
-                    posIni *= 4;
-                }
-                else if (distanceToEnemy < range && distanceToEnemy > range / 3.0f)
-                {
-                    posIni *= 3;
-                }
-                else if (distanceToEnemy < range / 3.0f && distanceToEnemy > range / 4.0f)
-                {
-                    posIni *= 1.5f;
-                }
+                
 
             }
             if (predict != maxFrameToPredict)
@@ -394,7 +383,7 @@ public class Action_Defense : Tower
             Vector3 tmp = this.transform.position;
             tmp.y += 15f;
             p.transform.position = tmp;
-            p.transform.localScale = new Vector3(3f, 3f, 3f);
+            p.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
             p.AddComponent<ShootingMove>();
             p.GetComponent<ShootingMove>().pos = posIni;
             p.GetComponent<ShootingMove>().tag = "projectile";
