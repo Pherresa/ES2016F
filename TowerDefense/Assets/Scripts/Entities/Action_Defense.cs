@@ -12,11 +12,16 @@ public class Action_Defense : Tower
     public int towerTama;
 
     Animation anim;
+    AnimationState stateTrebuchetAttack;
+    AnimationState stateTrebuchetrecharge;
     private float timer = 0.6f;
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 8;
     private int plusToPredict = 6;
+    private int animationPhase = 0;
+    private bool nextPhaseAnim = false;
+    private float speed = 4f;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -33,59 +38,120 @@ public class Action_Defense : Tower
             // llamamos la funcion que gira al towers
             SpinTower.spin(target.transform.position, this.transform);
         }
-        playIdles();
+        
+        //print(animationPhase);
+        //print(stateTrebuchetrecharge.length - stateTrebuchetrecharge.time);
+
     }
 
-    private void playIdles()
+    private void initAnimTrebuchet()
     {
-        if (active)
+        if (type==1) {
+            anim["A_Trebuchet_attack"].speed = speed;
+            stateTrebuchetAttack = anim["A_Trebuchet_attack"];
+            stateTrebuchetAttack.time = 0;
+            stateTrebuchetAttack.enabled = true;
+            anim.Sample();
+            stateTrebuchetAttack.enabled = false;
+
+            anim["A_Trebuchet_recharge"].speed = speed;
+            stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
+            stateTrebuchetrecharge.time = 0;
+            stateTrebuchetrecharge.enabled = true;
+            anim.Sample();
+            stateTrebuchetrecharge.enabled = false;
+        }
+    }
+
+    private void checkPhaseAnim()
+    {
+        
+        if (type==1)
         {
-            if (type == 1)
+            if (animationPhase == 0)
             {
-                if (!anim.IsPlaying("A_Trebuchet_idle"))
+                anim.Play("A_Trebuchet_idle");
+            }
+            if (animationPhase == 1)
+            {
+                nextPhaseAnim = true;
+            }
+            if (animationPhase == 2)
+            {
+                if (stateTrebuchetAttack.length - stateTrebuchetAttack.time < 0.07f)
                 {
-                    anim.Play("A_Trebuchet_idle");
+                    nextPhaseAnim = true;
+                    lanzar();
+                }
+            }
+            if (animationPhase == 3)
+            {
+                if (stateTrebuchetrecharge.length - stateTrebuchetrecharge.time < 0.07f)
+                {
+                    nextPhaseAnim = true;
                 }
             }
         }
     }
 
+    private void checkDistanceTarget()
+    {
+        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
+        if (distanceToEnemy > range)
+        {
+            target = null;
+            animationPhase = 0;
+            predict = 0;
+        }
+    }
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
         if (active)
         {
-            if (predict == 0)
+            checkPhaseAnim();
+            if (animationPhase == 0)
             {
-
-                getTarget();
-                if (target != null)
+                if (predict == 0)
                 {
-                    posIni = target.transform.position;
-                    predict += 1;
+                    
+                    getTarget();
+                    if (target != null)
+                    {
+                        posIni = target.transform.position;
+                        predict += 1;
+                        
+                    }
+                }
+                else
+                {
+                    if (predict != maxFrameToPredict)
+                    {
+                        predictPositionToShoot();
+                    }
+
                 }
             }
-            else
-            {
-                if (predict != maxFrameToPredict)
-                {
-                    predictPositionToShoot();
-                }
 
-            }
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
+            //timer -= Time.deltaTime;
+            //if (timer <= 0)
+            //{
 
-                timer = 0.6f;
-                //anim.Play();
-                // if (!anim.isPlaying){
+            //        timer = 0.6f;
+            //anim.Play();
+            // if (!anim.isPlaying){
+            checkDistanceTarget();
+            if (target != null)
+            {
                 if (type != 0 && predict == maxFrameToPredict)
                 {
                     shoot();
-                    predict = 0;
+
                 }
+
+
                 // }
+                //}
             }
         }
     }
@@ -98,6 +164,7 @@ public class Action_Defense : Tower
         get_value_tower();
         getTypeOfDefense();
         anim = GetComponent<Animation>();
+        initAnimTrebuchet();
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
@@ -134,11 +201,18 @@ public class Action_Defense : Tower
             float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
             if (distanceToEnemy <= range)
             {
+                if (animationPhase==0)
+                {
+                    animationPhase = 1;
+                }
+                
                 shootProjectile();
             }
+           
         }
         else
         {
+            animationPhase = 0;
             predict = 0;
         }
     }
@@ -176,39 +250,72 @@ public class Action_Defense : Tower
         }
         else
         {
+            animationPhase = 0;
             predict = 0;
         }
     }
     // crea el proyectil. Como muchos no estan creados todavia, se genera ua sphera
-    private GameObject shootProjectile()
+    protected override void shootProjectile()
     {
-        GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        pro.AddComponent<Rigidbody>();
-        pro.AddComponent<Collider>();
-        Vector3 tmp = this.transform.position;
-        tmp.y += 2;
-        pro.transform.position = tmp;
-        pro.transform.localScale = new Vector3(2f, 2f, 2f);
-        pro.AddComponent<ShootingMove>();
-        pro.GetComponent<ShootingMove>().pos = posIni;
-        pro.GetComponent<ShootingMove>().tag = "projectile";
-        if (type == 1)
+        //GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+        if (target != null)
         {
-            pro.GetComponent<Renderer>().material.color = Color.blue;
+            if (type == 1)
+            {
+                if (animationPhase == 1)
+                {
+                    if (nextPhaseAnim)
+                    {
+                        nextPhaseAnim = false;
+                        anim.Play("A_Trebuchet_attack");
+                        animationPhase = 2;
+                    }
+                }
+                if (animationPhase == 2)
+                {
+                    if (nextPhaseAnim)
+                    {
+                        nextPhaseAnim = false;
+                        anim.Play("A_Trebuchet_recharge");
+                        animationPhase = 3;
+                    }
+                }
+                if (animationPhase == 3)
+                {
+                    if (nextPhaseAnim)
+                    {
+                        nextPhaseAnim = false;
+                        animationPhase = 0;
+                        predict = 0;
+                    }
+                }
+
+            }
+            if (type == 2)
+            {
+                lanzar();
+                animationPhase = 0;
+                predict = 0;
+            }
+            if (type == 3)
+            {
+                lanzar();
+                animationPhase = 0;
+                predict = 0;
+            }
+            if (type == 4)
+            {
+                lanzar();
+                animationPhase = 0;
+                predict = 0;
+            }
         }
-        if (type == 2)
+        else
         {
-            pro.GetComponent<Renderer>().material.color = Color.green;
+            animationPhase = 0;
+            predict = 0;
         }
-        if (type == 3)
-        {
-            pro.GetComponent<Renderer>().material.color = Color.red;
-        }
-        if (type == 4)
-        {
-            pro.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        return projectile;
     }
     // obtiene el enemigo mas cercano
     protected override void getTarget()
@@ -275,6 +382,24 @@ public class Action_Defense : Tower
                 break;
         }
         predict = 0;
+    }
+
+    private void lanzar()
+    {
+        if (type==1)
+        {
+            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            p.AddComponent<Rigidbody>();
+            p.AddComponent<Collider>();
+            Vector3 tmp = this.transform.position;
+            tmp.y += 15f;
+            p.transform.position = tmp;
+            p.transform.localScale = new Vector3(3f, 3f, 3f);
+            p.AddComponent<ShootingMove>();
+            p.GetComponent<ShootingMove>().pos = posIni;
+            p.GetComponent<ShootingMove>().tag = "projectile";
+            p.GetComponent<Renderer>().material.color = Color.blue;
+        }
     }
 }
 
