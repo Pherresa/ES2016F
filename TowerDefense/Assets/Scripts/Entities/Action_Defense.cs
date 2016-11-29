@@ -11,7 +11,7 @@ public class Action_Defense : Tower
     public int towerPrice;
     public int towerTama;
 
-    //Animation animation;
+    Animation anim;
     private float timer = 0.6f;
     private int predict;
     private Vector3 posIni;
@@ -24,14 +24,31 @@ public class Action_Defense : Tower
         iniStates();
     }
 
-	// Funcion que se executa por cada frame para poder girar correctamente the towers.
-	void Update() {
-		// vemos que no sea nulo
-		if (target != null) {
-			// llamamos la funcion que gira al towers
-			SpinTower.spin(target.transform.position, this.transform);
-		}
-	}
+    // Funcion que se executa por cada frame para poder girar correctamente the towers.
+    void Update()
+    {
+        // vemos que no sea nulo
+        if (target != null)
+        {
+            // llamamos la funcion que gira al towers
+            SpinTower.spin(target.transform.position, this.transform);
+        }
+        playIdles();
+    }
+
+    private void playIdles()
+    {
+        if (active)
+        {
+            if (type == 1)
+            {
+                if (!anim.IsPlaying("A_Trebuchet_idle"))
+                {
+                    anim.Play("A_Trebuchet_idle");
+                }
+            }
+        }
+    }
 
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
@@ -72,17 +89,15 @@ public class Action_Defense : Tower
             }
         }
     }
-        
-        
+
+
 
     // inicializador
     void iniStates()
     {
         get_value_tower();
-        //range = 40f;
-        //strenght = 1;
-        //predict = 0;
         getTypeOfDefense();
+        anim = GetComponent<Animation>();
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
@@ -115,13 +130,14 @@ public class Action_Defense : Tower
     {
         if (target != null)
         {
-            
+
             float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
             if (distanceToEnemy <= range)
-            { 
+            {
                 shootProjectile();
             }
-        }else
+        }
+        else
         {
             predict = 0;
         }
@@ -139,7 +155,7 @@ public class Action_Defense : Tower
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
                 posIni = target.transform.position + (tmp * plusToPredict);
 
-                if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
+                if (distanceToEnemy < range && distanceToEnemy > range / 2.0f)
                 {
                     posIni *= 4;
                 }
@@ -147,17 +163,18 @@ public class Action_Defense : Tower
                 {
                     posIni *= 3;
                 }
-                else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
+                else if (distanceToEnemy < range / 3.0f && distanceToEnemy > range / 4.0f)
                 {
                     posIni *= 1.5f;
                 }
-                
+
             }
             if (predict != maxFrameToPredict)
             {
                 predict += 1;
             }
-        }else
+        }
+        else
         {
             predict = 0;
         }
@@ -176,7 +193,7 @@ public class Action_Defense : Tower
         pro.GetComponent<ShootingMove>().pos = posIni;
         pro.GetComponent<ShootingMove>().tag = "projectile";
         if (type == 1)
-        { 
+        {
             pro.GetComponent<Renderer>().material.color = Color.blue;
         }
         if (type == 2)
@@ -212,11 +229,11 @@ public class Action_Defense : Tower
         {
             target = tmpEnemy;
         }
-         else
-         {
-             target = null;
-             predict = 0;
-         }
+        else
+        {
+            target = null;
+            predict = 0;
+        }
     }
     // para saber si esta activa o no.
     public override bool isActiveTower()
@@ -241,7 +258,7 @@ public class Action_Defense : Tower
             case 1:
                 range = Enemy_Values_Gene.m_little_tower("r");
                 strenght = Enemy_Values_Gene.m_little_tower("a");
-                towerPrice = (int) Enemy_Values_Gene.m_little_tower("m") / 2;
+                towerPrice = (int)Enemy_Values_Gene.m_little_tower("m") / 2;
                 break;
             case 2:
                 range = Enemy_Values_Gene.m_medium_tower("r");
