@@ -243,6 +243,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             AdjustPrefabAlpha();
             hoverPrefab.SetActive(false);
             GameObject aura = Instantiate(auraPrefab);
+            //TODO: Harm zone get by the prefab defense class.
             aura.GetComponent<Projector>().orthographicSize = 35;
             aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             aura.transform.parent = hoverPrefab.transform;
