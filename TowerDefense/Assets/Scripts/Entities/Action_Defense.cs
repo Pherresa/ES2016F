@@ -10,6 +10,7 @@ public class Action_Defense : Tower
 {
     public int towerPrice;
     public int towerTama;
+    Animation anim;
 
     //Animation animation;
     private float timer = 0.6f;
@@ -61,12 +62,19 @@ public class Action_Defense : Tower
             {
 
                 timer = 0.6f;
-                //anim.Play();
-                // if (!anim.isPlaying){
+                
                 if (type != 0 && predict == maxFrameToPredict)
                 {
-                    shoot();
-                    predict = 0;
+                    if (!anim.isPlaying)
+                    {
+                        anim.Play("A_Trebuchet_attack");
+                        shoot();
+                        predict = 0;
+                    }else
+                    {
+                        anim.Play("A_Trebuchet_recharge");
+                    }
+                    
                 }
                 // }
             }
@@ -91,6 +99,9 @@ public class Action_Defense : Tower
         if (name == "defense1_Trebuchet_MT")
         {
             type = 1;
+            anim = gameObject.GetComponent<Animation>();
+            anim.Play("A_Trebuchet_idle");
+            
         }
         if (name == "defense2_RohanBarracks_MT")
         {
