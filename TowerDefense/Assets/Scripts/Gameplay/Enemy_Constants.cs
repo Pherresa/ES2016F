@@ -38,8 +38,8 @@ public static class Enemy_Constants{
     public const int T_ATTACK_BIG = 30;
 
     // General
-    public const int TIME = 45;
-    public const float TIME_INCREMENT = 1.3f;
+    public const int TIME = 60;
+    public const float TIME_DECREASE = 0.9f;
     public const int WALLET = 100;
 
     // Main Tower
