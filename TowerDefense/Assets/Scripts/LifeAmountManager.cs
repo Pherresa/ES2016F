@@ -21,6 +21,7 @@ public class LifeAmountManager : MonoBehaviour
 
     private bool newSec;
     private GeneralEnemy[] enemies;
+    private bool final_round;
 
 
     public Text amountText;
@@ -32,6 +33,7 @@ public class LifeAmountManager : MonoBehaviour
     void Start()
     {
         newSec = false;
+        final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
@@ -65,7 +67,8 @@ public class LifeAmountManager : MonoBehaviour
             newSec = false;
         }
         secCount = (int)(remainingTime%60f);
-        timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
+        if(!final_round)
+            timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
 
     }
 
@@ -172,6 +175,8 @@ public class LifeAmountManager : MonoBehaviour
 
     }
 
-
+    public void set_final_round(bool e) {
+        final_round = e;
+    }
 }
 
