@@ -36,6 +36,8 @@ public class LifeAmountManager : MonoBehaviour
     public float remainingTime; //seconds
     public GameObject mainTower;
     public GameObject firstD;
+    public GameObject secondD;
+    public GameObject thirdD;
 
     // Use this for initialization
     void Start()
@@ -111,11 +113,20 @@ public class LifeAmountManager : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         life -= l;
-        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25)
+        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
         {
             firstD.SetActive(true);
-           
+
         }
+        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75)
+        {
+            secondD.SetActive(true);
+        }
+        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75 && life >= 0)
+        {
+            thirdD.SetActive(true);
+        }
+
         if (life <= 0)
         {
             Die();
