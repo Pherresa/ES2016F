@@ -13,6 +13,9 @@ public class Start_Round : MonoBehaviour {
     private bool act_time_cont;
     private LifeAmountManager indicator_time;
     private EnemyManager generate_round;
+    public Game gameValues;
+   
+    
     
     //public Text buttonText;
 
@@ -63,6 +66,8 @@ public class Start_Round : MonoBehaviour {
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
+        // Save game values before new wave
+        gameValues = new Game();
         generate_round.createNewWave();
         Debug.Log("Generate Round"); 
  

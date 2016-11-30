@@ -5,7 +5,8 @@ using System.Collections;
 /*
  * Class that stores the basic game info to be store
  */
-public class Game {
+public class Game
+{
 
     public static Game current;
     public LifeAmountManager lifeAM;
@@ -13,16 +14,14 @@ public class Game {
     public int savedTowerLife;
     public int savedMoney;
     public GameObject[] defensesList;
-    
-    //TODO: List of updated towers in the scene.
-    
-    
 
-    public Game () {
+    public Game()
+    {
         lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
         savedScore = lifeAM.calculateFinalScore();
         savedTowerLife = lifeAM.life;
         savedMoney = lifeAM.amount;
         defensesList = GameObject.FindGameObjectsWithTag("Defense");
     }
+
 }
