@@ -40,4 +40,8 @@ public class Slot : MonoBehaviour {
         isOccupied = false;
         Destroy(unit);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+    }
 }
