@@ -12,6 +12,7 @@ public class Action_Defense : Tower
     public int towerTama;
 
     Animation anim;
+    AnimationState stateTrebuchetIdle;
     AnimationState stateTrebuchetAttack;
     AnimationState stateTrebuchetrecharge;
     private float timer = 0.6f;
@@ -21,7 +22,7 @@ public class Action_Defense : Tower
     private int plusToPredict = 6;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
-    private float speed = 3f;
+    private float speed = 2f;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
@@ -39,14 +40,20 @@ public class Action_Defense : Tower
             SpinTower.spin(target.transform.position, this.transform);
         }
         
-        //print(animationPhase);
-        //print(stateTrebuchetrecharge.length - stateTrebuchetrecharge.time);
+        
 
     }
 
     private void initAnimTrebuchet()
     {
         if (type==1) {
+            anim["A_Trebuchet_idle"].speed = speed;
+            stateTrebuchetIdle = anim["A_Trebuchet_idle"];
+            stateTrebuchetIdle.time = 0;
+            stateTrebuchetIdle.enabled = true;
+            anim.Sample();
+            stateTrebuchetIdle.enabled = false;
+
             anim["A_Trebuchet_attack"].speed = speed;
             stateTrebuchetAttack = anim["A_Trebuchet_attack"];
             stateTrebuchetAttack.time = 0;
@@ -78,18 +85,34 @@ public class Action_Defense : Tower
             }
             if (animationPhase == 2)
             {
-                if (stateTrebuchetAttack.length - stateTrebuchetAttack.time < 0.07f)
+                if (stateTrebuchetAttack.length - stateTrebuchetAttack.time < 0.1f)
                 {
                     nextPhaseAnim = true;
                     lanzar();
                 }
+                else if (stateTrebuchetAttack.time == 0)
+                {
+                    target = null;
+                    animationPhase = 0;
+                    predict = 0;
+                }
             }
             if (animationPhase == 3)
             {
-                if (stateTrebuchetrecharge.length - stateTrebuchetrecharge.time < 0.07f)
+                print(stateTrebuchetrecharge.length);
+                print(stateTrebuchetrecharge.time);
+                print(stateTrebuchetrecharge.length - stateTrebuchetrecharge.time);
+                if (stateTrebuchetrecharge.length - stateTrebuchetrecharge.time < 0.1f)
                 {
                     nextPhaseAnim = true;
                 }
+                else if (stateTrebuchetrecharge.time == 0 )
+                {
+                    target = null;
+                    animationPhase = 0;
+                    predict = 0;
+                }
+                
             }
         }
     }
@@ -377,17 +400,24 @@ public class Action_Defense : Tower
     {
         if (type==1)
         {
-            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            //GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            GameObject prefab = (GameObject) Resources.Load("Prefabs/defense1P_Rock_MT");
+            GameObject p = Instantiate(prefab);
+
+            //print(this.gameObject.name);
+            //print(this.transform.GetChild(this.transform.childCount-2).name);
+            //Transform t = this.transform.GetChild(this.transform.childCount - 2);
+            //p = Instantiate(this.transform.GetChild(this.transform.childCount - 2);
             p.AddComponent<Rigidbody>();
-            p.AddComponent<Collider>();
-            Vector3 tmp = this.transform.position;
-            tmp.y += 15f;
-            p.transform.position = tmp;
-            p.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+            //p.AddComponent<Collider>();
+            //Vector3 tmp = this.transform.position;
+            //tmp.y += 15f;
+            p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
+            //p.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
             p.AddComponent<ShootingMove>();
             p.GetComponent<ShootingMove>().pos = posIni;
             p.GetComponent<ShootingMove>().tag = "projectile";
-            p.GetComponent<Renderer>().material.color = Color.blue;
+            //p.GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 }

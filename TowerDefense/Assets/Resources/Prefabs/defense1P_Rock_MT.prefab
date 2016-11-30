@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000014245957112}
   - 33: {fileID: 33000011738167042}
   - 23: {fileID: 23000011442024344}
-  - 114: {fileID: 114000014031983676}
+  - 135: {fileID: 135000011640566158}
   m_Layer: 0
   m_Name: defense1P_Rock_MT
   m_TagString: Untagged
@@ -78,15 +78,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013223405688}
   m_Mesh: {fileID: 4300000, guid: 05e7e5a575b582748b706ab094692820, type: 3}
---- !u!114 &114000014031983676
-MonoBehaviour:
+--- !u!135 &135000011640566158
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013223405688}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerPrice: 50
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: -0.0018954873, y: -0.0363715, z: -0.037708014}
