@@ -2,6 +2,9 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 [System.Serializable]
+/*
+ * Class that stores the basic game info to be store
+ */
 public class Game {
 
     public static Game current;
@@ -9,6 +12,7 @@ public class Game {
     public int savedScore;
     public int savedTowerLife;
     public int savedMoney;
+    public GameObject[] defensesList;
     
     //TODO: List of updated towers in the scene.
     
@@ -19,5 +23,6 @@ public class Game {
         savedScore = lifeAM.calculateFinalScore();
         savedTowerLife = lifeAM.life;
         savedMoney = lifeAM.amount;
+        defensesList = GameObject.FindGameObjectsWithTag("Defense");
     }
 }
