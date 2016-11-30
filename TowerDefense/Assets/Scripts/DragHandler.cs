@@ -14,8 +14,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Slot activeSlot;
     Action_Defense prefabActionDefense;
     LifeAmountManager lifeAmountManager;
-
-
+    GameObject auraPrefab;
 
     public AudioClip soundDrop;
     public AudioClip soundDragging;
@@ -39,7 +38,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     void Start()
     {
-    	Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
+        auraPrefab = Resources.Load("Prefabs/AreaProjector") as GameObject;
+        Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
         obt_price(prefabActionDefense);
@@ -192,6 +192,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                         particleSystem.Play();
                     }
 
+                    GameObject aura = Instantiate(auraPrefab);
+                    aura.GetComponent<Projector>().enabled = false;
+                    aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+                    aura.transform.parent = newUnit.transform;
+
                     playSound(soundDrop);
 
                     activeSlot.isOccupied = true;
@@ -238,6 +243,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();
             hoverPrefab.SetActive(false);
+            GameObject aura = Instantiate(auraPrefab);
+            //TODO: Harm zone get by the prefab defense class.
+            aura.GetComponent<Projector>().orthographicSize = 35;
+            aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+            aura.transform.parent = hoverPrefab.transform;
+
         }
 
     }
