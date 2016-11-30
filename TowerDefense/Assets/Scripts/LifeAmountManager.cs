@@ -13,7 +13,7 @@ public class LifeAmountManager : MonoBehaviour
     public static int FOURTH_TURRET_PRICE = 25;
     public static int FITH_TURRET_PRICE = 30;
 
-    public int life = 1000; // TODO: Initial life value?
+    public int life = 100; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
 
 	public int currentScore = 0; // TODO: TEAM_D show in the play window
@@ -34,6 +34,8 @@ public class LifeAmountManager : MonoBehaviour
     public Text lifeText;
     public Text timeText;
     public float remainingTime; //seconds
+    public GameObject mainTower;
+    public GameObject firstD;
 
     // Use this for initialization
     void Start()
@@ -49,7 +51,8 @@ public class LifeAmountManager : MonoBehaviour
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
-        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
+        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
+        
 
     }
 
@@ -108,6 +111,11 @@ public class LifeAmountManager : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         life -= l;
+        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25)
+        {
+            firstD.SetActive(true);
+           
+        }
         if (life <= 0)
         {
             Die();
