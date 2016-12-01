@@ -15,11 +15,12 @@ public class Action_Defense : Tower
     AnimationState stateTrebuchetIdle;
     AnimationState stateTrebuchetAttack;
     AnimationState stateTrebuchetrecharge;
-    private float timer = 0.6f;
+    private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
-    private int maxFrameToPredict = 8;
-    private int plusToPredict = 6;
+    private int maxFrameToPredict = 5;
+    private int plusToPredictTrebu = 10;
+    private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
     private float speed = 2f;
@@ -47,21 +48,21 @@ public class Action_Defense : Tower
     private void initAnimTrebuchet()
     {
         if (type==1) {
-            anim["A_Trebuchet_idle"].speed = speed;
+            anim["A_Trebuchet_idle"].speed = 1f;
             stateTrebuchetIdle = anim["A_Trebuchet_idle"];
             stateTrebuchetIdle.time = 0;
             stateTrebuchetIdle.enabled = true;
             anim.Sample();
             stateTrebuchetIdle.enabled = false;
 
-            anim["A_Trebuchet_attack"].speed = speed;
+            anim["A_Trebuchet_attack"].speed = 2.5f;
             stateTrebuchetAttack = anim["A_Trebuchet_attack"];
             stateTrebuchetAttack.time = 0;
             stateTrebuchetAttack.enabled = true;
             anim.Sample();
             stateTrebuchetAttack.enabled = false;
 
-            anim["A_Trebuchet_recharge"].speed = speed;
+            anim["A_Trebuchet_recharge"].speed = 1.5f;
             stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
             stateTrebuchetrecharge.time = 0;
             stateTrebuchetrecharge.enabled = true;
@@ -72,32 +73,39 @@ public class Action_Defense : Tower
 
     private void checkPhaseAnim()
     {
-        
+       
         if (type==1)
         {
             if (animationPhase == 0)
             {
                 anim.Play("A_Trebuchet_idle");
             }
-            if (animationPhase == 1)
+            else if (animationPhase == 1)
             {
                 nextPhaseAnim = true;
             }
-            if (animationPhase == 2)
+            else if (animationPhase == 2)
             {
                 if (stateTrebuchetAttack.length - stateTrebuchetAttack.time < 0.1f)
                 {
                     nextPhaseAnim = true;
                     lanzar();
                 }
-                else if (stateTrebuchetAttack.time == 0)
+                if (stateTrebuchetAttack.time == 0)
                 {
                     target = null;
                     animationPhase = 0;
                     predict = 0;
+                    anim["A_Trebuchet_attack"].speed = 2.5f;
+                    stateTrebuchetAttack = anim["A_Trebuchet_attack"];
+                    stateTrebuchetAttack.time = 0;
+                    stateTrebuchetAttack.enabled = true;
+                    anim.Sample();
+                    stateTrebuchetAttack.enabled = false;
                 }
+
             }
-            if (animationPhase == 3)
+            else if (animationPhase == 3)
             {
                 print(stateTrebuchetrecharge.length);
                 print(stateTrebuchetrecharge.time);
@@ -106,13 +114,18 @@ public class Action_Defense : Tower
                 {
                     nextPhaseAnim = true;
                 }
-                else if (stateTrebuchetrecharge.time == 0 )
+                if (stateTrebuchetrecharge.time == 0)
                 {
                     target = null;
                     animationPhase = 0;
                     predict = 0;
+                    anim["A_Trebuchet_recharge"].speed = 1.5f;
+                    stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
+                    stateTrebuchetrecharge.time = 0;
+                    stateTrebuchetrecharge.enabled = true;
+                    anim.Sample();
+                    stateTrebuchetrecharge.enabled = false;
                 }
-                
             }
         }
     }
@@ -155,26 +168,40 @@ public class Action_Defense : Tower
 
                 }
             }
-
-            //timer -= Time.deltaTime;
-            //if (timer <= 0)
-            //{
-
-            //        timer = 0.6f;
-            //anim.Play();
-            // if (!anim.isPlaying){
-            checkDistanceTarget();
-            if (target != null)
+            // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
+            if (type != 1 && predict == maxFrameToPredict)
             {
-                if (type != 0 && predict == maxFrameToPredict)
+                timer -= Time.deltaTime;
+                if (timer <= 0)
                 {
-                    shoot();
+                    timer = 1.5f;
+                    checkDistanceTarget();
+                    if (target != null)
+                    {
+                        
+                            shoot();
+                            predict = 0;
 
+                        
+                    }else
+                    {
+                        predict = 0;
+                    }
                 }
+            }
+            else
+            {
+                {
+                    checkDistanceTarget();
+                    if (target != null)
+                    {
+                        if (type != 0 && predict == maxFrameToPredict)
+                        {
+                            shoot();
 
-
-                // }
-                //}
+                        }
+                    }
+                }
             }
         }
     }
@@ -195,7 +222,7 @@ public class Action_Defense : Tower
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
         {
-            type = 1;
+            type = 4;
         }
         if (name == "defense2_RohanBarracks_MT")
         {
@@ -247,13 +274,18 @@ public class Action_Defense : Tower
         {
             if (predict == maxFrameToPredict - 1)
             {
+
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                posIni = target.transform.position + (tmp * plusToPredict);
-
-                
-
+                if (type != 1)
+                {
+                    posIni = target.transform.position + (tmp * plusToPredict);
+                }
+                else
+                {
+                    posIni = target.transform.position + (tmp * plusToPredictTrebu);
+                }
             }
             if (predict != maxFrameToPredict)
             {
@@ -418,6 +450,19 @@ public class Action_Defense : Tower
             p.GetComponent<ShootingMove>().pos = posIni;
             p.GetComponent<ShootingMove>().tag = "projectile";
             //p.GetComponent<Renderer>().material.color = Color.blue;
+        }
+        else
+        {
+            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            p.AddComponent<Rigidbody>();
+            Vector3 tmp = this.transform.position;
+            tmp.y += 5f;
+            p.transform.position = tmp;
+            p.transform.localScale = new Vector3(2f, 2f, 2f);
+            p.GetComponent<SphereCollider>().radius = 0.6f;
+            p.AddComponent<ShootingMove>();
+            p.GetComponent<ShootingMove>().pos = posIni;
+            p.GetComponent<ShootingMove>().tag = "projectile";
         }
     }
 }
