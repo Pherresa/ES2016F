@@ -135,8 +135,8 @@ public class Enemy : MonoBehaviour {
         {
             //Destroy(this.gameObject);
             playSound(soundAttacked);
-
-            life -= 30f;
+            //print(col.gameObject.name);
+            life -= 50f;
         }
     }
 }
