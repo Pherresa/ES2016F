@@ -18,6 +18,7 @@ public static class SaveLoad
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
         bf.Serialize(file, SaveLoad.savedGames);
         file.Close();
+        savedGames.Clear();
     }
 
     public static void Load()
