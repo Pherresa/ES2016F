@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+/**
+ * Class to Save/Load the Game's data
+ * */
 public static class SaveLoad
 {
     public static Game savedGame;
+
     
-    //Static so it can be called from everywhere :)
+    /*
+     *  Method to save the data in disk, static so it can be called from everywhere
+     */
     public static void SaveData()
     {
         savedGame = Game.current;
@@ -19,6 +24,9 @@ public static class SaveLoad
         file.Close();
     }
 
+    /*
+     *  Method to load the data from disk, static so it can be called from everywhere
+     */
     public static void LoadData()
     {
         if (File.Exists(Application.persistentDataPath + "/savedGames.gd"))
@@ -35,9 +43,21 @@ public static class SaveLoad
         }
     }
 
+    /*
+     *  Method to update the actual data with the one saved in disk.
+     */
     public static void LoadGame()
     {
-        
+        LifeAmountManager lifeAM = Object.FindObjectOfType<LifeAmountManager>();
+        lifeAM.currentScore = savedGame.savedScore;
+        lifeAM.life = savedGame.savedTowerLife;
+        lifeAM.amount = savedGame.savedMoney;
+        GameObject[] defenses = savedGame.defensesList;
+
+        foreach (GameObject defense in defenses)
+        {
+            //TODO: Instatiate defenses where they belong in the map
+        }
     }
 
 }
