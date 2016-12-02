@@ -5,7 +5,7 @@ using System.Collections;
 */
 public abstract class Tower : MonoBehaviour {
     protected GameObject target;
-    protected float range;
+    public float range;
     protected int strenght;
     protected int level;
     protected GameObject projectile;
