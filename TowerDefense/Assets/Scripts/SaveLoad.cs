@@ -8,8 +8,8 @@ public static class SaveLoad
 {
 
     public static List<Game> savedGames = new List<Game>();
-
-    //it's static so we can call it from anywhere
+    
+    //Static so it can be called from everywhere :)
     public static void Save()
     {
         SaveLoad.savedGames.Add(Game.current);
@@ -19,4 +19,16 @@ public static class SaveLoad
         bf.Serialize(file, SaveLoad.savedGames);
         file.Close();
     }
+
+    public static void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/savedGames.gd"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
+            SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
+            file.Close();
+        }
+    }
+
 }
