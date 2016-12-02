@@ -23,5 +23,4 @@ public class Game
         savedMoney = lifeAM.amount;
         defensesList = GameObject.FindGameObjectsWithTag("Defense");
     }
-
 }
