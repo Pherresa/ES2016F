@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 3d9cb4e8d7bb4c44fb24977d3709279a
+timeCreated: 1480644594
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: baston
+    100004: Camera
+    100006: //RootNode
+    100008: smdimport
+    100010: Sol
+    100012: Sol.001
+    100014: Sol.002
+    100016: ValveBiped.Bip01_Head1
+    100018: ValveBiped.Bip01_Head1_end
+    100020: ValveBiped.Bip01_L_Calf
+    100022: ValveBiped.Bip01_L_Clavicle
+    100024: ValveBiped.Bip01_L_Finger0
+    100026: ValveBiped.Bip01_L_Finger01
+    100028: ValveBiped.Bip01_L_Finger02
+    100030: ValveBiped.Bip01_L_Finger02_end
+    100032: ValveBiped.Bip01_L_Finger1
+    100034: ValveBiped.Bip01_L_Finger11
+    100036: ValveBiped.Bip01_L_Finger12
+    100038: ValveBiped.Bip01_L_Finger12_end
+    100040: ValveBiped.Bip01_L_Finger2
+    100042: ValveBiped.Bip01_L_Finger21
+    100044: ValveBiped.Bip01_L_Finger22
+    100046: ValveBiped.Bip01_L_Finger22_end
+    100048: ValveBiped.Bip01_L_Foot
+    100050: ValveBiped.Bip01_L_Forearm
+    100052: ValveBiped.Bip01_L_Hand
+    100054: ValveBiped.Bip01_L_Thigh
+    100056: ValveBiped.Bip01_L_Toe0
+    100058: ValveBiped.Bip01_L_Toe0_end
+    100060: ValveBiped.Bip01_L_Ulna
+    100062: ValveBiped.Bip01_L_Ulna_end
+    100064: ValveBiped.Bip01_L_UpperArm
+    100066: ValveBiped.Bip01_L_Wrist
+    100068: ValveBiped.Bip01_Neck1
+    100070: ValveBiped.Bip01_Pelvis
+    100072: ValveBiped.Bip01_R_Calf
+    100074: ValveBiped.Bip01_R_Clavicle
+    100076: ValveBiped.Bip01_R_Finger0
+    100078: ValveBiped.Bip01_R_Finger01
+    100080: ValveBiped.Bip01_R_Finger02
+    100082: ValveBiped.Bip01_R_Finger02_end
+    100084: ValveBiped.Bip01_R_Finger1
+    100086: ValveBiped.Bip01_R_Finger11
+    100088: ValveBiped.Bip01_R_Finger12
+    100090: ValveBiped.Bip01_R_Finger12_end
+    100092: ValveBiped.Bip01_R_Finger2
+    100094: ValveBiped.Bip01_R_Finger21
+    100096: ValveBiped.Bip01_R_Finger22
+    100098: ValveBiped.Bip01_R_Finger22_end
+    100100: ValveBiped.Bip01_R_Foot
+    100102: ValveBiped.Bip01_R_Forearm
+    100104: ValveBiped.Bip01_R_Hand
+    100106: ValveBiped.Bip01_R_Thigh
+    100108: ValveBiped.Bip01_R_Toe0
+    100110: ValveBiped.Bip01_R_Toe0_end
+    100112: ValveBiped.Bip01_R_Ulna
+    100114: ValveBiped.Bip01_R_Ulna_end
+    100116: ValveBiped.Bip01_R_UpperArm
+    100118: ValveBiped.Bip01_R_Wrist
+    100120: ValveBiped.Bip01_Spine
+    100122: ValveBiped.Bip01_Spine1
+    100124: ValveBiped.Bip01_Spine2
+    100126: ValveBiped.Bip01_Spine4
+    100128: ValveBiped.forward
+    100130: ValveBiped.weapon_bone
+    100132: ValveBiped.weapon_bone_Clip
+    100134: ValveBiped.weapon_bone_LHand
+    100136: ValveBiped.weapon_bone_RHand
+    400000: Armature
+    400002: baston
+    400004: Camera
+    400006: //RootNode
+    400008: smdimport
+    400010: Sol
+    400012: Sol.001
+    400014: Sol.002
+    400016: ValveBiped.Bip01_Head1
+    400018: ValveBiped.Bip01_Head1_end
+    400020: ValveBiped.Bip01_L_Calf
+    400022: ValveBiped.Bip01_L_Clavicle
+    400024: ValveBiped.Bip01_L_Finger0
+    400026: ValveBiped.Bip01_L_Finger01
+    400028: ValveBiped.Bip01_L_Finger02
+    400030: ValveBiped.Bip01_L_Finger02_end
+    400032: ValveBiped.Bip01_L_Finger1
+    400034: ValveBiped.Bip01_L_Finger11
+    400036: ValveBiped.Bip01_L_Finger12
+    400038: ValveBiped.Bip01_L_Finger12_end
+    400040: ValveBiped.Bip01_L_Finger2
+    400042: ValveBiped.Bip01_L_Finger21
+    400044: ValveBiped.Bip01_L_Finger22
+    400046: ValveBiped.Bip01_L_Finger22_end
+    400048: ValveBiped.Bip01_L_Foot
+    400050: ValveBiped.Bip01_L_Forearm
+    400052: ValveBiped.Bip01_L_Hand
+    400054: ValveBiped.Bip01_L_Thigh
+    400056: ValveBiped.Bip01_L_Toe0
+    400058: ValveBiped.Bip01_L_Toe0_end
+    400060: ValveBiped.Bip01_L_Ulna
+    400062: ValveBiped.Bip01_L_Ulna_end
+    400064: ValveBiped.Bip01_L_UpperArm
+    400066: ValveBiped.Bip01_L_Wrist
+    400068: ValveBiped.Bip01_Neck1
+    400070: ValveBiped.Bip01_Pelvis
+    400072: ValveBiped.Bip01_R_Calf
+    400074: ValveBiped.Bip01_R_Clavicle
+    400076: ValveBiped.Bip01_R_Finger0
+    400078: ValveBiped.Bip01_R_Finger01
+    400080: ValveBiped.Bip01_R_Finger02
+    400082: ValveBiped.Bip01_R_Finger02_end
+    400084: ValveBiped.Bip01_R_Finger1
+    400086: ValveBiped.Bip01_R_Finger11
+    400088: ValveBiped.Bip01_R_Finger12
+    400090: ValveBiped.Bip01_R_Finger12_end
+    400092: ValveBiped.Bip01_R_Finger2
+    400094: ValveBiped.Bip01_R_Finger21
+    400096: ValveBiped.Bip01_R_Finger22
+    400098: ValveBiped.Bip01_R_Finger22_end
+    400100: ValveBiped.Bip01_R_Foot
+    400102: ValveBiped.Bip01_R_Forearm
+    400104: ValveBiped.Bip01_R_Hand
+    400106: ValveBiped.Bip01_R_Thigh
+    400108: ValveBiped.Bip01_R_Toe0
+    400110: ValveBiped.Bip01_R_Toe0_end
+    400112: ValveBiped.Bip01_R_Ulna
+    400114: ValveBiped.Bip01_R_Ulna_end
+    400116: ValveBiped.Bip01_R_UpperArm
+    400118: ValveBiped.Bip01_R_Wrist
+    400120: ValveBiped.Bip01_Spine
+    400122: ValveBiped.Bip01_Spine1
+    400124: ValveBiped.Bip01_Spine2
+    400126: ValveBiped.Bip01_Spine4
+    400128: ValveBiped.forward
+    400130: ValveBiped.weapon_bone
+    400132: ValveBiped.weapon_bone_Clip
+    400134: ValveBiped.weapon_bone_LHand
+    400136: ValveBiped.weapon_bone_RHand
+    4300000: baston
+    4300002: smdimport
+    7400000: A_Gandalf_run
+    7400002: A_Gandalf_attack
+    7400004: Sol|A_Gandalf_Attack
+    7400006: Sol|Armature|Take 001|BaseLayer
+    7400008: Sol|A_Gandalf_run
+    7400010: Sol|smdimport|Take 001|BaseLayer
+    7400012: Sol|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400014: Sol|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400016: Sol|ValveBiped.forward|Take 001|BaseLayer
+    7400018: Sol|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400020: Sol|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400022: Sol|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400024: Sol|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400026: Armature|A_Gandalf_Attack
+    7400028: Armature|A_Gandalf_attack
+    7400030: Armature|A_Gandalf_run.001
+    7400032: Armature|Armature|Take 001|BaseLayer
+    7400034: Armature|A_Gandalf_run
+    7400036: Armature|smdimport|Take 001|BaseLayer
+    7400038: Armature|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400040: Armature|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400042: Armature|ValveBiped.forward|Take 001|BaseLayer
+    7400044: Armature|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400046: Armature|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400048: Armature|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400050: Armature|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400052: baston|A_Gandalf_Attack
+    7400054: baston|Armature|Take 001|BaseLayer
+    7400056: baston|A_Gandalf_run
+    7400058: baston|smdimport|Take 001|BaseLayer
+    7400060: baston|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400062: baston|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400064: baston|ValveBiped.forward|Take 001|BaseLayer
+    7400066: baston|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400068: baston|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400070: baston|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400072: baston|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400074: smdimport|A_Gandalf_Attack
+    7400076: smdimport|Armature|Take 001|BaseLayer
+    7400078: smdimport|A_Gandalf_run
+    7400080: smdimport|smdimport|Take 001|BaseLayer
+    7400082: smdimport|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400084: smdimport|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400086: smdimport|ValveBiped.forward|Take 001|BaseLayer
+    7400088: smdimport|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400090: smdimport|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400092: smdimport|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400094: smdimport|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400096: ValveBiped.weapon_bone|A_Gandalf_Attack
+    7400098: ValveBiped.weapon_bone|Armature|Take 001|BaseLayer
+    7400100: ValveBiped.weapon_bone|A_Gandalf_run
+    7400102: ValveBiped.weapon_bone|smdimport|Take 001|BaseLayer
+    7400104: ValveBiped.weapon_bone|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400106: ValveBiped.weapon_bone|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400108: ValveBiped.weapon_bone|ValveBiped.forward|Take 001|BaseLayer
+    7400110: ValveBiped.weapon_bone|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400112: ValveBiped.weapon_bone|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400114: ValveBiped.weapon_bone|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400116: ValveBiped.weapon_bone|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400118: ValveBiped.weapon_bone_RHand|A_Gandalf_Attack
+    7400120: ValveBiped.weapon_bone_RHand|Armature|Take 001|BaseLayer
+    7400122: ValveBiped.weapon_bone_RHand|A_Gandalf_run
+    7400124: ValveBiped.weapon_bone_RHand|smdimport|Take 001|BaseLayer
+    7400126: ValveBiped.weapon_bone_RHand|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400128: ValveBiped.weapon_bone_RHand|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400130: ValveBiped.weapon_bone_RHand|ValveBiped.forward|Take 001|BaseLayer
+    7400132: ValveBiped.weapon_bone_RHand|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400134: ValveBiped.weapon_bone_RHand|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400136: ValveBiped.weapon_bone_RHand|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400138: ValveBiped.weapon_bone_RHand|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400140: ValveBiped.weapon_bone_LHand|A_Gandalf_Attack
+    7400142: ValveBiped.weapon_bone_LHand|Armature|Take 001|BaseLayer
+    7400144: ValveBiped.weapon_bone_LHand|A_Gandalf_run
+    7400146: ValveBiped.weapon_bone_LHand|smdimport|Take 001|BaseLayer
+    7400148: ValveBiped.weapon_bone_LHand|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400150: ValveBiped.weapon_bone_LHand|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400152: ValveBiped.weapon_bone_LHand|ValveBiped.forward|Take 001|BaseLayer
+    7400154: ValveBiped.weapon_bone_LHand|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400156: ValveBiped.weapon_bone_LHand|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400158: ValveBiped.weapon_bone_LHand|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400160: ValveBiped.weapon_bone_LHand|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400162: ValveBiped.weapon_bone_Clip|A_Gandalf_Attack
+    7400164: ValveBiped.weapon_bone_Clip|Armature|Take 001|BaseLayer
+    7400166: ValveBiped.weapon_bone_Clip|A_Gandalf_run
+    7400168: ValveBiped.weapon_bone_Clip|smdimport|Take 001|BaseLayer
+    7400170: ValveBiped.weapon_bone_Clip|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400172: ValveBiped.weapon_bone_Clip|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400174: ValveBiped.weapon_bone_Clip|ValveBiped.forward|Take 001|BaseLayer
+    7400176: ValveBiped.weapon_bone_Clip|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400178: ValveBiped.weapon_bone_Clip|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400180: ValveBiped.weapon_bone_Clip|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400182: ValveBiped.weapon_bone_Clip|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400184: ValveBiped.Bip01_R_Wrist|A_Gandalf_Attack
+    7400186: ValveBiped.Bip01_R_Wrist|Armature|Take 001|BaseLayer
+    7400188: ValveBiped.Bip01_R_Wrist|A_Gandalf_run
+    7400190: ValveBiped.Bip01_R_Wrist|smdimport|Take 001|BaseLayer
+    7400192: ValveBiped.Bip01_R_Wrist|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400194: ValveBiped.Bip01_R_Wrist|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400196: ValveBiped.Bip01_R_Wrist|ValveBiped.forward|Take 001|BaseLayer
+    7400198: ValveBiped.Bip01_R_Wrist|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400200: ValveBiped.Bip01_R_Wrist|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400202: ValveBiped.Bip01_R_Wrist|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400204: ValveBiped.Bip01_R_Wrist|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400206: ValveBiped.Bip01_L_Wrist|A_Gandalf_Attack
+    7400208: ValveBiped.Bip01_L_Wrist|Armature|Take 001|BaseLayer
+    7400210: ValveBiped.Bip01_L_Wrist|A_Gandalf_run
+    7400212: ValveBiped.Bip01_L_Wrist|smdimport|Take 001|BaseLayer
+    7400214: ValveBiped.Bip01_L_Wrist|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400216: ValveBiped.Bip01_L_Wrist|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400218: ValveBiped.Bip01_L_Wrist|ValveBiped.forward|Take 001|BaseLayer
+    7400220: ValveBiped.Bip01_L_Wrist|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400222: ValveBiped.Bip01_L_Wrist|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400224: ValveBiped.Bip01_L_Wrist|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400226: ValveBiped.Bip01_L_Wrist|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400228: ValveBiped.forward|A_Gandalf_Attack
+    7400230: ValveBiped.forward|Armature|Take 001|BaseLayer
+    7400232: ValveBiped.forward|A_Gandalf_run
+    7400234: ValveBiped.forward|smdimport|Take 001|BaseLayer
+    7400236: ValveBiped.forward|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400238: ValveBiped.forward|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400240: ValveBiped.forward|ValveBiped.forward|Take 001|BaseLayer
+    7400242: ValveBiped.forward|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400244: ValveBiped.forward|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400246: ValveBiped.forward|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400248: ValveBiped.forward|ValveBiped.weapon_bone|Take 001|BaseLayer
+    7400250: Camera|A_Gandalf_Attack
+    7400252: Camera|A_Gandalf_attack
+    7400254: Camera|Armature|Take 001|BaseLayer
+    7400256: Camera|A_Gandalf_run
+    7400258: Camera|smdimport|Take 001|BaseLayer
+    7400260: Camera|ValveBiped.Bip01_L_Wrist|Take 001|BaseLayer
+    7400262: Camera|ValveBiped.Bip01_R_Wrist|Take 001|BaseLayer
+    7400264: Camera|ValveBiped.forward|Take 001|BaseLayer
+    7400266: Camera|ValveBiped.weapon_bone_Clip|Take 001|BaseLayer
+    7400268: Camera|ValveBiped.weapon_bone_LHand|Take 001|BaseLayer
+    7400270: Camera|ValveBiped.weapon_bone_RHand|Take 001|BaseLayer
+    7400272: Camera|ValveBiped.weapon_bone|Take 001|BaseLayer
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: baston
+    13700002: smdimport
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
