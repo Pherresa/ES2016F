@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
     public float life;
     public float maxlife;
     public int damage;
-
+    private int money;
 
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
         maxlife = 100f;
+        money = Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
@@ -121,6 +122,7 @@ public class Enemy : MonoBehaviour {
         if(life <= 0)
         {
             Instantiate(explosion, transform.position, transform.rotation);
+            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(money);
             Destroy(gameObject);
             playSound(soundDeath);
 
@@ -133,8 +135,8 @@ public class Enemy : MonoBehaviour {
         {
             //Destroy(this.gameObject);
             playSound(soundAttacked);
-
-            life -= 30f;
+            //print(col.gameObject.name);
+            life -= 50f;
         }
     }
 }
