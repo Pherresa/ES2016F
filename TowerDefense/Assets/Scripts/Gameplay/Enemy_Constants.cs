@@ -31,11 +31,11 @@ public static class Enemy_Constants{
     // Tower
     public const int T_RANGE_LITTLE = 50;
     public const int T_RANGE_MEDIUM = 40;
-    public const int T_RANGE_BIG = 30;
+    public const int T_RANGE_BIG = 60;
 
     public const int T_ATTACK_LITTLE = 10;
     public const int T_ATTACK_MEDIUM = 20;
-    public const int T_ATTACK_BIG = 30;
+    public const int T_ATTACK_BIG = 200;
 
     public const int T_MONEY_LITTLE = 80;
     public const int T_MONEY_MEDIUM = 100;
