@@ -50,6 +50,7 @@ public class Start_Round : MonoBehaviour {
         if (cont_round >= total_round) {
             // Poner Final Round
             indicator_time.set_final_round(true);
+            GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
             GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
             CancelInvoke();
         }

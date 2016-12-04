@@ -14,8 +14,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Slot activeSlot;
     Action_Defense prefabActionDefense;
     LifeAmountManager lifeAmountManager;
-
-
+    GameObject auraPrefab;
+    GameObject ablePrefab;
+    Texture red;
+    Texture green;
 
     public AudioClip soundDrop;
     public AudioClip soundDragging;
@@ -40,9 +42,13 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     void Start()
     {
-    	Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
+        auraPrefab = Resources.Load("Prefabs/AreaProjector") as GameObject;
+        ablePrefab = Resources.Load("Prefabs/ableToDropProjector") as GameObject;
+        //red = Resources.Load("StandardAssets/")
+        Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
+        obt_price(prefabActionDefense);
         lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
     }
 
@@ -75,6 +81,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 int slotIndex = GetSlotIndex(hits);
                 if (slotIndex != -1)
                 {
+                    //Projector p = hoverPrefab.findChuk
+                    
                     GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
                     Slot slotQuad = slotQuadObject.GetComponent<Slot>();
                     activeSlot = slotQuad;
@@ -82,12 +90,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 }
                 else
                 {
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
                     activeSlot = null;
                     DisableAllSlots();
+                
+                    alreadyPlayedDraggingSound = false;
                 }
             }
         }
     }
+
+    bool alreadyPlayedDraggingSound = false;
 
     void EnableSlot(Slot slot)
     {
@@ -98,11 +111,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				if(availableSlot.getIsPath() || availableSlot.isOccupied){
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
-				}
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
+                }
 				else{
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.green;
-                    playSound(soundDragging);
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.green;
+                    if (!alreadyPlayedDraggingSound)
+                    {
+                        playSound(soundDragging);
+                        alreadyPlayedDraggingSound = true;
+                    }
 				}
 
             }
@@ -179,18 +198,25 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             {
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
+
                 {
+                    
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(actionDefense.towerPrice);
+                    lifeAmountManager.LoseAmount(prefabActionDefense.towerPrice);
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
                         particleSystem.Play();
                     }
+
+                    GameObject aura = Instantiate(auraPrefab);
+                    aura.GetComponent<Projector>().enabled = false;
+                    aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+                    aura.transform.parent = newUnit.transform;
 
                     playSound(soundDrop);
 
@@ -238,7 +264,34 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();
             hoverPrefab.SetActive(false);
+            GameObject aura = Instantiate(auraPrefab);
+            GameObject able = Instantiate(ablePrefab);
+            //TODO: Harm zone get by the prefab defense class.
+            aura.GetComponent<Projector>().orthographicSize = 35;
+            aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+            able.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+            aura.transform.parent = hoverPrefab.transform;
+            able.transform.parent = hoverPrefab.transform;
+
         }
 
+    }
+
+    private void obt_price(Action_Defense actionDefense) {
+        switch (actionDefense.towerTama)
+        {
+            case 1:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_little_tower("m");
+                break;
+            case 2:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m");
+                break;
+            case 3:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_big_tower("m");
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
     }
 }
