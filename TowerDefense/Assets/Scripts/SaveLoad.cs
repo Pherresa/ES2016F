@@ -22,6 +22,7 @@ public static class SaveLoad
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
         bf.Serialize(file, SaveLoad.savedGame);
         file.Close();
+        Debug.Log("Data saved");
     }
 
     /*
@@ -35,6 +36,7 @@ public static class SaveLoad
             FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
             SaveLoad.savedGame = (Game)bf.Deserialize(file);
             file.Close();
+            Debug.Log("Data loaded");
             SaveLoad.LoadGame();
         }
         else
@@ -49,16 +51,11 @@ public static class SaveLoad
     public static void LoadGame()
     {
         LifeAmountManager lifeAM = Object.FindObjectOfType<LifeAmountManager>();
+        EnemyManager enemyMan = Object.FindObjectOfType<EnemyManager>();
         lifeAM.currentScore = savedGame.savedScore;
         lifeAM.life = savedGame.savedTowerLife;
         lifeAM.amount = savedGame.savedMoney;
-        GameObject[] defenses = savedGame.defensesList;
-
-        foreach (GameObject defense in defenses)
-        {
-            //TODO: Instatiate defenses where they belong in the 
-            
-        }
+        EnemyManager.loadDefenses(savedGame.defensesList);
     }
 
 }

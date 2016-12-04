@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -31,6 +32,15 @@ public class EnemyManager : MonoBehaviour {
             //get the thing component on your instantiated object
             AstarAI astarAI = enemy.GetComponent<AstarAI>();
             astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+        }
+    }
+
+    internal static void loadDefenses(GameObject[] defensesList)
+    {
+        foreach(GameObject defense in defensesList)
+        {
+            GameObject defenseCopy = Instantiate(defense);
+            defense.transform.parent = defense.transform;
         }
     }
 }
