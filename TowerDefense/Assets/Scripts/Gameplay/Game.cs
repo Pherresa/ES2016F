@@ -15,9 +15,8 @@ public class Game
     public int savedMoney;
     public GameObject[] defensesList;
 
-    public Game()
+    public Game(LifeAmountManager lifeAM)
     {
-        lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
         savedScore = lifeAM.calculateFinalScore();
         savedTowerLife = lifeAM.life;
         savedMoney = lifeAM.amount;

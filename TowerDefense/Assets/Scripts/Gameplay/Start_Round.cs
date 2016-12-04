@@ -67,7 +67,7 @@ public class Start_Round : MonoBehaviour {
         cont_round++;
         Debug.Log(cont_round);
         // Save game values before new wave
-        gameValues = new Game();
+        gameValues = new Game(FindObjectOfType<LifeAmountManager>());
         generate_round.createNewWave();
         Debug.Log("Generate Round"); 
  
