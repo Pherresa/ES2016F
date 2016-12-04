@@ -50,19 +50,26 @@ public class Start_Round : MonoBehaviour {
         if (cont_round >= total_round) {
             // Poner Final Round
             indicator_time.set_final_round(true);
+            GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
             GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
             CancelInvoke();
         }
     }
 
-    private void new_round() {
+    private void new_round() { 
+			
         float time_tmp = cnt_time * Enemy_Constants.TIME_DECREASE;
         act_time = (int)time_tmp;
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
         generate_round.createNewWave();
-        Debug.Log("Generate Round");
+        Debug.Log("Generate Round"); 
+ 
+		// After finishing a round, the currentScore is updated
+		// to the finalScoreof the previos round
+		LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
+		lifeAM.currentScore = lifeAM.currentScoreNextRound;
     }
 
     public int actu_round(){

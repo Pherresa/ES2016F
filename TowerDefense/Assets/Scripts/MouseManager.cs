@@ -57,7 +57,9 @@ public class MouseManager : MonoBehaviour {
 				selectedObject = pressedObject;
 				selectedObject.GetComponent<MeshRenderer> ().enabled = true;
 				selectedObject.GetComponent<Renderer> ().material.color = Color.green;
-				Debug.Log (selectedObject.name+" Selected");
+                selectedObject.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = true;
+
+                Debug.Log (selectedObject.name+" Selected");
 			} else {
 				if (selectedObject != null) {
 					deselect (selectedObject);
@@ -70,7 +72,8 @@ public class MouseManager : MonoBehaviour {
 
 	void deselect(GameObject obj){
 		obj.GetComponent<MeshRenderer> ().enabled = false;
-	}
+        obj.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = false;
+    }
 
 	bool checkSelectable(GameObject obj){
 		if (pressedObject.name.StartsWith ("Slot")) {
