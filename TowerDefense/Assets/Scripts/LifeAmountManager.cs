@@ -15,6 +15,12 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
+
+	public int currentScore = 0; // TODO: TEAM_D show in the play window
+	// This will use to reset the score 
+	// after finishing a round (Start_Round.cs)
+	public int currentScoreNextRound = 0; 
+
     private float startTime; // Used for the timer
     private int minuteCount;
     private int secCount;
@@ -32,24 +38,30 @@ public class LifeAmountManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        amount = Enemy_Constants.WALLET;
+        life = Enemy_Values_Gene.m_mt_tower("l");
+        UpdateLifeText();
+        FIRST_TURRET_PRICE = Enemy_Values_Gene.m_little_tower("m");
+        SECOND_TURRET_PRICE = Enemy_Values_Gene.m_medium_tower("m");
+        THIRTH_TURRET_PRICE = Enemy_Values_Gene.m_big_tower("m");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
-        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f);
+        //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
 
     }
 
     public void setRemainingTime(float r)
     {
-        remainingTime = r;
+		remainingTime = r;
     }
 
     void UpdateLifeText()
     {
 
-        lifeText.text = "Tower Life: " + life.ToString();
+        lifeText.text = life.ToString();
 
     }
     void UpdateAmountText()
@@ -67,6 +79,7 @@ public class LifeAmountManager : MonoBehaviour
             newSec = false;
         }
         secCount = (int)(remainingTime%60f);
+
         if(!final_round)
             timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
 
@@ -175,8 +188,68 @@ public class LifeAmountManager : MonoBehaviour
 
     }
 
-    public void set_final_round(bool e) {
+
+	public void set_final_round(bool e) {
         final_round = e;
     }
+
+
+	/**
+	 * The formula will calculate after the player die or after the player finished a specific level (round).
+	 * This will depend to the life's player, time's remaining, money' remaining and the objects you bought.
+	 */
+	public int calculateFinalScore(){
+
+		// weight value: we give 5 to balance the final score, most reality
+		int weight = 5;
+
+		// life parameter we will use it also for the formula -> life 
+		// the time remaining is important too  -> timeremaining  
+		// player's money remaining is used too -> amount
+
+		// objects that players bougth aslo -> priceObjects 
+		Debug.Log ("Price objects Final");
+		int priceObjects = calculatePriceBoughtObjects(); //  Get the price of the bought objects 
+
+		// the level also is a good parameter to obtain the final score -> level 
+		Start_Round st = GameObject.FindObjectOfType<Start_Round>();
+		int level = st.actu_round()+1; // Get the level of the game 
+									   // We do +1 because it's start in 0.
+
+		Debug.Log ("remainingRime");
+		Debug.Log((int)(remainingTime));
+
+		// We save the value of the finalScore becuase in the next 
+		// round this score will be the current score of the player.
+		// So now we can define the formula: 
+		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
+ 
+		return currentScoreNextRound;
+	}
+
+	/**
+	 * Calculates the price of bought objects.
+	 */
+	public int calculatePriceBoughtObjects() {
+		Action_Defense[] objects = (Action_Defense[])GameObject.FindObjectsOfType<Action_Defense> ();
+		Debug.Log ("Price objects 0");
+		int priceObjects = 0;
+		for (int i = 0; i < objects.Length; i++) {
+			Debug.Log (objects [i].towerPrice);
+			priceObjects += objects [i].towerPrice;
+		}
+		return priceObjects / 2;
+	}
+
+
+	/**
+	 * Update value of current score
+	 * 
+	 */
+	public void updateCurrentScore( int value ) {
+		this.currentScore += value;
+	}
+
+
 }
 
