@@ -9,6 +9,10 @@ public class Nazgul : MonoBehaviour {
     private Start_Round s_r;
     private bool final = false;
 
+    private Animation anima;
+    private AnimationState anima_st;
+
+
     // Use this for initialization
     void Start () { // position Start -37 75 -81
         m_velocity = 10;
@@ -27,6 +31,14 @@ public class Nazgul : MonoBehaviour {
         m_moviments.Enqueue(new Vector3(-25, 75, -73)); // TEST
         m_moviments.Enqueue(new Vector3(-37, 75, -81)); // TEST
         m_movi_actu = (Vector3)m_moviments.Dequeue();
+        s_r = GameObject.Find("Play").GetComponent<Start_Round>();
+        anima = this.GetComponent<Animation>();
+        anima["A_Nazgul_moving"].speed = 0.5f;
+        anima_st = anima["A_Nazgul_moving"];
+        anima_st.time = 0;
+        anima_st.enabled = true;
+        anima.Sample();
+        anima_st.enabled = false;
     }
 	
 	// Update is called once per frame
@@ -42,5 +54,6 @@ public class Nazgul : MonoBehaviour {
         }
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
+        anima.Play("A_Nazgul_moving");
     }
 }
