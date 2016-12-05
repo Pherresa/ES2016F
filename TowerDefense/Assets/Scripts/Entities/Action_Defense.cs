@@ -192,6 +192,8 @@ public class Action_Defense : Tower
                     }
                 }
             }
+
+
         }
     }
 
@@ -204,6 +206,9 @@ public class Action_Defense : Tower
         getTypeOfDefense();
         anim = GetComponent<Animation>();
         initAnimTrebuchet();
+
+		//BarrackRohanHorse
+		if(active) generateRohanHorses(3);
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
@@ -356,5 +361,35 @@ public class Action_Defense : Tower
             p.GetComponent<ShootingMove>().tag = "projectile";
         }
     }
+
+
+	void generateRohanHorses(int quantity) {
+		
+		GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
+		GameObject rohanHorse;
+		Vector3 newPos;
+		for (int i = 0; i < quantity; i++)
+		{
+			/*
+			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+			GameObject enemy = Instantiate(enemyPrefab);
+			enemy.transform.parent = transform;
+			//get the thing component on your instantiated object
+			AstarAI astarAI = enemy.GetComponent<AstarAI>();
+			astarAI.speed = 12;*/
+
+
+			rohanHorse = Instantiate(rohanHorsePrefab); 
+			newPos = this.transform.position;
+			newPos.x += i+1;
+			newPos.y -= 2;
+			newPos.z += 2;
+			rohanHorse.transform.position = newPos;
+		
+			rohanHorse.AddComponent<RohanHorse>();
+			//rohanHorse.transform.parent = transform;  
+		}
+
+	}
 }
 
