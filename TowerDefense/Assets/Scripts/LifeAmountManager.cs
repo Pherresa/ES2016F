@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
-
+[System.Serializable]
 public class LifeAmountManager : MonoBehaviour
 {
 

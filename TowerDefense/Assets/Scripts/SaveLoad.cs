@@ -9,14 +9,14 @@ using System.IO;
 public static class SaveLoad
 {
     public static Game savedGame;
-    public static Start_Round gameToSave;
-
     
+
     /*
      *  Method to save the data in disk, static so it can be called from everywhere
      */
     public static void SaveData()
     {
+        EnemyManager gameToSave = Object.FindObjectOfType<EnemyManager>();
         savedGame = gameToSave.gameValues;
         BinaryFormatter bf = new BinaryFormatter();
         //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located

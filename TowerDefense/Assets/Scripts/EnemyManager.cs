@@ -5,6 +5,7 @@ using System;
 public class EnemyManager : MonoBehaviour {
 
     LifeAmountManager lifeAmountManager;
+    public Game gameValues;
 
     // Use this for initialization
     void Start () {
@@ -24,6 +25,8 @@ public class EnemyManager : MonoBehaviour {
 
     public void createNewWave()
     {
+        // Save game values before new wave
+        gameValues = new Game(FindObjectOfType<LifeAmountManager>());
         for (int i = 0; i < 15; i++)
         {
             GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
