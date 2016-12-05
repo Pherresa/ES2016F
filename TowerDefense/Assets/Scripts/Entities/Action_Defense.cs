@@ -380,8 +380,9 @@ public class Action_Defense : Tower
 
 
 			rohanHorse = Instantiate(rohanHorsePrefab); 
-			newPos = this.transform.position;
-			newPos.x += i+1;
+			newPos = this.transform.position; 
+			if(i==0) newPos.x -= 3; 
+			if(i==2) newPos.x += 3;
 			newPos.y -= 2;
 			newPos.z += 2;
 			rohanHorse.transform.position = newPos;
