@@ -55,7 +55,7 @@ public class RohanHorse : MonoBehaviour {
 			Vector3 dir = target.transform.position - this.transform.position;
 			dir.y = 0f;
 
-			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.6f);
+			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
 			//towerTransform.rotation = Quaternion.Slerp(towerTransform.rotation, Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
 
 			transform.position += transform.forward * Time.deltaTime * 7f;
@@ -170,13 +170,20 @@ public class RohanHorse : MonoBehaviour {
 			//print(col.gameObject.name);
 			ene.life -= 5f;
 		}
-		/*
-		if (coll.gameObject.name.Split('(')[0] == "defense2P_RohanHorse_MT") {
-			Vector3 newPosRH = coll.gameObject.transform.position;
-			newPosRH.x += 0.1f; 
-			newPosRH.z += 0.1f; 
-			coll.gameObject.transform.position= newPosRH;
 
-		}*/
+		if (coll.gameObject.name.Split('(')[0] == "defense2P_RohanHorse_MT") {
+			Debug.Log ("PROJECTILEEEEE");
+			Vector3 newPosRH;
+			/*newPosRH = coll.gameObject.transform.position;
+			newPosRH.x += 0.3f; //newPosRH.z -= 0.3f;
+			coll.gameObject.transform.position= newPosRH;
+			*/
+			if(Vector3.Distance(this.transform.position, coll.gameObject.transform.position) <= 1f) {
+			newPosRH = this.transform.position;
+				newPosRH.x += 0.3f; //newPosRH.z += 0.5f;
+			this.transform.position= newPosRH;
+			}
+
+		}
 	}
 }

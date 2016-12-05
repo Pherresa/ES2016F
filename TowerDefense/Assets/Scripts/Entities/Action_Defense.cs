@@ -208,7 +208,7 @@ public class Action_Defense : Tower
         initAnimTrebuchet();
 
 		//BarrackRohanHorse
-		if(active) generateRohanHorses(3);
+		if(active) generateRohanHorses(2);
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
