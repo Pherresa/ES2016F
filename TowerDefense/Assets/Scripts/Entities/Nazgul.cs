@@ -44,12 +44,42 @@ public class Nazgul : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 position_aprox = new Vector3((int)Mathf.Round(this.transform.position.x), (int)Mathf.Round(this.transform.position.y), (int)Mathf.Round(this.transform.position.z)); // We round the value, otherwise in certain cases may not work
+        if (s_r.actu_round() >= s_r.total_round)
+        {
+            m_movi_actu = GameObject.Find("StartCube").transform.position;
+            final = true;
+        }
         if (position_aprox == m_movi_actu)
         {
             if (!final)
             {
                 m_moviments.Enqueue(m_movi_actu);
                 m_movi_actu = (Vector3)m_moviments.Dequeue();
+            }
+            else{
+                this.gameObject.SetActive(false);
+                Debug.Log("asd");
+                GameObject enemyPrefab = Resources.Load("Prefabs/attack3P_Nazgul_MT") as GameObject;
+                GameObject enemy = Instantiate(enemyPrefab);
+                enemy.transform.parent = GameObject.Find("EnemyManager").transform;
+                //get the thing component on your instantiated object
+                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+                //Destroy(this.gameObject);
+                /*
+                gameObject.transform.parent = GameObject.Find("EnemyManager").transform;
+                if (this.gameObject.GetComponent<Enemy>() == null) {
+                    this.gameObject.AddComponent<Enemy>();
+                    this.gameObject.GetComponent<Enemy>().life = 1000;
+                }
+                if (this.gameObject.GetComponent<AstarAI>() == null)
+                {
+                    AstarAI asd = GameObject.Find("Enemy(Clone)").GetComponent<AstarAI>();
+                    this.gameObject.;
+                }
+                //this.gameObject.AddComponent<AstarAI>();
+                //this.gameObject.GetComponent<AstarAI>().target= GameObject.FindGameObjectWithTag("Target").transform;
+               */
             }
         }
         transform.LookAt(m_movi_actu);
