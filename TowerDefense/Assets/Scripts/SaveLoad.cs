@@ -55,7 +55,8 @@ public static class SaveLoad
         lifeAM.currentScore = savedGame.savedScore;
         lifeAM.life = savedGame.savedTowerLife;
         lifeAM.amount = savedGame.savedMoney;
-        EnemyManager.loadDefenses(savedGame.defensesList);
+        enemyMan.loadDefenses(savedGame.defensesList);
+        enemyMan.createNewWave();
     }
 
 }

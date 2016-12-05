@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour {
     }
 
     //Destroy all the defenses and enemies in the actual round to load the saved defenses from the last completed round
-    internal static void loadDefenses(GameObject[] defensesList)
+    public void loadDefenses(GameObject[] defensesList)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
