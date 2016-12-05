@@ -385,8 +385,11 @@ public class Action_Defense : Tower
 			newPos.y -= 2;
 			newPos.z += 2;
 			rohanHorse.transform.position = newPos;
-		
+			//rohanHorse.AddComponent<Rigidbody>();
 			rohanHorse.AddComponent<RohanHorse>();
+			rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
+			rohanHorse.GetComponent<RohanHorse> ().tag = "projectile";
+
 			//rohanHorse.transform.parent = transform;  
 		}
 

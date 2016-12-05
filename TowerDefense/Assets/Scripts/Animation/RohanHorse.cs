@@ -10,6 +10,7 @@ public class RohanHorse : MonoBehaviour {
 	AnimationState stateRohanHorseAttacking; 
  	
 	GameObject target;
+	public Vector3 center;
 	public int range = 40;
 
 	DateTime timeOnPlay;
@@ -36,7 +37,7 @@ public class RohanHorse : MonoBehaviour {
 		stateRohanHorseRunning.time = 0;
 		stateRohanHorseRunning.enabled = true;
 		anim.Sample ();
-		stateRohanHorseRunning.enabled = false;
+		//stateRohanHorseRunning.enabled = false;
 
 		anim ["A_RHorse_attack"].speed = 1.5f;
 		stateRohanHorseAttacking = anim ["A_RHorse_attack"];
@@ -57,8 +58,8 @@ public class RohanHorse : MonoBehaviour {
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.1f);
 			//towerTransform.rotation = Quaternion.Slerp(towerTransform.rotation, Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
 
-			transform.position += transform.forward * Time.deltaTime * 5f;
-			if (dir.magnitude < 2) {
+			transform.position += transform.forward * Time.deltaTime * 8f;
+			if (dir.magnitude < 4) {
 				anim.Play("A_RHorse_attack");
 				animationPhase = 0;
 			}
@@ -90,13 +91,15 @@ public class RohanHorse : MonoBehaviour {
 
 		float tmpDistance = Mathf.Infinity;
 		GameObject tmpEnemy = null;
+		float distanceToEnemy;
+		bool isNotCollisiongWOR = isNotCollisioningWithOtherRohan (3);
 		foreach (GameObject enemy in enemies)
-		{
-			float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+		{ 
+			distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 			if (distanceToEnemy < tmpDistance)
 			{
 				tmpDistance = distanceToEnemy;
-				tmpEnemy = enemy;
+				tmpEnemy = enemy; 
 			}
 		}
 		if (tmpEnemy != null && tmpDistance <= range)
@@ -110,6 +113,29 @@ public class RohanHorse : MonoBehaviour {
 	}
 
 
+	bool isNotCollisioningWithOtherRohan(int minDist) {
+		bool isNotCollisioning = true;
+		float distanceToRH =  Mathf.Infinity;
+		GameObject[] rohanHorses = GameObject.FindGameObjectsWithTag("rohanHorse");
+		int iter = 0;
+		GameObject rH = null;
+		int rohanHorsesLength = rohanHorses.Length;
+		if (rohanHorsesLength > 1 && iter < rohanHorsesLength) {
+			while(isNotCollisioning) {
+				rH = rohanHorses[iter];
+				distanceToRH = Vector3.Distance(transform.position, rH.transform.position);
+				if (distanceToRH < minDist)
+				{ 
+					isNotCollisioning = false;
+				}
+				iter++;
+			}
+		}
+
+		return isNotCollisioning;
+	}
+		
+
 	// 
 	void OnCollisionEnter(Collision col)
 	{
@@ -118,5 +144,18 @@ public class RohanHorse : MonoBehaviour {
 		enemy.life -= 40;*/
 		Debug.Log("ROHAN HORSE COLISIONA!");
 
+	}
+
+	void OnTriggerEnter(Collider coll) {
+
+		Debug.Log ("PROJECTILE");
+		if (coll.gameObject.name.Split('(')[0] == "Enemy") {
+			Enemy ene = coll.GetComponent<Enemy> ();
+			//Destroy(this.gameObject);
+			ene.playSound (ene.soundAttacked);
+		
+			//print(col.gameObject.name);
+			ene.life -= 50f;
+		}
 	}
 }

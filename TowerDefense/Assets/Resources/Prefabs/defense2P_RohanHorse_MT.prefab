@@ -324,6 +324,7 @@ GameObject:
   - 114: {fileID: 114000014080516310}
   - 143: {fileID: 143000011938074936}
   - 114: {fileID: 114000011251013266}
+  - 135: {fileID: 135000013331938114}
   m_Layer: 0
   m_Name: defense2P_RohanHorse_MT
   m_TagString: Untagged
@@ -2540,7 +2541,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e63b719d3d8df488e7a9aa4bd933fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
   range: 40
+--- !u!135 &135000013331938114
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011003167612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.61
+  m_Center: {x: 0, y: 2.19, z: 0}
 --- !u!137 &137000010118465016
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
