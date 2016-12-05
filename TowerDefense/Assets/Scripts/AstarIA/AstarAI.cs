@@ -46,7 +46,7 @@ public class AstarAI : MonoBehaviour {
 		}
 	}
 
-	public void FixedUpdate () {
+	public void Update () {
 		if (path == null) {
 			//We have no path to move after yet
 			return;
@@ -72,7 +72,7 @@ public class AstarAI : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 	}
 
