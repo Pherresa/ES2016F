@@ -9,6 +9,7 @@ using System.IO;
 public static class SaveLoad
 {
     public static Game savedGame;
+    public static Start_Round gameToSave;
 
     
     /*
@@ -16,7 +17,7 @@ public static class SaveLoad
      */
     public static void SaveData()
     {
-        savedGame = Game.current;
+        savedGame = gameToSave.gameValues;
         BinaryFormatter bf = new BinaryFormatter();
         //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
