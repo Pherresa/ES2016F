@@ -51,6 +51,7 @@ public class Action_Defense : Tower
             case TowerType.TREBUCHET_MT:
                 anim = GetComponent<Animation>();
                 break;
+            case TowerType.MERCENARYHUMAN_I:
             case TowerType.ORCARCHER_I:
                 anims = GetComponentsInChildren<Animation>();
                 break;
@@ -86,13 +87,14 @@ public class Action_Defense : Tower
                 break;
 
             case TowerType.MERCENARYHUMAN_I:
-                //anim["A_MercenaryHuman_idle"].speed = 1f;
-                anim["A_MercenaryHuman_attack"].speed = 2f;
+                //anim["A_Mercenary_idle"].speed = 1f;
+                //anim["A_Mercenary_attack"].speed = 2f;
 
                 break;
 
             case TowerType.ORCARCHER_I:
                 //anim["A_OrcArcher_idle"].speed = 1f;
+                anim["A_OrcArcher_attack"].speed = 2f;
                 //anim["A_OrcArcher_attack"].speed = 2.5f;
 
                 break;
@@ -150,27 +152,37 @@ public class Action_Defense : Tower
                 case TowerType.MERCENARYHUMAN_I:
                     if (animationPhase == 1)
                     {
-                        timeOnPlay = DateTime.Now;
-                        anim.Play("A_MercenaryHuman_attack");
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_Mercenary_attack");
+                        }
                         animationPhase = 2;
                     }
                     else if (animationPhase == 2)
                     {
-                        if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
+                        foreach (Animation animation in anims)
                         {
-                            lanzar();
-                            timeOnPlay = DateTime.Now;
-                            anim.Play("A_MercenaryHuman_recharge");
-                            animationPhase = 3;
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_attack"].length)
+                            {
+                                lanzar();
+                                timeOnPlay = DateTime.Now;
+                                anim.Play("A_Mercenary_recharge_");
+                                animationPhase = 3;
+                            }
                         }
                     }
                     else if (animationPhase == 3)
                     {
-                        if ((DateTime.Now - timeOnPlay).Seconds > 1f)
+                        foreach (Animation animation in anims)
                         {
-                            isShooting = false;
-                            animationPhase = 0;
-                            predict = 0;
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_recharge_"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
                         }
                     }
                     break;
@@ -217,6 +229,16 @@ public class Action_Defense : Tower
                         if (!animation.IsPlaying("A_OrcArcher_idle"))
                         {
                             animation.Play("A_OrcArcher_idle");
+                        }
+                    }
+                    break;
+
+                case TowerType.MERCENARYHUMAN_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_Mercenary_idle"))
+                        {
+                            animation.Play("A_Mercenary_idle");
                         }
                     }
                     break;
