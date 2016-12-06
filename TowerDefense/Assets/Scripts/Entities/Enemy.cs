@@ -32,8 +32,6 @@ public class Enemy : MonoBehaviour {
     }
 
 
-
-
     private GameObject explosion;
 
     // Use this for initialization
@@ -59,7 +57,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-    void playSound(AudioClip audio){
+    public void playSound(AudioClip audio){
         source.PlayOneShot (audio);
     }
 
@@ -121,6 +119,7 @@ public class Enemy : MonoBehaviour {
     {
         if(life <= 0)
         {
+            playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
             GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(money);
             Destroy(gameObject);
@@ -131,12 +130,24 @@ public class Enemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+		 
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
             playSound(soundAttacked);
-
-            life -= 30f;
+            //print(col.gameObject.name);
+            life -= 50f;
         }
-    }
+		/*
+		if (col.gameObject.tag == "rohanHorse")
+		{
+			//Destroy(this.gameObject);
+			playSound(soundAttacked);
+			//print(col.gameObject.name);
+			life -= 50f;
+		}*/
+
+    } 
+
+
 }

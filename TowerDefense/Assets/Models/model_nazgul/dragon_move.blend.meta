@@ -1,0 +1,617 @@
+fileFormatVersion: 2
+guid: f18778654ac271a479bd323ba6f442b5
+timeCreated: 1480899343
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm_left
+    100002: arm_right
+    100004: armor__left
+    100006: armor__right_
+    100008: Bone_006
+    100010: bra_
+    100012: bra__dret
+    100014: bra__dret_001
+    100016: bra__dret_002
+    100018: bra__esq
+    100020: bra__esq_001
+    100022: bra__esq_002
+    100024: cama_dreta
+    100026: cama_dreta_001
+    100028: cama_dreta_002
+    100030: cama_dreta_003
+    100032: cama_esq
+    100034: cama_esq_001
+    100036: cama_esq_002
+    100038: cama_esq_003
+    100040: cap
+    100042: chair
+    100044: cintura
+    100046: coll
+    100048: dragon
+    100050: dragon_001
+    100052: dragon_002
+    100054: dragon_003
+    100056: dragon_004
+    100058: dragon_005
+    100060: dragon_armature
+    100062: //RootNode
+    100064: dress
+    100066: dress_001
+    100068: eye_left
+    100070: eye_right
+    100072: head
+    100074: head_001
+    100076: head_002
+    100078: head_003
+    100080: helmet
+    100082: helmet_cloth
+    100084: knee
+    100086: knee_001
+    100088: knee_002
+    100090: knee_003
+    100092: leg_left
+    100094: leg_left_001
+    100096: leg_left_002
+    100098: leg_left_003
+    100100: leg_left_004
+    100102: leg_left_005
+    100104: leg_left_006
+    100106: leg_right
+    100108: leg_right_001
+    100110: leg_right_002
+    100112: leg_right_003
+    100114: leg_right_004
+    100116: leg_right_005
+    100118: leg_right_006
+    100120: LightPreset
+    100122: ma_dreta
+    100124: ma_dreta_001
+    100126: ma_dreta_002
+    100128: ma_dreta_003
+    100130: ma_dreta_004
+    100132: ma_dreta_005
+    100134: ma_dreta_006
+    100136: ma_dreta_007
+    100138: ma_dreta_008
+    100140: ma_dreta_009
+    100142: ma_dreta_010
+    100144: ma_dreta_011
+    100146: ma_dreta_012
+    100148: ma_dreta_013
+    100150: ma_dreta_014
+    100152: ma_esq
+    100154: ma_esq_001
+    100156: ma_esq_002
+    100158: ma_esq_003
+    100160: ma_esq_004
+    100162: ma_esq_005
+    100164: ma_esq_006
+    100166: ma_esq_007
+    100168: ma_esq_008
+    100170: ma_esq_009
+    100172: ma_esq_010
+    100174: ma_esq_011
+    100176: ma_esq_012
+    100178: ma_esq_013
+    100180: ma_esq_014
+    100182: nazgul_armature
+    100184: peu_dret
+    100186: peu_esq
+    100188: tail
+    100190: tail_001
+    100192: tail_002
+    100194: tail_003
+    100196: tail_004
+    100198: tail_005
+    100200: tronc
+    100202: tronc_0
+    100204: tronc_001
+    100206: wing_left
+    100208: wing_left_0
+    100210: wing_left_001
+    100212: wing_left_002
+    100214: wing_left_003
+    100216: wing_left_004
+    100218: wing_left_005
+    100220: wing_left_006
+    100222: wing_right
+    100224: wing_right_0
+    100226: wing_right_001
+    100228: wing_right_002
+    100230: wing_right_003
+    100232: wing_right_004
+    100234: wing_right_005
+    100236: wing_right_006
+    400000: arm_left
+    400002: arm_right
+    400004: armor__left
+    400006: armor__right_
+    400008: Bone_006
+    400010: bra_
+    400012: bra__dret
+    400014: bra__dret_001
+    400016: bra__dret_002
+    400018: bra__esq
+    400020: bra__esq_001
+    400022: bra__esq_002
+    400024: cama_dreta
+    400026: cama_dreta_001
+    400028: cama_dreta_002
+    400030: cama_dreta_003
+    400032: cama_esq
+    400034: cama_esq_001
+    400036: cama_esq_002
+    400038: cama_esq_003
+    400040: cap
+    400042: chair
+    400044: cintura
+    400046: coll
+    400048: dragon
+    400050: dragon_001
+    400052: dragon_002
+    400054: dragon_003
+    400056: dragon_004
+    400058: dragon_005
+    400060: dragon_armature
+    400062: //RootNode
+    400064: dress
+    400066: dress_001
+    400068: eye_left
+    400070: eye_right
+    400072: head
+    400074: head_001
+    400076: head_002
+    400078: head_003
+    400080: helmet
+    400082: helmet_cloth
+    400084: knee
+    400086: knee_001
+    400088: knee_002
+    400090: knee_003
+    400092: leg_left
+    400094: leg_left_001
+    400096: leg_left_002
+    400098: leg_left_003
+    400100: leg_left_004
+    400102: leg_left_005
+    400104: leg_left_006
+    400106: leg_right
+    400108: leg_right_001
+    400110: leg_right_002
+    400112: leg_right_003
+    400114: leg_right_004
+    400116: leg_right_005
+    400118: leg_right_006
+    400120: LightPreset
+    400122: ma_dreta
+    400124: ma_dreta_001
+    400126: ma_dreta_002
+    400128: ma_dreta_003
+    400130: ma_dreta_004
+    400132: ma_dreta_005
+    400134: ma_dreta_006
+    400136: ma_dreta_007
+    400138: ma_dreta_008
+    400140: ma_dreta_009
+    400142: ma_dreta_010
+    400144: ma_dreta_011
+    400146: ma_dreta_012
+    400148: ma_dreta_013
+    400150: ma_dreta_014
+    400152: ma_esq
+    400154: ma_esq_001
+    400156: ma_esq_002
+    400158: ma_esq_003
+    400160: ma_esq_004
+    400162: ma_esq_005
+    400164: ma_esq_006
+    400166: ma_esq_007
+    400168: ma_esq_008
+    400170: ma_esq_009
+    400172: ma_esq_010
+    400174: ma_esq_011
+    400176: ma_esq_012
+    400178: ma_esq_013
+    400180: ma_esq_014
+    400182: nazgul_armature
+    400184: peu_dret
+    400186: peu_esq
+    400188: tail
+    400190: tail_001
+    400192: tail_002
+    400194: tail_003
+    400196: tail_004
+    400198: tail_005
+    400200: tronc
+    400202: tronc_0
+    400204: tronc_001
+    400206: wing_left
+    400208: wing_left_0
+    400210: wing_left_001
+    400212: wing_left_002
+    400214: wing_left_003
+    400216: wing_left_004
+    400218: wing_left_005
+    400220: wing_left_006
+    400222: wing_right
+    400224: wing_right_0
+    400226: wing_right_001
+    400228: wing_right_002
+    400230: wing_right_003
+    400232: wing_right_004
+    400234: wing_right_005
+    400236: wing_right_006
+    4300000: dragon_005
+    4300002: dragon_004
+    4300004: dragon_003
+    4300006: dragon_002
+    4300008: dragon
+    4300010: wing_right
+    4300012: wing_left
+    4300014: dragon_001
+    4300016: chair
+    4300018: helmet
+    4300020: eye_right
+    4300022: eye_left
+    4300024: arm_left
+    4300026: arm_right
+    4300028: armor__left
+    4300030: armor__right_
+    4300032: dress_001
+    4300034: dress
+    4300036: helmet_cloth
+    7400000: A_Nazgul_moving
+    7400002: A_Nazgul_idle
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: arm_left
+    13700002: arm_right
+    13700004: armor__left
+    13700006: armor__right_
+    13700008: chair
+    13700010: dragon
+    13700012: dragon_001
+    13700014: dragon_002
+    13700016: dragon_003
+    13700018: dragon_004
+    13700020: dragon_005
+    13700022: dress
+    13700024: dress_001
+    13700026: eye_left
+    13700028: eye_right
+    13700030: helmet
+    13700032: helmet_cloth
+    13700034: wing_left
+    13700036: wing_right
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_Nazgul_moving
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: arm_left
+        weight: 1
+      - path: arm_right
+        weight: 1
+      - path: armor__left
+        weight: 1
+      - path: armor__right_
+        weight: 1
+      - path: chair
+        weight: 1
+      - path: dragon
+        weight: 1
+      - path: dragon_001
+        weight: 1
+      - path: dragon_002
+        weight: 1
+      - path: dragon_003
+        weight: 1
+      - path: dragon_004
+        weight: 1
+      - path: dragon_005
+        weight: 1
+      - path: dragon_armature
+        weight: 1
+      - path: dragon_armature/tronc
+        weight: 1
+      - path: dragon_armature/tronc/leg_left
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001/leg_left_002
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001/leg_left_002/leg_left_003
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001/leg_left_002/leg_left_003/leg_left_004
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001/leg_left_002/leg_left_003/leg_left_004/leg_left_005
+        weight: 1
+      - path: dragon_armature/tronc/leg_left/leg_left_001/leg_left_002/leg_left_003/leg_left_004/leg_left_005/leg_left_006
+        weight: 1
+      - path: dragon_armature/tronc/leg_right
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001/leg_right_002
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001/leg_right_002/leg_right_003
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001/leg_right_002/leg_right_003/leg_right_004
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001/leg_right_002/leg_right_003/leg_right_004/leg_right_005
+        weight: 1
+      - path: dragon_armature/tronc/leg_right/leg_right_001/leg_right_002/leg_right_003/leg_right_004/leg_right_005/leg_right_006
+        weight: 1
+      - path: dragon_armature/tronc/tail
+        weight: 1
+      - path: dragon_armature/tronc/tail/tail_001
+        weight: 1
+      - path: dragon_armature/tronc/tail/tail_001/tail_002
+        weight: 1
+      - path: dragon_armature/tronc/tail/tail_001/tail_002/tail_003
+        weight: 1
+      - path: dragon_armature/tronc/tail/tail_001/tail_002/tail_003/tail_004
+        weight: 1
+      - path: dragon_armature/tronc/tail/tail_001/tail_002/tail_003/tail_004/tail_005
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003/Bone_006
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003/head
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003/head_001
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003/head_001/head_002
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/knee/knee_001/knee_002/knee_003/head_001/head_002/head_003
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001/wing_left_002
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001/wing_left_002/wing_left_003
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001/wing_left_002/wing_left_003/wing_left_004
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001/wing_left_002/wing_left_003/wing_left_004/wing_left_005
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_left_0/wing_left_001/wing_left_002/wing_left_003/wing_left_004/wing_left_005/wing_left_006
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001/wing_right_002
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001/wing_right_002/wing_right_003
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001/wing_right_002/wing_right_003/wing_right_004
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001/wing_right_002/wing_right_003/wing_right_004/wing_right_005
+        weight: 1
+      - path: dragon_armature/tronc/tronc_001/wing_right_0/wing_right_001/wing_right_002/wing_right_003/wing_right_004/wing_right_005/wing_right_006
+        weight: 1
+      - path: dress
+        weight: 1
+      - path: dress_001
+        weight: 1
+      - path: eye_left
+        weight: 1
+      - path: eye_right
+        weight: 1
+      - path: helmet
+        weight: 1
+      - path: helmet_cloth
+        weight: 1
+      - path: LightPreset
+        weight: 1
+      - path: nazgul_armature
+        weight: 1
+      - path: nazgul_armature/cama_dreta
+        weight: 1
+      - path: nazgul_armature/cama_dreta/cama_dreta_001
+        weight: 1
+      - path: nazgul_armature/cama_dreta/cama_dreta_001/cama_dreta_002
+        weight: 1
+      - path: nazgul_armature/cama_dreta/cama_dreta_001/cama_dreta_002/cama_dreta_003
+        weight: 1
+      - path: nazgul_armature/cama_dreta/cama_dreta_001/cama_dreta_002/cama_dreta_003/peu_dret
+        weight: 1
+      - path: nazgul_armature/cama_esq
+        weight: 1
+      - path: nazgul_armature/cama_esq/cama_esq_001
+        weight: 1
+      - path: nazgul_armature/cama_esq/cama_esq_001/cama_esq_002
+        weight: 1
+      - path: nazgul_armature/cama_esq/cama_esq_001/cama_esq_002/cama_esq_003
+        weight: 1
+      - path: nazgul_armature/cama_esq/cama_esq_001/cama_esq_002/cama_esq_003/peu_esq
+        weight: 1
+      - path: nazgul_armature/cintura
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta/ma_dreta_001
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta/ma_dreta_001/ma_dreta_002
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_003
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_003/ma_dreta_004
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_003/ma_dreta_004/ma_dreta_005
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_006
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_006/ma_dreta_007
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_006/ma_dreta_007/ma_dreta_008
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_009
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_009/ma_dreta_010
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_009/ma_dreta_010/ma_dreta_011
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_012
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_012/ma_dreta_013
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra_/bra__dret_001/bra__dret_002/ma_dreta_012/ma_dreta_013/ma_dreta_014
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__dret
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq/ma_esq_001
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq/ma_esq_001/ma_esq_002
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_003
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_003/ma_esq_004
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_003/ma_esq_004/ma_esq_005
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_006
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_006/ma_esq_007
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_006/ma_esq_007/ma_esq_008
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_009
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_009/ma_esq_010
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_009/ma_esq_010/ma_esq_011
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_012
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_012/ma_esq_013
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/bra__esq/bra__esq_001/bra__esq_002/ma_esq_012/ma_esq_013/ma_esq_014
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/coll
+        weight: 1
+      - path: nazgul_armature/cintura/tronc_0/coll/cap
+        weight: 1
+      - path: wing_left
+        weight: 1
+      - path: wing_right
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

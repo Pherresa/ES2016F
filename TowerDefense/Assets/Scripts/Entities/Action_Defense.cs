@@ -11,78 +11,204 @@ public class Action_Defense : Tower
     public int towerPrice;
     public int towerTama;
 
-    //Animation animation;
-    private float timer = 0.6f;
+    Animation anim;
+    AnimationState stateTrebuchetIdle;
+    AnimationState stateTrebuchetAttack;
+    AnimationState stateTrebuchetrecharge;
+    private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
-    private int maxFrameToPredict = 8;
-    private int plusToPredict = 6;
+    private int maxFrameToPredict = 5;
+    private int plusToPredictTrebu = 10;
+    private int plusToPredict = 23;
+    private int animationPhase = 0;
+    private bool nextPhaseAnim = false;
+    private float speed = 2f;
+    private bool isShooting = false;
+    int number = 0;
+    bool couroutineStarted = false;
+    int s = 3;
+    DateTime timeOnPlay;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
     void Start()
     {
+        
         iniStates();
     }
 
-	// Funcion que se executa por cada frame para poder girar correctamente the towers.
-	void Update() {
-		// vemos que no sea nulo
-		if (target != null) {
-			// llamamos la funcion que gira al towers
-			SpinTower.spin(target.transform.position, this.transform);
-		}
-	}
+    // Funcion que se executa por cada frame para poder girar correctamente the towers.
+    void Update()
+    {
+        if (active)
+        {
+            checkPhaseAnim();
+            // vemos que no sea nulo
+            if (target != null)
+            {
+                // llamamos la funcion que gira al towers
+                SpinTower.spin(target.transform.position, this.transform);
+            }
+        }
+    }
+    private void initAnimTrebuchet()
+    {
+        if (type==1) {
+            anim["A_Trebuchet_idle"].speed = 1f;
+            stateTrebuchetIdle = anim["A_Trebuchet_idle"];
+            stateTrebuchetIdle.time = 0;
+            stateTrebuchetIdle.enabled = true;
+            anim.Sample();
+            stateTrebuchetIdle.enabled = false;
 
+            anim["A_Trebuchet_attack"].speed = 2.5f;
+            stateTrebuchetAttack = anim["A_Trebuchet_attack"];
+            stateTrebuchetAttack.time = 0;
+            stateTrebuchetAttack.enabled = true;
+            anim.Sample();
+            stateTrebuchetAttack.enabled = false;
+
+            anim["A_Trebuchet_recharge"].speed = 1.5f;
+            stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
+            stateTrebuchetrecharge.time = 0;
+            stateTrebuchetrecharge.enabled = true;
+            anim.Sample();
+            stateTrebuchetrecharge.enabled = false;
+        }
+    }
+
+    private void checkPhaseAnim()
+    {
+        if (isShooting) {
+            if (type == 1)
+            {
+                if (animationPhase == 1)
+                {
+                    timeOnPlay = DateTime.Now;
+                    anim.Play("A_Trebuchet_attack");
+                    animationPhase = 2;
+                }
+                else if (animationPhase == 2)
+                {
+                    if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
+                    {
+                        lanzar();
+                        timeOnPlay = DateTime.Now;
+                        anim.Play("A_Trebuchet_recharge");
+                        animationPhase = 3;
+                    }
+                }
+                else if (animationPhase == 3)
+                {
+                    if ((DateTime.Now - timeOnPlay).Seconds > 1f)
+                    {
+                        isShooting = false;
+                        animationPhase = 0;
+                        predict = 0;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (type == 1 && !anim.IsPlaying("A_Trebuchet_idle"))
+            {
+                anim.Play("A_Trebuchet_idle");
+            }
+        }
+    }
+
+    private void checkDistanceTarget()
+    {
+        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
+        if (distanceToEnemy > range)
+        {
+            target = null;
+            animationPhase = 0;
+            predict = 0;
+            isShooting = false;
+        }
+    }
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
         if (active)
         {
-            if (predict == 0)
-            {
-
-                getTarget();
-                if (target != null)
+            if (!isShooting) {
+                if (animationPhase == 0)
                 {
-                    posIni = target.transform.position;
-                    predict += 1;
+                    if (predict == 0)
+                    {
+                        getTarget();
+                        if (target != null)
+                        {
+                            posIni = target.transform.position;
+                            predict += 1;
+                        }
+                    }
+                    else
+                    {
+                        if (predict != maxFrameToPredict)
+                        {
+                            predictPositionToShoot();
+                        }
+                    }
                 }
             }
+            // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
+            if (type != 1 && predict == maxFrameToPredict)
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    timer = 1.5f;
+                    checkDistanceTarget();
+                    if (target != null)
+                    {
+                        lanzar();
+                        predict = 0;
+                    }
+                    else
+                    {
+                        predict = 0;
+                    }
+                }
+            }
+            // aqui solo entrara la catapulta por ahora
             else
             {
-                if (predict != maxFrameToPredict)
+                if (!isShooting)
                 {
-                    predictPositionToShoot();
-                }
+                    {
+                        checkDistanceTarget();
+                        if (target != null)
+                        {
+                            if (type != 0 && predict == maxFrameToPredict)
+                            {
+                                shoot();
 
-            }
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-
-                timer = 0.6f;
-                //anim.Play();
-                // if (!anim.isPlaying){
-                if (type != 0 && predict == maxFrameToPredict)
-                {
-                    shoot();
-                    predict = 0;
+                            }
+                        }
+                    }
                 }
-                // }
             }
+
+
         }
     }
-        
-        
+
+
 
     // inicializador
     void iniStates()
     {
         get_value_tower();
-        //range = 40f;
-        //strenght = 1;
-        //predict = 0;
         getTypeOfDefense();
+        anim = GetComponent<Animation>();
+        initAnimTrebuchet();
+
+		//BarrackRohanHorse
+		if(active && type == 2) generateRohanHorses(2);
     }
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
@@ -113,18 +239,8 @@ public class Action_Defense : Tower
     // simular disparo
     protected override void shoot()
     {
-        if (target != null)
-        {
-            
-            float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
-            if (distanceToEnemy <= range)
-            { 
-                shootProjectile();
-            }
-        }else
-        {
-            predict = 0;
-        }
+        isShooting = true;
+        animationPhase = 1;
     }
     // 'apunta' al enemigo que va a atacar. Obtiene una posicion/coordenadas avanzada
     private void predictPositionToShoot()
@@ -137,61 +253,20 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                posIni = target.transform.position + (tmp * plusToPredict);
-
-                if (distanceToEnemy < range && distanceToEnemy > range/2.0f)
+                if (type != 1)
                 {
-                    posIni *= 4;
+                    posIni = target.transform.position + (tmp * plusToPredict);
                 }
-                else if (distanceToEnemy < range && distanceToEnemy > range / 3.0f)
+                else
                 {
-                    posIni *= 3;
+                    posIni = target.transform.position + (tmp * plusToPredictTrebu);
                 }
-                else if (distanceToEnemy < range/3.0f && distanceToEnemy > range/4.0f)
-                {
-                    posIni *= 1.5f;
-                }
-                
             }
             if (predict != maxFrameToPredict)
             {
                 predict += 1;
             }
-        }else
-        {
-            predict = 0;
-        }
-    }
-    // crea el proyectil. Como muchos no estan creados todavia, se genera ua sphera
-    private GameObject shootProjectile()
-    {
-        GameObject pro = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        pro.AddComponent<Rigidbody>();
-        pro.AddComponent<Collider>();
-        Vector3 tmp = this.transform.position;
-        tmp.y += 2;
-        pro.transform.position = tmp;
-        pro.transform.localScale = new Vector3(2f, 2f, 2f);
-        pro.AddComponent<ShootingMove>();
-        pro.GetComponent<ShootingMove>().pos = posIni;
-        pro.GetComponent<ShootingMove>().tag = "projectile";
-        if (type == 1)
-        { 
-            pro.GetComponent<Renderer>().material.color = Color.blue;
-        }
-        if (type == 2)
-        {
-            pro.GetComponent<Renderer>().material.color = Color.green;
-        }
-        if (type == 3)
-        {
-            pro.GetComponent<Renderer>().material.color = Color.red;
-        }
-        if (type == 4)
-        {
-            pro.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        return projectile;
+        } 
     }
     // obtiene el enemigo mas cercano
     protected override void getTarget()
@@ -212,11 +287,11 @@ public class Action_Defense : Tower
         {
             target = tmpEnemy;
         }
-         else
-         {
-             target = null;
-             predict = 0;
-         }
+        else
+        {
+            target = null;
+            predict = 0;
+        }
     }
     // para saber si esta activa o no.
     public override bool isActiveTower()
@@ -241,7 +316,7 @@ public class Action_Defense : Tower
             case 1:
                 range = Enemy_Values_Gene.m_little_tower("r");
                 strenght = Enemy_Values_Gene.m_little_tower("a");
-                towerPrice = (int) Enemy_Values_Gene.m_little_tower("m") / 2;
+                towerPrice = (int)Enemy_Values_Gene.m_little_tower("m") / 2;
                 break;
             case 2:
                 range = Enemy_Values_Gene.m_medium_tower("r");
@@ -259,5 +334,66 @@ public class Action_Defense : Tower
         }
         predict = 0;
     }
+
+    private void lanzar()
+    {
+        if (type==1)
+        {
+            GameObject prefab = (GameObject) Resources.Load("Prefabs/defense1P_Rock_MT");
+            GameObject p = Instantiate(prefab);
+            p.AddComponent<Rigidbody>();
+            p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
+            p.AddComponent<ShootingMove>();
+            p.GetComponent<ShootingMove>().pos = posIni;
+            p.GetComponent<ShootingMove>().tag = "projectile";
+        }
+        else
+        {
+            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            p.AddComponent<Rigidbody>();
+            Vector3 tmp = this.transform.position;
+            tmp.y += 5f;
+            p.transform.position = tmp;
+            p.transform.localScale = new Vector3(2f, 2f, 2f);
+            p.GetComponent<SphereCollider>().radius = 0.6f;
+            p.AddComponent<ShootingMove>();
+            p.GetComponent<ShootingMove>().pos = posIni;
+            p.GetComponent<ShootingMove>().tag = "projectile";
+        }
+    }
+
+
+	void generateRohanHorses(int quantity) {
+		
+		GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
+		GameObject rohanHorse;
+		Vector3 newPos;
+		for (int i = 0; i < quantity; i++)
+		{
+			/*
+			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+			GameObject enemy = Instantiate(enemyPrefab);
+			enemy.transform.parent = transform;
+			//get the thing component on your instantiated object
+			AstarAI astarAI = enemy.GetComponent<AstarAI>();
+			astarAI.speed = 12;*/
+
+
+			rohanHorse = Instantiate(rohanHorsePrefab); 
+			newPos = this.transform.position; 
+			if(i==0) newPos.x -= 3; 
+			if(i==2) newPos.x += 3;
+			newPos.y -= 2;
+			newPos.z += 2;
+			rohanHorse.transform.position = newPos;
+			//rohanHorse.AddComponent<Rigidbody>();
+			rohanHorse.AddComponent<RohanHorse>();
+			rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
+			rohanHorse.GetComponent<RohanHorse> ().tag = "projectile";
+
+			//rohanHorse.transform.parent = transform;  
+		}
+
+	}
 }
 
