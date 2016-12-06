@@ -13,6 +13,9 @@ public class Start_Round : MonoBehaviour {
     private bool act_time_cont;
     private LifeAmountManager indicator_time;
     private EnemyManager generate_round;
+    public Game gameValues;
+   
+    
     
     //public Text buttonText;
 

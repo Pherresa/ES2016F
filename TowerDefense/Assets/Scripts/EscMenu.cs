@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class EscMenu : MonoBehaviour {
 
-
+    
     public void mContinueGame()
     {   
         Time.timeScale = 1.0f;
@@ -14,7 +14,7 @@ public class EscMenu : MonoBehaviour {
 
     public void mSaveGame() 
     {
-
+        SaveLoad.SaveData();
     }
 
     public void mExitGame()

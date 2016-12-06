@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnemyManager : MonoBehaviour {
 
     LifeAmountManager lifeAmountManager;
+    public Game gameValues;
 
     // Use this for initialization
     void Start () {
@@ -23,6 +25,8 @@ public class EnemyManager : MonoBehaviour {
 
     public void createNewWave()
     {
+        // Save game values before new wave
+        gameValues = new Game(FindObjectOfType<LifeAmountManager>());
         for (int i = 0; i < 15; i++)
         {
             GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
@@ -48,5 +52,21 @@ public class EnemyManager : MonoBehaviour {
 		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2>();
 		bRamAstarAI.speed = 10;
 		bRamAstarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+    }
+
+    //Destroy all the defenses and enemies in the actual round
+    public void Reset()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        GameObject[] defenses = GameObject.FindGameObjectsWithTag("Defense");
+        foreach(GameObject defense in defenses)
+        {
+            Destroy(defense);
+        }
     }
 }
