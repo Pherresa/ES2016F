@@ -4,12 +4,22 @@ using System.Collections;
  *  unidades de defensa como minimo.
 */
 public abstract class Tower : MonoBehaviour {
+    
+    public enum TowerType
+    {
+        UNKNOWN,
+        TREBUCHET_MT,
+        ROHANBARRACKS_MT,
+        ORCARCHER_I,
+        MERCENARYHUMAN_I
+    }
+
     protected GameObject target;
     protected float range;
     protected int strenght;
     protected int level;
     protected GameObject projectile;
-    protected int type;
+    protected TowerType type = TowerType.UNKNOWN;
     protected bool active;
     protected abstract void getTarget();
     protected abstract void shoot();
