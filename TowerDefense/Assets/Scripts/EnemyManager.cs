@@ -33,5 +33,20 @@ public class EnemyManager : MonoBehaviour {
             astarAI.speed = 12;
             astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
         }
+
+
+		// Creating battering ram as an enemy
+		GameObject bRamPrefab = Resources.Load("Prefabs/attack4_BatteringRam_MT") as GameObject;
+
+		// Rotation
+		//GameObject bRam = (GameObject) Instantiate(bRamPrefab, bRamPrefab.transform.position, Quaternion.Euler(0, 90, 0));
+		GameObject bRam = Instantiate(bRamPrefab); 
+
+		bRam.transform.parent = transform;
+		bRam.AddComponent<BatteringRam>();
+		//get the thing component on your instantiated object
+		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2>();
+		bRamAstarAI.speed = 10;
+		bRamAstarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
     }
 }
