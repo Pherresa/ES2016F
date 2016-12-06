@@ -8,6 +8,8 @@ public class Nazgul : MonoBehaviour {
     private int m_velocity;
     private Start_Round s_r;
     private bool final = false;
+    private bool final2 = false;
+    GameObject enemy;
 
     private Animation anima;
     private AnimationState anima_st;
@@ -57,14 +59,25 @@ public class Nazgul : MonoBehaviour {
                 m_movi_actu = (Vector3)m_moviments.Dequeue();
             }
             else{
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
+                this.gameObject.transform.position = new Vector3(0,-50,0);
                 Debug.Log("asd");
-                GameObject enemyPrefab = Resources.Load("Prefabs/attack3P_Nazgul_MT") as GameObject;
-                GameObject enemy = Instantiate(enemyPrefab);
+                GameObject enemyPrefab = (GameObject) Resources.Load("Prefabs/attack3_Nazgul_MT");
+                enemy = Instantiate(enemyPrefab);
                 enemy.transform.parent = GameObject.Find("EnemyManager").transform;
                 //get the thing component on your instantiated object
+                
                 AstarAI astarAI = enemy.GetComponent<AstarAI>();
                 astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+                anima=enemy.GetComponent<Animation>();
+                //anima = this.GetComponent<Animation>();
+                anima["A_Nazgul_moving"].speed = 0.5f;
+                anima_st = anima["A_Nazgul_moving"];
+                anima_st.time = 0;
+                anima_st.enabled = true;
+                anima.Sample();
+                anima_st.enabled = false;
+                final2 = true;
                 //Destroy(this.gameObject);
                 /*
                 gameObject.transform.parent = GameObject.Find("EnemyManager").transform;
@@ -78,12 +91,22 @@ public class Nazgul : MonoBehaviour {
                     this.gameObject.;
                 }
                 //this.gameObject.AddComponent<AstarAI>();
-                //this.gameObject.GetComponent<AstarAI>().target= GameObject.FindGameObjectWithTag("Target").transform;
-               */
+                //this.gameObject.GetComponent<AstarAI>().target= GameObject.FindGameObjectWithTag("Target").transform;*/
+
             }
         }
-        transform.LookAt(m_movi_actu);
-        this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
-        anima.Play("A_Nazgul_moving");
+        if (!final2)
+        {
+            this.transform.LookAt(m_movi_actu);
+            this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
+            anima.Play("A_Nazgul_moving");
+        }
+        else {
+            Vector3 dir = GameObject.FindGameObjectWithTag("Target").transform.transform.position - enemy.transform.position;
+            dir.y = 0f;
+            enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, Quaternion.LookRotation(dir), 0.5f);
+            anima.Play("A_Nazgul_moving");
+            
+        }
     }
 }
