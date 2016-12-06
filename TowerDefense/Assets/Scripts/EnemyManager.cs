@@ -23,16 +23,17 @@ public class EnemyManager : MonoBehaviour {
 
     public void createNewWave()
     {
-        for (int i = 0; i < 15; i++)
-        {
-            GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-            GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.parent = transform;
+      
+            GameObject elephantPrefab = Resources.Load("Prefabs/attack2_Oliphant_MT") as GameObject;
+			GameObject elephant = Instantiate(elephantPrefab);
+			elephant.transform.parent = transform;
+			elephant.AddComponent<Elephant>();
             //get the thing component on your instantiated object
-            AstarAI astarAI = enemy.GetComponent<AstarAI>();
-            astarAI.speed = 12;
+
+			AstarAI astarAI = elephant.GetComponent<AstarAI>();
+            astarAI.speed = 2f;
             astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
-        }
+        
 
 
 		// Creating battering ram as an enemy
