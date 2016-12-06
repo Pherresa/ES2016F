@@ -59,13 +59,13 @@ public class LifeAmountManager : MonoBehaviour
 		remainingTime = r;
     }
 
-    void UpdateLifeText()
+    public void UpdateLifeText()
     {
 
         lifeText.text = life.ToString();
 
     }
-    void UpdateAmountText()
+    public void UpdateAmountText()
     {
         amountText.text = amount.ToString();
 

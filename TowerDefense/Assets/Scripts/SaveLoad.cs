@@ -56,7 +56,10 @@ public static class SaveLoad
         EnemyManager enemyMan = Object.FindObjectOfType<EnemyManager>();
         lifeAM.currentScore = savedGame.savedScore;
         lifeAM.life = savedGame.savedTowerLife;
+        lifeAM.UpdateLifeText();
         lifeAM.amount = savedGame.savedMoney;
+        lifeAM.UpdateAmountText();
+
         enemyMan.Reset();
         Debug.Log("CreateNewWave from loadGame");
         enemyMan.createNewWave();
