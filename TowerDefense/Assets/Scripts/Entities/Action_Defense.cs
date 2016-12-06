@@ -87,7 +87,7 @@ public class Action_Defense : Tower
 
             case TowerType.MERCENARYHUMAN_I:
                 //anim["A_MercenaryHuman_idle"].speed = 1f;
-                //anim["A_MercenaryHuman_attack"].speed = 2.5f;
+                anim["A_MercenaryHuman_attack"].speed = 2f;
 
                 break;
 

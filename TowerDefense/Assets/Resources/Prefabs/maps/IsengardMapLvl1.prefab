@@ -40750,7 +40750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c461be8fe29cad40927c739debd1a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1000010072805438, guid: ab683e9fe93542947beb1d587d64503d, type: 2}
+  prefab: {fileID: 1000013476583354, guid: 3a73694b900da264a8201c04c170e23d, type: 2}
   Slots: []
   soundDrop: {fileID: 8300000, guid: 1cd833f6081a11e46bb2ecc96b930c16, type: 3}
   soundDragging: {fileID: 8300000, guid: d313d74f41bd42b45892374bda13d071, type: 3}
@@ -42271,13 +42271,13 @@ MonoBehaviour:
   escMenu: {fileID: 1000012361971972}
   mainCamera: {fileID: 1000012285392910}
   speed: 30
-  maxZ: 110
-  minZ: -110
+  maxZ: 45
+  minZ: -60
   maxY: 80
-  minY: 0
-  maxX: 100
-  minX: -110
-  rotXMin: 90
+  minY: 10
+  maxX: -45
+  minX: 45
+  rotXMin: 35
   rotYMin: 0
   rotZMin: 0
 --- !u!114 &114000012166964768
@@ -42812,7 +42812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c461be8fe29cad40927c739debd1a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1000010072805438, guid: ab683e9fe93542947beb1d587d64503d, type: 2}
+  prefab: {fileID: 1000014075000006, guid: a0e84ea5a5e80564880947479215eb17, type: 2}
   Slots: []
   soundDrop: {fileID: 8300000, guid: 1cd833f6081a11e46bb2ecc96b930c16, type: 3}
   soundDragging: {fileID: 8300000, guid: d313d74f41bd42b45892374bda13d071, type: 3}
@@ -42835,7 +42835,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7e54e0bbbf7ac86418053a12de005bab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3bc7a12cea09d64abe207a6882c4f2b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44250,7 +44250,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6da2af938f65684409ac8df4b0414ec4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46344,7 +46344,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7e54e0bbbf7ac86418053a12de005bab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46399,7 +46399,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e72a8717aeb15f24b88b76902e0dfcc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -164392,7 +164392,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -14}
+  m_SizeDelta: {x: -17, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012146496116
 RectTransform:
@@ -164409,8 +164409,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 512, y: 384}
-  m_SizeDelta: {x: 1024, y: 768}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012152154536
 RectTransform:
@@ -164543,7 +164543,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -14}
+  m_SizeDelta: {x: -17, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012611180624
 RectTransform:
@@ -164653,7 +164653,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -14}
+  m_SizeDelta: {x: -17, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012916370012
 RectTransform:
@@ -165078,7 +165078,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011607838524}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
