@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour {
 			elephant.AddComponent<Elephant>();
             //get the thing component on your instantiated object
 
-			AstarAI astarAI = elephant.GetComponent<AstarAI>();
+			AstarAI2 astarAI = elephant.GetComponent<AstarAI2>();
             astarAI.speed = 2f;
             astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
         

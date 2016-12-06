@@ -62,7 +62,7 @@ public class AstarAI2 : MonoBehaviour {
 		characterController.SimpleMove (dir);
         enemyCompass.LookAt(path.vectorPath[currentWaypoint]);
         enemyBody.rotation = Quaternion.Lerp(enemyBody.rotation, enemyCompass.rotation, Time.deltaTime * turnSpeed);
-		transform.RotateAround (transform.position, new Vector3 (0, 1, 0), -180);
+		transform.RotateAround (transform.position, new Vector3 (0, 1, 0), -270);
 
         if (Vector3.Distance (transform.position, path.vectorPath [currentWaypoint]) < nextWaypointDistance) {
 			currentWaypoint++;
