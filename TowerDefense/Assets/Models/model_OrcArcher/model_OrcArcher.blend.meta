@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 61b48071c38793f45982ae8db3a08511
-timeCreated: 1479924032
+timeCreated: 1480348672
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -56,10 +56,9 @@ ModelImporter:
     4300000: body
     4300002: bow
     7400000: Default Take
-    7400002: attackAnimation
-    7400004: idleAnimation
+    7400002: A_OrcArcher_attack
+    7400004: A_OrcArcher_idle
     9500000: //RootNode
-    11100000: //RootNode
     13700000: body
   materials:
     importMaterials: 1
@@ -83,8 +82,8 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: attackAnimation
-      takeName: attackAnimation
+      name: A_OrcArcher_attack
+      takeName: A_OrcArcher_attack
       firstFrame: -1
       lastFrame: 89
       wrapMode: 0
@@ -157,15 +156,15 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: idleAnimation
-      takeName: idleAnimation
+      name: A_OrcArcher_idle
+      takeName: A_OrcArcher_idle
       firstFrame: -1
-      lastFrame: 479
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
-      loop: 1
+      loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
@@ -267,7 +266,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
