@@ -16,6 +16,9 @@ public class Action_Defense : Tower
     AnimationState stateTrebuchetIdle;
     AnimationState stateTrebuchetAttack;
     AnimationState stateTrebuchetrecharge;
+
+    Animation[] anims;
+
     private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
@@ -34,25 +37,28 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
-        
+        getValueTower();
+        getTypeOfDefense();
+        loadAnimations();
+        initAnimations();
         iniStates();
     }
 
-    // Funcion que se executa por cada frame para poder girar correctamente the towers.
-    void Update()
+    private void loadAnimations()
     {
-        if (active)
+        switch (type)
         {
-            checkPhaseAnim();
-            // vemos que no sea nulo
-            if (target != null)
-            {
-                // llamamos la funcion que gira al towers
-                SpinTower.spin(target.transform.position, this.transform);
-            }
+            case TowerType.TREBUCHET_MT:
+                anim = GetComponent<Animation>();
+                break;
+            case TowerType.ORCARCHER_I:
+                anims = GetComponentsInChildren<Animation>();
+                break;
         }
     }
-    private void initAnim()
+
+    
+    private void initAnimations()
     {
         switch (type)
         {
@@ -80,45 +86,38 @@ public class Action_Defense : Tower
                 break;
 
             case TowerType.MERCENARYHUMAN_I:
-                anim["A_MercenaryHuman_idle"].speed = 1f;
-                stateTrebuchetIdle = anim["A_MercenaryHuman_idle"];
-                stateTrebuchetIdle.time = 0;
-                stateTrebuchetIdle.enabled = true;
-                anim.Sample();
-                stateTrebuchetIdle.enabled = false;
-
-                anim["A_MercenaryHuman_attack"].speed = 2.5f;
-                stateTrebuchetAttack = anim["A_Trebuchet_attack"];
-                stateTrebuchetAttack.time = 0;
-                stateTrebuchetAttack.enabled = true;
-                anim.Sample();
-                stateTrebuchetAttack.enabled = false;
+                //anim["A_MercenaryHuman_idle"].speed = 1f;
+                //anim["A_MercenaryHuman_attack"].speed = 2.5f;
 
                 break;
 
             case TowerType.ORCARCHER_I:
-                anim["A_OrcArcher_idle"].speed = 1f;
-                stateTrebuchetIdle = anim["A_OrcArcher_idle"];
-                stateTrebuchetIdle.time = 0;
-                stateTrebuchetIdle.enabled = true;
-                anim.Sample();
-                stateTrebuchetIdle.enabled = false;
+                //anim["A_OrcArcher_idle"].speed = 1f;
+                //anim["A_OrcArcher_attack"].speed = 2.5f;
 
-                anim["A_OrcArcher_attack"].speed = 2.5f;
-                stateTrebuchetAttack = anim["A_OrcArcher_attack"];
-                stateTrebuchetAttack.time = 0;
-                stateTrebuchetAttack.enabled = true;
-                anim.Sample();
-                stateTrebuchetAttack.enabled = false;
-
-               
                 break;
+        }
+    }
+
+    // inicializador
+    void iniStates()
+    {
+        //BarrackRohanHorse
+        if (active)
+        {
+            switch (type)
+            {
+                case TowerType.ROHANBARRACKS_MT:
+                    generateRohanHorses(2);
+                    break;
+            }
         }
     }
 
     private void checkPhaseAnim()
     {
-        if (isShooting) {
+        if (isShooting)
+        {
             switch (type)
             {
                 case TowerType.TREBUCHET_MT:
@@ -178,27 +177,24 @@ public class Action_Defense : Tower
                 case TowerType.ORCARCHER_I:
                     if (animationPhase == 1)
                     {
-                        timeOnPlay = DateTime.Now;
-                        anim.Play("A_OrcArcher_attack");
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_OrcArcher_attack");
+                        }
                         animationPhase = 2;
                     }
                     else if (animationPhase == 2)
                     {
-                        if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
+                        foreach (Animation animation in anims)
                         {
-                            lanzar();
-                            timeOnPlay = DateTime.Now;
-                            anim.Play("A_OrcArcher_recharge");
-                            animationPhase = 3;
-                        }
-                    }
-                    else if (animationPhase == 3)
-                    {
-                        if ((DateTime.Now - timeOnPlay).Seconds > 1f)
-                        {
-                            isShooting = false;
-                            animationPhase = 0;
-                            predict = 0;
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_OrcArcher_attack"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
                         }
                     }
                     break;
@@ -212,6 +208,16 @@ public class Action_Defense : Tower
                     if (!anim.IsPlaying("A_Trebuchet_idle"))
                     {
                         anim.Play("A_Trebuchet_idle");
+                    }
+                    break;
+
+                case TowerType.ORCARCHER_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_OrcArcher_idle"))
+                        {
+                            animation.Play("A_OrcArcher_idle");
+                        }
                     }
                     break;
             }
@@ -229,12 +235,29 @@ public class Action_Defense : Tower
             isShooting = false;
         }
     }
+
+    // Funcion que se executa por cada frame para poder girar correctamente the towers.
+    void Update()
+    {
+        if (active)
+        {
+            checkPhaseAnim();
+            // vemos que no sea nulo
+            if (target != null)
+            {
+                // llamamos la funcion que gira al towers
+                SpinTower.spin(target.transform.position, this.transform);
+            }
+        }
+    }
+
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
         if (active)
         {
-            if (!isShooting) {
+            if (!isShooting)
+            {
                 if (animationPhase == 0)
                 {
                     if (predict == 0)
@@ -254,69 +277,43 @@ public class Action_Defense : Tower
                         }
                     }
                 }
-            }
-            // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
-            if (type != TowerType.TREBUCHET_MT && predict == maxFrameToPredict)
-            {
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                checkDistanceTarget();
+                if (target != null)
                 {
-                    timer = 1.5f;
-                    checkDistanceTarget();
-                    if (target != null)
+                    if (type != TowerType.UNKNOWN && predict == maxFrameToPredict)
                     {
-                        lanzar();
-                        predict = 0;
-                    }
-                    else
-                    {
-                        predict = 0;
+                        shoot();
                     }
                 }
-            }
-            // aqui solo entrara la catapulta por ahora
-            else
-            {
-                if (!isShooting)
+
+
+                // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
+                /*if (type != TowerType.TREBUCHET_MT && predict == maxFrameToPredict)
                 {
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
                     {
+                        timer = 1.5f;
                         checkDistanceTarget();
                         if (target != null)
                         {
-                            if (type != TowerType.UNKNOWN && predict == maxFrameToPredict)
-                            {
-                                shoot();
-                            }
+                            lanzar();
+                            predict = 0;
+                        }
+                        else
+                        {
+                            predict = 0;
                         }
                     }
                 }
+                // aqui solo entrara la catapulta por ahora
+                else*/
             }
-
 
         }
     }
 
-
-
-    // inicializador
-    void iniStates()
-    {
-        get_value_tower();
-        getTypeOfDefense();
-        anim = GetComponent<Animation>();
-        initAnim();
-
-        //BarrackRohanHorse
-        if (active)
-        {
-            switch (type)
-            {
-                case TowerType.ROHANBARRACKS_MT:
-                    generateRohanHorses(2);
-                    break;
-            }
-        }
-    }
+    
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
     {
@@ -368,13 +365,13 @@ public class Action_Defense : Tower
                 {
                     posIni = target.transform.position + (tmp * plusToPredict);
                 }
-                
+
             }
             if (predict != maxFrameToPredict)
             {
                 predict += 1;
             }
-        } 
+        }
     }
     // obtiene el enemigo mas cercano
     protected override void getTarget()
@@ -417,7 +414,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void get_value_tower()
+    private void getValueTower()
     {
         switch (towerTama)
         {
@@ -475,14 +472,15 @@ public class Action_Defense : Tower
     }
 
 
-	void generateRohanHorses(int quantity) {
-		
-		GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
-		GameObject rohanHorse;
-		Vector3 newPos;
-		for (int i = 0; i < quantity; i++)
-		{
-			/*
+    void generateRohanHorses(int quantity)
+    {
+
+        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
+        GameObject rohanHorse;
+        Vector3 newPos;
+        for (int i = 0; i < quantity; i++)
+        {
+            /*
 			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
 			GameObject enemy = Instantiate(enemyPrefab);
 			enemy.transform.parent = transform;
@@ -491,21 +489,21 @@ public class Action_Defense : Tower
 			astarAI.speed = 12;*/
 
 
-			rohanHorse = Instantiate(rohanHorsePrefab); 
-			newPos = this.transform.position; 
-			if(i==0) newPos.x -= 3; 
-			if(i==2) newPos.x += 3;
-			newPos.y -= 2;
-			newPos.z += 2;
-			rohanHorse.transform.position = newPos;
-			//rohanHorse.AddComponent<Rigidbody>();
-			rohanHorse.AddComponent<RohanHorse>();
-			rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
-			rohanHorse.GetComponent<RohanHorse> ().tag = "projectile";
+            rohanHorse = Instantiate(rohanHorsePrefab);
+            newPos = this.transform.position;
+            if (i == 0) newPos.x -= 3;
+            if (i == 2) newPos.x += 3;
+            newPos.y -= 2;
+            newPos.z += 2;
+            rohanHorse.transform.position = newPos;
+            //rohanHorse.AddComponent<Rigidbody>();
+            rohanHorse.AddComponent<RohanHorse>();
+            rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
+            rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
-			//rohanHorse.transform.parent = transform;  
-		}
+            //rohanHorse.transform.parent = transform;  
+        }
 
-	}
+    }
 }
 
