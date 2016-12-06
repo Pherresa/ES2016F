@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012168380762}
   - 111: {fileID: 111000011518574678}
-  - 114: {fileID: 114000010544568096}
   m_Layer: 0
   m_Name: defense2_RohanBarracks_MT
   m_TagString: Defense
@@ -1437,19 +1436,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114000010544568096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010072805438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerPrice: 50
-  towerTama: 0
 --- !u!198 &198000011426990406
 ParticleSystem:
   m_ObjectHideFlags: 1
