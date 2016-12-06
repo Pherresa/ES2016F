@@ -32,10 +32,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     void playSound(AudioClip audio){
         source.PlayOneShot (audio);
     }
-
-
-
-
+    
 
     /**
      * Prefab Unit instantation still not active, ready to be drag 
@@ -51,8 +48,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         obt_price(prefabActionDefense);
         lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
     }
-
-
+    
     /**
      * Color change for hoverPrefab 
      * */
@@ -198,7 +194,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             {
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
-
                 {
                     
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
