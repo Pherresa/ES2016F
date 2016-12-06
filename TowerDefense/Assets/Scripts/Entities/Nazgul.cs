@@ -67,7 +67,7 @@ public class Nazgul : MonoBehaviour {
                 enemy.transform.parent = GameObject.Find("EnemyManager").transform;
                 //get the thing component on your instantiated object
                 
-                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                AstarAI2 astarAI = enemy.GetComponent<AstarAI2>();
                 astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
                 anima=enemy.GetComponent<Animation>();
                 //anima = this.GetComponent<Animation>();

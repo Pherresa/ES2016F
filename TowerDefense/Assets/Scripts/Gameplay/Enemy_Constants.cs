@@ -42,7 +42,7 @@ public static class Enemy_Constants{
     public const int T_MONEY_BIG = 150;
 
     // General
-    public const int TIME = 60;
+    public const int TIME = 10;
     public const float TIME_DECREASE = 0.9f;
     public const int WALLET = 200;
 

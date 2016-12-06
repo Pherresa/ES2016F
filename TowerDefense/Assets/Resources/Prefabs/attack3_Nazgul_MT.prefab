@@ -960,9 +960,9 @@ GameObject:
   - 114: {fileID: 114000010576448876}
   - 114: {fileID: 114000012603102416}
   - 114: {fileID: 114000013382165310}
-  - 114: {fileID: 114000012089684724}
   - 114: {fileID: 114000010795313312}
   - 114: {fileID: 114000012303280050}
+  - 114: {fileID: 114000013753279942}
   m_Layer: 0
   m_Name: attack3_Nazgul_MT
   m_TagString: Untagged
@@ -3331,7 +3331,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011273161412}
-  m_LocalRotation: {x: 0.54429054, y: -0.30554834, z: 0.7312229, w: -0.27513847}
+  m_LocalRotation: {x: 0.5442905, y: -0.3055483, z: 0.73122287, w: -0.27513844}
   m_LocalPosition: {x: -0.5883134, y: -0.000000029802322, z: 0.000000059604645}
   m_LocalScale: {x: 0.9999997, y: 0.99999994, z: 0.9999999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3554,22 +3554,6 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
---- !u!114 &114000012089684724
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012129783114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c918ace413ceebc468d92e62cf648f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 0
-  turnSpeed: 10
-  enemyBody: {fileID: 0}
-  enemyCompass: {fileID: 0}
 --- !u!114 &114000012303280050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3611,6 +3595,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penalty: 1000
   randomStep: 10
+--- !u!114 &114000013753279942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012129783114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d09b15a36f5254b819b2b8aa6f59b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 10
+  turnSpeed: 10
+  enemyBody: {fileID: 4000012689822378}
+  enemyCompass: {fileID: 4000012021594252}
 --- !u!137 &137000010080006964
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
