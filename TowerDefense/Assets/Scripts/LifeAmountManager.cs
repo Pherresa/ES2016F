@@ -15,6 +15,7 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
+    public int finalScore = 0;
 
 	public int currentScore = 0; // TODO: TEAM_D show in the play window
 	// This will use to reset the score 
@@ -214,7 +215,7 @@ public class LifeAmountManager : MonoBehaviour
 		// the level also is a good parameter to obtain the final score -> level 
 		Start_Round st = GameObject.FindObjectOfType<Start_Round>();
 		int level = st.actu_round()+1; // Get the level of the game 
-									   // We do +1 because it's start in 0.
+        //int level = 1;							   // We do +1 because it's start in 0.
 
 		Debug.Log ("remainingRime");
 		Debug.Log((int)(remainingTime));
@@ -223,7 +224,7 @@ public class LifeAmountManager : MonoBehaviour
 		// round this score will be the current score of the player.
 		// So now we can define the formula: 
 		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
- 
+        finalScore = currentScoreNextRound;
 		return currentScoreNextRound;
 	}
 

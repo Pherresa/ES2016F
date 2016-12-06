@@ -51,12 +51,14 @@ public static class SaveLoad
      */
     public static void LoadGame()
     {
+        Debug.Log("Load Game");
         LifeAmountManager lifeAM = Object.FindObjectOfType<LifeAmountManager>();
         EnemyManager enemyMan = Object.FindObjectOfType<EnemyManager>();
         lifeAM.currentScore = savedGame.savedScore;
         lifeAM.life = savedGame.savedTowerLife;
         lifeAM.amount = savedGame.savedMoney;
-        enemyMan.loadDefenses(savedGame.defensesList);
+        enemyMan.Reset();
+        Debug.Log("CreateNewWave from loadGame");
         enemyMan.createNewWave();
     }
 

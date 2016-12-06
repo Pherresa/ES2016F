@@ -14,7 +14,7 @@ public class EscMenu : MonoBehaviour {
 
     public void mSaveGame() 
     {
-        SaveLoad.SaveData();
+        SaveLoad.LoadData();
     }
 
     public void mExitGame()

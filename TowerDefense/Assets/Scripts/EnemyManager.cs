@@ -38,8 +38,8 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
-    //Destroy all the defenses and enemies in the actual round to load the saved defenses from the last completed round
-    public void loadDefenses(GameObject[] defensesList)
+    //Destroy all the defenses and enemies in the actual round
+    public void Reset()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
@@ -52,12 +52,5 @@ public class EnemyManager : MonoBehaviour {
         {
             Destroy(defense);
         }
-
-        foreach(GameObject defense in defensesList)
-        {
-            GameObject defenseCopy = Instantiate(defense);
-            defense.transform.parent = defense.transform;
-        }
-        
     }
 }

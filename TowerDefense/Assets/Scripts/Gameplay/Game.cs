@@ -17,9 +17,9 @@ public class Game
 
     public Game(LifeAmountManager lifeAM)
     {
-        savedScore = lifeAM.calculateFinalScore();
+        savedScore = lifeAM.finalScore;
         savedTowerLife = lifeAM.life;
         savedMoney = lifeAM.amount;
-        defensesList = GameObject.FindGameObjectsWithTag("Defense");
+        //defensesList = GameObject.FindGameObjectsWithTag("Defense");
     }
 }
