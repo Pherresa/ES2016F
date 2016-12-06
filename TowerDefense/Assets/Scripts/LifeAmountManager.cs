@@ -50,6 +50,7 @@ public class LifeAmountManager : MonoBehaviour
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
         //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
+		 
 
     }
 
@@ -213,8 +214,9 @@ public class LifeAmountManager : MonoBehaviour
 
 		// the level also is a good parameter to obtain the final score -> level 
 		Start_Round st = GameObject.FindObjectOfType<Start_Round>();
-		int level = st.actu_round()+1; // Get the level of the game 
-									   // We do +1 because it's start in 0.
+		int level = 1; 					// Get the level of the game 
+									    // We do +1 because it's start in 0.
+		if (st != null) {level += st.actu_round();}
 
 		Debug.Log ("remainingRime");
 		Debug.Log((int)(remainingTime));

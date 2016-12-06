@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour {
 
 
 
-    void playSound(AudioClip audio){
+    public void playSound(AudioClip audio){
         source.PlayOneShot (audio);
     }
 
@@ -130,6 +130,7 @@ public class Enemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+		 
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
@@ -137,5 +138,16 @@ public class Enemy : MonoBehaviour {
             //print(col.gameObject.name);
             life -= 50f;
         }
-    }
+		/*
+		if (col.gameObject.tag == "rohanHorse")
+		{
+			//Destroy(this.gameObject);
+			playSound(soundAttacked);
+			//print(col.gameObject.name);
+			life -= 50f;
+		}*/
+
+    } 
+
+
 }
