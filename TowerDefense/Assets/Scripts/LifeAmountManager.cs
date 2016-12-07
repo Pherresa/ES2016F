@@ -30,6 +30,8 @@ public class LifeAmountManager : MonoBehaviour
     private GeneralEnemy[] enemies;
     private bool final_round;
 
+    private Start_Round start_round;
+
 
     public Text scoreText;
     public Text amountText;
@@ -42,6 +44,8 @@ public class LifeAmountManager : MonoBehaviour
     public GameObject thirdD;
 
     public GameObject endMenu;
+
+
 
     // Use this for initialization
     void Start()
@@ -59,6 +63,7 @@ public class LifeAmountManager : MonoBehaviour
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
         //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
+        start_round = GameObject.FindObjectOfType<Start_Round>();
 		 
 
     }
@@ -150,6 +155,7 @@ public class LifeAmountManager : MonoBehaviour
     {
         if (life < 0)
         {
+            start_round.setGameOver();
             Die();
         }
         else
@@ -160,7 +166,7 @@ public class LifeAmountManager : MonoBehaviour
     public void Die()
     {
         Debug.Log("Game Over");
-        //TODO STOP GAME & HORDE.
+        
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();

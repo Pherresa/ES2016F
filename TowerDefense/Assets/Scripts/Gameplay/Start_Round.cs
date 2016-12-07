@@ -14,6 +14,8 @@ public class Start_Round : MonoBehaviour {
     private LifeAmountManager indicator_time;
     private EnemyManager generate_round;
     public Game gameValues;
+    private bool gameOver;
+    
    
     
     
@@ -28,6 +30,7 @@ public class Start_Round : MonoBehaviour {
         act_time = Enemy_Constants.TIME;
         cnt_time = act_time;
         act_time_cont = true;
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -46,16 +49,19 @@ public class Start_Round : MonoBehaviour {
     private void countDown() {
         act_time -= 1;
         indicator_time.setRemainingTime(act_time);
-        if (act_time <= 0 && cont_round < total_round) // countdown_finish start game
-        {
-            new_round();
-        }
-        if (cont_round >= total_round) {
-            // Poner Final Round
-            indicator_time.set_final_round(true);
-            GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
-            GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
-            CancelInvoke();
+        if (!gameOver)
+        { 
+            if (act_time <= 0 && cont_round < total_round) // countdown_finish start game
+            {
+                new_round();
+            }
+            if (cont_round >= total_round) {
+                // Poner Final Round
+                indicator_time.set_final_round(true);
+                GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
+                GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
+                CancelInvoke();
+            }
         }
     }
 
@@ -79,4 +85,10 @@ public class Start_Round : MonoBehaviour {
     public int actu_round(){
         return cont_round;
     }
+
+    public void setGameOver()
+    {
+        gameOver = true;
+    }
+
 }
