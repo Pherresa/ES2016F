@@ -166,10 +166,17 @@ public class LifeAmountManager : MonoBehaviour
             UpdateLifeText();
         }
     }
+    /*
+     * Method that stops the gamme when player dies, stops the hordes and destroy all the enemies left in the map.
+     */
     public void Die()
     {
         Debug.Log("Game Over");
-        enemiesT
+        enemiesToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemiesToDestroy)
+        {
+            Destroy(enemy);
+        }
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();
