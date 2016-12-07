@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+using System; 
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour {
 
@@ -25,33 +26,60 @@ public class EnemyManager : MonoBehaviour {
 
     public void createNewWave()
     {
-        // Save game values before new wave
-        gameValues = new Game(FindObjectOfType<LifeAmountManager>());
-        for (int i = 0; i < 15; i++)
-        {
-            GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-            GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.parent = transform;
-            //get the thing component on your instantiated object
-            AstarAI astarAI = enemy.GetComponent<AstarAI>();
-            astarAI.speed = 12;
-            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
-        }
 
 
-		// Creating battering ram as an enemy
-		GameObject bRamPrefab = Resources.Load("Prefabs/attack4_BatteringRam_MT") as GameObject;
+		/**
+		 * For now this is the same for this two scene.
+		 * TODO: Add all the model enemy (except BRAM)
+		 * TODO: Thiw will dissapear!!!!!!
+		 **/
+		// Save game values before new wave
+		gameValues = new Game(FindObjectOfType<LifeAmountManager>());
+		for (int i = 0; i < 15; i++)
+		{
+			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+			GameObject enemy = Instantiate(enemyPrefab);
+			enemy.transform.parent = transform;
+			//get the thing component on your instantiated object
+			AstarAI astarAI = enemy.GetComponent<AstarAI>();
+			astarAI.speed = 12;
+			astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+		}
 
-		// Rotation
-		//GameObject bRam = (GameObject) Instantiate(bRamPrefab, bRamPrefab.transform.position, Quaternion.Euler(0, 90, 0));
-		GameObject bRam = Instantiate(bRamPrefab); 
+		/**
+		 * We deffirenciate which model goes to each scene
+		 **/
+		Scene scene = SceneManager.GetActiveScene();
+		Debug.Log("Active scene is '" + scene.name + "'.");// name of scene
 
-		bRam.transform.parent = transform;
-		bRam.AddComponent<BatteringRam>();
-		//get the thing component on your instantiated object
-		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2>();
-		bRamAstarAI.speed = 10;
-		bRamAstarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+		// Tirith scene only:
+		if (scene.name == "TirithLvl1") {
+
+
+			// TODO: OLiphant
+
+			// TODO: Nazgul 
+
+			// We generate Bettering Ram:
+			generateOneBatteringRam();
+
+		} 
+		// Isengart scene only:
+		else {
+ 
+			// TODO: Orc
+
+			// TODO: Elf
+
+			// TODO: Hobbit
+
+		}
+
+
+
+
+		
+
     }
 
     //Destroy all the defenses and enemies in the actual round
@@ -69,4 +97,25 @@ public class EnemyManager : MonoBehaviour {
             Destroy(defense);
         }
     }
+
+
+	/**
+	 * This fuction generate a Battering ram object.
+	 **/
+	public void generateOneBatteringRam() {
+
+		// Creating battering ram as an enemy 
+		GameObject bRamPrefab = Resources.Load ("Prefabs/attack4_BatteringRam_MT") as GameObject;
+		GameObject bRam = Instantiate (bRamPrefab); 
+		bRam.transform.parent = transform;
+		bRam.AddComponent<BatteringRam> ();
+		//get the thing component on your instantiated object
+		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2> ();
+		bRamAstarAI.speed = 10;
+		bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
+
+	 
+	}
+
+
 }
