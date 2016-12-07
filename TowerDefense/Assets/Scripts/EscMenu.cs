@@ -8,7 +8,7 @@ public class EscMenu : MonoBehaviour {
     public void mContinueGame()
     {   
         Time.timeScale = 1.0f;
-        GameObject tmp = GameObject.FindGameObjectWithTag("gameExit");
+        GameObject tmp = GameObject.Find("escMenu");
         tmp.SetActive(false);
     }
 
