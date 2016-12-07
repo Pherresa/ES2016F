@@ -91,4 +91,9 @@ public class Start_Round : MonoBehaviour {
         gameOver = true;
     }
 
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
+
 }

@@ -96,18 +96,22 @@ public class LifeAmountManager : MonoBehaviour
 
     void UpdateTimeText()
     {
-        minuteCount = (int)(remainingTime/60f);
-        if(secCount!=(int)(remainingTime%60f)){
-            newSec = true;
-        }
-        else{
-            newSec = false;
-        }
-        secCount = (int)(remainingTime%60f);
+        if (!start_round.getGameOver())
+        {
+            minuteCount = (int)(remainingTime / 60f);
+            if (secCount != (int)(remainingTime % 60f))
+            {
+                newSec = true;
+            }
+            else
+            {
+                newSec = false;
+            }
+            secCount = (int)(remainingTime % 60f);
 
-        if(!final_round)
-            timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
-
+            if (!final_round)
+                timeText.text = minuteCount.ToString("00") + ":" + secCount.ToString("00");
+        }
     }
 
     public bool LoseAmount(int a)
