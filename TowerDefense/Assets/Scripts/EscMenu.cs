@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 public class EscMenu : MonoBehaviour {
 
 
+
+
+    
     public void mContinueGame()
     {   
+		
         Time.timeScale = 1.0f;
-        GameObject tmp = GameObject.FindGameObjectWithTag("gameExit");
-        tmp.SetActive(false);
+        
+	
+
+	
     }
 
     public void mSaveGame() 
     {
-
+        SaveLoad.SaveData();
     }
 
     public void mExitGame()
@@ -27,6 +33,11 @@ public class EscMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+
+    public void mSubmit(){
+        Application.Quit();
+    }
+
 
 }
 
