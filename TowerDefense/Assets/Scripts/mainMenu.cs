@@ -180,6 +180,7 @@ public class mainMenu : MonoBehaviour {
         {
 			Debug.Log("Pulsando load button");
 			playSound ();
+            SaveLoad.LoadData();
             mEnablePanel("initMenu");
             path = "load|";
 

@@ -13,6 +13,9 @@ public class Start_Round : MonoBehaviour {
     private bool act_time_cont;
     private LifeAmountManager indicator_time;
     private EnemyManager generate_round;
+    public Game gameValues;
+   
+    
     
     //public Text buttonText;
 
@@ -64,12 +67,13 @@ public class Start_Round : MonoBehaviour {
         cont_round++;
         Debug.Log(cont_round);
         generate_round.createNewWave();
-        Debug.Log("Generate Round"); 
- 
+        Debug.Log("Generate Round");
+        GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
 		LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
-		lifeAM.currentScore = lifeAM.currentScoreNextRound;
+		
+        //lifeAM.currentScore = lifeAM.currentScoreNextRound;
     }
 
     public int actu_round(){

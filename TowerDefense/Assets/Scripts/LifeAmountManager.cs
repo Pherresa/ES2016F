@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
-
+[System.Serializable]
 public class LifeAmountManager : MonoBehaviour
 {
 
@@ -15,6 +15,7 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
+    public int finalScore = 0;
 
 	public int currentScore = 0; // TODO: TEAM_D show in the play window
 	// This will use to reset the score 
@@ -30,14 +31,22 @@ public class LifeAmountManager : MonoBehaviour
     private bool final_round;
 
 
+    public Text scoreText;
     public Text amountText;
     public Text lifeText;
     public Text timeText;
     public float remainingTime; //seconds
+    public GameObject mainTower;
+    public GameObject firstD;
+    public GameObject secondD;
+    public GameObject thirdD;
+
+    public GameObject endMenu;
 
     // Use this for initialization
     void Start()
     {
+        endMenu.SetActive(false);
         amount = Enemy_Constants.WALLET;
         life = Enemy_Values_Gene.m_mt_tower("l");
         UpdateLifeText();
@@ -59,17 +68,24 @@ public class LifeAmountManager : MonoBehaviour
 		remainingTime = r;
     }
 
-    void UpdateLifeText()
+    public void UpdateLifeText()
     {
 
         lifeText.text = life.ToString();
 
     }
-    void UpdateAmountText()
+    public void UpdateAmountText()
     {
         amountText.text = amount.ToString();
 
     }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = currentScore.ToString();
+    }
+
+
     void UpdateTimeText()
     {
         minuteCount = (int)(remainingTime/60f);
@@ -109,6 +125,20 @@ public class LifeAmountManager : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         life -= l;
+        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
+        {
+            firstD.SetActive(true);
+
+        }
+        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75)
+        {
+            secondD.SetActive(true);
+        }
+        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75 && life >= 0)
+        {
+            thirdD.SetActive(true);
+        }
+
         if (life <= 0)
         {
             Die();
@@ -120,6 +150,11 @@ public class LifeAmountManager : MonoBehaviour
     public void Die()
     {
         Debug.Log("Game Over");
+        endMenu.SetActive(true);
+        Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
+        string txt = "Your final score is " + currentScore.ToString();
+        finalScoreText.text = txt;
+        //Time.timeScale = 0;
     }
 
     public void decreaseTimeRemaining()
@@ -137,6 +172,7 @@ public class LifeAmountManager : MonoBehaviour
     void Update()
     {
         UpdateTimeText();
+        UpdateScoreText();
     }
 
     void UpdateAvailableUnits()
@@ -218,6 +254,7 @@ public class LifeAmountManager : MonoBehaviour
 									    // We do +1 because it's start in 0.
 		if (st != null) {level += st.actu_round();}
 
+
 		Debug.Log ("remainingRime");
 		Debug.Log((int)(remainingTime));
 
@@ -225,7 +262,7 @@ public class LifeAmountManager : MonoBehaviour
 		// round this score will be the current score of the player.
 		// So now we can define the formula: 
 		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
- 
+        finalScore = currentScoreNextRound;
 		return currentScoreNextRound;
 	}
 
