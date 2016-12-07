@@ -72,7 +72,8 @@ public class Start_Round : MonoBehaviour {
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
 		LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
-		lifeAM.currentScore = lifeAM.currentScoreNextRound;
+		
+        //lifeAM.currentScore = lifeAM.currentScoreNextRound;
     }
 
     public int actu_round(){

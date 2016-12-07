@@ -28,5 +28,10 @@ public class EscMenu : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void mSubmit(){
+        Application.Quit();
+    }
+
+
 }
 
