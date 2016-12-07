@@ -31,6 +31,7 @@ public class LifeAmountManager : MonoBehaviour
     private bool final_round;
 
     private Start_Round start_round;
+    private GameObject[] enemiesToDestroy;
 
 
     public Text scoreText;
@@ -64,7 +65,9 @@ public class LifeAmountManager : MonoBehaviour
         amountText.text = amount.ToString();
         //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
         start_round = GameObject.FindObjectOfType<Start_Round>();
-		 
+        
+
+
 
     }
 
@@ -166,7 +169,7 @@ public class LifeAmountManager : MonoBehaviour
     public void Die()
     {
         Debug.Log("Game Over");
-        
+        enemiesT
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();
