@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour {
     public void createNewWave()
     {
       
-            GameObject elephantPrefab = Resources.Load("Prefabs/attack2_Oliphant_MT") as GameObject;
+            GameObject elephantPrefab = Resources.Load("Prefabs/attack2_Oliphant_MT_tmp") as GameObject;
 			GameObject elephant = Instantiate(elephantPrefab);
 			elephant.transform.parent = transform;
 			elephant.AddComponent<Elephant>();

@@ -23,7 +23,7 @@ public class Elephant : MonoBehaviour {
 	void Start () {
 		//model = this.transform.GetChild (0);
 		//anim = model.GetComponent<Animation> ();
-		anim =   this.transform.GetChild (0).GetChild(0).GetComponent<Animation>();
+		anim =   this.transform.GetComponent<Animation>();
 		iniStates ();
 		newPos = transform.position ;
 		//newForward = transform.forward;
@@ -52,7 +52,7 @@ public class Elephant : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Vector3.Distance (newPos, transform.position) > 1) {
-			this.transform.GetChild (0).gameObject.SetActive (true);
+			this.transform.gameObject.SetActive (true);
 			//transform.forward = Quaternion.Euler (0f, -90f, 0f) * newForward; 
 		}
 		target = GameObject.FindGameObjectWithTag ("Target");
