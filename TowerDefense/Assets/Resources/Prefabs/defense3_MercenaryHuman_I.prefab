@@ -3560,8 +3560,8 @@ GameObject:
   - 33: {fileID: 33000012668341416}
   - 23: {fileID: 23000012798740250}
   m_Layer: 0
-  m_Name: Cylinder.003
-  m_TagString: Untagged
+  m_Name: defense3_MercenaryHuman_I
+  m_TagString: Defense
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27702,6 +27702,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27718,6 +27719,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27734,6 +27736,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27750,6 +27753,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27766,6 +27770,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27782,6 +27787,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27798,6 +27804,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27814,6 +27821,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27830,6 +27838,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: 62a6bce5669a3d04d8df4e9d80d0384d, type: 3}
   - {fileID: 7400002, guid: df395b06a738d914fb4366c797992762, type: 3}
+  - {fileID: 7400004, guid: dae7582f649867d42a513c2924b0fa3c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -27894,8 +27903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrice: 0
-  towerTama: 0
+  towerPrice: 20
+  towerTama: 2
 --- !u!114 &114000012853548602
 MonoBehaviour:
   m_ObjectHideFlags: 1

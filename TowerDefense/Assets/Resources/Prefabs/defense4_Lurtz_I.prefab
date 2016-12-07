@@ -556,6 +556,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011686959584}
   - 111: {fileID: 111000013986472542}
+  - 114: {fileID: 114000012596351934}
   m_Layer: 0
   m_Name: defense4_Lurtz_I
   m_TagString: Untagged
@@ -1533,8 +1534,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012045868116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.841766, y: 2.0100005, z: 78.06156}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -42.84324, y: 2.0100002, z: 80.68363}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010017076652}
@@ -2519,6 +2520,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000012596351934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012045868116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrice: 0
+  towerTama: 0
 --- !u!137 &137000010773261228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
