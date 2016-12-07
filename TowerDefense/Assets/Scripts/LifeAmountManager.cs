@@ -124,7 +124,9 @@ public class LifeAmountManager : MonoBehaviour
 
     public void LoseLife(int l = 1)
     {
+        checkLife();
         life -= l;
+
         if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
         {
             firstD.SetActive(true);
@@ -138,18 +140,27 @@ public class LifeAmountManager : MonoBehaviour
         {
             thirdD.SetActive(true);
         }
+    }
 
-        if (life <= 0)
+
+    /*
+     * Method to check if life is 0 or less 
+     */
+    private void checkLife()
+    {
+        if (life < 0)
         {
             Die();
         }
-
-        UpdateLifeText();
+        else
+        {
+            UpdateLifeText();
+        }
     }
-
     public void Die()
     {
         Debug.Log("Game Over");
+        //TODO STOP GAME & HORDE.
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();
