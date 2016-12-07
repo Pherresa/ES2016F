@@ -67,7 +67,7 @@ public class Start_Round : MonoBehaviour {
         cont_round++;
         Debug.Log(cont_round);
         generate_round.createNewWave();
-        Debug.Log("Generate Round");
+        //Debug.Log("Generate Round");
         GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
