@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
-
+[System.Serializable]
 public class LifeAmountManager : MonoBehaviour
 {
 
@@ -15,6 +15,7 @@ public class LifeAmountManager : MonoBehaviour
 
     public int life = 1000; // TODO: Initial life value?
     public int amount = 200; // TODO: Initial money value?
+    public int finalScore = 0;
 
 	public int currentScore = 0; // TODO: TEAM_D show in the play window
 	// This will use to reset the score 
@@ -29,7 +30,11 @@ public class LifeAmountManager : MonoBehaviour
     private GeneralEnemy[] enemies;
     private bool final_round;
 
+    private Start_Round start_round;
+    private GameObject[] enemiesToDestroy;
 
+
+    public Text scoreText;
     public Text amountText;
     public Text lifeText;
     public Text timeText;
@@ -39,9 +44,14 @@ public class LifeAmountManager : MonoBehaviour
     public GameObject secondD;
     public GameObject thirdD;
 
+    public GameObject endMenu;
+
+
+
     // Use this for initialization
     void Start()
     {
+        endMenu.SetActive(false);
         amount = Enemy_Constants.WALLET;
         life = Enemy_Values_Gene.m_mt_tower("l");
         UpdateLifeText();
@@ -54,7 +64,10 @@ public class LifeAmountManager : MonoBehaviour
         //setRemainingTime(60f);
         amountText.text = amount.ToString();
         //InvokeRepeating("decreaseTimeRemaining", 1f, 1f); 
-		 
+        start_round = GameObject.FindObjectOfType<Start_Round>();
+        
+
+
 
     }
 
@@ -63,31 +76,42 @@ public class LifeAmountManager : MonoBehaviour
 		remainingTime = r;
     }
 
-    void UpdateLifeText()
+    public void UpdateLifeText()
     {
 
         lifeText.text = life.ToString();
 
     }
-    void UpdateAmountText()
+    public void UpdateAmountText()
     {
         amountText.text = amount.ToString();
 
     }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = currentScore.ToString();
+    }
+
+
     void UpdateTimeText()
     {
-        minuteCount = (int)(remainingTime/60f);
-        if(secCount!=(int)(remainingTime%60f)){
-            newSec = true;
-        }
-        else{
-            newSec = false;
-        }
-        secCount = (int)(remainingTime%60f);
+        if (!start_round.getGameOver())
+        {
+            minuteCount = (int)(remainingTime / 60f);
+            if (secCount != (int)(remainingTime % 60f))
+            {
+                newSec = true;
+            }
+            else
+            {
+                newSec = false;
+            }
+            secCount = (int)(remainingTime % 60f);
 
-        if(!final_round)
-            timeText.text = minuteCount.ToString("00")+":"+ secCount.ToString("00");
-
+            if (!final_round)
+                timeText.text = minuteCount.ToString("00") + ":" + secCount.ToString("00");
+        }
     }
 
     public bool LoseAmount(int a)
@@ -112,7 +136,9 @@ public class LifeAmountManager : MonoBehaviour
 
     public void LoseLife(int l = 1)
     {
+        checkLife();
         life -= l;
+
         if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
         {
             firstD.SetActive(true);
@@ -126,18 +152,40 @@ public class LifeAmountManager : MonoBehaviour
         {
             thirdD.SetActive(true);
         }
-
-        if (life <= 0)
-        {
-            Die();
-        }
-
-        UpdateLifeText();
     }
 
+
+    /*
+     * Method to check if life is 0 or less 
+     */
+    private void checkLife()
+    {
+        if (life < 0)
+        {
+            start_round.setGameOver();
+            Die();
+        }
+        else
+        {
+            UpdateLifeText();
+        }
+    }
+    /*
+     * Method that stops the gamme when player dies, stops the hordes and destroy all the enemies left in the map.
+     */
     public void Die()
     {
         Debug.Log("Game Over");
+        enemiesToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemiesToDestroy)
+        {
+            Destroy(enemy);
+        }
+        endMenu.SetActive(true);
+        Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
+        string txt = "Your final score is " + currentScore.ToString();
+        finalScoreText.text = txt;
+        //Time.timeScale = 0;
     }
 
     public void decreaseTimeRemaining()
@@ -155,6 +203,7 @@ public class LifeAmountManager : MonoBehaviour
     void Update()
     {
         UpdateTimeText();
+        UpdateScoreText();
     }
 
     void UpdateAvailableUnits()
@@ -236,6 +285,7 @@ public class LifeAmountManager : MonoBehaviour
 									    // We do +1 because it's start in 0.
 		if (st != null) {level += st.actu_round();}
 
+
 		Debug.Log ("remainingRime");
 		Debug.Log((int)(remainingTime));
 
@@ -243,7 +293,7 @@ public class LifeAmountManager : MonoBehaviour
 		// round this score will be the current score of the player.
 		// So now we can define the formula: 
 		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
- 
+        finalScore = currentScoreNextRound;
 		return currentScoreNextRound;
 	}
 

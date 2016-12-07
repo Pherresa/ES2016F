@@ -5,6 +5,11 @@ using System;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+
+
+    bool infoShowed;
+    float timeLeft;
+
     public GameObject prefab;
     GameObject hoverPrefab;
     public Slot[] Slots;
@@ -32,16 +37,15 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     void playSound(AudioClip audio){
         source.PlayOneShot (audio);
     }
-
-
-
-
+    
 
     /**
      * Prefab Unit instantation still not active, ready to be drag 
      * */
     void Start()
     {
+        timeLeft = 2.0f;
+        infoShowed = false;
         auraPrefab = Resources.Load("Prefabs/AreaProjector") as GameObject;
         ablePrefab = Resources.Load("Prefabs/ableToDropProjector") as GameObject;
         //red = Resources.Load("StandardAssets/")
@@ -53,6 +57,24 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     }
 
 
+    void Update(){
+        if(infoShowed){
+            timeLeft-=Time.deltaTime;
+        }
+        if(timeLeft<0){
+            timeLeft = 2.0f;
+            infoShowed = false;
+            GameObject info = GameObject.Find("ToBuyInfo");
+            //info.transform.position = new Vector3(-100.0f, -100.0f, 0.0f);
+            Vector3 v = info.transform.position;
+
+            info.transform.position = new Vector3(-2000.0f, v.y,v.z);
+            //info.SetActive(false);
+        }
+
+    }
+
+    
     /**
      * Color change for hoverPrefab 
      * */
@@ -198,7 +220,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             {
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
-
                 {
                     
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
@@ -276,6 +297,51 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
 
     }
+
+
+
+    public void buttonClicked(int index){
+
+/*
+        timeLeft=2.0f;
+        float incx = 40.0f;
+        float incy = 100.0f;
+
+        GameObject boton1 = null;
+        GameObject info = GameObject.Find("ToBuyInfo");
+
+
+
+        if (index==1){
+            boton1 = GameObject.Find("ButtonUnit1");
+        }
+        
+        if(index==2){
+            boton1 = GameObject.Find("ButtonUnit1");
+            incx +=115.0f;
+
+        }
+
+
+        Vector3 v = boton1.transform.position;
+        //info.transform.position = new Vector3(50.0f, 150.0f, 0.0f);
+        info.transform.position = new Vector3(v.x+incx, v.y, v.z);
+        infoShowed = true;
+*/
+        float xbase = GameObject.Find("ButtonUnit1").transform.position.x - 55.0f;
+
+
+        timeLeft=2.0f;
+        GameObject info = GameObject.Find("ToBuyInfo");
+        float xposition = xbase + 105.0f*index;
+        Vector3 v = info.transform.position;
+        info.transform.position = new Vector3(xposition,v.y,v.z);
+
+        infoShowed = true;
+
+    }
+
+
 
     private void obt_price(Action_Defense actionDefense) {
         switch (actionDefense.towerTama)

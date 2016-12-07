@@ -8,6 +8,7 @@ using System;
  */
 public class Action_Defense : Tower
 {
+
     public int towerPrice;
     public int towerTama;
 
@@ -15,6 +16,9 @@ public class Action_Defense : Tower
     AnimationState stateTrebuchetIdle;
     AnimationState stateTrebuchetAttack;
     AnimationState stateTrebuchetrecharge;
+
+    Animation[] anims;
+
     private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
@@ -33,8 +37,225 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
-        
+        getValueTower();
+        getTypeOfDefense();
+        loadAnimations();
+        initAnimations();
         iniStates();
+    }
+
+    private void loadAnimations()
+    {
+        switch (type)
+        {
+            case TowerType.TREBUCHET_MT:
+                anim = GetComponent<Animation>();
+                break;
+            case TowerType.MERCENARYHUMAN_I:
+            case TowerType.ORCARCHER_I:
+                anims = GetComponentsInChildren<Animation>();
+                break;
+        }
+    }
+
+    
+    private void initAnimations()
+    {
+        switch (type)
+        {
+            case TowerType.TREBUCHET_MT:
+                anim["A_Trebuchet_idle"].speed = 1f;
+                stateTrebuchetIdle = anim["A_Trebuchet_idle"];
+                stateTrebuchetIdle.time = 0;
+                stateTrebuchetIdle.enabled = true;
+                anim.Sample();
+                stateTrebuchetIdle.enabled = false;
+
+                anim["A_Trebuchet_attack"].speed = 2.5f;
+                stateTrebuchetAttack = anim["A_Trebuchet_attack"];
+                stateTrebuchetAttack.time = 0;
+                stateTrebuchetAttack.enabled = true;
+                anim.Sample();
+                stateTrebuchetAttack.enabled = false;
+
+                anim["A_Trebuchet_recharge"].speed = 1.5f;
+                stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
+                stateTrebuchetrecharge.time = 0;
+                stateTrebuchetrecharge.enabled = true;
+                anim.Sample();
+                stateTrebuchetrecharge.enabled = false;
+                break;
+
+            case TowerType.MERCENARYHUMAN_I:
+                //anim["A_Mercenary_idle"].speed = 1f;
+                //anim["A_Mercenary_attack"].speed = 2f;
+
+                break;
+
+            case TowerType.ORCARCHER_I:
+                //anim["A_OrcArcher_idle"].speed = 1f;
+                anim["A_OrcArcher_attack"].speed = 2f;
+                //anim["A_OrcArcher_attack"].speed = 2.5f;
+
+                break;
+        }
+    }
+
+    // inicializador
+    void iniStates()
+    {
+        //BarrackRohanHorse
+        if (active)
+        {
+            switch (type)
+            {
+                case TowerType.ROHANBARRACKS_MT:
+                    generateRohanHorses(2);
+                    break;
+            }
+        }
+    }
+
+    private void checkPhaseAnim()
+    {
+        if (isShooting)
+        {
+            switch (type)
+            {
+                case TowerType.TREBUCHET_MT:
+                    if (animationPhase == 1)
+                    {
+                        timeOnPlay = DateTime.Now;
+                        anim.Play("A_Trebuchet_attack");
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
+                        {
+                            lanzar();
+                            timeOnPlay = DateTime.Now;
+                            anim.Play("A_Trebuchet_recharge");
+                            animationPhase = 3;
+                        }
+                    }
+                    else if (animationPhase == 3)
+                    {
+                        if ((DateTime.Now - timeOnPlay).Seconds > 1f)
+                        {
+                            isShooting = false;
+                            animationPhase = 0;
+                            predict = 0;
+                        }
+                    }
+                    break;
+                case TowerType.MERCENARYHUMAN_I:
+                    if (animationPhase == 1)
+                    {
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_Mercenary_attack");
+                        }
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_attack"].length)
+                            {
+                                lanzar();
+                                timeOnPlay = DateTime.Now;
+                                anim.Play("A_Mercenary_recharge_");
+                                animationPhase = 3;
+                            }
+                        }
+                    }
+                    else if (animationPhase == 3)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_recharge_"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
+                        }
+                    }
+                    break;
+                case TowerType.ORCARCHER_I:
+                    if (animationPhase == 1)
+                    {
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_OrcArcher_attack");
+                        }
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_OrcArcher_attack"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            switch (type)
+            {
+                case TowerType.TREBUCHET_MT:
+                    if (!anim.IsPlaying("A_Trebuchet_idle"))
+                    {
+                        anim.Play("A_Trebuchet_idle");
+                    }
+                    break;
+
+                case TowerType.ORCARCHER_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_OrcArcher_idle"))
+                        {
+                            animation.Play("A_OrcArcher_idle");
+                        }
+                    }
+                    break;
+
+                case TowerType.MERCENARYHUMAN_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_Mercenary_idle"))
+                        {
+                            animation.Play("A_Mercenary_idle");
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void checkDistanceTarget()
+    {
+        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
+        if (distanceToEnemy > range)
+        {
+            target = null;
+            animationPhase = 0;
+            predict = 0;
+            isShooting = false;
+        }
     }
 
     // Funcion que se executa por cada frame para poder girar correctamente the towers.
@@ -51,90 +272,14 @@ public class Action_Defense : Tower
             }
         }
     }
-    private void initAnimTrebuchet()
-    {
-        if (type==1) {
-            anim["A_Trebuchet_idle"].speed = 1f;
-            stateTrebuchetIdle = anim["A_Trebuchet_idle"];
-            stateTrebuchetIdle.time = 0;
-            stateTrebuchetIdle.enabled = true;
-            anim.Sample();
-            stateTrebuchetIdle.enabled = false;
 
-            anim["A_Trebuchet_attack"].speed = 2.5f;
-            stateTrebuchetAttack = anim["A_Trebuchet_attack"];
-            stateTrebuchetAttack.time = 0;
-            stateTrebuchetAttack.enabled = true;
-            anim.Sample();
-            stateTrebuchetAttack.enabled = false;
-
-            anim["A_Trebuchet_recharge"].speed = 1.5f;
-            stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
-            stateTrebuchetrecharge.time = 0;
-            stateTrebuchetrecharge.enabled = true;
-            anim.Sample();
-            stateTrebuchetrecharge.enabled = false;
-        }
-    }
-
-    private void checkPhaseAnim()
-    {
-        if (isShooting) {
-            if (type == 1)
-            {
-                if (animationPhase == 1)
-                {
-                    timeOnPlay = DateTime.Now;
-                    anim.Play("A_Trebuchet_attack");
-                    animationPhase = 2;
-                }
-                else if (animationPhase == 2)
-                {
-                    if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
-                    {
-                        lanzar();
-                        timeOnPlay = DateTime.Now;
-                        anim.Play("A_Trebuchet_recharge");
-                        animationPhase = 3;
-                    }
-                }
-                else if (animationPhase == 3)
-                {
-                    if ((DateTime.Now - timeOnPlay).Seconds > 1f)
-                    {
-                        isShooting = false;
-                        animationPhase = 0;
-                        predict = 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (type == 1 && !anim.IsPlaying("A_Trebuchet_idle"))
-            {
-                anim.Play("A_Trebuchet_idle");
-            }
-        }
-    }
-
-    private void checkDistanceTarget()
-    {
-        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
-        if (distanceToEnemy > range)
-        {
-            target = null;
-            animationPhase = 0;
-            predict = 0;
-            isShooting = false;
-        }
-    }
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
         if (active)
         {
-            if (!isShooting) {
+            if (!isShooting)
+            {
                 if (animationPhase == 0)
                 {
                     if (predict == 0)
@@ -154,81 +299,62 @@ public class Action_Defense : Tower
                         }
                     }
                 }
-            }
-            // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
-            if (type != 1 && predict == maxFrameToPredict)
-            {
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                checkDistanceTarget();
+                if (target != null)
                 {
-                    timer = 1.5f;
-                    checkDistanceTarget();
-                    if (target != null)
+                    if (type != TowerType.UNKNOWN && predict == maxFrameToPredict)
                     {
-                        lanzar();
-                        predict = 0;
-                    }
-                    else
-                    {
-                        predict = 0;
+                        shoot();
                     }
                 }
-            }
-            // aqui solo entrara la catapulta por ahora
-            else
-            {
-                if (!isShooting)
+
+
+                // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
+                /*if (type != TowerType.TREBUCHET_MT && predict == maxFrameToPredict)
                 {
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
                     {
+                        timer = 1.5f;
                         checkDistanceTarget();
                         if (target != null)
                         {
-                            if (type != 0 && predict == maxFrameToPredict)
-                            {
-                                shoot();
-
-                            }
+                            lanzar();
+                            predict = 0;
+                        }
+                        else
+                        {
+                            predict = 0;
                         }
                     }
                 }
+                // aqui solo entrara la catapulta por ahora
+                else*/
             }
-
 
         }
     }
 
-
-
-    // inicializador
-    void iniStates()
-    {
-        get_value_tower();
-        getTypeOfDefense();
-        anim = GetComponent<Animation>();
-        initAnimTrebuchet();
-
-		//BarrackRohanHorse
-		if(active && type == 2) generateRohanHorses(2);
-    }
+    
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
         {
-            type = 1;
+            type = TowerType.TREBUCHET_MT;
         }
         if (name == "defense2_RohanBarracks_MT")
         {
-            type = 2;
+            type = TowerType.ROHANBARRACKS_MT;
         }
         if (name == "defense2_OrcArcher_I")
         {
-            type = 3;
+            type = TowerType.ORCARCHER_I;
         }
         if (name == "defense3_MercenaryHuman_I")
         {
-            type = 4;
+            type = TowerType.MERCENARYHUMAN_I;
         }
     }
     // Para destruir la torre
@@ -253,20 +379,21 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                if (type != 1)
-                {
-                    posIni = target.transform.position + (tmp * plusToPredict);
-                }
-                else
+                if (type == TowerType.TREBUCHET_MT)
                 {
                     posIni = target.transform.position + (tmp * plusToPredictTrebu);
                 }
+                else
+                {
+                    posIni = target.transform.position + (tmp * plusToPredict);
+                }
+
             }
             if (predict != maxFrameToPredict)
             {
                 predict += 1;
             }
-        } 
+        }
     }
     // obtiene el enemigo mas cercano
     protected override void getTarget()
@@ -309,7 +436,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void get_value_tower()
+    private void getValueTower()
     {
         switch (towerTama)
         {
@@ -337,40 +464,45 @@ public class Action_Defense : Tower
 
     private void lanzar()
     {
-        if (type==1)
+        GameObject p;
+
+        switch (type)
         {
-            GameObject prefab = (GameObject) Resources.Load("Prefabs/defense1P_Rock_MT");
-            GameObject p = Instantiate(prefab);
-            p.AddComponent<Rigidbody>();
-            p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
-            p.AddComponent<ShootingMove>();
-            p.GetComponent<ShootingMove>().pos = posIni;
-            p.GetComponent<ShootingMove>().tag = "projectile";
-        }
-        else
-        {
-            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            p.AddComponent<Rigidbody>();
-            Vector3 tmp = this.transform.position;
-            tmp.y += 5f;
-            p.transform.position = tmp;
-            p.transform.localScale = new Vector3(2f, 2f, 2f);
-            p.GetComponent<SphereCollider>().radius = 0.6f;
-            p.AddComponent<ShootingMove>();
-            p.GetComponent<ShootingMove>().pos = posIni;
-            p.GetComponent<ShootingMove>().tag = "projectile";
+            case TowerType.TREBUCHET_MT:
+                p = (GameObject)Resources.Load("Prefabs/defense1P_Rock_MT");
+                p = Instantiate(p);
+                p.AddComponent<Rigidbody>();
+                p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
+                p.AddComponent<ShootingMove>();
+                p.GetComponent<ShootingMove>().pos = posIni;
+                p.GetComponent<ShootingMove>().tag = "projectile";
+                break;
+
+            default:
+                p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                p.AddComponent<Rigidbody>();
+                Vector3 tmp = this.transform.position;
+                tmp.y += 5f;
+                p.transform.position = tmp;
+                p.transform.localScale = new Vector3(2f, 2f, 2f);
+                p.GetComponent<SphereCollider>().radius = 0.6f;
+                p.AddComponent<ShootingMove>();
+                p.GetComponent<ShootingMove>().pos = posIni;
+                p.GetComponent<ShootingMove>().tag = "projectile";
+                break;
         }
     }
 
 
-	void generateRohanHorses(int quantity) {
-		
-		GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
-		GameObject rohanHorse;
-		Vector3 newPos;
-		for (int i = 0; i < quantity; i++)
-		{
-			/*
+    void generateRohanHorses(int quantity)
+    {
+
+        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
+        GameObject rohanHorse;
+        Vector3 newPos;
+        for (int i = 0; i < quantity; i++)
+        {
+            /*
 			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
 			GameObject enemy = Instantiate(enemyPrefab);
 			enemy.transform.parent = transform;
@@ -379,21 +511,21 @@ public class Action_Defense : Tower
 			astarAI.speed = 12;*/
 
 
-			rohanHorse = Instantiate(rohanHorsePrefab); 
-			newPos = this.transform.position; 
-			if(i==0) newPos.x -= 3; 
-			if(i==2) newPos.x += 3;
-			newPos.y -= 2;
-			newPos.z += 2;
-			rohanHorse.transform.position = newPos;
-			//rohanHorse.AddComponent<Rigidbody>();
-			rohanHorse.AddComponent<RohanHorse>();
-			rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
-			rohanHorse.GetComponent<RohanHorse> ().tag = "projectile";
+            rohanHorse = Instantiate(rohanHorsePrefab);
+            newPos = this.transform.position;
+            if (i == 0) newPos.x -= 3;
+            if (i == 2) newPos.x += 3;
+            newPos.y -= 2;
+            newPos.z += 2;
+            rohanHorse.transform.position = newPos;
+            //rohanHorse.AddComponent<Rigidbody>();
+            rohanHorse.AddComponent<RohanHorse>();
+            rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
+            rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
-			//rohanHorse.transform.parent = transform;  
-		}
+            //rohanHorse.transform.parent = transform;  
+        }
 
-	}
+    }
 }
 
