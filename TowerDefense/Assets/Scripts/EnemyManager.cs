@@ -35,13 +35,13 @@ public class EnemyManager : MonoBehaviour {
 		 **/
 		// Save game values before new wave
 		gameValues = new Game (FindObjectOfType<LifeAmountManager> ());
-		for (int i = 0; i < 15; i++) {
-			GameObject enemyPrefab = Resources.Load ("Prefabs/Enemy") as GameObject;
+		for (int i = 0; i < 1; i++) {
+			GameObject enemyPrefab = Resources.Load ("Prefabs/attack2_Oliphant_MT") as GameObject;
 			GameObject enemy = Instantiate (enemyPrefab);
 			enemy.transform.parent = transform;
 			//get the thing component on your instantiated object
 			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-			astarAI.speed = 12;
+			astarAI.speed = 5;
 			astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 		}
 
@@ -79,7 +79,7 @@ public class EnemyManager : MonoBehaviour {
     //Destroy all the defenses and enemies in the actual round
     public void Reset()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("attack2_Oliphant_MT");
         foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
