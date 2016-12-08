@@ -147,6 +147,7 @@ GameObject:
   - 114: {fileID: 114000011403056354}
   - 114: {fileID: 114000013983081754}
   - 114: {fileID: 114000011761936850}
+  - 111: {fileID: 111000011895712024}
   m_Layer: 0
   m_Name: attack2_Oliphant_MT
   m_TagString: Enemy
@@ -2297,7 +2298,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013510880580}
-  m_LocalRotation: {x: -0.5691549, y: 0.055594992, z: 0.56674033, w: 0.5931083}
+  m_LocalRotation: {x: -0.56915486, y: 0.055594977, z: 0.5667403, w: 0.59310824}
   m_LocalPosition: {x: 2.3736674e-11, y: 0.015031995, z: 3.5639083e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2344,6 +2345,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011422029794}
   m_Mesh: {fileID: 4300012, guid: 2de611e0f2ee7854f8cfb354387d52de, type: 3}
+--- !u!111 &111000011895712024
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010665828426}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400006, guid: dc89d8ef01ee51742acf493266f1b93b, type: 3}
+  - {fileID: 7400008, guid: dc89d8ef01ee51742acf493266f1b93b, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 1
 --- !u!111 &111000013254990908
 Animation:
   m_ObjectHideFlags: 1
@@ -2420,7 +2437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawGizmos: 1
-  detailedGizmos: 0
+  detailedGizmos: 1
   startEndModifier:
     addPoints: 0
     exactStartPoint: 3
@@ -2551,7 +2568,7 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 10
   enemyBody: {fileID: 4000012165094138}
-  enemyCompass: {fileID: 0}
+  enemyCompass: {fileID: 4000012762873434}
 --- !u!114 &114000011808294502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2684,8 +2701,8 @@ MonoBehaviour:
   life: 100
   maxlife: 100
   damage: 10
-  soundAttacked: {fileID: 0}
-  soundDeath: {fileID: 0}
+  soundAttacked: {fileID: 8300000, guid: b49194f810b3d714d95a6941518a5897, type: 3}
+  soundDeath: {fileID: 8300000, guid: 5272a4888aea45e41a021a5f8567b3f5, type: 3}
 --- !u!114 &114000014259183830
 MonoBehaviour:
   m_ObjectHideFlags: 1
