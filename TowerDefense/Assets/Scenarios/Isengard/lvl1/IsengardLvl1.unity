@@ -174,6 +174,33 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 993420287}
   m_Script: {fileID: 11500000, guid: 1c461be8fe29cad40927c739debd1a1b, type: 3}
+--- !u!1 &738957356 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012285392910, guid: 24ed99043413fed4fb88531929a16f9b,
+    type: 2}
+  m_PrefabInternal: {fileID: 993420287}
+--- !u!114 &738957357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 738957356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2444d3338e727f745b75fadb91d3873f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSpeed: 100
+  shiftAdd: 250
+  maxShift: 1000
+  camSens: 0.25
+  mouseSensitivity: 5
+  maxZ: 110
+  minZ: -110
+  maxY: 100
+  minY: 10
+  maxX: 100
+  minX: -110
 --- !u!114 &939661383 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000011455728204, guid: 24ed99043413fed4fb88531929a16f9b,
@@ -325,12 +352,12 @@ Prefab:
     - target: {fileID: 224000012146496116, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 298.5
+      value: 313
       objectReference: {fileID: 0}
     - target: {fileID: 224000012146496116, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 597
+      value: 626
       objectReference: {fileID: 0}
     - target: {fileID: 82000010639742006, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
@@ -700,12 +727,12 @@ Prefab:
     - target: {fileID: 224000012146496116, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 683
+      value: 537.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012146496116, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1366
+      value: 1075
       objectReference: {fileID: 0}
     - target: {fileID: 224000012741943758, guid: 24ed99043413fed4fb88531929a16f9b,
         type: 2}
@@ -955,6 +982,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010773784562, guid: 24ed99043413fed4fb88531929a16f9b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24ed99043413fed4fb88531929a16f9b, type: 2}
