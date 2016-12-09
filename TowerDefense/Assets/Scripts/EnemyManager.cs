@@ -39,6 +39,7 @@ public class EnemyManager : MonoBehaviour {
 			GameObject enemyPrefab = Resources.Load ("Prefabs/Enemy") as GameObject;
 			GameObject enemy = Instantiate (enemyPrefab);
 			enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
 			//get the thing component on your instantiated object
 			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
 			astarAI.speed = 12;
