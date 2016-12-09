@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40960613, g: 0.5068965, b: 0.2422667, a: 1}
+  m_Color: {r: 0.40784314, g: 0.5058824, b: 0.23921569, a: 0.69803923}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1149,7 +1149,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 18.715647, y: -16.022484, z: 8.320682}
+  m_LocalEulerAnglesHint: {x: 11.706415, y: -234.71536, z: -2.2163506}
   m_Children:
   - {fileID: 1017641732}
   m_Father: {fileID: 0}
@@ -1485,7 +1485,7 @@ TerrainCollider:
   m_GameObject: {fileID: 462908673}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: fc788549147f69346adead9d2fa5dc0a, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: e4070c544e35a524cbc0f2caf4a2d9ce, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &462908675
 Terrain:
@@ -1495,8 +1495,8 @@ Terrain:
   m_GameObject: {fileID: 462908673}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: fc788549147f69346adead9d2fa5dc0a, type: 2}
-  m_TreeDistance: 5000
+  m_TerrainData: {fileID: 15600000, guid: e4070c544e35a524cbc0f2caf4a2d9ce, type: 2}
+  m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -1525,7 +1525,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 462908673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -348, y: -68.2, z: -474}
+  m_LocalPosition: {x: -348, y: -54.7, z: -474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40784314, g: 0.5058824, b: 0.23921569, a: 1}
+  m_Color: {r: 0.40784314, g: 0.5058824, b: 0.23921569, a: 0.69803923}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5472,7 +5472,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -72.8
+      value: -58.1
       objectReference: {fileID: 0}
     - target: {fileID: 4000010488229296, guid: 35b659d31c53bfb46b1b9061d216d425, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6324,7 +6324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.40960613, g: 0.5068965, b: 0.2422667, a: 1}
+  m_Color: {r: 0.40784314, g: 0.5058824, b: 0.23921569, a: 0.69803923}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7629,7 +7629,7 @@ TerrainCollider:
   m_GameObject: {fileID: 2024966279}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 46fb1676db489814d9dffc98521c370f, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 26085323eef851143a5b4d81e9ca79db, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &2024966281
 Terrain:
@@ -7639,7 +7639,7 @@ Terrain:
   m_GameObject: {fileID: 2024966279}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 46fb1676db489814d9dffc98521c370f, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 26085323eef851143a5b4d81e9ca79db, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
