@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour {
             enemy.transform.position = transform.position;
 			//get the thing component on your instantiated object
 			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-			astarAI.speed = 12;
+			astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
 			astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 		}
 
@@ -57,9 +57,7 @@ public class EnemyManager : MonoBehaviour {
 
 
 			// TODO: OLiphant
-
-			// TODO: Nazgul 
-
+            
 			// We generate Bettering Ram:
 			generateOneBatteringRam ();
 

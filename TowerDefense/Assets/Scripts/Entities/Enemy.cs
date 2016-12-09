@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour {
         soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
 
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
-        life = 100f;
+        life = enem.maxlife;
         enem.maxlife = 100f;
         enem.money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
@@ -153,7 +153,9 @@ public class Enemy : MonoBehaviour {
 			life -= 50f;
 		}*/
 
-    } 
+    }
 
-
+    public Value getValues() {
+        return enem;
+    }
 }
