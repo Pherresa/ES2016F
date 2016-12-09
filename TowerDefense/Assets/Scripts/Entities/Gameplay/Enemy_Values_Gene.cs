@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class Enemy_Values_Gene{
+public class Enemy_Values_Gene{
+
+    private Enemy_Constants value_ene;
 
 
-    public static int m_little_enemy(string selector) {
+    public Enemy_Values_Gene() {
+        value_ene = new Enemy_Constants();
+    }
+
+
+    public int m_little_enemy(string selector) {
         switch (selector) {
             case "l":
-                return Enemy_Constants.LIFE_LITTLE;
-                break;
+                return value_ene.Life_little;
             case "a":
-                return Enemy_Constants.ATTACK_LITTLE;
-                break;
+                return value_ene.Attack_little;
             case "s":
-                return Enemy_Constants.SPEED_LITTLE;
-                break;
+                return value_ene.Speed_little;
             case "m":
-                return Enemy_Constants.MONEY_LITTLE;
-                break;
+                return value_ene.Money_little;
             default:
                 Debug.Log("Small enemy does not have this characteristic");
                 break;
@@ -25,22 +28,18 @@ public static class Enemy_Values_Gene{
         return 0;
     }
 
-    public static int m_medium_enemy(string selector)
+    public int m_medium_enemy(string selector)
     {
         switch (selector)
         {
             case "l":
-                return Enemy_Constants.LIFE_MEDIUM;
-                break;
+                return value_ene.Life_medium;
             case "a":
-                return Enemy_Constants.ATTACK_MEDIUM;
-                break;
+                return value_ene.Attack_medium;
             case "s":
-                return Enemy_Constants.SPEED_MEDIUM;
-                break;
+                return value_ene.Speed_medium;
             case "m":
-                return Enemy_Constants.MONEY_MEDIUM;
-                break;
+                return value_ene.Money_medium;
             default:
                 Debug.Log("Medium enemy does not have this characteristic");
                 break;
@@ -48,22 +47,18 @@ public static class Enemy_Values_Gene{
         return 0;
     }
 
-    public static int m_big_enemy(string selector)
+    public int m_big_enemy(string selector)
     {
         switch (selector)
         {
             case "l":
-                return Enemy_Constants.LIFE_BIG;
-                break;
+                return value_ene.Life_big;
             case "a":
-                return Enemy_Constants.ATTACK_BIG;
-                break;
+                return value_ene.Attack_big;
             case "s":
-                return Enemy_Constants.SPEED_BIG;
-                break;
+                return value_ene.Speed_big;
             case "m":
-                return Enemy_Constants.MONEY_BIG;
-                break;
+                return value_ene.Money_medium;
             default:
                 Debug.Log("Big enemy does not have this characteristic");
                 break;
@@ -71,19 +66,16 @@ public static class Enemy_Values_Gene{
         return 0;
     }
 
-    public static int m_little_tower(string selector)
+    public int m_little_tower(string selector)
     {
         switch (selector)
         {
             case "a":
-                return Enemy_Constants.T_ATTACK_LITTLE;
-                break;
+                return value_ene.T_attack_little;
             case "r":
-                return Enemy_Constants.T_RANGE_LITTLE;
-                break;
+                return value_ene.T_range_little;
             case "m":
-                return Enemy_Constants.T_MONEY_LITTLE;
-                break;
+                return value_ene.T_money_little;
             default:
                 Debug.Log("Little tower does not have this characteristic");
                 break;
@@ -91,19 +83,16 @@ public static class Enemy_Values_Gene{
         return 0;
     }
 
-    public static int m_medium_tower(string selector)
+    public int m_medium_tower(string selector)
     {
         switch (selector)
         {
             case "a":
-                return Enemy_Constants.T_ATTACK_MEDIUM;
-                break;
+                return value_ene.T_attack_medium;
             case "r":
-                return Enemy_Constants.T_RANGE_MEDIUM;
-                break;
+                return value_ene.T_range_medium;
             case "m":
-                return Enemy_Constants.T_MONEY_MEDIUM;
-                break;
+                return value_ene.T_money_medium;
             default:
                 Debug.Log("Medium tower does not have this characteristic");
                 break;
@@ -113,42 +102,53 @@ public static class Enemy_Values_Gene{
 
 
 
-    public static int m_big_tower(string selector)
+    public int m_big_tower(string selector)
     {
         switch (selector)
         {
             case "a":
-                return Enemy_Constants.ATTACK_BIG;
-                break;
+                return value_ene.T_attack_big;
             case "r":
-                return Enemy_Constants.T_RANGE_BIG;
-                break;
+                return value_ene.T_range_big;
             case "m":
-                return Enemy_Constants.T_MONEY_BIG;
-                break;
+                return value_ene.T_money_big;
             default:
                 Debug.Log("Big tower does not have this characteristic");
                 break;
         }
         return 0;
     }
-    public static int m_mt_tower(string selector)
+    public int m_mt_tower(string selector)
     {
         switch (selector)
         {
             case "a":
-                return Enemy_Constants.MT_ATTACK;
-                break;
+                return value_ene.Mt_attack;
             case "l":
-                return Enemy_Constants.MT_LIFE;
-                break;
+                return value_ene.Mt_life;
             case "r":
-                return (int)Enemy_Constants.MT_RANGE;
-                break;
+                return (int)value_ene.Mt_range;
             default:
                 Debug.Log("Main tower does not have this characteristic");
                 break;
         }
         return 0;
+    }
+
+    public int obt_price(Action_Defense actionDefense)
+    {
+        switch (actionDefense.towerTama)
+        {
+            case 1:
+                return m_little_tower("m");
+            case 2:
+                return m_medium_tower("m");
+            case 3:
+                return m_big_tower("m");
+            default:
+                Debug.Log("Error");
+                break;
+        }
+        return -1;
     }
 }
