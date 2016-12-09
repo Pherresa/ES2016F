@@ -6,11 +6,22 @@ using System;
 
 public class Enemy : MonoBehaviour {
 
+    public enum EnemyType {
+        UNKNOWN,
+        ENT,
+        ORC_MT,
+        OLIPHANT_MT,
+        ELF_I,
+        BATTERINGRAM_MT,
+        HOBBIT_I
+    }
+
     public struct Value {
         public float maxlife;
         public int damage;
         public int money;
         public int speed;
+        public EnemyType type;
     }
 
     public int m_velocity;
@@ -89,7 +100,7 @@ public class Enemy : MonoBehaviour {
         Font ArialFont = (Font)Resources.GetBuiltinResource (typeof(Font), "Arial.ttf");
         textLife.font = ArialFont;
         textLife.name = "Life";
-        textLife.text = life + "/" + maxlife;
+        textLife.text = life + "/" + enem.maxlife;
         textLife.fontSize = 10;
         textLife.color = Color.red;
  
@@ -126,7 +137,7 @@ public class Enemy : MonoBehaviour {
         {
             playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
-            GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(money);
+            GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(enem.money);
             GameObject.Find("GameManager").GetComponent<GameManager>().updateCurrentScore(5);
             Destroy(gameObject);
             playSound(soundDeath);
@@ -153,6 +164,39 @@ public class Enemy : MonoBehaviour {
 			life -= 50f;
 		}*/
 
+    }
+
+    private void getTypeOfDefense()
+    {
+        String name = this.gameObject.name.Split('(')[0];
+        if (name == "attack4_BatteringRam_MT")
+        {
+            enem.type = EnemyType.BATTERINGRAM_MT;
+        }
+        else if (name == "attack3_Elf_I")
+        {
+            enem.type = EnemyType.ELF_I;
+        }
+        else if (name == "attack1_Ent_I")
+        {
+            enem.type = EnemyType.ENT;
+        }
+        else if (name == "attack4_Hobbit_I")
+        {
+            enem.type = EnemyType.HOBBIT_I;
+        }
+        else if (name == "attack2_Oliphant_MT")
+        {
+            enem.type = EnemyType.OLIPHANT_MT;
+        }
+        else if (name == "attack1_Orc_MT")
+        {
+            enem.type = EnemyType.ORC_MT;
+        }
+        else
+        {
+            enem.type = EnemyType.UNKNOWN;
+        }
     }
 
     public Value getValues() {

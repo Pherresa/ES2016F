@@ -269,13 +269,14 @@ public class Enemy_Values_Gene{
         val.speed = m_big_enemy("s");
     }
 
+    /*
     private void enemy_lvl4(ref Enemy.Value val)
     {
         val.damage = m_4_enemy("a");
         val.maxlife = m_4_enemy("l");
         val.money = m_4_enemy("m");
         val.speed = m_4_enemy("s");
-    }
+    }*/
 
 
     // Function Tower values
@@ -318,41 +319,33 @@ public class Enemy_Values_Gene{
 
 
     // Function Enemies values
-    public void asig_values_enemy(ref Tower.Values valu)
+    public void asig_values_enemy(ref Enemy.Value valu)
     {
         switch (valu.type)
         {
-            case Tower.TowerType.MERCENARYHUMAN_I:
-                tower_lvl1(ref valu);
+            case Enemy.EnemyType.BATTERINGRAM_MT:
+                enemy_lvl3(ref valu);
                 break;
-            case Tower.TowerType.ORCARCHER_I:
-                tower_lvl3(ref valu);
+            case Enemy.EnemyType.ELF_I:
+                enemy_lvl1(ref valu);
                 break;
-            case Tower.TowerType.ROHANBARRACKS_MT:
-                tower_lvl1(ref valu);
+            case Enemy.EnemyType.ENT:
+                enemy_lvl3(ref valu);
                 break;
-            case Tower.TowerType.TREBUCHET_MT:
-                tower_lvl2(ref valu);
+            case Enemy.EnemyType.HOBBIT_I:
+                enemy_lvl2(ref valu);
                 break;
-            case Tower.TowerType.GANDALF_MT:
-                tower_lvl4(ref valu);
+            case Enemy.EnemyType.OLIPHANT_MT:
+                enemy_lvl2(ref valu);
                 break;
-            case Tower.TowerType.ARAGORN_MT:
-                tower_lvl3(ref valu);
-                break;
-            case Tower.TowerType.SARUMAN_I:
-                tower_lvl5(ref valu);
-                break;
-            case Tower.TowerType.ORCWARRIOR:
-                tower_lvl2(ref valu);
-                break;
-            case Tower.TowerType.LURTZ_I:
-                tower_lvl4(ref valu);
+            case Enemy.EnemyType.ORC_MT:
+                enemy_lvl1(ref valu);
                 break;
             default:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                valu.damage = 0;
+                valu.maxlife = 0;
+                valu.money = 0;
+                valu.speed = 0;
                 break;
         }
     }
