@@ -11,7 +11,13 @@ public abstract class Tower : MonoBehaviour {
         TREBUCHET_MT,
         ROHANBARRACKS_MT,
         ORCARCHER_I,
-        MERCENARYHUMAN_I
+        MERCENARYHUMAN_I,
+        ARAGORN_MT,
+        GANDALF_MT,
+        SARUMAN_I,
+        LURTZ_I,
+        ORCARCHER,
+        ORCWARRIOR
     }
 
     public struct Values
