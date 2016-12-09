@@ -5,6 +5,11 @@ using System;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+
+
+    bool infoShowed;
+    float timeLeft;
+
     public GameObject prefab;
     GameObject hoverPrefab;
     public Slot[] Slots;
@@ -14,19 +19,62 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Slot activeSlot;
     Action_Defense prefabActionDefense;
     LifeAmountManager lifeAmountManager;
+    GameObject auraPrefab;
+    GameObject ablePrefab;
+    Texture red;
+    Texture green;
+
+    public AudioClip soundDrop;
+    public AudioClip soundDragging;
+    private AudioSource source {
+        get{
+            //MainCamera mc = GameObject.FindObjectOfType(typeof(MainCamera)) as MainCamera;
+            return Camera.main.GetComponent<AudioSource> ();
+            //return mc.GetComponent<AudioSource> ();
+
+        }
+    }
+    void playSound(AudioClip audio){
+        source.PlayOneShot (audio);
+    }
+    
 
     /**
      * Prefab Unit instantation still not active, ready to be drag 
      * */
     void Start()
     {
-    	Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
+        timeLeft = 2.0f;
+        infoShowed = false;
+        auraPrefab = Resources.Load("Prefabs/AreaProjector") as GameObject;
+        ablePrefab = Resources.Load("Prefabs/ableToDropProjector") as GameObject;
+        //red = Resources.Load("StandardAssets/")
+        Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
+        obt_price(prefabActionDefense);
         lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
     }
 
 
+    void Update(){
+        if(infoShowed){
+            timeLeft-=Time.deltaTime;
+        }
+        if(timeLeft<0){
+            timeLeft = 2.0f;
+            infoShowed = false;
+            GameObject info = GameObject.Find("ToBuyInfo");
+            //info.transform.position = new Vector3(-100.0f, -100.0f, 0.0f);
+            Vector3 v = info.transform.position;
+
+            info.transform.position = new Vector3(-2000.0f, v.y,v.z);
+            //info.SetActive(false);
+        }
+
+    }
+
+    
     /**
      * Color change for hoverPrefab 
      * */
@@ -55,6 +103,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 int slotIndex = GetSlotIndex(hits);
                 if (slotIndex != -1)
                 {
+                    //Projector p = hoverPrefab.findChuk
+                    
                     GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
                     Slot slotQuad = slotQuadObject.GetComponent<Slot>();
                     activeSlot = slotQuad;
@@ -62,12 +112,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 }
                 else
                 {
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
                     activeSlot = null;
                     DisableAllSlots();
+                
+                    alreadyPlayedDraggingSound = false;
                 }
             }
         }
     }
+
+    bool alreadyPlayedDraggingSound = false;
 
     void EnableSlot(Slot slot)
     {
@@ -78,10 +133,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				if(availableSlot.getIsPath() || availableSlot.isOccupied){
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
-				}
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
+                }
 				else{
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.green;
+                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.green;
+                    if (!alreadyPlayedDraggingSound)
+                    {
+                        playSound(soundDragging);
+                        alreadyPlayedDraggingSound = true;
+                    }
 				}
 
             }
@@ -159,17 +221,25 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
                 {
+                    
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(actionDefense.towerPrice);
+                    lifeAmountManager.LoseAmount(prefabActionDefense.towerPrice);
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
                         particleSystem.Play();
                     }
+
+                    GameObject aura = Instantiate(auraPrefab);
+                    aura.GetComponent<Projector>().enabled = false;
+                    aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+                    aura.transform.parent = newUnit.transform;
+
+                    playSound(soundDrop);
 
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;
@@ -215,7 +285,79 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();
             hoverPrefab.SetActive(false);
+            GameObject aura = Instantiate(auraPrefab);
+            GameObject able = Instantiate(ablePrefab);
+            //TODO: Harm zone get by the prefab defense class.
+            aura.GetComponent<Projector>().orthographicSize = 35;
+            aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+            able.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+            aura.transform.parent = hoverPrefab.transform;
+            able.transform.parent = hoverPrefab.transform;
+
         }
 
+    }
+
+
+
+    public void buttonClicked(int index){
+
+/*
+        timeLeft=2.0f;
+        float incx = 40.0f;
+        float incy = 100.0f;
+
+        GameObject boton1 = null;
+        GameObject info = GameObject.Find("ToBuyInfo");
+
+
+
+        if (index==1){
+            boton1 = GameObject.Find("ButtonUnit1");
+        }
+        
+        if(index==2){
+            boton1 = GameObject.Find("ButtonUnit1");
+            incx +=115.0f;
+
+        }
+
+
+        Vector3 v = boton1.transform.position;
+        //info.transform.position = new Vector3(50.0f, 150.0f, 0.0f);
+        info.transform.position = new Vector3(v.x+incx, v.y, v.z);
+        infoShowed = true;
+*/
+        float xbase = GameObject.Find("ButtonUnit1").transform.position.x - 55.0f;
+
+
+        timeLeft=2.0f;
+        GameObject info = GameObject.Find("ToBuyInfo");
+        float xposition = xbase + 105.0f*index;
+        Vector3 v = info.transform.position;
+        info.transform.position = new Vector3(xposition,v.y,v.z);
+
+        infoShowed = true;
+
+    }
+
+
+
+    private void obt_price(Action_Defense actionDefense) {
+        switch (actionDefense.towerTama)
+        {
+            case 1:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_little_tower("m");
+                break;
+            case 2:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m");
+                break;
+            case 3:
+                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_big_tower("m");
+                break;
+            default:
+                Debug.Log("Error");
+                break;
+        }
     }
 }

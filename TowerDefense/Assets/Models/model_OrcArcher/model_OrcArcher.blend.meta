@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: 61b48071c38793f45982ae8db3a08511
+timeCreated: 1480348672
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm_lower_L
+    100002: arm_lower_R
+    100004: arm_upper_L
+    100006: arm_upper_R
+    100008: Armature
+    100010: body
+    100012: bow
+    100014: bow_0
+    100016: hand_L
+    100018: hand_R
+    100020: head
+    100022: hip_L
+    100024: hip_R
+    100026: leg_lower_L
+    100028: leg_lower_R
+    100030: leg_upper_L
+    100032: leg_upper_R
+    100034: //RootNode
+    100036: neck
+    100038: torso_L
+    100040: torso_R
+    100042: trunk_lower
+    100044: trunk_upper
+    400000: arm_lower_L
+    400002: arm_lower_R
+    400004: arm_upper_L
+    400006: arm_upper_R
+    400008: Armature
+    400010: body
+    400012: bow
+    400014: bow_0
+    400016: hand_L
+    400018: hand_R
+    400020: head
+    400022: hip_L
+    400024: hip_R
+    400026: leg_lower_L
+    400028: leg_lower_R
+    400030: leg_upper_L
+    400032: leg_upper_R
+    400034: //RootNode
+    400036: neck
+    400038: torso_L
+    400040: torso_R
+    400042: trunk_lower
+    400044: trunk_upper
+    2300000: bow
+    3300000: bow
+    4300000: body
+    4300002: bow
+    7400000: Default Take
+    7400002: A_OrcArcher_attack
+    7400004: A_OrcArcher_idle
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_OrcArcher_attack
+      takeName: A_OrcArcher_attack
+      firstFrame: -1
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/hip_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L/leg_lower_L
+        weight: 1
+      - path: Armature/hip_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R/leg_lower_R
+        weight: 1
+      - path: Armature/trunk_upper
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck/head
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L/bow_0
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R/hand_R
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bow
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: A_OrcArcher_idle
+      takeName: A_OrcArcher_idle
+      firstFrame: -1
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/hip_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L/leg_lower_L
+        weight: 1
+      - path: Armature/hip_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R/leg_lower_R
+        weight: 1
+      - path: Armature/trunk_upper
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck/head
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L/bow_0
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R/hand_R
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bow
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

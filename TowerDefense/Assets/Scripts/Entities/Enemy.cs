@@ -17,14 +17,34 @@ public class Enemy : MonoBehaviour {
     public float life;
     public float maxlife;
     public int damage;
+    private int money;
+
+    public AudioClip soundAttacked;
+    public AudioClip soundDeath;
+
+    private AudioSource source {
+        get{
+            //MainCamera mc = GameObject.FindObjectOfType(typeof(MainCamera)) as MainCamera;
+            return Camera.main.GetComponent<AudioSource> ();
+            //return mc.GetComponent<AudioSource> ();
+
+        }
+    }
+
 
     private GameObject explosion;
 
     // Use this for initialization
     void Start () {
+
+        soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
+
+        soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
+
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
         maxlife = 100f;
+        money = Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
@@ -34,6 +54,13 @@ public class Enemy : MonoBehaviour {
         m_movi_actu = (Vector3)m_moviments.Dequeue();
         this.gameObject.AddComponent<Collider>();
     }
+
+
+
+    public void playSound(AudioClip audio){
+        source.PlayOneShot (audio);
+    }
+
 
     void initText(){
         print("initText");
@@ -92,17 +119,36 @@ public class Enemy : MonoBehaviour {
     {
         if(life <= 0)
         {
+            playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
+            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(money);
+            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().updateCurrentScore(5);
             Destroy(gameObject);
+            playSound(soundDeath);
+
         }
     }
 
     void OnCollisionEnter(Collision col)
     {
+		 
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
-            life -= 30f;
+            playSound(soundAttacked);
+            //print(col.gameObject.name);
+            life -= 50f;
         }
-    }
+		/*
+		if (col.gameObject.tag == "rohanHorse")
+		{
+			//Destroy(this.gameObject);
+			playSound(soundAttacked);
+			//print(col.gameObject.name);
+			life -= 50f;
+		}*/
+
+    } 
+
+
 }

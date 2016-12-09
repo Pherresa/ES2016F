@@ -42,11 +42,34 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.transform.position = newPositionSU;
 			canvasIU.transform.position = newPositionIU;
 			canvasIU.alpha = 1;
-			//TO DO: change power and cost depending on unit
-			infoUnitText.text = "Power: " +
-				"XXXX" +
-				"\nCost: +" +
-				"20";
+			if (mm.selectedObject != null) {
+				Debug.Log("INFO UNIT_______________");
+				Debug.Log (mm.selectedObject.name);
+				Slot slot = mm.selectedObject.GetComponent<Slot> ();
+				String attack = "XXX";
+				String money = "XXX";
+				if (slot.unit != null) {
+					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 1) {
+						 attack = Enemy_Values_Gene.m_little_tower("a").ToString();
+						 money = Enemy_Values_Gene.m_little_tower("m").ToString();
+					}
+					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 2) {
+						 attack = Enemy_Values_Gene.m_medium_tower("a").ToString();
+						 money = Enemy_Values_Gene.m_medium_tower("m").ToString();
+					}
+					infoUnitText.text =
+						"Attack: +" +
+						attack +
+						"\nSell: +" +
+						money;
+					//TODO SHOW RANGE!
+					//range = Enemy_Values_Gene.m_medium_tower("r")
+				} 
+
+
+			} else {
+				Debug.Log ("Nothing Selected");
+			}
 
 		} else {
 			canvasSU.alpha = 0;
@@ -66,7 +89,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			slot.unit = null;
 			slot.isOccupied = false;
 
-			//TO DO: Money Depending on the unit
+			//TODO: Money Depending on the unit
 			//GameObject.FindObjectOfType<LifeAmountManager> ().GainAmount(20);
 		} else {
 			Debug.Log ("Nothing Selected");
@@ -74,10 +97,11 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	}
 
 	public void upgradeSelected(){
-		mm.selectedObject.transform.localScale += new Vector3(0, 1.1F, 0);
+		//TODO
+		//mm.selectedObject.transform.localScale += new Vector3(0, 1.1F, 0);
 
-		//TO DO: Money Depending on the unit
-		GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(20);
+
+		//GameObject.FindObjectOfType<LifeAmountManager>().LoseAmount(20);
 	}
 
 

@@ -81,6 +81,9 @@ public static class Enemy_Values_Gene{
             case "r":
                 return Enemy_Constants.T_RANGE_LITTLE;
                 break;
+            case "m":
+                return Enemy_Constants.T_MONEY_LITTLE;
+                break;
             default:
                 Debug.Log("Little tower does not have this characteristic");
                 break;
@@ -97,6 +100,9 @@ public static class Enemy_Values_Gene{
                 break;
             case "r":
                 return Enemy_Constants.T_RANGE_MEDIUM;
+                break;
+            case "m":
+                return Enemy_Constants.T_MONEY_MEDIUM;
                 break;
             default:
                 Debug.Log("Medium tower does not have this characteristic");
@@ -116,6 +122,9 @@ public static class Enemy_Values_Gene{
                 break;
             case "r":
                 return Enemy_Constants.T_RANGE_BIG;
+                break;
+            case "m":
+                return Enemy_Constants.T_MONEY_BIG;
                 break;
             default:
                 Debug.Log("Big tower does not have this characteristic");

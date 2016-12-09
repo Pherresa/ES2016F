@@ -29,22 +29,26 @@ public static class Enemy_Constants{
 
 
     // Tower
-    public const int T_RANGE_LITTLE = 500;
-    public const int T_RANGE_MEDIUM = 400;
-    public const int T_RANGE_BIG = 300;
+    public const int T_RANGE_LITTLE = 50;
+    public const int T_RANGE_MEDIUM = 40;
+    public const int T_RANGE_BIG = 60;
 
     public const int T_ATTACK_LITTLE = 10;
     public const int T_ATTACK_MEDIUM = 20;
-    public const int T_ATTACK_BIG = 30;
+    public const int T_ATTACK_BIG = 200;
+
+    public const int T_MONEY_LITTLE = 80;
+    public const int T_MONEY_MEDIUM = 100;
+    public const int T_MONEY_BIG = 150;
 
     // General
-    public const int TIME = 45;
-    public const float TIME_INCREMENT = 1.3f;
-    public const int WALLET = 100;
+    public const int TIME = 60;
+    public const float TIME_DECREASE = 0.9f;
+    public const int WALLET = 200;
 
     // Main Tower
 
-    public const int MT_LIFE = 400;
+    public const int MT_LIFE = 100;
     public const float MT_RANGE = 13f;
     public const int MT_ATTACK = 10;
 
