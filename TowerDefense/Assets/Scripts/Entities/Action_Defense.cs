@@ -500,12 +500,11 @@ public class Action_Defense : Tower
     {
 		Debug.Log ("----");
         GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject; 
+		GameObject rohanHorse;
         Vector3 newPos;
         for (int i = 0; i < quantity; i++)
-        {
-
-
-			GameObject rohanHorse = Instantiate(rohanHorsePrefab);
+        { 
+			rohanHorse = Instantiate(rohanHorsePrefab);
             newPos = this.transform.position;
             if (i == 0) newPos.x -= 3;
             if (i == 2) newPos.x += 3;

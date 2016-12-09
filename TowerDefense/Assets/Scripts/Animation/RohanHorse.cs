@@ -14,7 +14,7 @@ public class RohanHorse : MonoBehaviour {
  	
 	GameObject target;
 	public Vector3 center;
-	public int range = Enemy_Constants.T_RANGE_BIG;
+	public int range = Enemy_Constants.T_RANGE_MEDIUM;
 
 	DateTime timeOnPlay;
 	byte animationPhase;
@@ -104,30 +104,6 @@ public class RohanHorse : MonoBehaviour {
 			}
 		}
 
-
-
-			/*
-			distanceBetweenCenterEnemy = Vector3.Distance(center, enemy.transform.position);
-			distanceBetweenRHEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-
-			if (distanceBetweenCenterEnemy < tmpDistanceCenter)
-			//if(distanceBetweenCenterEnemy+distanceBetweenRHEnemy < auxDistance) 
-			{
-				auxDistance = distanceBetweenCenterEnemy + distanceBetweenRHEnemy;
-				tmpDistanceCenter = distanceBetweenCenterEnemy;
-				tmpDistanceRH = distanceBetweenRHEnemy;
-				if (distanceBetweenCenterEnemy <= range) {
-					tmpEnemy = enemy; 
-				}
-			
-		}
-
-
-
-		if (tmpEnemy != null && tmpDistanceCenter <= range)
-		{
-			auxTarget = tmpEnemy;
-		}}*/
 		return auxTarget;
 	}
 
@@ -140,21 +116,23 @@ public class RohanHorse : MonoBehaviour {
 
 	}
 
+	// Cillision treatment.
 	void OnTriggerEnter(Collider coll) {
 
 		// Rohan horse damage on the enemy.
 		if (coll.gameObject.name.Split('(')[0] == "Enemy") {
 			Enemy ene = coll.GetComponent<Enemy> ();
-
+			//Enemy ene = coll.gameObject.transform.GetChild (0).GetChild(0).GetComponent<Enemy> ();
+			Debug.Log ("Enemy name is '" + ene.name + "'.");
 			ene.playSound (ene.soundSword);
 		
-			ene.life -= 5f;
+			ene.life -= Enemy_Constants.T_ATTACK_LITTLE;
 		}
 
 
 		// We separate horses if they intersect
 		if (coll.gameObject.name.Split('(')[0] == "defense2P_RohanHorse_MT") {
-			Debug.Log ("PROJECTILEEEEE");
+			
 			Vector3 newPosRH;
 			if(Vector3.Distance(this.transform.position, coll.gameObject.transform.position) <= 1f) {
 			newPosRH = this.transform.position;

@@ -322,6 +322,9 @@ GameObject:
   - 4: {fileID: 4000012986301248}
   - 111: {fileID: 111000010827234580}
   - 114: {fileID: 114000010640918790}
+  - 114: {fileID: 114000010469692026}
+  - 143: {fileID: 143000013980979454}
+  - 135: {fileID: 135000011329111602}
   m_Layer: 0
   m_Name: defense2P_RohanHorse_MT
   m_TagString: Untagged
@@ -2514,7 +2517,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &114000010640918790
+--- !u!114 &114000010469692026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2522,11 +2525,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011003167612}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e63b719d3d8df488e7a9aa4bd933fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  range: 60
+--- !u!114 &114000010640918790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011003167612}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 0
+  strenght: 0
   towerPrice: 50
   towerTama: 0
+--- !u!135 &135000011329111602
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011003167612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.14
+  m_Center: {x: 0, y: 1.8, z: 0}
 --- !u!137 &137000010118465016
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2772,3 +2802,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.6737028, y: -0.03844002, z: 0.757076}
     m_Extent: {x: 3.0241246, y: 0.91156054, z: 2.5980363}
   m_DirtyAABB: 0
+--- !u!143 &143000013980979454
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011003167612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 1.72
+  m_SlopeLimit: 45
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.69, z: 0}
