@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
 
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
+	public AudioClip soundSword;
 
     private AudioSource source {
         get{
@@ -40,6 +41,8 @@ public class Enemy : MonoBehaviour {
         soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
 
         soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
+
+		soundSword = Resources.Load("SoundEffects/soundSword") as AudioClip;
 
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
