@@ -23,7 +23,7 @@ public class Action_Defense : Tower
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 5;
-    private int plusToPredictTrebu = 10;
+    private int plusToPredictTrebu = 15;
     private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
@@ -37,8 +37,7 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
-        getValueTower();
-        getTypeOfDefense();
+        initTowerValues();
         loadAnimations();
         initAnimations();
         iniStates();
@@ -335,9 +334,9 @@ public class Action_Defense : Tower
         }
     }
 
-    
+
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
-    private void getTypeOfDefense()
+    public void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
@@ -436,7 +435,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void getValueTower()
+    public void getValueTower()
     {
         switch (towerTama)
         {
@@ -526,6 +525,12 @@ public class Action_Defense : Tower
             //rohanHorse.transform.parent = transform;  */
         }
 
+    }
+
+    public void initTowerValues()
+    {
+        getValueTower();
+        getTypeOfDefense();
     }
 }
 
