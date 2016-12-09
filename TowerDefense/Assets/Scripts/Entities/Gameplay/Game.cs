@@ -9,13 +9,13 @@ public class Game
 {
 
     public static Game current;
-    public LifeAmountManager lifeAM;
+    public GameManager lifeAM;
     public int savedScore;
     public int savedTowerLife;
     public int savedMoney;
     public GameObject[] defensesList;
 
-    public Game(LifeAmountManager lifeAM)
+    public Game(GameManager lifeAM)
     {
         savedScore = lifeAM.finalScore;
         savedTowerLife = lifeAM.life;

@@ -510,7 +510,7 @@ public class Action_Defense : Tower
 			AstarAI astarAI = enemy.GetComponent<AstarAI>();
 			astarAI.speed = 12;*/
 
-
+/*
             rohanHorse = Instantiate(rohanHorsePrefab);
             newPos = this.transform.position;
             if (i == 0) newPos.x -= 3;
@@ -523,7 +523,7 @@ public class Action_Defense : Tower
             rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
             rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
-            //rohanHorse.transform.parent = transform;  
+            //rohanHorse.transform.parent = transform;  */
         }
 
     }

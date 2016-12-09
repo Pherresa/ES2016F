@@ -52,7 +52,7 @@ public static class SaveLoad
     public static void LoadGame()
     {
         Debug.Log("Load Game");
-        LifeAmountManager lifeAM = Object.FindObjectOfType<LifeAmountManager>();
+        GameManager lifeAM = Object.FindObjectOfType<GameManager>();
         EnemyManager enemyMan = Object.FindObjectOfType<EnemyManager>();
         lifeAM.currentScore = savedGame.savedScore;
         lifeAM.life = savedGame.savedTowerLife;
