@@ -55,7 +55,7 @@ public class GeneralEnemy : MonoBehaviour {
 			GetComponent<MeshRenderer>().enabled = false;
 
 			// We add 5 points if the player kills an enemy.
-			LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
+			GameManager lifeAM = GameObject.FindObjectOfType<GameManager>();
 			lifeAM.updateCurrentScore (5);
 
 		}

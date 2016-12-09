@@ -11,7 +11,7 @@ public class Start_Round : MonoBehaviour {
     private int cnt_time;
     private int cont_round;
     private bool act_time_cont;
-    private LifeAmountManager indicator_time;
+    private GameManager indicator_time;
     private EnemyManager generate_round;
     public Game gameValues;
     private bool gameOver;
@@ -24,7 +24,7 @@ public class Start_Round : MonoBehaviour {
     // Use this for initialization
     void Start () {
         cont_round = 0;
-        indicator_time = GameObject.Find("GameManager").GetComponent<LifeAmountManager>();
+        indicator_time = GameObject.Find("GameManager").GetComponent<GameManager>();
         indicator_time.setRemainingTime(0);
         generate_round = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         act_time = Enemy_Constants.TIME;
@@ -77,7 +77,7 @@ public class Start_Round : MonoBehaviour {
         GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
-		LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
+		GameManager lifeAM = GameObject.FindObjectOfType<GameManager>();
 		
         //lifeAM.currentScore = lifeAM.currentScoreNextRound;
     }

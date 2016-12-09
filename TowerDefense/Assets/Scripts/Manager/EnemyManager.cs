@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour {
 
-    LifeAmountManager lifeAmountManager;
+    GameManager lifeAmountManager;
     public Game gameValues;
 
     // Use this for initialization
     void Start () {
 
-        lifeAmountManager = GameObject.FindObjectOfType<LifeAmountManager>();
+        lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
 
         //createNewWave();
 	}
@@ -34,11 +34,12 @@ public class EnemyManager : MonoBehaviour {
 		 * TODO: Thiw will dissapear!!!!!!
 		 **/
 		// Save game values before new wave
-		gameValues = new Game (FindObjectOfType<LifeAmountManager> ());
+		gameValues = new Game (FindObjectOfType<GameManager> ());
 		for (int i = 0; i < 15; i++) {
 			GameObject enemyPrefab = Resources.Load ("Prefabs/Enemy") as GameObject;
 			GameObject enemy = Instantiate (enemyPrefab);
 			enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
 			//get the thing component on your instantiated object
 			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
 			astarAI.speed = 12;

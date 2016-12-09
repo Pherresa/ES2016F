@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 [System.Serializable]
-public class LifeAmountManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-
+    public static GameManager instance = null; //Static instance of GameManager which allows it to be accessed by any other script.
     public static int FIRST_TURRET_PRICE = 10;
     public static int SECOND_TURRET_PRICE = 20;
     public static int THIRTH_TURRET_PRICE = 20;
@@ -46,10 +46,27 @@ public class LifeAmountManager : MonoBehaviour
 
     public GameObject endMenu;
 
+    //Awake is always called before any Start functions
+    void Awake()
+    {
+        //Check if instance already exists
+        if (instance == null)
 
+            //if not, set instance to this
+            instance = this;
 
-    // Use this for initialization
-    void Start()
+        //If instance already exists and it's not this:
+        else if (instance != this)
+
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
+    }
+
+        // Use this for initialization
+        void Start()
     {
         endMenu.SetActive(false);
         amount = Enemy_Constants.WALLET;

@@ -121,8 +121,8 @@ public class Enemy : MonoBehaviour {
         {
             playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
-            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(money);
-            GameObject.Find("GameManager").GetComponent<LifeAmountManager>().updateCurrentScore(5);
+            GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(money);
+            GameObject.Find("GameManager").GetComponent<GameManager>().updateCurrentScore(5);
             Destroy(gameObject);
             playSound(soundDeath);
 

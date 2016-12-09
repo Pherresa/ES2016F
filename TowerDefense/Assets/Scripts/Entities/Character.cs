@@ -16,9 +16,9 @@ public abstract class Character : MonoBehaviour {
 	// We define a static string
 	public static string tagOfEnemy = "Enemy";
 
-	// Atributes of a character
-	private string name; 	// Name of the character
-	private TypeKingdom kingdom; // kingdom where the character belongs
+    // Atributes of a character
+    private string name;     // Name of the character
+    private TypeKingdom kingdom; // kingdom where the character belongs
 	private int age; 		// Age of the character
 	private int life;		// Life of the character
 	private int strenght; 	// Physical strength of character)
