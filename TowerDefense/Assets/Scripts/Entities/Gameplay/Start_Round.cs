@@ -31,7 +31,6 @@ public class Start_Round : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         values = new Enemy_Values_Gene();
         cont_round = 0;
         indicator_time = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -82,7 +81,13 @@ public class Start_Round : MonoBehaviour {
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
-        generate_round.createNewWave();
+        if (type == Escen.ISENGARD)
+        {
+            generate_round.createNewWaveIsengard();
+        }
+        else {
+            generate_round.createNewWaveMinasTirith();
+        }
         //Debug.Log("Generate Round");
         GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
 		// After finishing a round, the currentScore is updated

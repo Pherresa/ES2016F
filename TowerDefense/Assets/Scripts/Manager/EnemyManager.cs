@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour {
         }*/
 	}
 
-    public void createNewWaveIsengard(int round) {
+    public void createNewWaveIsengard() {
         System.Random dado = new System.Random();
         gameValues = new Game(FindObjectOfType<GameManager>());
         GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
