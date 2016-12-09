@@ -7,7 +7,7 @@ public class SpinTower : MonoBehaviour
 { 
 	// Tower spenning: if detects an enemy in the radius of the tower
 	public static void spin(Vector3 enemyPosition, Transform towerTransform) { 
-		float turnSpeed = 2f;
+		float turnSpeed = 4f;
         enemyPosition.y = 0;
 
         // Fix forward vector

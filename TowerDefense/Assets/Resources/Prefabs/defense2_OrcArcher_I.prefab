@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012618552668}
   - 111: {fileID: 111000011105550954}
+  - 114: {fileID: 114000013014217584}
   m_Layer: 0
   m_Name: OrcArcher
   m_TagString: Untagged
@@ -235,6 +236,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011689151634}
   - 111: {fileID: 111000011663903544}
+  - 114: {fileID: 114000011623872746}
   m_Layer: 0
   m_Name: OrcArcher (1)
   m_TagString: Untagged
@@ -941,6 +943,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011854418912}
   - 111: {fileID: 111000013730812560}
+  - 114: {fileID: 114000013147663610}
   m_Layer: 0
   m_Name: OrcArcher (2)
   m_TagString: Untagged
@@ -2745,6 +2748,51 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000011623872746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011036390364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  strenght: 0
+  towerPrice: 0
+  towerTama: 0
+--- !u!114 &114000013014217584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010460502762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  strenght: 0
+  towerPrice: 0
+  towerTama: 0
+--- !u!114 &114000013147663610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013364003512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  strenght: 0
+  towerPrice: 0
+  towerTama: 0
 --- !u!114 &114000014100216234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2756,7 +2804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrice: 80
+  range: 50
+  strenght: 10
+  towerPrice: 40
   towerTama: 1
 --- !u!137 &137000011229838548
 SkinnedMeshRenderer:
