@@ -17,7 +17,7 @@ public abstract class Tower : MonoBehaviour {
     public struct Values
     {
         public int towerPrice;
-        public int towerTama;
+        public TowerType type;
         public float range;
         public int strenght;
     }
@@ -26,7 +26,7 @@ public abstract class Tower : MonoBehaviour {
     
     protected int level;
     protected GameObject projectile;
-    public TowerType type = TowerType.UNKNOWN;
+    
     protected bool active;
     protected abstract void getTarget();
     protected abstract void shoot();

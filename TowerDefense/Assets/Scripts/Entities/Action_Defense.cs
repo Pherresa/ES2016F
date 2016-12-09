@@ -48,7 +48,7 @@ public class Action_Defense : Tower
 
     private void loadAnimations()
     {
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 anim = GetComponent<Animation>();
@@ -63,7 +63,7 @@ public class Action_Defense : Tower
     
     private void initAnimations()
     {
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 anim["A_Trebuchet_idle"].speed = 1f;
@@ -109,7 +109,7 @@ public class Action_Defense : Tower
         //BarrackRohanHorse
         if (active)
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.ROHANBARRACKS_MT:
                     generateRohanHorses(2);
@@ -122,7 +122,7 @@ public class Action_Defense : Tower
     {
         if (isShooting)
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.TREBUCHET_MT:
                     if (animationPhase == 1)
@@ -216,7 +216,7 @@ public class Action_Defense : Tower
         }
         else
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.TREBUCHET_MT:
                     if (!anim.IsPlaying("A_Trebuchet_idle"))
@@ -304,7 +304,7 @@ public class Action_Defense : Tower
                 checkDistanceTarget();
                 if (target != null)
                 {
-                    if (type != TowerType.UNKNOWN && predict == maxFrameToPredict)
+                    if (valu.type != TowerType.UNKNOWN && predict == maxFrameToPredict)
                     {
                         shoot();
                     }
@@ -344,19 +344,23 @@ public class Action_Defense : Tower
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
         {
-            type = TowerType.TREBUCHET_MT;
+            valu.type = TowerType.TREBUCHET_MT;
         }
-        if (name == "defense2_RohanBarracks_MT")
+        else if (name == "defense2_RohanBarracks_MT")
         {
-            type = TowerType.ROHANBARRACKS_MT;
+            valu.type = TowerType.ROHANBARRACKS_MT;
         }
-        if (name == "defense2_OrcArcher_I")
+        else if (name == "defense2_OrcArcher_I")
         {
-            type = TowerType.ORCARCHER_I;
+            valu.type = TowerType.ORCARCHER_I;
         }
-        if (name == "defense3_MercenaryHuman_I")
+        else if (name == "defense3_MercenaryHuman_I")
         {
-            type = TowerType.MERCENARYHUMAN_I;
+            valu.type = TowerType.MERCENARYHUMAN_I;
+        }
+        else
+        {
+            valu.type = TowerType.UNKNOWN;
         }
     }
     // Para destruir la torre
@@ -381,7 +385,7 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                if (type == TowerType.TREBUCHET_MT)
+                if (valu.type == TowerType.TREBUCHET_MT)
                 {
                     posIni = target.transform.position + (tmp * plusToPredictTrebu);
                 }
@@ -473,7 +477,7 @@ public class Action_Defense : Tower
     {
         GameObject p;
 
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 p = (GameObject)Resources.Load("Prefabs/defense1P_Rock_MT");
