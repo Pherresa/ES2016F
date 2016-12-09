@@ -35,13 +35,17 @@ public class Action_Defense : Tower
     DateTime timeOnPlay;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
-    void Start()
-    {
+
+    void Awake() {
         getTypeOfDefense();
         generator_values = new Enemy_Values_Gene();
         generator_values.asig_values_tower(ref valu);
-        //getValueTower();
+    }
+
+    void Start()
+    {
         
+        //getValueTower();
         loadAnimations();
         initAnimations();
         iniStates();
