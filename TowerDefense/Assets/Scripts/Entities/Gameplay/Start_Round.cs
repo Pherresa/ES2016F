@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class Start_Round : MonoBehaviour {
 
+    public enum Escen {
+        ISENGARD,
+        MINAS_TIRITH
+    }
+
+    public Escen type;
+
     private int act_time;
     public int total_round;
     
@@ -24,6 +31,7 @@ public class Start_Round : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         values = new Enemy_Values_Gene();
         cont_round = 0;
         indicator_time = GameObject.Find("GameManager").GetComponent<GameManager>();
