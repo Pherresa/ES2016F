@@ -153,16 +153,19 @@ public class Enemy_Values_Gene{
     }*/
 
     public void asig_values_tower(ref Tower.Values valu) {
-        switch (valu.towerTama) {
-            case 1:
+        switch (valu.type) {
+            case Tower.TowerType.MERCENARYHUMAN_I:
                 break;
-            case 2:
+            case Tower.TowerType.ORCARCHER_I:
                 break;
-            case 3:
+            case Tower.TowerType.ROHANBARRACKS_MT:
                 break;
-            case 4:
+            case Tower.TowerType.TREBUCHET_MT:
                 break;
-            case 5:
+            default:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
                 break;
         }
     }

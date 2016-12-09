@@ -37,10 +37,11 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
+        getTypeOfDefense();
         generator_values = new Enemy_Values_Gene();
         generator_values.asig_values_tower(ref valu);
         //getValueTower();
-        getTypeOfDefense();
+        
         loadAnimations();
         initAnimations();
         iniStates();
