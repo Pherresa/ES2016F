@@ -14,7 +14,7 @@ public class RohanHorse : MonoBehaviour {
  	
 	GameObject target;
 	public Vector3 center;
-	public int range = Enemy_Constants.T_RANGE_MEDIUM;
+	public int range = Enemy_Constants.T_RANGE_MEDIUM/2;
 
 	DateTime timeOnPlay;
 	byte animationPhase;
@@ -52,8 +52,11 @@ public class RohanHorse : MonoBehaviour {
 		target = getTarget ();
 		if(target != null) {
 			Vector3 dir = target.transform.position - this.transform.position;
+
+			//float vec = Terrain.activeTerrain.SampleHeight(this.transform.position);
 			dir.y = 0f;
 
+			//Debug.Log ("Is path? '" + vec + "'.");
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
 			 
 			transform.position += transform.forward * Time.deltaTime * 7f;
@@ -134,10 +137,10 @@ public class RohanHorse : MonoBehaviour {
 		if (coll.gameObject.name.Split('(')[0] == "defense2P_RohanHorse_MT") {
 			
 			Vector3 newPosRH;
-			if(Vector3.Distance(this.transform.position, coll.gameObject.transform.position) <= 1f) {
-			newPosRH = this.transform.position;
+			if(Vector3.Distance(this.transform.position, coll.gameObject.transform.position) <= 3f) {
+				newPosRH = this.transform.position;
 				newPosRH.x += 0.3f; //newPosRH.z += 0.5f;
-			this.transform.position= newPosRH;
+				this.transform.position= newPosRH;
 			}
 
 		}
