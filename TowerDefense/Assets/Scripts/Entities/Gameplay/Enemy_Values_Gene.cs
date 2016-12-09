@@ -11,7 +11,7 @@ public class Enemy_Values_Gene{
     }
 
 
-    private int m_little_enemy(string selector) {
+    public int m_little_enemy(string selector) {
         switch (selector) {
             case "l":
                 return value_ene.Life_little;
@@ -59,6 +59,25 @@ public class Enemy_Values_Gene{
                 return value_ene.Speed_big;
             case "m":
                 return value_ene.Money_medium;
+            default:
+                Debug.Log("Big enemy does not have this characteristic");
+                break;
+        }
+        return 0;
+    }
+
+    private int m_4_enemy(string selector)
+    {
+        switch (selector)
+        {
+            case "l":
+                return value_ene.Life_4;
+            case "a":
+                return value_ene.Attack_4;
+            case "s":
+                return value_ene.Speed_4;
+            case "m":
+                return value_ene.Money_4;
             default:
                 Debug.Log("Big enemy does not have this characteristic");
                 break;
@@ -169,23 +188,27 @@ public class Enemy_Values_Gene{
         }
         return 0;
     }
-    /*
-    public int obt_price(Action_Defense actionDefense)
+    
+    public int obt_price_tower(string nv)
     {
-        switch (actionDefense.towerTama)
+        switch (nv)
         {
-            case 1:
+            case "1":
                 return m_little_tower("m");
-            case 2:
+            case "2":
                 return m_medium_tower("m");
-            case 3:
+            case "3":
                 return m_big_tower("m");
+            case "4":
+                return m_4_tower("m");
+            case "5":
+                return m_5_tower("m");
             default:
                 Debug.Log("Error");
                 break;
         }
         return -1;
-    }*/
+    }
 
     private void tower_lvl1(ref Tower.Values val)
     {
@@ -222,8 +245,83 @@ public class Enemy_Values_Gene{
         val.towerPrice = m_5_tower("m");
     }
 
+    private void enemy_lvl1(ref Enemy.Value val)
+    {
+        val.damage=m_little_enemy("a");
+        val.maxlife=m_little_enemy("l");
+        val.money= m_little_enemy("m");
+        val.speed= m_little_enemy("s");
+    }
+
+    private void enemy_lvl2(ref Enemy.Value val)
+    {
+        val.damage = m_medium_enemy("a");
+        val.maxlife = m_medium_enemy("l");
+        val.money = m_medium_enemy("m");
+        val.speed = m_medium_enemy("s");
+    }
+
+    private void enemy_lvl3(ref Enemy.Value val)
+    {
+        val.damage = m_big_enemy("a");
+        val.maxlife = m_big_enemy("l");
+        val.money = m_big_enemy("m");
+        val.speed = m_big_enemy("s");
+    }
+
+    private void enemy_lvl4(ref Enemy.Value val)
+    {
+        val.damage = m_4_enemy("a");
+        val.maxlife = m_4_enemy("l");
+        val.money = m_4_enemy("m");
+        val.speed = m_4_enemy("s");
+    }
+
+
+    // Function Tower values
     public void asig_values_tower(ref Tower.Values valu) {
         switch (valu.type) {
+            case Tower.TowerType.MERCENARYHUMAN_I:
+                tower_lvl1(ref valu);
+                break;
+            case Tower.TowerType.ORCARCHER_I:
+                tower_lvl3(ref valu);
+                break;
+            case Tower.TowerType.ROHANBARRACKS_MT:
+                tower_lvl1(ref valu);
+                break;
+            case Tower.TowerType.TREBUCHET_MT:
+                tower_lvl2(ref valu);
+                break;
+            case Tower.TowerType.GANDALF_MT:
+                tower_lvl4(ref valu);
+                break;
+            case Tower.TowerType.ARAGORN_MT:
+                tower_lvl3(ref valu);
+                break;
+            case Tower.TowerType.SARUMAN_I:
+                tower_lvl5(ref valu);
+                break;
+            case Tower.TowerType.ORCWARRIOR:
+                tower_lvl2(ref valu);
+                break;
+            case Tower.TowerType.LURTZ_I:
+                tower_lvl4(ref valu);
+                break;
+            default:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+        }
+    }
+
+
+    // Function Enemies values
+    public void asig_values_enemy(ref Tower.Values valu)
+    {
+        switch (valu.type)
+        {
             case Tower.TowerType.MERCENARYHUMAN_I:
                 tower_lvl1(ref valu);
                 break;
@@ -266,6 +364,10 @@ public class Enemy_Values_Gene{
     public float getTimeDecrement()
     {
         return value_ene.Time_decrease;
+    }
+
+    public int get_MtLife() {
+        return m_mt_tower("l");
     }
 
     public int getWallet() {

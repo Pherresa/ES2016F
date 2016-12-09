@@ -6,6 +6,13 @@ using System;
 
 public class Enemy : MonoBehaviour {
 
+    public struct Value {
+        public float maxlife;
+        public int damage;
+        public int money;
+        public int speed;
+    }
+
     public int m_velocity;
     private Queue m_moviments;
     private Vector3 m_movi_actu;
@@ -15,9 +22,7 @@ public class Enemy : MonoBehaviour {
     private RectTransform trans;
 
     public float life;
-    public float maxlife;
-    public int damage;
-    private int money;
+    Value enem;
 
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
@@ -43,8 +48,8 @@ public class Enemy : MonoBehaviour {
 
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
-        maxlife = 100f;
-        money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
+        enem.maxlife = 100f;
+        enem.money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST

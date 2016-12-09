@@ -14,18 +14,22 @@ public class Enemy_Constants{
     private int life_little = 100;
     private int life_medium = 200;
     private int life_big = 400;
+    private int life_4 = 500;
 
     private int attack_little = 1;
     private int attack_medium = 2;
     private int attack_big = 5;
+    private int attack_4 = 10;
 
-    private int speed_little = 3;
-    private int speed_medium = 2;
-    private int speed_big = 1;
+    private int speed_little = 16;
+    private int speed_medium = 15;
+    private int speed_big = 12;
+    private int speed_4 = 10;
 
     private  int money_little = 25;
     private int money_medium = 50;
-    private int money_big = 100;
+    private int money_big = 75;
+    private int money_4 = 100;
 
 
     // Tower
@@ -326,6 +330,38 @@ public class Enemy_Constants{
         get
         {
             return t_money_5;
+        }
+    }
+
+    public int Attack_4
+    {
+        get
+        {
+            return attack_4;
+        }
+    }
+
+    public int Speed_4
+    {
+        get
+        {
+            return speed_4;
+        }
+    }
+
+    public int Money_4
+    {
+        get
+        {
+            return money_4;
+        }
+    }
+
+    public int Life_4
+    {
+        get
+        {
+            return life_4;
         }
     }
 }

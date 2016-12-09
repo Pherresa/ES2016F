@@ -74,9 +74,9 @@ public class GameManager : MonoBehaviour
         amount = valu.getWallet();
         life = valu.getTmLife();
         UpdateLifeText();
-        FIRST_TURRET_PRICE = valu.m_little_tower("m");
-        SECOND_TURRET_PRICE = valu.m_medium_tower("m");
-        THIRTH_TURRET_PRICE = valu.m_big_tower("m");
+        FIRST_TURRET_PRICE = valu.obt_price_tower("1");
+        SECOND_TURRET_PRICE = valu.obt_price_tower("2");
+        THIRTH_TURRET_PRICE = valu.obt_price_tower("3");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
@@ -157,20 +157,20 @@ public class GameManager : MonoBehaviour
     {
         checkLife();
         life -= l;
-        /*
-        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
+        
+        if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.25 && life >= valu.get_MtLife() - valu.get_MtLife() * 0.5)
         {
             firstD.SetActive(true);
 
         }
-        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75)
+        else if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.5 && life >= valu.get_MtLife() - valu.get_MtLife() * 0.75)
         {
             secondD.SetActive(true);
         }
-        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75 && life >= 0)
+        else if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.75 && life >= 0)
         {
             thirdD.SetActive(true);
-        }*/
+        }
     }
 
 
