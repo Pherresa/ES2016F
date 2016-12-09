@@ -41,7 +41,7 @@ public class EnemyManager : MonoBehaviour {
 			enemy.transform.parent = transform;
 			//get the thing component on your instantiated object
 			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-			astarAI.speed = 5;
+			astarAI.speed = 10;
 			astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 		}
 
