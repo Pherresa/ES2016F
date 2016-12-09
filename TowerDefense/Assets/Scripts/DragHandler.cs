@@ -18,7 +18,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     Slot activeSlot;
     Action_Defense prefabActionDefense;
-    LifeAmountManager lifeAmountManager;
+    GameManager lifeAmountManager;
     GameObject auraPrefab;
     GameObject ablePrefab;
     Texture red;
@@ -53,7 +53,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
         obt_price(prefabActionDefense);
-        lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
+        lifeAmountManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
 

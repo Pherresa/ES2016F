@@ -7,7 +7,7 @@ using System.Collections;
 public class ShootingMove : MonoBehaviour
 {
 
-    //public GameObject target;
+    public GameObject target;
     private float speed = 70f;
     private float firingAngle = 40.0f;
     private float gravity = 9.8f;
@@ -45,7 +45,7 @@ public class ShootingMove : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         
-            Destroy(this.gameObject);
+        Destroy(this.gameObject);
         
     }
 }
