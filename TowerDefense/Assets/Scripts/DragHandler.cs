@@ -340,24 +340,4 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         infoShowed = true;
 
     }
-
-
-
-    private void obt_price(Action_Defense actionDefense) {
-        switch (actionDefense.towerTama)
-        {
-            case 1:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_little_tower("m");
-                break;
-            case 2:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m");
-                break;
-            case 3:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_big_tower("m");
-                break;
-            default:
-                Debug.Log("Error");
-                break;
-        }
-    }
 }
