@@ -155,12 +155,54 @@ public class Enemy_Values_Gene{
     public void asig_values_tower(ref Tower.Values valu) {
         switch (valu.type) {
             case Tower.TowerType.MERCENARYHUMAN_I:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
                 break;
             case Tower.TowerType.ORCARCHER_I:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
                 break;
             case Tower.TowerType.ROHANBARRACKS_MT:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
                 break;
             case Tower.TowerType.TREBUCHET_MT:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.ORCARCHER:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.GANDALF_MT:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.ARAGORN_MT:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.SARUMAN_I:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.ORCWARRIOR:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
+                break;
+            case Tower.TowerType.LURTZ_I:
+                valu.range = 0;
+                valu.strenght = 0;
+                valu.towerPrice = 0;
                 break;
             default:
                 valu.range = 0;
