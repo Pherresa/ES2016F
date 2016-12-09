@@ -493,7 +493,9 @@ public class Action_Defense : Tower
         }
     }
 
-
+	/**
+	 * This function generate the rohan horses of the barrack
+	 **/ 
     void generateRohanHorses(int quantity)
     {
 		Debug.Log ("----");
