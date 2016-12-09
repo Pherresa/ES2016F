@@ -341,6 +341,9 @@ public class Enemy_Values_Gene{
             case Enemy.EnemyType.ORC_MT:
                 enemy_lvl1(ref valu);
                 break;
+            case Enemy.EnemyType.ENEMY:
+                enemy_lvl1(ref valu);
+                break;
             default:
                 valu.damage = 0;
                 valu.maxlife = 0;

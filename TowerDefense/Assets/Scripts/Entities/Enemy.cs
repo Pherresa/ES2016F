@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour {
         OLIPHANT_MT,
         ELF_I,
         BATTERINGRAM_MT,
-        HOBBIT_I
+        HOBBIT_I,
+        ENEMY
     }
 
     public struct Value {
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour {
     public float life;
     Value enem;
 
+    private Enemy_Values_Gene gener_va;
+
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
 
@@ -50,17 +53,23 @@ public class Enemy : MonoBehaviour {
 
     private GameObject explosion;
 
+    void Awake() {
+        gener_va = new Enemy_Values_Gene();
+        getTypeOfEnemy();
+        gener_va.asig_values_enemy(ref enem);
+    }
+
     // Use this for initialization
     void Start () {
-
         soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
 
         soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
 
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
+
         life = enem.maxlife;
-        enem.maxlife = 100f;
-        enem.money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
+        //enem.maxlife = 100f;
+        //enem.money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
@@ -166,7 +175,7 @@ public class Enemy : MonoBehaviour {
 
     }
 
-    private void getTypeOfDefense()
+    private void getTypeOfEnemy()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "attack4_BatteringRam_MT")
@@ -192,6 +201,10 @@ public class Enemy : MonoBehaviour {
         else if (name == "attack1_Orc_MT")
         {
             enem.type = EnemyType.ORC_MT;
+        }
+        else if (name == "Enemy")
+        {
+            enem.type = EnemyType.ENEMY;
         }
         else
         {
