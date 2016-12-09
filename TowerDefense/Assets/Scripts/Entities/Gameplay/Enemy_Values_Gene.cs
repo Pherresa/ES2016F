@@ -11,7 +11,7 @@ public class Enemy_Values_Gene{
     }
 
 
-    public int m_little_enemy(string selector) {
+    private int m_little_enemy(string selector) {
         switch (selector) {
             case "l":
                 return value_ene.Life_little;
@@ -28,7 +28,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    public int m_medium_enemy(string selector)
+    private int m_medium_enemy(string selector)
     {
         switch (selector)
         {
@@ -47,7 +47,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    public int m_big_enemy(string selector)
+    private int m_big_enemy(string selector)
     {
         switch (selector)
         {
@@ -66,7 +66,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    public int m_little_tower(string selector)
+    private int m_little_tower(string selector)
     {
         switch (selector)
         {
@@ -83,7 +83,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    public int m_medium_tower(string selector)
+    private int m_medium_tower(string selector)
     {
         switch (selector)
         {
@@ -102,7 +102,7 @@ public class Enemy_Values_Gene{
 
 
 
-    public int m_big_tower(string selector)
+    private int m_big_tower(string selector)
     {
         switch (selector)
         {
@@ -118,6 +118,41 @@ public class Enemy_Values_Gene{
         }
         return 0;
     }
+
+    private int m_4_tower(string selector)
+    {
+        switch (selector)
+        {
+            case "a":
+                return value_ene.T_attack_4;
+            case "r":
+                return value_ene.T_range_4;
+            case "m":
+                return value_ene.T_money_4;
+            default:
+                Debug.Log("Lvl 4 tower does not have this characteristic");
+                break;
+        }
+        return 0;
+    }
+
+    private int m_5_tower(string selector)
+    {
+        switch (selector)
+        {
+            case "a":
+                return value_ene.T_attack_5;
+            case "r":
+                return value_ene.T_range_5;
+            case "m":
+                return value_ene.T_money_5;
+            default:
+                Debug.Log("Big tower does not have this characteristic");
+                break;
+        }
+        return 0;
+    }
+
     public int m_mt_tower(string selector)
     {
         switch (selector)
@@ -152,57 +187,69 @@ public class Enemy_Values_Gene{
         return -1;
     }*/
 
+    private void tower_lvl1(ref Tower.Values val)
+    {
+        val.range = m_little_tower("r");
+        val.strenght = m_little_tower("a");
+        val.towerPrice = m_little_tower("m");
+    }
+
+    private void tower_lvl2(ref Tower.Values val)
+    {
+        val.range = m_medium_tower("r");
+        val.strenght = m_medium_tower("a");
+        val.towerPrice = m_medium_tower("m");
+    }
+
+    private void tower_lvl3(ref Tower.Values val)
+    {
+        val.range = m_big_tower("r");
+        val.strenght = m_big_tower("a");
+        val.towerPrice = m_big_tower("m");
+    }
+
+    private void tower_lvl4(ref Tower.Values val)
+    {
+        val.range = m_4_tower("r");
+        val.strenght = m_4_tower("a");
+        val.towerPrice = m_4_tower("m");
+    }
+
+    private void tower_lvl5(ref Tower.Values val)
+    {
+        val.range = m_5_tower("r");
+        val.strenght = m_5_tower("a");
+        val.towerPrice = m_5_tower("m");
+    }
+
     public void asig_values_tower(ref Tower.Values valu) {
         switch (valu.type) {
             case Tower.TowerType.MERCENARYHUMAN_I:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl1(ref valu);
                 break;
             case Tower.TowerType.ORCARCHER_I:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl3(ref valu);
                 break;
             case Tower.TowerType.ROHANBARRACKS_MT:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl1(ref valu);
                 break;
             case Tower.TowerType.TREBUCHET_MT:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
-                break;
-            case Tower.TowerType.ORCARCHER:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl2(ref valu);
                 break;
             case Tower.TowerType.GANDALF_MT:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl4(ref valu);
                 break;
             case Tower.TowerType.ARAGORN_MT:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl3(ref valu);
                 break;
             case Tower.TowerType.SARUMAN_I:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl5(ref valu);
                 break;
             case Tower.TowerType.ORCWARRIOR:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl2(ref valu);
                 break;
             case Tower.TowerType.LURTZ_I:
-                valu.range = 0;
-                valu.strenght = 0;
-                valu.towerPrice = 0;
+                tower_lvl4(ref valu);
                 break;
             default:
                 valu.range = 0;

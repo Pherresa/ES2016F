@@ -32,14 +32,20 @@ public class Enemy_Constants{
     private int t_range_little = 50;
     private int t_range_medium = 40;
     private int t_range_big = 60;
+    private int t_range_4 = 60;
+    private int t_range_5 = 60;
 
     private int t_attack_little = 10;
     private int t_attack_medium = 20;
-    private int t_attack_big = 200;
+    private int t_attack_big = 30;
+    private int t_attack_4 = 150;
+    private int t_attack_5 = 250;
 
     private int t_money_little = 80;
     private int t_money_medium = 100;
     private int t_money_big = 150;
+    private int t_money_4 = 1500;
+    private int t_money_5 = 2700;
 
     // General
     private int time = 60;
@@ -272,6 +278,54 @@ public class Enemy_Constants{
         get
         {
             return life_little;
+        }
+    }
+
+    public int T_range_4
+    {
+        get
+        {
+            return t_range_4;
+        }
+    }
+
+    public int T_range_5
+    {
+        get
+        {
+            return t_range_5;
+        }
+    }
+
+    public int T_attack_4
+    {
+        get
+        {
+            return t_attack_4;
+        }
+    }
+
+    public int T_attack_5
+    {
+        get
+        {
+            return t_attack_5;
+        }
+    }
+
+    public int T_money_4
+    {
+        get
+        {
+            return t_money_4;
+        }
+    }
+
+    public int T_money_5
+    {
+        get
+        {
+            return t_money_5;
         }
     }
 }

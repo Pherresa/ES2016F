@@ -16,7 +16,6 @@ public abstract class Tower : MonoBehaviour {
         GANDALF_MT,
         SARUMAN_I,
         LURTZ_I,
-        ORCARCHER,
         ORCWARRIOR
     }
 
