@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 using System;
 /*
@@ -103,6 +103,7 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
+		Debug.Log (type.ToString ());
         //BarrackRohanHorse
         if (active)
         {
@@ -495,22 +496,14 @@ public class Action_Defense : Tower
 
     void generateRohanHorses(int quantity)
     {
-
-        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
-        GameObject rohanHorse;
+		Debug.Log ("----");
+        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject; 
         Vector3 newPos;
         for (int i = 0; i < quantity; i++)
         {
-            /*
-			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-			GameObject enemy = Instantiate(enemyPrefab);
-			enemy.transform.parent = transform;
-			//get the thing component on your instantiated object
-			AstarAI astarAI = enemy.GetComponent<AstarAI>();
-			astarAI.speed = 12;*/
 
-/*
-            rohanHorse = Instantiate(rohanHorsePrefab);
+
+			GameObject rohanHorse = Instantiate(rohanHorsePrefab);
             newPos = this.transform.position;
             if (i == 0) newPos.x -= 3;
             if (i == 2) newPos.x += 3;
@@ -522,7 +515,6 @@ public class Action_Defense : Tower
             rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
             rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
-            //rohanHorse.transform.parent = transform;  */
         }
 
     }
