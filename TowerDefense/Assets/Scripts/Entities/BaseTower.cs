@@ -95,6 +95,7 @@ public abstract class BaseTower : MonoBehaviour {
             GameObject projectileInstance = Instantiate(projectile);
             projectileInstance.transform.parent = transform;
             projectileInstance.transform.position = projectile.transform.position;
+            projectileInstance.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
             //projectileInstance.AddComponent<ShootingMove>().setData(target).tag = "projectile";
             projectileInstance.AddComponent<Projectile>().setData(target, 3f, 50f).tag = "projectile";
             projectileInstance.tag = "projectile";

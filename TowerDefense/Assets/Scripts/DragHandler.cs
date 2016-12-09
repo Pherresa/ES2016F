@@ -53,7 +53,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
         obt_price(prefabActionDefense);
-        lifeAmountManager  = GameObject.FindObjectOfType<GameManager>();
+        lifeAmountManager  = FindObjectOfType<GameManager>();
     }
 
 

@@ -34,6 +34,8 @@ public class Projectile : MonoBehaviour {
             if (elapsedTime >= duration) Destroy(gameObject);
 
             transform.LookAt(enemy);
+            transform.rotation *= Quaternion.Euler(0f, -90f, 0f);
+
             transform.position = Vector3.MoveTowards(transform.position, enemy, speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
         } else {
