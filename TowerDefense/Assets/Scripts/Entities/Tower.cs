@@ -14,12 +14,19 @@ public abstract class Tower : MonoBehaviour {
         MERCENARYHUMAN_I
     }
 
+    public struct Values
+    {
+        public int towerPrice;
+        public int towerTama;
+        public float range;
+        public int strenght;
+    }
+
     protected GameObject target;
-    protected float range;
-    protected int strenght;
+    
     protected int level;
     protected GameObject projectile;
-    protected TowerType type = TowerType.UNKNOWN;
+    public TowerType type = TowerType.UNKNOWN;
     protected bool active;
     protected abstract void getTarget();
     protected abstract void shoot();

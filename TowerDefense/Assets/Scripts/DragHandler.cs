@@ -52,7 +52,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
-        obt_price(prefabActionDefense);
+        //obt_price(prefabActionDefense);
         lifeAmountManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
@@ -91,7 +91,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if (lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
         {
             RaycastHit[] hits;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -214,7 +214,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if (lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
         {
             if (activeSlot != null)
             {
@@ -227,7 +227,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(prefabActionDefense.towerPrice);
+                    lifeAmountManager.LoseAmount(prefabActionDefense.getTowerPrice());
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -280,7 +280,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if(lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if(lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
         {
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();

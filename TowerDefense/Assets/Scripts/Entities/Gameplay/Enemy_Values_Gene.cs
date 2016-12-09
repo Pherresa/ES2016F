@@ -134,7 +134,7 @@ public class Enemy_Values_Gene{
         }
         return 0;
     }
-
+    /*
     public int obt_price(Action_Defense actionDefense)
     {
         switch (actionDefense.towerTama)
@@ -150,5 +150,37 @@ public class Enemy_Values_Gene{
                 break;
         }
         return -1;
+    }*/
+
+    public void asig_values_tower(ref Tower.Values valu) {
+        switch (valu.towerTama) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
+    }
+
+    public int getTime() {
+        return value_ene.Time;
+    }
+
+    public float getTimeDecrement()
+    {
+        return value_ene.Time_decrease;
+    }
+
+    public int getWallet() {
+        return value_ene.Wallet;
+    }
+
+    public int getTmLife() {
+        return value_ene.Mt_life;
     }
 }

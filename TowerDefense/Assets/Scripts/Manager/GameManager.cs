@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private Start_Round start_round;
     private GameObject[] enemiesToDestroy;
+    private Enemy_Values_Gene valu;
 
 
     public Text scoreText;
@@ -65,16 +66,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-        // Use this for initialization
-        void Start()
+    // Use this for initialization
+    void Start()
     {
+        valu = new Enemy_Values_Gene();
         endMenu.SetActive(false);
-        amount = Enemy_Constants.WALLET;
-        life = Enemy_Values_Gene.m_mt_tower("l");
+        amount = valu.getWallet();
+        life = valu.getTmLife();
         UpdateLifeText();
-        FIRST_TURRET_PRICE = Enemy_Values_Gene.m_little_tower("m");
-        SECOND_TURRET_PRICE = Enemy_Values_Gene.m_medium_tower("m");
-        THIRTH_TURRET_PRICE = Enemy_Values_Gene.m_big_tower("m");
+        FIRST_TURRET_PRICE = valu.m_little_tower("m");
+        SECOND_TURRET_PRICE = valu.m_medium_tower("m");
+        THIRTH_TURRET_PRICE = valu.m_big_tower("m");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
@@ -155,7 +157,7 @@ public class GameManager : MonoBehaviour
     {
         checkLife();
         life -= l;
-
+        /*
         if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
         {
             firstD.SetActive(true);
@@ -168,7 +170,7 @@ public class GameManager : MonoBehaviour
         else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75 && life >= 0)
         {
             thirdD.SetActive(true);
-        }
+        }*/
     }
 
 
@@ -322,8 +324,8 @@ public class GameManager : MonoBehaviour
 		Debug.Log ("Price objects 0");
 		int priceObjects = 0;
 		for (int i = 0; i < objects.Length; i++) {
-			Debug.Log (objects [i].towerPrice);
-			priceObjects += objects [i].towerPrice;
+			Debug.Log (objects [i].getTowerPrice());
+			priceObjects += objects [i].getTowerPrice();
 		}
 		return priceObjects / 2;
 	}

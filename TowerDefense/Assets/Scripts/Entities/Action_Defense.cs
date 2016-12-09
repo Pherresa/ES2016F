@@ -8,9 +8,7 @@ using System;
  */
 public class Action_Defense : Tower
 {
-
-    public int towerPrice;
-    public int towerTama;
+    Values valu;
 
     Animation anim;
     AnimationState stateTrebuchetIdle;
@@ -18,6 +16,8 @@ public class Action_Defense : Tower
     AnimationState stateTrebuchetrecharge;
 
     Animation[] anims;
+
+    Enemy_Values_Gene generator_values;
 
     private float timer = 1.5f;
     private int predict;
@@ -37,7 +37,9 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
-        getValueTower();
+        generator_values = new Enemy_Values_Gene();
+        generator_values.asig_values_tower(ref valu);
+        //getValueTower();
         getTypeOfDefense();
         loadAnimations();
         initAnimations();
@@ -249,7 +251,7 @@ public class Action_Defense : Tower
     private void checkDistanceTarget()
     {
         float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
-        if (distanceToEnemy > range)
+        if (distanceToEnemy > valu.range)
         {
             target = null;
             animationPhase = 0;
@@ -410,7 +412,7 @@ public class Action_Defense : Tower
                 tmpEnemy = enemy;
             }
         }
-        if (tmpEnemy != null && tmpDistance <= range)
+        if (tmpEnemy != null && tmpDistance <= valu.range)
         {
             target = tmpEnemy;
         }
@@ -436,7 +438,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void getValueTower()
+    /*private void getValueTower()
     {
         switch (towerTama)
         {
@@ -460,6 +462,11 @@ public class Action_Defense : Tower
                 break;
         }
         predict = 0;
+    }*/
+
+    public int getTowerPrice()
+    {
+        return valu.towerPrice;
     }
 
     private void lanzar()
@@ -498,8 +505,8 @@ public class Action_Defense : Tower
     {
 
         GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
-        GameObject rohanHorse;
-        Vector3 newPos;
+        //GameObject rohanHorse;
+        //Vector3 newPos;
         for (int i = 0; i < quantity; i++)
         {
             /*
@@ -526,6 +533,10 @@ public class Action_Defense : Tower
             //rohanHorse.transform.parent = transform;  */
         }
 
+    }
+
+    public Values getValues() {
+        return valu;
     }
 }
 

@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour {
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
         life = 100f;
         maxlife = 100f;
-        money = Enemy_Values_Gene.m_medium_enemy("m");
+        money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
