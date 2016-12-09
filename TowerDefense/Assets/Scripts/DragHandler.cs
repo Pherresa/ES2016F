@@ -221,7 +221,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
                 {
-                    
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
@@ -233,13 +232,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     {
                         particleSystem.Play();
                     }
+
                     GameObject aura = Instantiate(auraPrefab);
+
                     prefabActionDefense.initTowerValues();
                     aura.GetComponent<Projector>().orthographicSize = prefabActionDefense.range; 
                     aura.GetComponent<Projector>().enabled = false;
                     aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
                     aura.transform.parent = newUnit.transform;
+
                     playSound(soundDrop);
+
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
