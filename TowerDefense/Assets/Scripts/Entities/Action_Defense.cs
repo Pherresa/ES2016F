@@ -359,6 +359,30 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.MERCENARYHUMAN_I;
         }
+        else if (name == "defense4_Aragorn_MT")
+        {
+            valu.type = TowerType.ARAGORN_MT;
+        }
+        else if (name == "defense5_Gandalf_MT")
+        {
+            valu.type = TowerType.GANDALF_MT;
+        }
+        else if (name == "defense4_Lurtz_I")
+        {
+            valu.type = TowerType.LURTZ_I;
+        }
+        else if (name == "OrcArcher")
+        {
+            valu.type = TowerType.ORCARCHER;
+        }
+        else if (name == "OrcWarrior")
+        {
+            valu.type = TowerType.ORCWARRIOR;
+        }
+        else if (name == "defense1_Saruman_I")
+        {
+            valu.type = TowerType.SARUMAN_I;
+        }
         else
         {
             valu.type = TowerType.UNKNOWN;
