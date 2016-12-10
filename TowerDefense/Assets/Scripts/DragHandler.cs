@@ -9,6 +9,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     bool infoShowed;
     float timeLeft;
+    int price;
 
     public GameObject prefab;
     GameObject hoverPrefab;
@@ -17,7 +18,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     //GameObject activeSlot;
 
     Slot activeSlot;
-    Action_Defense prefabActionDefense;
+    //Action_Defense prefabActionDefense;
     GameManager lifeAmountManager;
     GameObject auraPrefab;
     GameObject ablePrefab;
@@ -51,8 +52,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         //red = Resources.Load("StandardAssets/")
         Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
-        prefabActionDefense = prefab.GetComponent<Action_Defense>();
-        //obt_price(prefabActionDefense);
+        hoverPrefab = (GameObject) Instantiate(prefab); // Lo instanciamos para poder obtener el precio de la torre
+        price =hoverPrefab.GetComponent<Action_Defense>().getValues().towerPrice;
+        Destroy(hoverPrefab);
+
+        //prefabActionDefense = prefab.GetComponent<Action_Defense>();
         lifeAmountManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
@@ -91,7 +95,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
+        if (lifeAmountManager.amount >= price)
         {
             RaycastHit[] hits;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -214,7 +218,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
+        if (lifeAmountManager.amount >= price)
         {
             if (activeSlot != null)
             {
@@ -227,7 +231,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(prefabActionDefense.getTowerPrice());
+                    lifeAmountManager.LoseAmount(newUnit.GetComponent<Action_Defense>().getTowerPrice());
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -280,7 +284,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if(lifeAmountManager.amount >= prefabActionDefense.getTowerPrice())
+        if(lifeAmountManager.amount >= price)
         {
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();
