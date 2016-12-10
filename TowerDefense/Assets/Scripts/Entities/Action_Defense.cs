@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 /*
@@ -8,9 +8,7 @@ using System;
  */
 public class Action_Defense : Tower
 {
-
-    public int towerPrice;
-    public int towerTama;
+    Values valu;
 
     Animation anim;
     AnimationState stateTrebuchetIdle;
@@ -19,7 +17,9 @@ public class Action_Defense : Tower
 
     Animation[] anims;
 
-    private float timer = 1.5f;
+    Enemy_Values_Gene generator_values;
+
+    //private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 5;
@@ -27,17 +27,25 @@ public class Action_Defense : Tower
     private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
-    private float speed = 2f;
+    //private float speed = 2f;
     private bool isShooting = false;
-    int number = 0;
+    //int number = 0;
     bool couroutineStarted = false;
     int s = 3;
     DateTime timeOnPlay;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
+
+    void Awake() {
+        getTypeOfDefense();
+        generator_values = new Enemy_Values_Gene();
+        generator_values.asig_values_tower(ref valu);
+    }
+
     void Start()
     {
-        initTowerValues();
+        
+        //getValueTower();
         loadAnimations();
         initAnimations();
         iniStates();
@@ -45,7 +53,7 @@ public class Action_Defense : Tower
 
     private void loadAnimations()
     {
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 anim = GetComponent<Animation>();
@@ -60,7 +68,7 @@ public class Action_Defense : Tower
     
     private void initAnimations()
     {
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 anim["A_Trebuchet_idle"].speed = 1f;
@@ -103,11 +111,11 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
-		Debug.Log (type.ToString ());
+		Debug.Log (valu.type);
         //BarrackRohanHorse
         if (active)
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.ROHANBARRACKS_MT:
                     generateRohanHorses(2);
@@ -120,7 +128,7 @@ public class Action_Defense : Tower
     {
         if (isShooting)
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.TREBUCHET_MT:
                     if (animationPhase == 1)
@@ -214,7 +222,7 @@ public class Action_Defense : Tower
         }
         else
         {
-            switch (type)
+            switch (valu.type)
             {
                 case TowerType.TREBUCHET_MT:
                     if (!anim.IsPlaying("A_Trebuchet_idle"))
@@ -249,7 +257,7 @@ public class Action_Defense : Tower
     private void checkDistanceTarget()
     {
         float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
-        if (distanceToEnemy > range)
+        if (distanceToEnemy > valu.range)
         {
             target = null;
             animationPhase = 0;
@@ -302,7 +310,7 @@ public class Action_Defense : Tower
                 checkDistanceTarget();
                 if (target != null)
                 {
-                    if (type != TowerType.UNKNOWN && predict == maxFrameToPredict)
+                    if (valu.type != TowerType.UNKNOWN && predict == maxFrameToPredict)
                     {
                         shoot();
                     }
@@ -335,26 +343,50 @@ public class Action_Defense : Tower
         }
     }
 
-
+    
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
-    public void getTypeOfDefense()
+    private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
         {
-            type = TowerType.TREBUCHET_MT;
+            valu.type = TowerType.TREBUCHET_MT;
         }
-        if (name == "defense2_RohanBarracks_MT")
+        else if (name == "defense2_RohanBarracks_MT")
         {
-            type = TowerType.ROHANBARRACKS_MT;
+            valu.type = TowerType.ROHANBARRACKS_MT;
         }
-        if (name == "defense2_OrcArcher_I")
+        else if (name == "defense2_OrcArcher_I")
         {
-            type = TowerType.ORCARCHER_I;
+            valu.type = TowerType.ORCARCHER_I;
         }
-        if (name == "defense3_MercenaryHuman_I")
+        else if (name == "defense3_MercenaryHuman_I")
         {
-            type = TowerType.MERCENARYHUMAN_I;
+            valu.type = TowerType.MERCENARYHUMAN_I;
+        }
+        else if (name == "defense4_Aragorn_MT")
+        {
+            valu.type = TowerType.ARAGORN_MT;
+        }
+        else if (name == "defense5_Gandalf_MT")
+        {
+            valu.type = TowerType.GANDALF_MT;
+        }
+        else if (name == "defense4_Lurtz_I")
+        {
+            valu.type = TowerType.LURTZ_I;
+        }
+        else if (name == "OrcWarrior")
+        {
+            valu.type = TowerType.ORCWARRIOR;
+        }
+        else if (name == "defense1_Saruman_I")
+        {
+            valu.type = TowerType.SARUMAN_I;
+        }
+        else
+        {
+            valu.type = TowerType.UNKNOWN;
         }
     }
     // Para destruir la torre
@@ -379,7 +411,7 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                if (type == TowerType.TREBUCHET_MT)
+                if (valu.type == TowerType.TREBUCHET_MT)
                 {
                     posIni = target.transform.position + (tmp * plusToPredictTrebu);
                 }
@@ -410,7 +442,7 @@ public class Action_Defense : Tower
                 tmpEnemy = enemy;
             }
         }
-        if (tmpEnemy != null && tmpDistance <= range)
+        if (tmpEnemy != null && tmpDistance <= valu.range)
         {
             target = tmpEnemy;
         }
@@ -436,7 +468,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    public void getValueTower()
+    /*private void getValueTower()
     {
         switch (towerTama)
         {
@@ -460,13 +492,18 @@ public class Action_Defense : Tower
                 break;
         }
         predict = 0;
+    }*/
+
+    public int getTowerPrice()
+    {
+        return valu.towerPrice;
     }
 
     private void lanzar()
     {
         GameObject p;
 
-        switch (type)
+        switch (valu.type)
         {
             case TowerType.TREBUCHET_MT:
                 p = (GameObject)Resources.Load("Prefabs/defense1P_Rock_MT");
@@ -516,14 +553,13 @@ public class Action_Defense : Tower
             rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
             rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
+            //rohanHorse.transform.parent = transform;  */
         }
 
     }
 
-    public void initTowerValues()
-    {
-        getValueTower();
-        getTypeOfDefense();
+    public Values getValues() {
+        return valu;
     }
 }
 

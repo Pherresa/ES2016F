@@ -24,6 +24,14 @@ public class EnemyManager : MonoBehaviour {
         }*/
 	}
 
+    public void createNewWaveIsengard() {
+        // TODO : Round Isengard
+    }
+
+    public void createNewWaveMinasTirith() {
+        // TODO : Round MT
+    }
+
     public void createNewWave()
     {
  
@@ -48,10 +56,6 @@ public class EnemyManager : MonoBehaviour {
 		// Tirith scene only:
 		if (scene.name == "TirithLvl1") {
 
-
-
-
-			// TODO: Nazgul 
 
 			// We generate Bettering Ram:
 			generateOneBatteringRam ();
@@ -105,7 +109,7 @@ public class EnemyManager : MonoBehaviour {
 		bRam.AddComponent<BatteringRam> ();
 		//get the thing component on your instantiated object
 		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2> ();
-		bRamAstarAI.speed = 10;
+		bRamAstarAI.speed = bRam.GetComponent<Enemy>().getValues().speed;
 		bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 
 	}
