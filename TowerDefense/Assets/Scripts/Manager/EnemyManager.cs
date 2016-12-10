@@ -109,7 +109,7 @@ public class EnemyManager : MonoBehaviour {
 		bRam.AddComponent<BatteringRam> ();
 		//get the thing component on your instantiated object
 		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2> ();
-		bRamAstarAI.speed = 10;
+		bRamAstarAI.speed = bRam.GetComponent<Enemy>().getValues().speed;
 		bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 
 	}

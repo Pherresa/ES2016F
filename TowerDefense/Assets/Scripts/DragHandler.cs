@@ -240,8 +240,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
                     GameObject aura = Instantiate(auraPrefab);
 
-                    prefabActionDefense.initTowerValues();
-                    aura.GetComponent<Projector>().orthographicSize = prefabActionDefense.range; 
+                    //prefabActionDefense.initTowerValues();
+                    aura.GetComponent<Projector>().orthographicSize = newUnit.GetComponent<Action_Defense>().getValues().range;//prefabActionDefense.range; 
                     aura.GetComponent<Projector>().enabled = false;
                     aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
                     aura.transform.parent = newUnit.transform;
@@ -295,8 +295,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             GameObject aura = Instantiate(auraPrefab);
             GameObject able = Instantiate(ablePrefab);
             //TODO: Harm zone get by the prefab defense class.
-            prefabActionDefense.initTowerValues();
-            aura.GetComponent<Projector>().orthographicSize = prefabActionDefense.range;
+            //prefabActionDefense.initTowerValues();
+            aura.GetComponent<Projector>().orthographicSize = hoverPrefab.GetComponent<Action_Defense>().getValues().range;//prefabActionDefense.range;
             aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             able.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             aura.transform.parent = hoverPrefab.transform;

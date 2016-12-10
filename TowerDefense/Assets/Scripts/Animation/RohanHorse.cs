@@ -7,18 +7,28 @@ using System;
  **/
 public class RohanHorse : MonoBehaviour {
 
- 
+    Action_Defense.Values val;
+
+    Enemy_Values_Gene generation;
+
 	Animation anim;
 	AnimationState stateRohanHorseRunning;
 	AnimationState stateRohanHorseAttacking; 
  	
 	GameObject target;
 	public Vector3 center;
-	public int range = Enemy_Constants.T_RANGE_MEDIUM/2;
+    public int range;// = Enemy_Constants.T_RANGE_MEDIUM/2;
 
 	DateTime timeOnPlay;
 	byte animationPhase;
 	private Vector3 newPos;
+
+    void Awake() {
+        generation = new Enemy_Values_Gene();
+        val.type = Tower.TowerType.ROHANBARRACKS_MT;
+        generation.asig_values_tower(ref val);
+        range = (int)val.range;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -128,8 +138,8 @@ public class RohanHorse : MonoBehaviour {
 			//Enemy ene = coll.gameObject.transform.GetChild (0).GetChild(0).GetComponent<Enemy> ();
 			Debug.Log ("Enemy name is '" + ene.name + "'.");
 			ene.playSound (ene.soundSword);
-		
-			ene.life -= Enemy_Constants.T_ATTACK_LITTLE;
+
+            ene.life -= val.strenght; // Enemy_Constants.T_ATTACK_LITTLE;
 		}
 
 

@@ -111,7 +111,7 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
-		Debug.Log (type.ToString ());
+		Debug.Log (valu.type);
         //BarrackRohanHorse
         if (active)
         {
