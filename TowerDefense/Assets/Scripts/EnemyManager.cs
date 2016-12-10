@@ -35,15 +35,7 @@ public class EnemyManager : MonoBehaviour {
 		 **/
 		// Save game values before new wave
 		gameValues = new Game (FindObjectOfType<LifeAmountManager> ());
-		for (int i = 0; i < 1; i++) {
-			GameObject enemyPrefab = Resources.Load ("Prefabs/attack2_Oliphant_MT") as GameObject;
-			GameObject enemy = Instantiate (enemyPrefab);
-			enemy.transform.parent = transform;
-			//get the thing component on your instantiated object
-			AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-			astarAI.speed = 10;
-			astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
-		}
+
 
 		/**
 		 * We deffirenciate which model goes to each scene
@@ -55,12 +47,18 @@ public class EnemyManager : MonoBehaviour {
 		if (scene.name == "TirithLvl1") {
 
 
-			// TODO: OLiphant
+
 
 			// TODO: Nazgul 
 
 			// We generate Bettering Ram:
 			generateOneBatteringRam ();
+
+
+
+			// TODO: OLiphant
+			generateElephant();
+		
 
 		} 
 		// Isengart scene only:
@@ -108,6 +106,29 @@ public class EnemyManager : MonoBehaviour {
 		bRamAstarAI.speed = 10;
 		bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 
+	}
 
+
+	public void generateElephant() {
+		
+
+		StartCoroutine(TemporarilyDeactivate(2));
+
+	}
+
+	private IEnumerator TemporarilyDeactivate(float duration) {
+
+
+		GameObject enemyPrefab = Resources.Load ("Prefabs/attack2_Oliphant_MT") as GameObject;
+	
+		GameObject enemy = Instantiate (enemyPrefab);
+		enemy.SetActive (false);
+		enemy.transform.parent = transform;
+		//get the thing component on your instantiated object
+		AstarAI astarAI = enemy.GetComponent<AstarAI> ();
+		astarAI.speed = 5;
+		astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
+		yield return new WaitForSeconds(duration);
+		enemy.SetActive(true);
 	}
 }
