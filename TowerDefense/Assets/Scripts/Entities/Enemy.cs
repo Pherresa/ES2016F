@@ -94,9 +94,9 @@ public class Enemy : MonoBehaviour {
 
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
+        //Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         
-        Vector3 positionEx = new Vector3(0.0f, 160.0f, 0.0f);
+        //Vector3 positionEx = new Vector3(0.0f, 160.0f, 0.0f);
         
         trans = textObject.AddComponent<RectTransform>();
         //trans.anchoredPosition = new Vector2(10.0f, 10.0f);
@@ -124,7 +124,7 @@ public class Enemy : MonoBehaviour {
     void Update () {
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
+        //Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
         //trans.position = pos;
 

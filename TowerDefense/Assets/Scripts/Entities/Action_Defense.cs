@@ -19,7 +19,7 @@ public class Action_Defense : Tower
 
     Enemy_Values_Gene generator_values;
 
-    private float timer = 1.5f;
+    //private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 5;
@@ -27,9 +27,9 @@ public class Action_Defense : Tower
     private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
-    private float speed = 2f;
+    //private float speed = 2f;
     private bool isShooting = false;
-    int number = 0;
+    //int number = 0;
     bool couroutineStarted = false;
     int s = 3;
     DateTime timeOnPlay;

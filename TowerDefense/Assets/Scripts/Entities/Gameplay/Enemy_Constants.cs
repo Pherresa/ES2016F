@@ -3,13 +3,6 @@ using System.Collections;
 
 public class Enemy_Constants{
 
-    // Values
-    private string life = "l";
-    private string attack = "a";
-    private string speed = "s";
-    private string range = "r";
-    private string money = "m";
-
     // Enemy
     private int life_little = 100;
     private int life_medium = 200;
