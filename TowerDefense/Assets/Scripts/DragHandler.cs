@@ -18,7 +18,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     Slot activeSlot;
     Action_Defense prefabActionDefense;
-    LifeAmountManager lifeAmountManager;
+    GameManager lifeAmountManager;
     GameObject auraPrefab;
     GameObject ablePrefab;
     Texture red;
@@ -53,7 +53,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         prefabActionDefense = prefab.GetComponent<Action_Defense>();
         obt_price(prefabActionDefense);
-        lifeAmountManager  = GameObject.FindObjectOfType<LifeAmountManager>();
+        lifeAmountManager  = FindObjectOfType<GameManager>();
     }
 
 
@@ -221,7 +221,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
                 {
-                    
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
@@ -235,6 +234,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     }
 
                     GameObject aura = Instantiate(auraPrefab);
+
+                    prefabActionDefense.initTowerValues();
+                    aura.GetComponent<Projector>().orthographicSize = prefabActionDefense.range; 
                     aura.GetComponent<Projector>().enabled = false;
                     aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
                     aura.transform.parent = newUnit.transform;
@@ -244,7 +246,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
-
                 }
                 else
                 {
@@ -288,12 +289,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             GameObject aura = Instantiate(auraPrefab);
             GameObject able = Instantiate(ablePrefab);
             //TODO: Harm zone get by the prefab defense class.
-            aura.GetComponent<Projector>().orthographicSize = 35;
+            prefabActionDefense.initTowerValues();
+            aura.GetComponent<Projector>().orthographicSize = prefabActionDefense.range;
             aura.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             able.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             aura.transform.parent = hoverPrefab.transform;
             able.transform.parent = hoverPrefab.transform;
-
         }
 
     }
