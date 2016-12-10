@@ -15,8 +15,8 @@ public abstract class Tower : MonoBehaviour {
     }
 
     protected GameObject target;
-    protected float range;
-    protected int strenght;
+    public float range;
+    public int strenght;
     protected int level;
     protected GameObject projectile;
     protected TowerType type = TowerType.UNKNOWN;

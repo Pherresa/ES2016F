@@ -22,7 +22,7 @@ public class AstarAI : MonoBehaviour {
 
 	//The waypoint we are currently moving towards
 	private int currentWaypoint = 0;
-    private LifeAmountManager lifeAmountManager;
+    private GameManager lifeAmountManager;
     private Enemy enemy;
 
     // Use this for initialization
@@ -30,7 +30,7 @@ public class AstarAI : MonoBehaviour {
 		//Get a reference to the Seeker component we added earlier
 		seeker = GetComponent<Seeker>();
 		characterController = GetComponent<CharacterController>();
-        lifeAmountManager = GameObject.FindObjectOfType<LifeAmountManager>();
+        lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
         enemy = GetComponentInParent<Enemy>();
 
         //Start a new path to the targetPosition, return the result to the OnPathComplete function

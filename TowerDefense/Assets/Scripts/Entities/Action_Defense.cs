@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 using System;
 /*
@@ -23,7 +23,7 @@ public class Action_Defense : Tower
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 5;
-    private int plusToPredictTrebu = 10;
+    private int plusToPredictTrebu = 15;
     private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
@@ -37,8 +37,7 @@ public class Action_Defense : Tower
     // su valor a los respectivos atributos.
     void Start()
     {
-        getValueTower();
-        getTypeOfDefense();
+        initTowerValues();
         loadAnimations();
         initAnimations();
         iniStates();
@@ -104,6 +103,7 @@ public class Action_Defense : Tower
     // inicializador
     void iniStates()
     {
+		Debug.Log (type.ToString ());
         //BarrackRohanHorse
         if (active)
         {
@@ -335,9 +335,9 @@ public class Action_Defense : Tower
         }
     }
 
-    
+
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
-    private void getTypeOfDefense()
+    public void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
@@ -436,7 +436,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void getValueTower()
+    public void getValueTower()
     {
         switch (towerTama)
         {
@@ -493,25 +493,18 @@ public class Action_Defense : Tower
         }
     }
 
-
+	/**
+	 * This function generate the rohan horses of the barrack
+	 **/ 
     void generateRohanHorses(int quantity)
     {
-
-        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject;
-        GameObject rohanHorse;
+		Debug.Log ("----");
+        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject; 
+		GameObject rohanHorse;
         Vector3 newPos;
         for (int i = 0; i < quantity; i++)
-        {
-            /*
-			GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-			GameObject enemy = Instantiate(enemyPrefab);
-			enemy.transform.parent = transform;
-			//get the thing component on your instantiated object
-			AstarAI astarAI = enemy.GetComponent<AstarAI>();
-			astarAI.speed = 12;*/
-
-
-            rohanHorse = Instantiate(rohanHorsePrefab);
+        { 
+			rohanHorse = Instantiate(rohanHorsePrefab);
             newPos = this.transform.position;
             if (i == 0) newPos.x -= 3;
             if (i == 2) newPos.x += 3;
@@ -523,9 +516,14 @@ public class Action_Defense : Tower
             rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
             rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
 
-            //rohanHorse.transform.parent = transform;  
         }
 
+    }
+
+    public void initTowerValues()
+    {
+        getValueTower();
+        getTypeOfDefense();
     }
 }
 
