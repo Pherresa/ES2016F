@@ -9,6 +9,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     bool infoShowed;
     float timeLeft;
+    int price;
 
     public GameObject prefab;
     GameObject hoverPrefab;
@@ -17,7 +18,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     //GameObject activeSlot;
 
     Slot activeSlot;
-    Action_Defense prefabActionDefense;
+    //Action_Defense prefabActionDefense;
     GameManager lifeAmountManager;
     GameObject auraPrefab;
     GameObject ablePrefab;
@@ -51,9 +52,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         //red = Resources.Load("StandardAssets/")
         Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
 
-        prefabActionDefense = prefab.GetComponent<Action_Defense>();
-        obt_price(prefabActionDefense);
-        lifeAmountManager  = FindObjectOfType<GameManager>();
+        hoverPrefab = (GameObject) Instantiate(prefab); // Lo instanciamos para poder obtener el precio de la torre
+        price =hoverPrefab.GetComponent<Action_Defense>().getValues().towerPrice;
+        Destroy(hoverPrefab);
+
+        //prefabActionDefense = prefab.GetComponent<Action_Defense>();
+        lifeAmountManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
 
@@ -91,7 +95,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if (lifeAmountManager.amount >= price)
         {
             RaycastHit[] hits;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -214,19 +218,20 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      * */
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if (lifeAmountManager.amount >= price)
         {
             if (activeSlot != null)
             {
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
                 if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
                 {
+                    
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
                     Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
                     actionDefense.activate();
-                    lifeAmountManager.LoseAmount(prefabActionDefense.towerPrice);
+                    lifeAmountManager.LoseAmount(newUnit.GetComponent<Action_Defense>().getTowerPrice());
 
                     foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -246,6 +251,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
+
                 }
                 else
                 {
@@ -281,7 +287,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        if(lifeAmountManager.amount >= prefabActionDefense.towerPrice)
+        if(lifeAmountManager.amount >= price)
         {
             hoverPrefab = Instantiate(prefab);
             AdjustPrefabAlpha();
@@ -295,6 +301,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             able.transform.position = hoverPrefab.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
             aura.transform.parent = hoverPrefab.transform;
             able.transform.parent = hoverPrefab.transform;
+
         }
 
     }
@@ -340,25 +347,5 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         infoShowed = true;
 
-    }
-
-
-
-    private void obt_price(Action_Defense actionDefense) {
-        switch (actionDefense.towerTama)
-        {
-            case 1:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_little_tower("m");
-                break;
-            case 2:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_medium_tower("m");
-                break;
-            case 3:
-                prefabActionDefense.towerPrice = (int)Enemy_Values_Gene.m_big_tower("m");
-                break;
-            default:
-                Debug.Log("Error");
-                break;
-        }
     }
 }

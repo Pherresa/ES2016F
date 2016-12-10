@@ -24,6 +24,14 @@ public class EnemyManager : MonoBehaviour {
         }*/
 	}
 
+    public void createNewWaveIsengard() {
+        // TODO : Round Isengard
+    }
+
+    public void createNewWaveMinasTirith() {
+        // TODO : Round MT
+    }
+
     public void createNewWave()
     {
  
@@ -48,10 +56,6 @@ public class EnemyManager : MonoBehaviour {
 		// Tirith scene only:
 		if (scene.name == "TirithLvl1") {
 
-
-
-
-			// TODO: Nazgul 
 
 			// We generate Bettering Ram:
 			generateOneBatteringRam ();

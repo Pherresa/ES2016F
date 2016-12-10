@@ -49,14 +49,15 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 				String attack = "XXX";
 				String money = "XXX";
 				if (slot.unit != null) {
-					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 1) {
-						 attack = Enemy_Values_Gene.m_little_tower("a").ToString();
-						 money = Enemy_Values_Gene.m_little_tower("m").ToString();
-					}
+					//if (slot.unit.GetComponent<Action_Defense> ().getValues().towerTama == 1) {
+                    attack = slot.unit.GetComponent<Action_Defense>().getValues().strenght.ToString();
+					money = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice.ToString();
+					//}
+                    /*
 					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 2) {
 						 attack = Enemy_Values_Gene.m_medium_tower("a").ToString();
 						 money = Enemy_Values_Gene.m_medium_tower("m").ToString();
-					}
+					}*/
 					infoUnitText.text =
 						"Attack: +" +
 						attack +

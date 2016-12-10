@@ -79,7 +79,7 @@ public class AstarAI2 : MonoBehaviour {
 
     private void checkPosition()
     {
-        lifeAmountManager.LoseLife(enemy.damage);
+        lifeAmountManager.LoseLife(enemy.getValues().damage);
         Destroy(gameObject);
     }
 
