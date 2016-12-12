@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 5893da8bd8344ff48af8b1d354d7dd91
+timeCreated: 1481500605
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AnteBrazoDch
+    100002: AntebrazoIzq
+    100004: //RootNode
+    100006: BrazoDch
+    100008: BrazoIzq
+    100010: Cabeza
+    100012: CaderaDch
+    100014: CaderaIzq
+    100016: Esqueleto
+    100018: FemurDch
+    100020: FemurIzq
+    100022: HombroDch
+    100024: HombroIzq
+    100026: ManoDch
+    100028: ManoIzq
+    100030: Mesh-Body
+    100032: PieDch
+    100034: PieIzq
+    100036: Sword
+    100038: TibiaDch
+    100040: TibiaIzq
+    100042: Toraxs
+    400000: AnteBrazoDch
+    400002: AntebrazoIzq
+    400004: //RootNode
+    400006: BrazoDch
+    400008: BrazoIzq
+    400010: Cabeza
+    400012: CaderaDch
+    400014: CaderaIzq
+    400016: Esqueleto
+    400018: FemurDch
+    400020: FemurIzq
+    400022: HombroDch
+    400024: HombroIzq
+    400026: ManoDch
+    400028: ManoIzq
+    400030: Mesh-Body
+    400032: PieDch
+    400034: PieIzq
+    400036: Sword
+    400038: TibiaDch
+    400040: TibiaIzq
+    400042: Toraxs
+    2300000: Sword
+    3300000: Sword
+    4300000: Mesh-Body
+    4300002: Sword
+    7400000: Default Take
+    7400002: A_Aragorn_run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Mesh-Body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: -1
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/CaderaDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch/TibiaDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch/TibiaDch/PieDch
+        weight: 1
+      - path: Esqueleto/CaderaIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq/TibiaIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq/TibiaIzq/PieIzq
+        weight: 1
+      - path: Esqueleto/Toraxs
+        weight: 1
+      - path: Esqueleto/Toraxs/Cabeza
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch/AnteBrazoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch/AnteBrazoDch/ManoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq/AntebrazoIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq/AntebrazoIzq/ManoIzq
+        weight: 1
+      - path: Mesh-Body
+        weight: 1
+      - path: Sword
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: A_Aragorn_run
+      takeName: A_Aragorn_run_001
+      firstFrame: -1
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/CaderaDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch/TibiaDch
+        weight: 1
+      - path: Esqueleto/CaderaDch/FemurDch/TibiaDch/PieDch
+        weight: 1
+      - path: Esqueleto/CaderaIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq/TibiaIzq
+        weight: 1
+      - path: Esqueleto/CaderaIzq/FemurIzq/TibiaIzq/PieIzq
+        weight: 1
+      - path: Esqueleto/Toraxs
+        weight: 1
+      - path: Esqueleto/Toraxs/Cabeza
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch/AnteBrazoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroDch/BrazoDch/AnteBrazoDch/ManoDch
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq/AntebrazoIzq
+        weight: 1
+      - path: Esqueleto/Toraxs/HombroIzq/BrazoIzq/AntebrazoIzq/ManoIzq
+        weight: 1
+      - path: Mesh-Body
+        weight: 1
+      - path: Sword
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
