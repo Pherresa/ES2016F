@@ -59,6 +59,7 @@ public class EnemyManager : MonoBehaviour {
     public void createNewWaveMinasTirith(int a_r) {
         System.Random dado = new System.Random();
         gameValues = new Game(FindObjectOfType<GameManager>());
+        bool battery = false;
         GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack1_Orc_MT");
         GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack2_Oliphant_MT");
         GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_BatteringRam_MT");
@@ -75,17 +76,29 @@ public class EnemyManager : MonoBehaviour {
             else if (n == 2)
             {
                 enemy = Instantiate(enemyPrefab2);
+
             }
             else
             {
                 enemy = Instantiate(enemyPrefab3);
+                battery = true;
             }
             enemy.transform.parent = transform;
             enemy.transform.position = transform.position;
             //get the thing component on your instantiated object
-            AstarAI astarAI = enemy.GetComponent<AstarAI>();
-            astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
-            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            if (!battery)
+            {
+                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            }
+            else {
+                AstarAI2 astarAI2 = enemy.GetComponent<AstarAI2>();
+                astarAI2.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI2.target = GameObject.FindGameObjectWithTag("Target").transform;
+                battery = false;
+            }
+            
         }
     }
 
