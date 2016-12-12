@@ -46,28 +46,17 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 				Debug.Log("INFO UNIT_______________");
 				Debug.Log (mm.selectedObject.name);
 				Slot slot = mm.selectedObject.GetComponent<Slot> ();
-				String attack = "XXX";
-				String money = "XXX";
-				if (slot.unit != null) {
-					//if (slot.unit.GetComponent<Action_Defense> ().getValues().towerTama == 1) {
-                    attack = slot.unit.GetComponent<Action_Defense>().getValues().strenght.ToString();
-					money = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice.ToString();
-					//}
-                    /*
-					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 2) {
-						 attack = Enemy_Values_Gene.m_medium_tower("a").ToString();
-						 money = Enemy_Values_Gene.m_medium_tower("m").ToString();
-					}*/
+                //Price for selling is half of the new price.
+                int sellPrice = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice / 2;
+                String attack = slot.unit.GetComponent<Action_Defense>().getValues().strenght.ToString();
+                String money = sellPrice.ToString();
+                if (slot.unit != null) {
 					infoUnitText.text =
 						"Attack: +" +
 						attack +
 						"\nSell: +" +
 						money;
-					//TODO SHOW RANGE!
-					//range = Enemy_Values_Gene.m_medium_tower("r")
 				} 
-
-
 			} else {
 				Debug.Log ("Nothing Selected");
 			}
