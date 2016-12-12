@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class Start_Round : MonoBehaviour {
 
+    public enum Escen {
+        ISENGARD,
+        MINAS_TIRITH
+    }
+
+    public Escen type;
+
     private int act_time;
     public int total_round;
     
@@ -14,6 +21,7 @@ public class Start_Round : MonoBehaviour {
     private GameManager indicator_time;
     private EnemyManager generate_round;
     public Game gameValues;
+    private Enemy_Values_Gene values;
     private bool gameOver;
     
    
@@ -23,11 +31,12 @@ public class Start_Round : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        values = new Enemy_Values_Gene();
         cont_round = 0;
         indicator_time = GameObject.Find("GameManager").GetComponent<GameManager>();
         indicator_time.setRemainingTime(0);
         generate_round = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
-        act_time = Enemy_Constants.TIME;
+        act_time = values.getTime();
         cnt_time = act_time;
         act_time_cont = true;
         gameOver = false;
@@ -67,13 +76,21 @@ public class Start_Round : MonoBehaviour {
 
     private void new_round() { 
 			
-        float time_tmp = cnt_time * Enemy_Constants.TIME_DECREASE;
+        float time_tmp = cnt_time * values.getTimeDecrement();
         act_time = (int)time_tmp;
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
-        generate_round.createNewWave();
+        /* TODo : Round Theme create
+        if (type == Escen.ISENGARD)
+        {
+            generate_round.createNewWaveIsengard();
+        }
+        else {
+            generate_round.createNewWaveMinasTirith();
+        }*/
         //Debug.Log("Generate Round");
+        generate_round.createNewWave();
         GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round

@@ -17,9 +17,9 @@ public class EnemyHealthManager : MonoBehaviour {
 	void Update () {
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
 
-        if(enemy.life < enemy.maxlife)
+        if(enemy.life < enemy.getValues().maxlife)
         {
-            HandleHealthChangedAction(enemy.life, enemy.maxlife);
+            HandleHealthChangedAction(enemy.life, enemy.getValues().maxlife);
         }
     }
 
