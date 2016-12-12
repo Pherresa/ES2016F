@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
         FIRST_TURRET_PRICE = valu.obt_price_tower("1");
         SECOND_TURRET_PRICE = valu.obt_price_tower("2");
         THIRTH_TURRET_PRICE = valu.obt_price_tower("3");
+        FOURTH_TURRET_PRICE = valu.obt_price_tower("4");
+        FITH_TURRET_PRICE = valu.obt_price_tower("5");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 

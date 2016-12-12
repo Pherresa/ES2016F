@@ -57,8 +57,38 @@ public class EnemyManager : MonoBehaviour {
     }
 
     public void createNewWaveMinasTirith(int a_r) {
-        // TODO : Round MT
+        System.Random dado = new System.Random();
+        gameValues = new Game(FindObjectOfType<GameManager>());
+        GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack1_Orc_MT");
+        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack2_Oliphant_MT");
+        GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_BatteringRam_MT");
+        
+        for (int i = 0; i < 7 + (int)(a_r * 2 - 1); i++)
+        {
+            int n = dado.Next(1, 4);
+            //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+            GameObject enemy;// = Instantiate(enemyPrefab);
+            if (n == 1)
+            {
+                enemy = Instantiate(enemyPrefab1);
+            }
+            else if (n == 2)
+            {
+                enemy = Instantiate(enemyPrefab2);
+            }
+            else
+            {
+                enemy = Instantiate(enemyPrefab3);
+            }
+            enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
+            //get the thing component on your instantiated object
+            AstarAI astarAI = enemy.GetComponent<AstarAI>();
+            astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+        }
     }
+
 
     public void createNewWave()
     {
