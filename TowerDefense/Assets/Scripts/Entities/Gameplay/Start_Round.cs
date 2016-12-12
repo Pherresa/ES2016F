@@ -40,6 +40,7 @@ public class Start_Round : MonoBehaviour {
         cnt_time = act_time;
         act_time_cont = true;
         gameOver = false;
+        GameObject.Find("hordsText").GetComponent<Text>().text = "0/" + total_round;
     }
 
     // Update is called once per frame
@@ -67,8 +68,8 @@ public class Start_Round : MonoBehaviour {
             if (cont_round >= total_round) {
                 // Poner Final Round
                 indicator_time.set_final_round(true);
-                GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
-                GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
+                //GameObject.Find("timeText").GetComponent<Text>().font= (Font) Resources.Load("Fonts/RINGM___");
+                //GameObject.Find("timeText").GetComponent<Text>().text = "Final Round";
                 CancelInvoke();
             }
         }
@@ -91,7 +92,7 @@ public class Start_Round : MonoBehaviour {
         }*/
         //Debug.Log("Generate Round");
         generate_round.createNewWave();
-        GameObject.Find("level").GetComponent<Text>().text = "LEVEL " + actu_round();
+        GameObject.Find("hordsText").GetComponent<Text>().text = actu_round()+"/"+total_round;
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
 		GameManager lifeAM = GameObject.FindObjectOfType<GameManager>();
