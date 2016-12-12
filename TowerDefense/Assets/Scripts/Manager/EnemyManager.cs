@@ -24,11 +24,39 @@ public class EnemyManager : MonoBehaviour {
         }*/
 	}
 
-    public void createNewWaveIsengard() {
-        // TODO : Round Isengard
+    public void createNewWaveIsengard(int a_r) {
+        System.Random dado = new System.Random();
+        gameValues = new Game(FindObjectOfType<GameManager>());
+        GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
+        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack1_Ent_I");
+        GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_Hobbit_I");
+        
+        for (int i = 0; i < 7 + (int)(a_r*2-1); i++)
+        {
+            int n = dado.Next(1, 4);
+            //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+            GameObject enemy;//= Instantiate(enemyPrefab);
+            if (n == 1)
+            {
+                enemy = Instantiate(enemyPrefab1);
+            }
+            else if (n == 2)
+            {
+                enemy = Instantiate(enemyPrefab2);
+            }
+            else {
+                enemy = Instantiate(enemyPrefab3);
+            }
+            enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
+            //get the thing component on your instantiated object
+            AstarAI astarAI = enemy.GetComponent<AstarAI>();
+            astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+        }
     }
 
-    public void createNewWaveMinasTirith() {
+    public void createNewWaveMinasTirith(int a_r) {
         // TODO : Round MT
     }
 

@@ -85,10 +85,10 @@ public class Start_Round : MonoBehaviour {
         
         if (type == Escen.ISENGARD)
         {
-            generate_round.createNewWaveIsengard();
+            generate_round.createNewWaveIsengard(cont_round);
         }
         else {
-            generate_round.createNewWaveMinasTirith();
+            generate_round.createNewWaveMinasTirith(cont_round);
         }
         //Debug.Log("Generate Round");
         generate_round.createNewWave();
