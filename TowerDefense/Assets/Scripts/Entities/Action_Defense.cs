@@ -290,12 +290,15 @@ public class Action_Defense : Tower
         if (active)
         {
             checkPhaseAnim();
-            // vemos que no sea nulo
-            if (target != null)
-            {
-                // llamamos la funcion que gira al towers
-                SpinTower.spin(target.transform.position, this.transform);
-            }
+            // vemos que no sea nulo 
+			switch (valu.type)
+			{ 
+				case TowerType.TREBUCHET_MT:
+					// llamamos la funcion que gira al towers
+					SpinTower.spin(target.transform.position, this.transform);
+					break;
+
+			}
         }
     }
 
