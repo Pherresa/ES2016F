@@ -293,8 +293,16 @@ public class Action_Defense : Tower
             // vemos que no sea nulo
             if (target != null)
             {
-                // llamamos la funcion que gira al towers
-                SpinTower.spin(target.transform.position, this.transform);
+				switch (valu.type)
+				{ 
+				case TowerType.TREBUCHET_MT:
+						// llamamos la funcion que gira al towers
+						SpinTower.spin(target.transform.position, this.transform);
+						break;
+
+				}
+				
+                
             }
         }
     }
