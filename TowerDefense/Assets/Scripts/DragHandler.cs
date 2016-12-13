@@ -11,6 +11,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     float timeLeft;
     int price;
 
+    public bool waterUnit;
+
     public GameObject prefab;
     GameObject hoverPrefab;
     public Slot[] Slots;
@@ -134,7 +136,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             if (slot.name.Equals(availableSlot.name))
             {
-				if(availableSlot.getIsPath() || availableSlot.isOccupied){
+				if(availableSlot.getIsPath() || availableSlot.isOccupied || (waterUnit && !availableSlot.getIsWater()) || (!waterUnit && availableSlot.getIsWater())){
 					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
 					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
                     hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
@@ -223,8 +225,38 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             if (activeSlot != null)
             {
                 // MeshFilter mf = activeSlot.GetComponent<MeshFilter> ();
-                if (!activeSlot.getIsPath() && !activeSlot.isOccupied)
-                {
+                if(waterUnit){
+                    if(activeSlot.getIsWater()){
+                        Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
+                        GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
+                        Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
+
+                        actionDefense.activate();
+                        lifeAmountManager.LoseAmount(newUnit.GetComponent<Action_Defense>().getTowerPrice());
+
+                        foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
+                        {
+                            particleSystem.Play();
+                        }
+
+                        GameObject aura = Instantiate(auraPrefab);
+
+                        //prefabActionDefense.initTowerValues();
+                        aura.GetComponent<Projector>().orthographicSize = newUnit.GetComponent<Action_Defense>().getValues().range;//prefabActionDefense.range; 
+                        aura.GetComponent<Projector>().enabled = false;
+                        aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+                        aura.transform.parent = newUnit.transform;
+
+                        playSound(soundDrop);
+
+                        activeSlot.isOccupied = true;
+                        activeSlot.unit = newUnit;
+                        activeSlot.GetComponent<MeshRenderer>().enabled = false;
+                    }
+                }
+
+                else{
+                    if (!activeSlot.getIsPath() && !activeSlot.isOccupied && !activeSlot.getIsWater()){
                     
                     Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
                     GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
@@ -252,11 +284,15 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
 
+                    }
+                    else
+                    {
+                        activeSlot.SetActive(false);
+                    }        
                 }
-                else
-                {
-                    activeSlot.SetActive(false);
-                }
+
+
+
             }
             else
             {
