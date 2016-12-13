@@ -101,8 +101,8 @@ public class RohanHorse : MonoBehaviour {
 		float distanceBetweenCenterEnemy =  Mathf.Infinity; 
 		float distanceBetweenRHEnemy = Mathf.Infinity;
 		//bool isNotCollisiongWOR = isNotCollisioningWithOtherRohan (3);
-		Debug.Log("CENTER");
-		Debug.Log (center);
+		//Debug.Log("CENTER");
+		//Debug.Log (center);
 		float auxDistance = Mathf.Infinity;
 		foreach (GameObject enemy in enemies) { 
 			// 1rst we see if the enemy is inside the circle operation:
@@ -131,9 +131,12 @@ public class RohanHorse : MonoBehaviour {
 
 	// Cillision treatment.
 	void OnTriggerEnter(Collider coll) {
+		Debug.Log ("Enemy name dfads");
 
+		Debug.Log (coll.gameObject.name);
 		// Rohan horse damage on the enemy.
-		if (coll.gameObject.name.Split('(')[0] == "Enemy") {
+		//if (coll.gameObject.name.Split('(')[0] == "Enemy") {
+		if (coll.gameObject.transform.CompareTag("Enemy")) {	
 			Enemy ene = coll.GetComponent<Enemy> ();
 			//Enemy ene = coll.gameObject.transform.GetChild (0).GetChild(0).GetComponent<Enemy> ();
 			Debug.Log ("Enemy name is '" + ene.name + "'.");
