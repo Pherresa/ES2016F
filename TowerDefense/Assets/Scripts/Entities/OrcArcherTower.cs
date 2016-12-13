@@ -5,6 +5,7 @@ using System;
 public class OrcArcherTower : BaseTower {
 
     int idleStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_idle");
+    int rechargeStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_recharge");
     int attackStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_attack");
 
     protected override int getIdleStateHash() { return idleStateHash; }
@@ -20,7 +21,7 @@ public class OrcArcherTower : BaseTower {
 
     protected override Quaternion getFixedRotation()
     {
-        return Quaternion.Euler(0f, 90f, 0f);
+        return Quaternion.Euler(0f, 180f, 0f);
     }
 
     protected override Quaternion getFixedProjectileRotation()
