@@ -16,7 +16,8 @@ public abstract class Tower : MonoBehaviour {
         GANDALF_MT,
         SARUMAN_I,
         LURTZ_I,
-        ORCWARRIOR
+        ORCWARRIOR,
+		GHOSTSHIP_MT
     }
 
     public struct Values
