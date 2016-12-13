@@ -574,9 +574,9 @@ public class Action_Defense : Tower
             newPos.z += 2;
             rohanHorse.transform.position = newPos;
             //rohanHorse.AddComponent<Rigidbody>();
-            rohanHorse.AddComponent<RohanHorse>();
-            rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
-            rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
+            rohanHorse.AddComponent<DefenseWarrior>();
+            rohanHorse.GetComponent<DefenseWarrior>().center = this.transform.position;
+            rohanHorse.GetComponent<DefenseWarrior>().tag = "projectile";
 
             //rohanHorse.transform.parent = transform;  */
         }
@@ -607,9 +607,9 @@ public class Action_Defense : Tower
 			newPos.z += 2;
 			ghost.transform.position = newPos;
 			//rohanHorse.AddComponent<Rigidbody>();
-			ghost.AddComponent<RohanHorse>();
-			ghost.GetComponent<RohanHorse>().center = this.transform.position;
-			ghost.GetComponent<RohanHorse>().tag = "projectile"; 
+			ghost.AddComponent<DefenseWarrior>();
+			ghost.GetComponent<DefenseWarrior>().center = this.transform.position;
+			ghost.GetComponent<DefenseWarrior>().tag = "projectile"; 
 		}
 
 	}
