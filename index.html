@@ -6,13 +6,14 @@
 -->
 <html>
 	<head>
-		<title>Battle for the Middle Earth</title>
+		<title>Middle Earth Tower Deffense</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="assets/css/gallery.css" />
 	</head>
 	<body id="home">
 
@@ -22,7 +23,7 @@
 				<!-- Header -->
 					<header id="header" class="alt">
 						<span class="logo"><img src="images/logo.svg" alt="" /></span>
-						<h1>Battle for the Middle Earth</h1>
+						<h1>Middle Earth Tower Deffense</h1>
 						<p>A tower defense game<br />
 						built by Team F of ES-2016.</p>
 					</header>
@@ -32,7 +33,7 @@
 						<ul>
 							<li><a href="#home">Home</a></li>
 							<li><a href="#intro" class="active">About</a></li>
-							<li><a href="#videos">Videos</a></li>
+							<!-- <li><a href="#videos">Videos</a></li> -->
 							<li><a href="#screen">Screenshots</a></li>
 							<li><a href="#download">Downloads</a></li>
 						</ul>
@@ -63,7 +64,7 @@
 							</section>
 
 						<!-- First Section -->
-							<section id="videos" class="main special">
+							<!-- <section id="videos" class="main special">
 								<header class="major">
 									<h2>Magna veroeros</h2>
 								</header>
@@ -89,10 +90,88 @@
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer>
-							</section>
+							</section> -->
 
 						<!-- Second Section -->
 							<section id="screen" class="main special">
+								<h2>Screenshots</h2>
+								<div class="box alt">
+									<div class="row uniform">
+										<div class="12u$"><span class="image fit"><img src="images/pic04.jpg" alt="" onclick="openModal();currentSlide(1)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/lurtz.png" alt="" onclick="openModal();currentSlide(2)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/mercenary.png" alt="" onclick="openModal();currentSlide(3)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/model_Aragorn_MT.png" alt="" onclick="openModal();currentSlide(4)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/model_gandalf_MT.png" alt="" onclick="openModal();currentSlide(5)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/model_nazgul_MT.png" alt="" onclick="openModal();currentSlide(6)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/model_tower_MT.png" alt="" onclick="openModal();currentSlide(7)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/rohan.png" alt="" onclick="openModal();currentSlide(8)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/shield.png" alt="" onclick="openModal();currentSlide(9)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/shield_orcs.png" alt="" onclick="openModal();currentSlide(10)" /></span></div>
+									</div>
+								</div>
+
+								<div id="myModal" class="modal">
+									<span class="close cursor" onclick="closeModal()">&times;</span>
+									<div class="modal-content">
+
+										<div class="mySlides">
+											<div class="numbertext">1 / 10</div>
+											<img src="images/pic04.jpg" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">2 / 10</div>
+											<img src="images/lurtz.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">3 / 10</div>
+											<img src="images/mercenary.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">4 / 10</div>
+											<img src="images/model_Aragorn_MT.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">5 / 10</div>
+											<img src="images/model_gandalf_MT.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">6 / 10</div>
+											<img src="images/model_nazgul_MT.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">7 / 10</div>
+											<img src="images/model_tower_MT.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">8 / 10</div>
+											<img src="images/rohan.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">9 / 10</div>
+											<img src="images/shield.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">10 / 10</div>
+											<img src="images/shield_orcs.png" style="width:100%">
+										</div>
+
+										<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+										<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+									</div>
+								</div>
+							</section>
+							<!-- <section id="screen" class="main special">
 								<header class="major">
 									<h2>Ipsum consequat</h2>
 									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
@@ -126,7 +205,7 @@
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer>
-							</section>
+							</section> -->
 
 						<!-- Get Started -->
 							<section id="download" class="main special">
@@ -186,6 +265,47 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				function openModal() {
+					document.getElementById('myModal').style.display = "block";
+					$("#nav").hide();
+				}
+
+				function closeModal() {
+					document.getElementById('myModal').style.display = "none";
+					$("#nav").show();
+				}
+
+				var slideIndex = 1;
+				showSlides(slideIndex);
+
+				function plusSlides(n) {
+					showSlides(slideIndex += n);
+				}
+
+				function currentSlide(n) {
+					showSlides(slideIndex = n);
+				}
+
+				function showSlides(n) {
+					var i;
+					var slides = document.getElementsByClassName("mySlides");
+					var dots = document.getElementsByClassName("demo");
+					var captionText = document.getElementById("caption");
+					if (n > slides.length) {slideIndex = 1}
+					if (n < 1) {slideIndex = slides.length}
+					for (i = 0; i < slides.length; i++) {
+						slides[i].style.display = "none";
+					}
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" active", "");
+					}
+					slides[slideIndex-1].style.display = "block";
+					dots[slideIndex-1].className += " active";
+					captionText.innerHTML = dots[slideIndex-1].alt;
+				}
+			</script>
 
 	</body>
 </html>
