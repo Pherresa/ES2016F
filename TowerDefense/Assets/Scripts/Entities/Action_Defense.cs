@@ -55,13 +55,17 @@ public class Action_Defense : Tower
     {
         switch (valu.type)
         {
-            case TowerType.TREBUCHET_MT:
-                anim = GetComponent<Animation>();
-                break;
-            case TowerType.MERCENARYHUMAN_I:
-            case TowerType.ORCARCHER_I:
-                anims = GetComponentsInChildren<Animation>();
-                break;
+		case TowerType.TREBUCHET_MT:
+			anim = GetComponent<Animation>();
+			break;
+		case TowerType.MERCENARYHUMAN_I:
+			break;
+		case TowerType.ORCARCHER_I:
+			anims = GetComponentsInChildren<Animation>();
+			break;
+		case TowerType.GHOSTSHIP_MT:
+			anim = GetComponent<Animation>();
+			break;
         }
     }
 
@@ -105,6 +109,16 @@ public class Action_Defense : Tower
                 //anim["A_OrcArcher_attack"].speed = 2.5f;
 
                 break;
+
+
+			case TowerType.GHOSTSHIP_MT: 
+				anim["A_GhostShip_idle"].speed = 0.25f;  
+				stateTrebuchetIdle = anim["A_GhostShip_idle"];
+				stateTrebuchetIdle.time = 0;
+				stateTrebuchetIdle.enabled = true;
+				anim.Sample();
+				stateTrebuchetIdle.enabled = false; 
+				break;
         }
     }
 
@@ -117,9 +131,18 @@ public class Action_Defense : Tower
         {
             switch (valu.type)
             {
-                case TowerType.ROHANBARRACKS_MT:
-                    generateRohanHorses(2);
-                    break;
+				case TowerType.ROHANBARRACKS_MT:
+					generateRohanHorses(2);
+					break;
+
+				case TowerType.GHOSTSHIP_MT:
+					generateGhost(15);
+					break;
+
+				case TowerType.ARAGORN_MT:
+					initAragornWarrior();
+					break;
+
             }
         }
     }
@@ -250,6 +273,10 @@ public class Action_Defense : Tower
                         }
                     }
                     break;
+
+				case TowerType.GHOSTSHIP_MT:
+					anim.Play("A_GhostShip_idle");
+					break;
             }
         }
     }
@@ -272,12 +299,16 @@ public class Action_Defense : Tower
         if (active)
         {
             checkPhaseAnim();
-            // vemos que no sea nulo
-            if (target != null)
-            {
-                // llamamos la funcion que gira al towers
-                SpinTower.spin(target.transform.position, this.transform);
-            }
+            // vemos que no sea nulo 
+			if (target != null) {
+				switch (valu.type) { 
+					case TowerType.TREBUCHET_MT:
+						// llamamos la funcion que gira al towers
+						SpinTower.spin (target.transform.position, this.transform);
+						break;
+
+				}
+			}
         }
     }
 
@@ -364,7 +395,7 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.MERCENARYHUMAN_I;
         }
-        else if (name == "defense4_Aragorn_MT")
+        else if (name == "defender4_Aragorn_MT")
         {
             valu.type = TowerType.ARAGORN_MT;
         }
@@ -383,7 +414,11 @@ public class Action_Defense : Tower
         else if (name == "defense1_Saruman_I")
         {
             valu.type = TowerType.SARUMAN_I;
-        }
+        } 
+		else if (name == "defense3_GhostShip_MT")
+		{
+			valu.type = TowerType.GHOSTSHIP_MT;
+		}
         else
         {
             valu.type = TowerType.UNKNOWN;
@@ -547,13 +582,9 @@ public class Action_Defense : Tower
             if (i == 2) newPos.x += 3;
             newPos.y -= 2;
             newPos.z += 2;
-            rohanHorse.transform.position = newPos;
-            //rohanHorse.AddComponent<Rigidbody>();
-            rohanHorse.AddComponent<RohanHorse>();
-            rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
-            rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
-
-            //rohanHorse.transform.parent = transform;  */
+			rohanHorse.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (rohanHorse); 
         }
 
     }
@@ -561,5 +592,50 @@ public class Action_Defense : Tower
     public Values getValues() {
         return valu;
     }
+
+
+	/**
+	 * This function generate ghost of the ghostShip
+	 **/ 
+	void generateGhost(int quantity)
+	{
+		Debug.Log ("----");
+		GameObject ghostPrefab = Resources.Load("Prefabs/defense3P_Ghost_MT") as GameObject; 
+		GameObject ghost;
+		Vector3 newPos;
+		for (int i = 0; i < quantity; i++)
+		{ 
+			ghost = Instantiate(ghostPrefab);
+			newPos = this.transform.position;
+			if (i == 0) newPos.x -= 3;
+			if (i == 2) newPos.x += 3;
+			newPos.y -= 2;
+			newPos.z += 2;
+			ghost.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (ghost);
+		}
+
+	}
+
+	/**
+	 * This function iniciate the behaviour of aragorn as a warrior.
+	 **/
+	void initAragornWarrior() 
+	{ 
+		//add the defensewarrior component
+		addDefenseWarriorComponent(this.gameObject); 
+		Debug.Log ("Aragorn wariior");
+	}
+
+	/**
+	 * This function add the defensewarrior component in a gameobject given.
+	 **/ 
+	void addDefenseWarriorComponent( GameObject obj)
+	{
+		obj.AddComponent<DefenseWarrior> ();
+		obj.gameObject.GetComponent<DefenseWarrior> ().center = this.transform.position;
+		obj.gameObject.GetComponent<DefenseWarrior> ().tag = "projectile"; 
+	}
 }
 
