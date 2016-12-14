@@ -20,6 +20,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 		canvasIU = GameObject.Find("InfoUnit").GetComponent<CanvasGroup>();
 		setActive (false);
         sellPrice = 0;
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.RemoveAllListeners();
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.AddListener(sellSelected);
     }
 
 	// Update is called once per frame

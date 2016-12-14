@@ -36,9 +36,10 @@ public class Slot : MonoBehaviour {
     }
 
     private void sell_obj() {
-        GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(unit.GetComponent<Action_Defense>().getValues().towerPrice);
+        GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(unit.GetComponent<Action_Defense>().getValues().towerPrice / 2);
         isOccupied = false;
         Destroy(unit);
+
     }
 
     void OnTriggerEnter(Collider other)
