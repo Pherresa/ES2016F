@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 61b48071c38793f45982ae8db3a08511
-timeCreated: 1480348672
+timeCreated: 1481633547
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -28,6 +28,17 @@ ModelImporter:
     100040: torso_R
     100042: trunk_lower
     100044: trunk_upper
+    100046: arrow
+    100048: HeadM
+    100050: JNTG
+    100052: MeshG
+    100054: PoleM
+    100056: Root_JNT
+    100058: Root_JNT_end
+    100060: TipM
+    100062: Wing1M
+    100064: Wing2M
+    100066: Wing3M
     400000: arm_lower_L
     400002: arm_lower_R
     400004: arm_upper_L
@@ -51,16 +62,40 @@ ModelImporter:
     400040: torso_R
     400042: trunk_lower
     400044: trunk_upper
+    400046: arrow
+    400048: HeadM
+    400050: JNTG
+    400052: MeshG
+    400054: PoleM
+    400056: Root_JNT
+    400058: Root_JNT_end
+    400060: TipM
+    400062: Wing1M
+    400064: Wing2M
+    400066: Wing3M
     2300000: bow
     3300000: bow
     4300000: body
     4300002: bow
+    4300004: Wing2M
+    4300006: PoleM
+    4300008: TipM
+    4300010: Wing1M
+    4300012: Wing3M
+    4300014: HeadM
     7400000: Default Take
     7400002: A_OrcArcher_attack
     7400004: A_OrcArcher_idle
+    7400006: A_OrcArcher_recharge
     9500000: //RootNode
     11100000: //RootNode
     13700000: body
+    13700002: HeadM
+    13700004: PoleM
+    13700006: TipM
+    13700008: Wing1M
+    13700010: Wing2M
+    13700012: Wing3M
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +110,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -230,6 +265,102 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: A_OrcArcher_recharge
+      takeName: A_OrcArcher_recharge
+      firstFrame: -1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/hip_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L
+        weight: 1
+      - path: Armature/hip_L/leg_upper_L/leg_lower_L
+        weight: 1
+      - path: Armature/hip_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R
+        weight: 1
+      - path: Armature/hip_R/leg_upper_R/leg_lower_R
+        weight: 1
+      - path: Armature/trunk_upper
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/neck/head
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_L/arm_upper_L/arm_lower_L/hand_L/bow_0
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R
+        weight: 1
+      - path: Armature/trunk_upper/trunk_lower/torso_R/arm_upper_R/arm_lower_R/hand_R
+        weight: 1
+      - path: arrow
+        weight: 1
+      - path: arrow/JNTG
+        weight: 1
+      - path: arrow/JNTG/Root_JNT
+        weight: 1
+      - path: arrow/JNTG/Root_JNT/Root_JNT_end
+        weight: 1
+      - path: arrow/MeshG
+        weight: 1
+      - path: body
+        weight: 1
+      - path: bow
+        weight: 1
+      - path: HeadM
+        weight: 1
+      - path: PoleM
+        weight: 1
+      - path: TipM
+        weight: 1
+      - path: Wing1M
+        weight: 1
+      - path: Wing2M
+        weight: 1
+      - path: Wing3M
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -267,7 +398,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
