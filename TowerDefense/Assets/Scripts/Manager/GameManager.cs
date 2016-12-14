@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private Start_Round start_round;
     private GameObject[] enemiesToDestroy;
+    private Enemy_Values_Gene valu;
 
 
     public Text scoreText;
@@ -65,16 +66,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-        // Use this for initialization
-        void Start()
+    // Use this for initialization
+    void Start()
     {
+        valu = new Enemy_Values_Gene();
         endMenu.SetActive(false);
-        amount = Enemy_Constants.WALLET;
-        life = Enemy_Values_Gene.m_mt_tower("l");
+        amount = valu.getWallet();
+        life = valu.getTmLife();
         UpdateLifeText();
-        FIRST_TURRET_PRICE = Enemy_Values_Gene.m_little_tower("m");
-        SECOND_TURRET_PRICE = Enemy_Values_Gene.m_medium_tower("m");
-        THIRTH_TURRET_PRICE = Enemy_Values_Gene.m_big_tower("m");
+        FIRST_TURRET_PRICE = valu.obt_price_tower("1");
+        SECOND_TURRET_PRICE = valu.obt_price_tower("2");
+        THIRTH_TURRET_PRICE = valu.obt_price_tower("3");
         newSec = false;
         final_round = false;
         enemies = FindObjectsOfType(typeof(GeneralEnemy)) as GeneralEnemy[]; 
@@ -155,17 +157,17 @@ public class GameManager : MonoBehaviour
     {
         checkLife();
         life -= l;
-
-        if (life <= Enemy_Values_Gene.m_mt_tower("l")- Enemy_Values_Gene.m_mt_tower("l")*0.25 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5)
+        
+        if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.25 && life >= valu.get_MtLife() - valu.get_MtLife() * 0.5)
         {
             firstD.SetActive(true);
 
         }
-        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.5 && life >= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75)
+        else if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.5 && life >= valu.get_MtLife() - valu.get_MtLife() * 0.75)
         {
             secondD.SetActive(true);
         }
-        else if (life <= Enemy_Values_Gene.m_mt_tower("l") - Enemy_Values_Gene.m_mt_tower("l") * 0.75 && life >= 0)
+        else if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.75 && life >= 0)
         {
             thirdD.SetActive(true);
         }
@@ -198,6 +200,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+        Time.timeScale = 0.0f;
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();
@@ -322,8 +325,8 @@ public class GameManager : MonoBehaviour
 		Debug.Log ("Price objects 0");
 		int priceObjects = 0;
 		for (int i = 0; i < objects.Length; i++) {
-			Debug.Log (objects [i].towerPrice);
-			priceObjects += objects [i].towerPrice;
+			Debug.Log (objects [i].getTowerPrice());
+			priceObjects += objects [i].getTowerPrice();
 		}
 		return priceObjects / 2;
 	}

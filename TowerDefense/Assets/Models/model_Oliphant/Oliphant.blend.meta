@@ -132,6 +132,8 @@ ModelImporter:
     7400000: Default Take
     7400002: Attack_Oliphant_MT
     7400004: Moving_Oliphant_MT
+    7400006: A_Oliphant_attack
+    7400008: A_Oliphant_moving
     9500000: //RootNode
     11100000: //RootNode
     13700000: ElphEYER_MeshPart0
@@ -300,10 +302,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack_Oliphant_MT
-      takeName: Attack_Oliphant_MT
+      name: A_Oliphant_attack
+      takeName: attack
       firstFrame: -1
-      lastFrame: 39
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -442,10 +444,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Moving_Oliphant_MT
-      takeName: Moving_Oliphant_MT
+      name: A_Oliphant_moving
+      takeName: move
       firstFrame: -1
-      lastFrame: 39
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
