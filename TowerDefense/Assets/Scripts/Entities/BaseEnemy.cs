@@ -19,6 +19,7 @@ public abstract class BaseEnemy : MonoBehaviour {
     protected int level;
     protected Animator animator;
     protected bool isShooting = false;
+    protected int currentAttackCount = 0;
 
     //External vars
     public EnemyType type = EnemyType.UNKNOWN;
@@ -35,6 +36,7 @@ public abstract class BaseEnemy : MonoBehaviour {
     protected abstract Quaternion getFixedProjectileRotation();
     protected abstract float getProjectileDuration();
     protected abstract float getProjectileSpeed();
+    protected abstract int getNumAttacks();
 
     public void destroyEnemy() { Destroy(gameObject); }
     public bool isActiveEnemy() { return active; }
@@ -50,7 +52,11 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     public virtual void FixedUpdate()
     {
-        checkAnimationState();
+        if (currentAttackCount < getNumAttacks()) { 
+            getTarget();
+            shoot();
+            checkAnimationState();
+        }
     }
 
     public virtual void Update()
@@ -77,6 +83,7 @@ public abstract class BaseEnemy : MonoBehaviour {
         {
             generateProjectile();
             isShooting = true;
+            currentAttackCount++;
         }
     }
 
@@ -108,14 +115,14 @@ public abstract class BaseEnemy : MonoBehaviour {
     {
         GameObject mTower = GameObject.FindGameObjectWithTag("MainTower");
         float distanceToMainTower = Vector3.Distance(transform.position, mTower.transform.position);
-            if (distanceToMainTower < 10f)
-            {
-                target = mTower;
-            }
-            else
-            {
-                target = null;
-            }
+        if (distanceToMainTower < 10f)
+        {
+            target = mTower;
+        }
+        else
+        {
+            target = null;
+        }
     }
 
     private void rotate()

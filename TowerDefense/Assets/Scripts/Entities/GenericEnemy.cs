@@ -2,13 +2,13 @@
 using System.Collections;
 using System;
 
-public class OrcArcherTower : BaseTower {
+public class GenericEnemy : BaseEnemy {
 
-    int idleStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_idle");
-    int rechargeStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_recharge");
-    int attackStateHash = Animator.StringToHash("Base Layer.A_OrcArcher_attack");
+    int walkStateHash = Animator.StringToHash("Base Layer.A_XXX_walk");
+    int rechargeStateHash = Animator.StringToHash("Base Layer.A_XXX_recharge");
+    int attackStateHash = Animator.StringToHash("Base Layer.A_XXX_attack");
 
-    protected override int getIdleStateHash() { return idleStateHash; }
+    protected override int getWalkStateHash() { return walkStateHash; }
     protected override int getAttackStateHash() { return attackStateHash; }
 
     // Use this for initialization
@@ -17,7 +17,6 @@ public class OrcArcherTower : BaseTower {
 
         autoRotate = true;
 	}
-	
 
     protected override Quaternion getFixedRotation()
     {
@@ -37,5 +36,10 @@ public class OrcArcherTower : BaseTower {
     protected override float getProjectileSpeed()
     {
         return 25f;
+    }
+
+    protected override int getNumAttacks()
+    {
+        return 3;
     }
 }
