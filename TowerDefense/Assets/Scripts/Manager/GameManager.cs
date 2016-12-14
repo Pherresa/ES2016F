@@ -201,6 +201,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+        Time.timeScale = 0.0f;
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();

@@ -308,7 +308,10 @@ public class Enemy_Values_Gene{
                 break;
             case Tower.TowerType.LURTZ_I:
                 tower_lvl4(ref valu);
-                break;
+				break;
+			case Tower.TowerType.GHOSTSHIP_MT:
+				tower_lvl1(ref valu);
+				break;
             default:
                 valu.range = 0;
                 valu.strenght = 0;

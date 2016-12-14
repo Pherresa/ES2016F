@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour {
 
         lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
 
-        //createNewWave();
+        createNewWave();
 	}
 	
 	// Update is called once per frame
@@ -63,12 +63,12 @@ public class EnemyManager : MonoBehaviour {
 
 
 			// TODO: OLiphant
-			generateElephant();
+			generateElephant ();
 		
 
 		} 
 		// Isengart scene only:
-		else {
+		else if (scene.name == "IsengardLvl1") {
 
 			// TODO: Orc
 
@@ -77,6 +77,12 @@ public class EnemyManager : MonoBehaviour {
 			// TODO: Hobbit
 
 		}
+		// ERROR: not recognized
+		else {
+			Debug.Log ("Error scene not exit");
+		}
+
+
 
 	}
 

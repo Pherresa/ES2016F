@@ -1,0 +1,933 @@
+fileFormatVersion: 2
+guid: 68c5ffebbbf55dc479757715ca6b1aef
+timeCreated: 1481091911
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Agua_fuente
+    100002: ala_der1
+    100004: ala_der2
+    100006: ala_der2_001
+    100008: ala_izq1
+    100010: ala_izq2
+    100012: ala_izq2_001
+    100014: Arbol_blanco
+    100016: Barranco
+    100018: Casas
+    100020: Casas_001
+    100022: Casas_002
+    100024: Casas_003
+    100026: Casas_004
+    100028: Casas_005
+    100030: Casas_006
+    100032: Casas_007
+    100034: Casas_008
+    100036: Casas_009
+    100038: Casas_010
+    100040: Casas_011
+    100042: Casas_012
+    100044: Casas_013
+    100046: Casas_014
+    100048: Casas_015
+    100050: Casas_016
+    100052: Casas_017
+    100054: Casas_018
+    100056: Casas_019
+    100058: Casas_020
+    100060: Casas_021
+    100062: Casas_022
+    100064: Casas_023
+    100066: Casas_024
+    100068: Casas_025
+    100070: Casas_026
+    100072: Casas_027
+    100074: Casas_028
+    100076: Casas_029
+    100078: Casas_030
+    100080: Casas_031
+    100082: Casas_032
+    100084: Casas_033
+    100086: Casas_035
+    100088: Casas_036
+    100090: Casas_037
+    100092: Casas_038
+    100094: Casas_039
+    100096: Casas_040
+    100098: Casas_041
+    100100: Casas_042
+    100102: Cesped
+    100104: Cilindro
+    100106: cola
+    100108: Cuerpo_aguila
+    100110: eg1_cuerpo
+    100112: eg1_ojo
+    100114: eg2_ojo
+    100116: Esqueleto
+    100118: forro_puerta_principal
+    100120: iglesia
+    100122: iglesia_MeshPart0
+    100124: iglesia_MeshPart1
+    100126: iglesia_MeshPart2
+    100128: iglesia_MeshPart3
+    100130: Iglesia_peque_a_estructura
+    100132: Iglesia_peque_a_estructura_001
+    100134: Iglesia_peque_a_estructura_001_MeshPart0
+    100136: Iglesia_peque_a_estructura_001_MeshPart1
+    100138: Iglesia_peque_a_estructura_002
+    100140: Iglesia_peque_a_estructura_002_MeshPart0
+    100142: Iglesia_peque_a_estructura_002_MeshPart1
+    100144: Iglesia_peque_a_estructura_003
+    100146: Iglesia_peque_a_estructura_003_MeshPart0
+    100148: Iglesia_peque_a_estructura_003_MeshPart1
+    100150: Iglesia_peque_a_estructura_MeshPart0
+    100152: Iglesia_peque_a_estructura_MeshPart1
+    100154: LVL_1_Bloq_muro_der_entrada_curva
+    100156: LVL_1_Bloq_muro_der_entrada_curva_001
+    100158: LVL_1_Bloq_muro_der_entrada_recta1
+    100160: LVL_1_Bloq_muro_der_entrada_recta2
+    100162: LVL_1_Bloq_muro_izq_entrada_recta1
+    100164: LVL_1_Bloq_muro_izq_entrada_recta2
+    100166: LVL_1_bloq_torre_puerta_der
+    100168: LVL_1_bloq_torre_puerta_izq
+    100170: LVL_1_Bloques_muro
+    100172: LVL_1_Muro_der_entrada
+    100174: LVL_1_Muro_izq_entrada
+    100176: LVL_1_Pared
+    100178: LVL_1_Pinxos_puerta
+    100180: LVL_1_Puerta
+    100182: LVL_1_Suelo
+    100184: LVL_1_suelo_torre_puerta_der
+    100186: LVL_1_suelo_torre_puerta_izq
+    100188: LVL_1_torre_puerta_der
+    100190: LVL_1_torre_puerta_izq
+    100192: LVL_2
+    100194: LVL_2_Decorado
+    100196: LVL_2_Decorado_001
+    100198: LVL_2_Decorado_002
+    100200: LVL_3
+    100202: LVL_4
+    100204: LVL_5
+    100206: LVL_6
+    100208: //RootNode
+    100210: Monta_a
+    100212: Monta_a_001
+    100214: Plano_monta_a
+    100216: tejado1_iglesia_peq
+    100218: tejado1_iglesia_peq_001
+    100220: tejado1_iglesia_peq_002
+    100222: Torre_montanya
+    100224: Torre_montanya_001
+    100226: Torres_gemelas
+    100228: Torres_gemelas_MeshPart0
+    100230: Torres_gemelas_MeshPart1
+    100232: Torres_gemelas_MeshPart2
+    100234: Torres_gemelas_MeshPart3
+    100236: Torres_gemelas_MeshPart4
+    100238: torres_Guais
+    100240: torres_Guais_002
+    100242: Torretas_defensa
+    100244: Torretas_defensa_001
+    100246: Torretas_defensa_003
+    100248: Torretas_defensa_003_MeshPart0
+    100250: Torretas_defensa_003_MeshPart1
+    400000: Agua_fuente
+    400002: ala_der1
+    400004: ala_der2
+    400006: ala_der2_001
+    400008: ala_izq1
+    400010: ala_izq2
+    400012: ala_izq2_001
+    400014: Arbol_blanco
+    400016: Barranco
+    400018: Casas
+    400020: Casas_001
+    400022: Casas_002
+    400024: Casas_003
+    400026: Casas_004
+    400028: Casas_005
+    400030: Casas_006
+    400032: Casas_007
+    400034: Casas_008
+    400036: Casas_009
+    400038: Casas_010
+    400040: Casas_011
+    400042: Casas_012
+    400044: Casas_013
+    400046: Casas_014
+    400048: Casas_015
+    400050: Casas_016
+    400052: Casas_017
+    400054: Casas_018
+    400056: Casas_019
+    400058: Casas_020
+    400060: Casas_021
+    400062: Casas_022
+    400064: Casas_023
+    400066: Casas_024
+    400068: Casas_025
+    400070: Casas_026
+    400072: Casas_027
+    400074: Casas_028
+    400076: Casas_029
+    400078: Casas_030
+    400080: Casas_031
+    400082: Casas_032
+    400084: Casas_033
+    400086: Casas_035
+    400088: Casas_036
+    400090: Casas_037
+    400092: Casas_038
+    400094: Casas_039
+    400096: Casas_040
+    400098: Casas_041
+    400100: Casas_042
+    400102: Cesped
+    400104: Cilindro
+    400106: cola
+    400108: Cuerpo_aguila
+    400110: eg1_cuerpo
+    400112: eg1_ojo
+    400114: eg2_ojo
+    400116: Esqueleto
+    400118: forro_puerta_principal
+    400120: iglesia
+    400122: iglesia_MeshPart0
+    400124: iglesia_MeshPart1
+    400126: iglesia_MeshPart2
+    400128: iglesia_MeshPart3
+    400130: Iglesia_peque_a_estructura
+    400132: Iglesia_peque_a_estructura_001
+    400134: Iglesia_peque_a_estructura_001_MeshPart0
+    400136: Iglesia_peque_a_estructura_001_MeshPart1
+    400138: Iglesia_peque_a_estructura_002
+    400140: Iglesia_peque_a_estructura_002_MeshPart0
+    400142: Iglesia_peque_a_estructura_002_MeshPart1
+    400144: Iglesia_peque_a_estructura_003
+    400146: Iglesia_peque_a_estructura_003_MeshPart0
+    400148: Iglesia_peque_a_estructura_003_MeshPart1
+    400150: Iglesia_peque_a_estructura_MeshPart0
+    400152: Iglesia_peque_a_estructura_MeshPart1
+    400154: LVL_1_Bloq_muro_der_entrada_curva
+    400156: LVL_1_Bloq_muro_der_entrada_curva_001
+    400158: LVL_1_Bloq_muro_der_entrada_recta1
+    400160: LVL_1_Bloq_muro_der_entrada_recta2
+    400162: LVL_1_Bloq_muro_izq_entrada_recta1
+    400164: LVL_1_Bloq_muro_izq_entrada_recta2
+    400166: LVL_1_bloq_torre_puerta_der
+    400168: LVL_1_bloq_torre_puerta_izq
+    400170: LVL_1_Bloques_muro
+    400172: LVL_1_Muro_der_entrada
+    400174: LVL_1_Muro_izq_entrada
+    400176: LVL_1_Pared
+    400178: LVL_1_Pinxos_puerta
+    400180: LVL_1_Puerta
+    400182: LVL_1_Suelo
+    400184: LVL_1_suelo_torre_puerta_der
+    400186: LVL_1_suelo_torre_puerta_izq
+    400188: LVL_1_torre_puerta_der
+    400190: LVL_1_torre_puerta_izq
+    400192: LVL_2
+    400194: LVL_2_Decorado
+    400196: LVL_2_Decorado_001
+    400198: LVL_2_Decorado_002
+    400200: LVL_3
+    400202: LVL_4
+    400204: LVL_5
+    400206: LVL_6
+    400208: //RootNode
+    400210: Monta_a
+    400212: Monta_a_001
+    400214: Plano_monta_a
+    400216: tejado1_iglesia_peq
+    400218: tejado1_iglesia_peq_001
+    400220: tejado1_iglesia_peq_002
+    400222: Torre_montanya
+    400224: Torre_montanya_001
+    400226: Torres_gemelas
+    400228: Torres_gemelas_MeshPart0
+    400230: Torres_gemelas_MeshPart1
+    400232: Torres_gemelas_MeshPart2
+    400234: Torres_gemelas_MeshPart3
+    400236: Torres_gemelas_MeshPart4
+    400238: torres_Guais
+    400240: torres_Guais_002
+    400242: Torretas_defensa
+    400244: Torretas_defensa_001
+    400246: Torretas_defensa_003
+    400248: Torretas_defensa_003_MeshPart0
+    400250: Torretas_defensa_003_MeshPart1
+    2300000: Agua_fuente
+    2300002: Arbol_blanco
+    2300004: Barranco
+    2300006: Casas
+    2300008: Casas_001
+    2300010: Casas_002
+    2300012: Casas_003
+    2300014: Casas_004
+    2300016: Casas_005
+    2300018: Casas_006
+    2300020: Casas_007
+    2300022: Casas_008
+    2300024: Casas_009
+    2300026: Casas_010
+    2300028: Casas_011
+    2300030: Casas_012
+    2300032: Casas_013
+    2300034: Casas_014
+    2300036: Casas_015
+    2300038: Casas_016
+    2300040: Casas_017
+    2300042: Casas_018
+    2300044: Casas_019
+    2300046: Casas_020
+    2300048: Casas_021
+    2300050: Casas_022
+    2300052: Casas_023
+    2300054: Casas_024
+    2300056: Casas_025
+    2300058: Casas_026
+    2300060: Casas_027
+    2300062: Casas_028
+    2300064: Casas_029
+    2300066: Casas_030
+    2300068: Casas_031
+    2300070: Casas_032
+    2300072: Casas_033
+    2300074: Casas_035
+    2300076: Casas_036
+    2300078: Casas_037
+    2300080: Casas_038
+    2300082: Casas_039
+    2300084: Casas_040
+    2300086: Casas_041
+    2300088: Casas_042
+    2300090: Cesped
+    2300092: Cilindro
+    2300094: eg1_cuerpo
+    2300096: eg1_ojo
+    2300098: forro_puerta_principal
+    2300100: iglesia_MeshPart0
+    2300102: iglesia_MeshPart1
+    2300104: iglesia_MeshPart2
+    2300106: iglesia_MeshPart3
+    2300108: Iglesia_peque_a_estructura_001_MeshPart0
+    2300110: Iglesia_peque_a_estructura_001_MeshPart1
+    2300112: Iglesia_peque_a_estructura_002_MeshPart0
+    2300114: Iglesia_peque_a_estructura_002_MeshPart1
+    2300116: Iglesia_peque_a_estructura_003_MeshPart0
+    2300118: Iglesia_peque_a_estructura_003_MeshPart1
+    2300120: Iglesia_peque_a_estructura_MeshPart0
+    2300122: Iglesia_peque_a_estructura_MeshPart1
+    2300124: LVL_1_Bloq_muro_der_entrada_curva
+    2300126: LVL_1_Bloq_muro_der_entrada_curva_001
+    2300128: LVL_1_Bloq_muro_der_entrada_recta1
+    2300130: LVL_1_Bloq_muro_der_entrada_recta2
+    2300132: LVL_1_Bloq_muro_izq_entrada_recta1
+    2300134: LVL_1_Bloq_muro_izq_entrada_recta2
+    2300136: LVL_1_bloq_torre_puerta_der
+    2300138: LVL_1_bloq_torre_puerta_izq
+    2300140: LVL_1_Bloques_muro
+    2300142: LVL_1_Muro_der_entrada
+    2300144: LVL_1_Muro_izq_entrada
+    2300146: LVL_1_Pared
+    2300148: LVL_1_Pinxos_puerta
+    2300150: LVL_1_Puerta
+    2300152: LVL_1_Suelo
+    2300154: LVL_1_suelo_torre_puerta_der
+    2300156: LVL_1_suelo_torre_puerta_izq
+    2300158: LVL_1_torre_puerta_der
+    2300160: LVL_1_torre_puerta_izq
+    2300162: LVL_2
+    2300164: LVL_2_Decorado
+    2300166: LVL_2_Decorado_001
+    2300168: LVL_2_Decorado_002
+    2300170: LVL_3
+    2300172: LVL_4
+    2300174: LVL_5
+    2300176: LVL_6
+    2300178: Monta_a
+    2300180: Monta_a_001
+    2300182: Plano_monta_a
+    2300184: tejado1_iglesia_peq
+    2300186: tejado1_iglesia_peq_001
+    2300188: tejado1_iglesia_peq_002
+    2300190: Torre_montanya
+    2300192: Torre_montanya_001
+    2300194: Torres_gemelas_MeshPart0
+    2300196: Torres_gemelas_MeshPart1
+    2300198: Torres_gemelas_MeshPart2
+    2300200: Torres_gemelas_MeshPart3
+    2300202: Torres_gemelas_MeshPart4
+    2300204: torres_Guais
+    2300206: torres_Guais_002
+    2300208: Torretas_defensa
+    2300210: Torretas_defensa_001
+    2300212: Torretas_defensa_003_MeshPart0
+    2300214: Torretas_defensa_003_MeshPart1
+    3300000: Agua_fuente
+    3300002: Arbol_blanco
+    3300004: Barranco
+    3300006: Casas
+    3300008: Casas_001
+    3300010: Casas_002
+    3300012: Casas_003
+    3300014: Casas_004
+    3300016: Casas_005
+    3300018: Casas_006
+    3300020: Casas_007
+    3300022: Casas_008
+    3300024: Casas_009
+    3300026: Casas_010
+    3300028: Casas_011
+    3300030: Casas_012
+    3300032: Casas_013
+    3300034: Casas_014
+    3300036: Casas_015
+    3300038: Casas_016
+    3300040: Casas_017
+    3300042: Casas_018
+    3300044: Casas_019
+    3300046: Casas_020
+    3300048: Casas_021
+    3300050: Casas_022
+    3300052: Casas_023
+    3300054: Casas_024
+    3300056: Casas_025
+    3300058: Casas_026
+    3300060: Casas_027
+    3300062: Casas_028
+    3300064: Casas_029
+    3300066: Casas_030
+    3300068: Casas_031
+    3300070: Casas_032
+    3300072: Casas_033
+    3300074: Casas_035
+    3300076: Casas_036
+    3300078: Casas_037
+    3300080: Casas_038
+    3300082: Casas_039
+    3300084: Casas_040
+    3300086: Casas_041
+    3300088: Casas_042
+    3300090: Cesped
+    3300092: Cilindro
+    3300094: eg1_cuerpo
+    3300096: eg1_ojo
+    3300098: forro_puerta_principal
+    3300100: iglesia_MeshPart0
+    3300102: iglesia_MeshPart1
+    3300104: iglesia_MeshPart2
+    3300106: iglesia_MeshPart3
+    3300108: Iglesia_peque_a_estructura_001_MeshPart0
+    3300110: Iglesia_peque_a_estructura_001_MeshPart1
+    3300112: Iglesia_peque_a_estructura_002_MeshPart0
+    3300114: Iglesia_peque_a_estructura_002_MeshPart1
+    3300116: Iglesia_peque_a_estructura_003_MeshPart0
+    3300118: Iglesia_peque_a_estructura_003_MeshPart1
+    3300120: Iglesia_peque_a_estructura_MeshPart0
+    3300122: Iglesia_peque_a_estructura_MeshPart1
+    3300124: LVL_1_Bloq_muro_der_entrada_curva
+    3300126: LVL_1_Bloq_muro_der_entrada_curva_001
+    3300128: LVL_1_Bloq_muro_der_entrada_recta1
+    3300130: LVL_1_Bloq_muro_der_entrada_recta2
+    3300132: LVL_1_Bloq_muro_izq_entrada_recta1
+    3300134: LVL_1_Bloq_muro_izq_entrada_recta2
+    3300136: LVL_1_bloq_torre_puerta_der
+    3300138: LVL_1_bloq_torre_puerta_izq
+    3300140: LVL_1_Bloques_muro
+    3300142: LVL_1_Muro_der_entrada
+    3300144: LVL_1_Muro_izq_entrada
+    3300146: LVL_1_Pared
+    3300148: LVL_1_Pinxos_puerta
+    3300150: LVL_1_Puerta
+    3300152: LVL_1_Suelo
+    3300154: LVL_1_suelo_torre_puerta_der
+    3300156: LVL_1_suelo_torre_puerta_izq
+    3300158: LVL_1_torre_puerta_der
+    3300160: LVL_1_torre_puerta_izq
+    3300162: LVL_2
+    3300164: LVL_2_Decorado
+    3300166: LVL_2_Decorado_001
+    3300168: LVL_2_Decorado_002
+    3300170: LVL_3
+    3300172: LVL_4
+    3300174: LVL_5
+    3300176: LVL_6
+    3300178: Monta_a
+    3300180: Monta_a_001
+    3300182: Plano_monta_a
+    3300184: tejado1_iglesia_peq
+    3300186: tejado1_iglesia_peq_001
+    3300188: tejado1_iglesia_peq_002
+    3300190: Torre_montanya
+    3300192: Torre_montanya_001
+    3300194: Torres_gemelas_MeshPart0
+    3300196: Torres_gemelas_MeshPart1
+    3300198: Torres_gemelas_MeshPart2
+    3300200: Torres_gemelas_MeshPart3
+    3300202: Torres_gemelas_MeshPart4
+    3300204: torres_Guais
+    3300206: torres_Guais_002
+    3300208: Torretas_defensa
+    3300210: Torretas_defensa_001
+    3300212: Torretas_defensa_003_MeshPart0
+    3300214: Torretas_defensa_003_MeshPart1
+    4300000: tejado1_iglesia_peq_002
+    4300002: Iglesia_peque_a_estructura_003_MeshPart0
+    4300004: Iglesia_peque_a_estructura_003_MeshPart1
+    4300006: Monta_a_001
+    4300008: Iglesia_peque_a_estructura_002_MeshPart0
+    4300010: Iglesia_peque_a_estructura_002_MeshPart1
+    4300012: Iglesia_peque_a_estructura_001_MeshPart0
+    4300014: Iglesia_peque_a_estructura_001_MeshPart1
+    4300016: tejado1_iglesia_peq_001
+    4300018: LVL_2_Decorado_002
+    4300020: LVL_2_Decorado_001
+    4300022: Cilindro
+    4300024: Torre_montanya_001
+    4300026: Torretas_defensa_003_MeshPart0
+    4300028: Torretas_defensa_003_MeshPart1
+    4300030: Casas_042
+    4300032: Casas_041
+    4300034: Casas_040
+    4300036: Casas_039
+    4300038: Casas_038
+    4300040: Casas_037
+    4300042: Casas_036
+    4300044: Casas_035
+    4300046: Casas_033
+    4300048: Casas_032
+    4300050: Casas_031
+    4300052: Casas_030
+    4300054: Casas_029
+    4300056: Casas_028
+    4300058: Casas_027
+    4300060: Casas_024
+    4300062: Casas_026
+    4300064: Casas_025
+    4300066: Casas_023
+    4300068: Casas_022
+    4300070: Casas_021
+    4300072: Casas_020
+    4300074: Casas_019
+    4300076: Casas_018
+    4300078: Casas_017
+    4300080: Casas_016
+    4300082: Casas_015
+    4300084: Casas_014
+    4300086: Casas_013
+    4300088: Casas_012
+    4300090: Casas_009
+    4300092: Casas_011
+    4300094: Casas_010
+    4300096: Casas_008
+    4300098: Casas_007
+    4300100: Casas_006
+    4300102: Casas_005
+    4300104: Casas_004
+    4300106: Casas_003
+    4300108: Casas_002
+    4300110: Casas_001
+    4300112: Casas
+    4300114: Torretas_defensa_001
+    4300116: torres_Guais_002
+    4300118: Torretas_defensa
+    4300120: Agua_fuente
+    4300122: LVL_6
+    4300124: LVL_5
+    4300126: LVL_3
+    4300128: tejado1_iglesia_peq
+    4300130: forro_puerta_principal
+    4300132: torres_Guais
+    4300134: Torres_gemelas_MeshPart0
+    4300136: Torres_gemelas_MeshPart1
+    4300138: Torres_gemelas_MeshPart2
+    4300140: Torres_gemelas_MeshPart3
+    4300142: Torres_gemelas_MeshPart4
+    4300144: Torre_montanya
+    4300146: Arbol_blanco
+    4300148: Cesped
+    4300150: iglesia_MeshPart0
+    4300152: iglesia_MeshPart1
+    4300154: iglesia_MeshPart2
+    4300156: iglesia_MeshPart3
+    4300158: Iglesia_peque_a_estructura_MeshPart0
+    4300160: Iglesia_peque_a_estructura_MeshPart1
+    4300162: eg2_ojo
+    4300164: eg1_ojo
+    4300166: eg1_cuerpo
+    4300168: Plano_monta_a
+    4300170: LVL_1_torre_puerta_der
+    4300172: LVL_1_bloq_torre_puerta_der
+    4300174: LVL_1_suelo_torre_puerta_der
+    4300176: LVL_1_Suelo
+    4300178: LVL_1_Pared
+    4300180: LVL_2_Decorado
+    4300182: LVL_1_Pinxos_puerta
+    4300184: Barranco
+    4300186: LVL_1_Puerta
+    4300188: LVL_1_suelo_torre_puerta_izq
+    4300190: LVL_1_bloq_torre_puerta_izq
+    4300192: LVL_1_torre_puerta_izq
+    4300194: LVL_1_Bloq_muro_der_entrada_recta2
+    4300196: LVL_1_Bloq_muro_der_entrada_recta1
+    4300198: LVL_1_Bloq_muro_izq_entrada_recta1
+    4300200: LVL_1_Bloq_muro_izq_entrada_recta2
+    4300202: LVL_1_Bloq_muro_der_entrada_curva_001
+    4300204: LVL_1_Bloq_muro_der_entrada_curva
+    4300206: LVL_1_Muro_der_entrada
+    4300208: LVL_1_Muro_izq_entrada
+    4300210: LVL_1_Bloques_muro
+    4300212: LVL_4
+    4300214: LVL_2
+    4300216: Monta_a
+    7400000: A_Minastirith_IDLE
+    7400002: EsqueletoAction
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: eg2_ojo
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_Minastirith_IDLE
+      takeName: Default Take
+      firstFrame: -1
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Agua_fuente
+        weight: 1
+      - path: Arbol_blanco
+        weight: 1
+      - path: Barranco
+        weight: 1
+      - path: Casas
+        weight: 1
+      - path: Casas_001
+        weight: 1
+      - path: Casas_002
+        weight: 1
+      - path: Casas_003
+        weight: 1
+      - path: Casas_004
+        weight: 1
+      - path: Casas_005
+        weight: 1
+      - path: Casas_006
+        weight: 1
+      - path: Casas_007
+        weight: 1
+      - path: Casas_008
+        weight: 1
+      - path: Casas_009
+        weight: 1
+      - path: Casas_010
+        weight: 1
+      - path: Casas_011
+        weight: 1
+      - path: Casas_012
+        weight: 1
+      - path: Casas_013
+        weight: 1
+      - path: Casas_014
+        weight: 1
+      - path: Casas_015
+        weight: 1
+      - path: Casas_016
+        weight: 1
+      - path: Casas_017
+        weight: 1
+      - path: Casas_018
+        weight: 1
+      - path: Casas_019
+        weight: 1
+      - path: Casas_020
+        weight: 1
+      - path: Casas_021
+        weight: 1
+      - path: Casas_022
+        weight: 1
+      - path: Casas_023
+        weight: 1
+      - path: Casas_024
+        weight: 1
+      - path: Casas_025
+        weight: 1
+      - path: Casas_026
+        weight: 1
+      - path: Casas_027
+        weight: 1
+      - path: Casas_028
+        weight: 1
+      - path: Casas_029
+        weight: 1
+      - path: Casas_030
+        weight: 1
+      - path: Casas_031
+        weight: 1
+      - path: Casas_032
+        weight: 1
+      - path: Casas_033
+        weight: 1
+      - path: Casas_035
+        weight: 1
+      - path: Casas_036
+        weight: 1
+      - path: Casas_037
+        weight: 1
+      - path: Casas_038
+        weight: 1
+      - path: Casas_039
+        weight: 1
+      - path: Casas_040
+        weight: 1
+      - path: Casas_041
+        weight: 1
+      - path: Casas_042
+        weight: 1
+      - path: Cesped
+        weight: 1
+      - path: Cilindro
+        weight: 1
+      - path: eg1_cuerpo
+        weight: 1
+      - path: eg1_ojo
+        weight: 1
+      - path: eg2_ojo
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/ala_der1
+        weight: 1
+      - path: Esqueleto/ala_der1/ala_der2
+        weight: 1
+      - path: Esqueleto/ala_der1/ala_der2/ala_der2_001
+        weight: 1
+      - path: Esqueleto/ala_izq1
+        weight: 1
+      - path: Esqueleto/ala_izq1/ala_izq2
+        weight: 1
+      - path: Esqueleto/ala_izq1/ala_izq2/ala_izq2_001
+        weight: 1
+      - path: Esqueleto/cola
+        weight: 1
+      - path: Esqueleto/Cuerpo_aguila
+        weight: 1
+      - path: forro_puerta_principal
+        weight: 1
+      - path: iglesia
+        weight: 1
+      - path: iglesia/iglesia_MeshPart0
+        weight: 1
+      - path: iglesia/iglesia_MeshPart1
+        weight: 1
+      - path: iglesia/iglesia_MeshPart2
+        weight: 1
+      - path: iglesia/iglesia_MeshPart3
+        weight: 1
+      - path: Iglesia_peque_a_estructura
+        weight: 1
+      - path: Iglesia_peque_a_estructura/Iglesia_peque_a_estructura_MeshPart0
+        weight: 1
+      - path: Iglesia_peque_a_estructura/Iglesia_peque_a_estructura_MeshPart1
+        weight: 1
+      - path: Iglesia_peque_a_estructura_001
+        weight: 1
+      - path: Iglesia_peque_a_estructura_001/Iglesia_peque_a_estructura_001_MeshPart0
+        weight: 1
+      - path: Iglesia_peque_a_estructura_001/Iglesia_peque_a_estructura_001_MeshPart1
+        weight: 1
+      - path: Iglesia_peque_a_estructura_002
+        weight: 1
+      - path: Iglesia_peque_a_estructura_002/Iglesia_peque_a_estructura_002_MeshPart0
+        weight: 1
+      - path: Iglesia_peque_a_estructura_002/Iglesia_peque_a_estructura_002_MeshPart1
+        weight: 1
+      - path: Iglesia_peque_a_estructura_003
+        weight: 1
+      - path: Iglesia_peque_a_estructura_003/Iglesia_peque_a_estructura_003_MeshPart0
+        weight: 1
+      - path: Iglesia_peque_a_estructura_003/Iglesia_peque_a_estructura_003_MeshPart1
+        weight: 1
+      - path: LVL_1_Bloq_muro_der_entrada_curva
+        weight: 1
+      - path: LVL_1_Bloq_muro_der_entrada_curva_001
+        weight: 1
+      - path: LVL_1_Bloq_muro_der_entrada_recta1
+        weight: 1
+      - path: LVL_1_Bloq_muro_der_entrada_recta2
+        weight: 1
+      - path: LVL_1_Bloq_muro_izq_entrada_recta1
+        weight: 1
+      - path: LVL_1_Bloq_muro_izq_entrada_recta2
+        weight: 1
+      - path: LVL_1_bloq_torre_puerta_der
+        weight: 1
+      - path: LVL_1_bloq_torre_puerta_izq
+        weight: 1
+      - path: LVL_1_Bloques_muro
+        weight: 1
+      - path: LVL_1_Muro_der_entrada
+        weight: 1
+      - path: LVL_1_Muro_izq_entrada
+        weight: 1
+      - path: LVL_1_Pared
+        weight: 1
+      - path: LVL_1_Pinxos_puerta
+        weight: 1
+      - path: LVL_1_Puerta
+        weight: 1
+      - path: LVL_1_Suelo
+        weight: 1
+      - path: LVL_1_suelo_torre_puerta_der
+        weight: 1
+      - path: LVL_1_suelo_torre_puerta_izq
+        weight: 1
+      - path: LVL_1_torre_puerta_der
+        weight: 1
+      - path: LVL_1_torre_puerta_izq
+        weight: 1
+      - path: LVL_2
+        weight: 1
+      - path: LVL_2_Decorado
+        weight: 1
+      - path: LVL_2_Decorado_001
+        weight: 1
+      - path: LVL_2_Decorado_002
+        weight: 1
+      - path: LVL_3
+        weight: 1
+      - path: LVL_4
+        weight: 1
+      - path: LVL_5
+        weight: 1
+      - path: LVL_6
+        weight: 1
+      - path: Monta_a
+        weight: 1
+      - path: Monta_a_001
+        weight: 1
+      - path: Plano_monta_a
+        weight: 1
+      - path: tejado1_iglesia_peq
+        weight: 1
+      - path: tejado1_iglesia_peq_001
+        weight: 1
+      - path: tejado1_iglesia_peq_002
+        weight: 1
+      - path: Torre_montanya
+        weight: 1
+      - path: Torre_montanya_001
+        weight: 1
+      - path: Torres_gemelas
+        weight: 1
+      - path: Torres_gemelas/Torres_gemelas_MeshPart0
+        weight: 1
+      - path: Torres_gemelas/Torres_gemelas_MeshPart1
+        weight: 1
+      - path: Torres_gemelas/Torres_gemelas_MeshPart2
+        weight: 1
+      - path: Torres_gemelas/Torres_gemelas_MeshPart3
+        weight: 1
+      - path: Torres_gemelas/Torres_gemelas_MeshPart4
+        weight: 1
+      - path: torres_Guais
+        weight: 1
+      - path: torres_Guais_002
+        weight: 1
+      - path: Torretas_defensa
+        weight: 1
+      - path: Torretas_defensa_001
+        weight: 1
+      - path: Torretas_defensa_003
+        weight: 1
+      - path: Torretas_defensa_003/Torretas_defensa_003_MeshPart0
+        weight: 1
+      - path: Torretas_defensa_003/Torretas_defensa_003_MeshPart1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
