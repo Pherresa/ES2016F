@@ -1731,8 +1731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: 0
   life: 0
-  maxlife: 0
-  damage: 0
+  soundAttacked: {fileID: 0}
+  soundDeath: {fileID: 0}
+  soundSword: {fileID: 0}
 --- !u!114 &114000011668492586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1760,8 +1761,8 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 0
   turnSpeed: 10
-  enemyBody: {fileID: 0}
-  enemyCompass: {fileID: 0}
+  enemyBody: {fileID: 4000010790068116}
+  enemyCompass: {fileID: 4000011989587298}
 --- !u!114 &114000012891917234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1831,9 +1832,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.9
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
