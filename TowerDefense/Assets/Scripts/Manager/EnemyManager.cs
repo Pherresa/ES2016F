@@ -33,14 +33,14 @@ public class EnemyManager : MonoBehaviour {
         
         for (int i = 0; i < 7 + (int)(a_r*2-1); i++)
         {
-            int n = dado.Next(1, 4);
+            double n = dado.NextDouble();
             //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
             GameObject enemy;//= Instantiate(enemyPrefab);
-            if (n == 1)
+            if (n < 0.8f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab1);
             }
-            else if (n == 2)
+            else if (n < 0.9f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab2);
             }
@@ -66,17 +66,16 @@ public class EnemyManager : MonoBehaviour {
         
         for (int i = 0; i < 7 + (int)(a_r * 2 - 1); i++)
         {
-            int n = dado.Next(1, 4);
+            double n = dado.NextDouble();
             //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-            GameObject enemy;// = Instantiate(enemyPrefab);
-            if (n == 1)
+            GameObject enemy;//= Instantiate(enemyPrefab);
+            if (n < 0.8f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab1);
             }
-            else if (n == 2)
+            else if (n < 0.9f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab2);
-
             }
             else
             {
