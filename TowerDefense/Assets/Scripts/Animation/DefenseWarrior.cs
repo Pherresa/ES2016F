@@ -28,16 +28,19 @@ public class DefenseWarrior : MonoBehaviour {
 	GameObject target;
 	public Vector3 center;
     public int range;// = Enemy_Constants.T_RANGE_MEDIUM/2;
+	public int vel;
+	private float durationAnim;
+	private int distActivateAnim;
 
 	DateTime timeOnPlay; 
-	private Vector3 newPos;
-	 
+	private Vector3 newPos; 
 
     void Awake() { 
 		assignWarriorType ();
         generation = new Enemy_Values_Gene(); 
         generation.asig_values_tower(ref val);
         range = (int)val.range;
+		 
     }
 
 
@@ -48,14 +51,29 @@ public class DefenseWarrior : MonoBehaviour {
 		if (name == "defense2P_RohanHorse_MT") {
 			warriorType = WarriorType.ROHAN_HORSE_MT;
 			val.type = Tower.TowerType.ROHANBARRACKS_MT;
+			vel = 7; 
+			durationAnim = 1.0f;
+			distActivateAnim = 10;
+
 		} else if (name == "defender4_Aragorn_MT") {
 			warriorType = WarriorType.ARAGORN_WARRIOR_MT;
 			val.type = Tower.TowerType.ARAGORN_MT;
+			vel = 5; 
+			durationAnim = 1.0f;
+			distActivateAnim = 8;
+
 		} else if (name == "defense3P_Ghost_MT") {
 			warriorType = WarriorType.GHOST_WARRIOR_MT;
 			val.type = Tower.TowerType.GHOSTSHIP_MT;
+			vel = 7;
+			durationAnim = 1.0f;
+			distActivateAnim = 10;
+
 		} else {
 			warriorType = WarriorType.UNKNOWN;
+			vel = 0;
+			durationAnim = 0.0f;
+			distActivateAnim = 0;
 		}
 		 
 	}
@@ -83,11 +101,12 @@ public class DefenseWarrior : MonoBehaviour {
  
 			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
 			 
-			transform.position += transform.forward * Time.deltaTime * 7f;
-			if (dir.magnitude < 5) {
+			transform.position += transform.forward * Time.deltaTime * vel;
+			if (dir.magnitude < distActivateAnim) {
+				timeOnPlay = DateTime.Now;
 				playAnimation ("attack"); 
 			}
-			else {
+			else if ((DateTime.Now - timeOnPlay).Seconds > durationAnim) {
 				playAnimation ("run"); 
 			} 
 		}
@@ -232,7 +251,7 @@ public class DefenseWarrior : MonoBehaviour {
 			anim.Sample ();
 			stateRunning.enabled = false;
 
-			anim ["A_Aragorn_attack"].speed = 1f;
+			anim ["A_Aragorn_attack"].speed = 2f;
 			stateAttacking = anim ["A_Aragorn_attack"];
 			stateAttacking.time = 0;
 			stateAttacking.enabled = true;
