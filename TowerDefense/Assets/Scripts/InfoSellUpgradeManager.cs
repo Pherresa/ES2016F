@@ -9,7 +9,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	private Text infoUnitText;
 	private CanvasGroup canvasIU;
     private CanvasGroup HUDCanvas;
-    private Button sell;
+    private int sellPrice;
 	MouseManager mm;
 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 		infoUnitText = GameObject.Find("infoUnitText").GetComponent<Text>();
 		canvasIU = GameObject.Find("InfoUnit").GetComponent<CanvasGroup>();
 		setActive (false);
-        sell = GameObject.Find("ButtonSell").GetComponent();
+        sellPrice = 0;
     }
 
 	// Update is called once per frame
@@ -36,6 +36,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.alpha = 1;
 			canvasSU.interactable = true;
 			canvasSU.blocksRaycasts = true;
+            canvasIU.interactable = true;
+            canvasIU.blocksRaycasts = true;
 
 			Vector3 newPositionSU = Camera.main.WorldToScreenPoint (mm.selectedObject.transform.position);
 			Vector3 newPositionIU = newPositionSU;
@@ -48,7 +50,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			if (mm.selectedObject != null) {
 				Slot slot = mm.selectedObject.GetComponent<Slot> ();
                 //Price for selling is half of the new price.
-                int sellPrice = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice / 2;
+                sellPrice = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice / 2;
                 String attack = slot.unit.GetComponent<Action_Defense>().getValues().strenght.ToString();
                 String money = sellPrice.ToString();
                 if (slot.unit != null) {
@@ -59,7 +61,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 						money;
 				} 
 			} else {
-				Debug.Log ("Nothing Selected");
+				Debug.Log ("Nothing Selected IN SET ACTIVE");
 			}
 
 		} else {
@@ -67,10 +69,13 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.interactable = false;
 			canvasSU.blocksRaycasts = false;
 			canvasIU.alpha = 0;
+            canvasIU.interactable = false;
+            canvasIU.blocksRaycasts = false;
 		}
 	}
 
 	public void sellSelected(){
+        Debug.Log("Selling");
 		if (mm.selectedObject != null) {
 			Debug.Log ("Sell");
 			Slot slot = mm.selectedObject.GetComponent<Slot> ();
@@ -79,11 +84,11 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			} 
 			slot.unit = null;
 			slot.isOccupied = false;
-
+            GameObject.FindObjectOfType<GameManager>().GainAmount(sellPrice);
 			//TODO: Money Depending on the unit
 			//GameObject.FindObjectOfType<LifeAmountManager> ().GainAmount(20);
 		} else {
-			Debug.Log ("Nothing Selected");
+			Debug.Log ("Nothing Selected in SELL DETECTED");
 		}
 	}
 
