@@ -6,6 +6,7 @@ public class Slot : MonoBehaviour {
 
 	public bool isPath;
 	public bool isOccupied;
+	public bool isWater;
 	public GameObject unit;
 
 	// Use this for initialization
@@ -24,6 +25,9 @@ public class Slot : MonoBehaviour {
 		return isPath;
 	}
 
+	public bool getIsWater(){
+		return isWater;
+	}
 
 	public void SetActive(bool active){
 		gameObject.SetActive(active);
@@ -36,7 +40,7 @@ public class Slot : MonoBehaviour {
     }
 
     private void sell_obj() {
-        GameObject.Find("GameManager").GetComponent<LifeAmountManager>().GainAmount(unit.GetComponent<Action_Defense>().towerPrice);
+        GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(unit.GetComponent<Action_Defense>().getValues().towerPrice);
         isOccupied = false;
         Destroy(unit);
     }

@@ -248,8 +248,8 @@ ModelImporter:
     7400002: Attack_Oliphant_MT
     7400004: Esqueleto|Attack_Oliphant_MT
     7400006: Esqueleto|Moving_Oliphant_MT
-    7400008: attack
-    7400010: move
+    7400008: A_Oliphant_attack
+    7400010: A_Oliphant_moving
     7400012: Esqueleto|attack
     7400014: Esqueleto|move
     11100000: //RootNode
@@ -275,7 +275,703 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_Oliphant_attack
+      takeName: attack
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: ElphEYER
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart0
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart1
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/Bone
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033/Bone.033_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031/Bone.031_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038/Bone.038_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039/Bone.039_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035/Bone.035_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049/Bone.049_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050/Bone.050_end
+        weight: 1
+      - path: Esqueleto/Bone.001
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Esqueleto/Bone.002
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008/Bone.008_end
+        weight: 1
+      - path: Esqueleto/Bone.009
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018/Bone.018_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016/Bone.016_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023/Bone.023_end
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.003
+        weight: 1
+      - path: Palo11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: A_Oliphant_moving
+      takeName: move
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: ElphEYER
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart0
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart1
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/Bone
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033/Bone.033_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031/Bone.031_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038/Bone.038_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039/Bone.039_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035/Bone.035_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049/Bone.049_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050/Bone.050_end
+        weight: 1
+      - path: Esqueleto/Bone.001
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Esqueleto/Bone.002
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008/Bone.008_end
+        weight: 1
+      - path: Esqueleto/Bone.009
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018/Bone.018_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016/Bone.016_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023/Bone.023_end
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.003
+        weight: 1
+      - path: Palo11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Esqueleto|attack
+      takeName: Esqueleto|attack
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: ElphEYER
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart0
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart1
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/Bone
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033/Bone.033_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031/Bone.031_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038/Bone.038_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039/Bone.039_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035/Bone.035_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049/Bone.049_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050/Bone.050_end
+        weight: 1
+      - path: Esqueleto/Bone.001
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Esqueleto/Bone.002
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008/Bone.008_end
+        weight: 1
+      - path: Esqueleto/Bone.009
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018/Bone.018_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016/Bone.016_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023/Bone.023_end
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.003
+        weight: 1
+      - path: Palo11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Esqueleto|move
+      takeName: Esqueleto|move
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera.001
+        weight: 1
+      - path: ElphEYER
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart0
+        weight: 1
+      - path: ElphEYER/ElphEYER_MeshPart1
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/Bone
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033
+        weight: 1
+      - path: Esqueleto/Bone/Bone.019/Bone.020/Bone.021/Bone.025/Bone.032/Bone.033/Bone.033_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.027/Bone.028/Bone.029/Bone.030/Bone.031/Bone.031_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.036/Bone.038/Bone.038_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.026/Bone.037/Bone.039/Bone.039_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035
+        weight: 1
+      - path: Esqueleto/Bone/Bone.022/Bone.024/Bone.034/Bone.035/Bone.035_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.049/Bone.049_end
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050
+        weight: 1
+      - path: Esqueleto/Bone/Bone.040/Bone.041/Bone.042/Bone.043/Bone.044/Bone.045/Bone.046/Bone.047/Bone.048/Bone.050/Bone.050_end
+        weight: 1
+      - path: Esqueleto/Bone.001
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005
+        weight: 1
+      - path: Esqueleto/Bone.001/Bone.003/Bone.004/Bone.005/Bone.005_end
+        weight: 1
+      - path: Esqueleto/Bone.002
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008
+        weight: 1
+      - path: Esqueleto/Bone.002/Bone.006/Bone.007/Bone.008/Bone.008_end
+        weight: 1
+      - path: Esqueleto/Bone.009
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.011/Bone.013/Bone.017/Bone.018/Bone.018_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.012/Bone.014/Bone.015/Bone.016/Bone.016_end
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023
+        weight: 1
+      - path: Esqueleto/Bone.009/Bone.010/Bone.023/Bone.023_end
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: Lamp.001
+        weight: 1
+      - path: Lamp.003
+        weight: 1
+      - path: Palo11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

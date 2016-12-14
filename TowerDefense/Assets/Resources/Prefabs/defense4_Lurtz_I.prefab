@@ -555,10 +555,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011686959584}
-  - 111: {fileID: 111000013986472542}
+  - 114: {fileID: 114000012596351934}
+  - 95: {fileID: 95000012473293474}
+  - 114: {fileID: 114000011219540546}
   m_Layer: 0
   m_Name: defense4_Lurtz_I
-  m_TagString: Untagged
+  m_TagString: WallEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,6 +924,8 @@ GameObject:
   - 4: {fileID: 4000010846130336}
   - 33: {fileID: 33000010178390174}
   - 23: {fileID: 23000013645982292}
+  - 65: {fileID: 65000011288572730}
+  - 54: {fileID: 54000012755291538}
   m_Layer: 0
   m_Name: Fork_MedRe
   m_TagString: Untagged
@@ -1533,8 +1537,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012045868116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.841766, y: 2.0100005, z: 78.06156}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 39.3, y: 1.96, z: -77.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010017076652}
@@ -2503,22 +2507,76 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014000396472}
   m_Mesh: {fileID: 4300002, guid: 677df595659e2904586d1bf3b6c4b8ee, type: 3}
---- !u!111 &111000013986472542
-Animation:
+--- !u!54 &54000012755291538
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013346903308}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65000011288572730
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013346903308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30304998, y: 0.28512502, z: 2.0475059}
+  m_Center: {x: 0.721962, y: 0.0135305, z: 1.029537}
+--- !u!95 &95000012473293474
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012045868116}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 677df595659e2904586d1bf3b6c4b8ee, type: 3}
-  m_Animations:
-  - {fileID: 7400004, guid: 7df4a7d92994705428ffa39bb62ce563, type: 3}
-  - {fileID: 7400002, guid: d8f5e285d9702e141bddc55fd1f0310e, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 9000000, guid: 677df595659e2904586d1bf3b6c4b8ee, type: 3}
+  m_Controller: {fileID: 9100000, guid: 8ac1bc76ad4884446944875adfb8cad5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011219540546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012045868116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a289b46a3e743854e9787f5d9c6f40bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  range: 50
+  strenght: 5
+  projectile: {fileID: 1000013346903308}
+--- !u!114 &114000012596351934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012045868116}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137000010773261228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

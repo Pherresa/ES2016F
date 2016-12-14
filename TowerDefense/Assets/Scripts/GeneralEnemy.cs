@@ -12,15 +12,17 @@ public class GeneralEnemy : MonoBehaviour {
 	public int timeAttack;
 
 	public Text EnemyLifeText;
+    private Enemy_Values_Gene valu;
 
 	// Use this for initialization
 	void Start () {
-		//For example
-		maxLife = Enemy_Values_Gene.m_little_enemy("l");
-		life = Enemy_Values_Gene.m_little_enemy("l");
+        //For example
+        valu = new Enemy_Values_Gene();
+		maxLife = valu.m_little_enemy("l");
+		life = valu.m_little_enemy("l");
 
 		// Todo
-		damage = Enemy_Values_Gene.m_little_enemy("a");
+		damage = valu.m_little_enemy("a");
 		timeAttack = 0;
 		alive = true;
 		EnemyLifeText = GameObject.Find("EnemyLifeText").GetComponent<Text>();
@@ -55,7 +57,7 @@ public class GeneralEnemy : MonoBehaviour {
 			GetComponent<MeshRenderer>().enabled = false;
 
 			// We add 5 points if the player kills an enemy.
-			LifeAmountManager lifeAM = GameObject.FindObjectOfType<LifeAmountManager>();
+			GameManager lifeAM = GameObject.FindObjectOfType<GameManager>();
 			lifeAM.updateCurrentScore (5);
 
 		}
