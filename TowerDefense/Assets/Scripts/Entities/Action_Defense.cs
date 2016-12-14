@@ -134,6 +134,10 @@ public class Action_Defense : Tower
 					generateGhost(15);
 					break;
 
+				case TowerType.ARAGORN_MT:
+					initAragornWarrior();
+					break;
+
             }
         }
     }
@@ -385,7 +389,7 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.MERCENARYHUMAN_I;
         }
-        else if (name == "defense4_Aragorn_MT")
+        else if (name == "defender4_Aragorn_MT")
         {
             valu.type = TowerType.ARAGORN_MT;
         }
@@ -572,13 +576,9 @@ public class Action_Defense : Tower
             if (i == 2) newPos.x += 3;
             newPos.y -= 2;
             newPos.z += 2;
-            rohanHorse.transform.position = newPos;
-            //rohanHorse.AddComponent<Rigidbody>();
-            rohanHorse.AddComponent<DefenseWarrior>();
-            rohanHorse.GetComponent<DefenseWarrior>().center = this.transform.position;
-            rohanHorse.GetComponent<DefenseWarrior>().tag = "projectile";
-
-            //rohanHorse.transform.parent = transform;  */
+			rohanHorse.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (rohanHorse); 
         }
 
     }
@@ -606,13 +606,30 @@ public class Action_Defense : Tower
 			newPos.y -= 2;
 			newPos.z += 2;
 			ghost.transform.position = newPos;
-			//rohanHorse.AddComponent<Rigidbody>();
-			ghost.AddComponent<DefenseWarrior>();
-			ghost.GetComponent<DefenseWarrior>().center = this.transform.position;
-			ghost.GetComponent<DefenseWarrior>().tag = "projectile"; 
+			//add the defensewarrior component
+			addDefenseWarriorComponent (ghost);
 		}
 
 	}
 
+	/**
+	 * This function iniciate the behaviour of aragorn as a warrior.
+	 **/
+	void initAragornWarrior() 
+	{ 
+		//add the defensewarrior component
+		addDefenseWarriorComponent(this.gameObject); 
+		Debug.Log ("Aragorn wariior");
+	}
+
+	/**
+	 * This function add the defensewarrior component in a gameobject given.
+	 **/ 
+	void addDefenseWarriorComponent( GameObject obj)
+	{
+		obj.AddComponent<DefenseWarrior> ();
+		obj.gameObject.GetComponent<DefenseWarrior> ().center = this.transform.position;
+		obj.gameObject.GetComponent<DefenseWarrior> ().tag = "projectile"; 
+	}
 }
 
