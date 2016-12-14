@@ -64,7 +64,7 @@ public class Action_Defense : Tower
 			anims = GetComponentsInChildren<Animation>();
 			break;
 		case TowerType.GHOSTSHIP_MT:
-			anims = GetComponentsInChildren<Animation>();
+			anim = GetComponent<Animation>();
 			break;
         }
     }
@@ -113,6 +113,11 @@ public class Action_Defense : Tower
 
 			case TowerType.GHOSTSHIP_MT: 
 				anim["A_GhostShip_idle"].speed = 2f;  
+				stateTrebuchetIdle = anim["A_GhostShip_idle"];
+				stateTrebuchetIdle.time = 0;
+				stateTrebuchetIdle.enabled = true;
+				anim.Sample();
+				stateTrebuchetIdle.enabled = false; 
 				break;
         }
     }
