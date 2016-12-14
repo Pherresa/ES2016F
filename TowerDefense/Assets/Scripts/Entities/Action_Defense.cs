@@ -112,7 +112,7 @@ public class Action_Defense : Tower
 
 
 			case TowerType.GHOSTSHIP_MT: 
-				anim["A_GhostShip_idle"].speed = 2f;  
+				anim["A_GhostShip_idle"].speed = 0.25f;  
 				stateTrebuchetIdle = anim["A_GhostShip_idle"];
 				stateTrebuchetIdle.time = 0;
 				stateTrebuchetIdle.enabled = true;
