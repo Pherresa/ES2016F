@@ -8,6 +8,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	private CanvasGroup canvasSU;
 	private Text infoUnitText;
 	private CanvasGroup canvasIU;
+    private CanvasGroup HUDCanvas;
+    private Button sell;
 	MouseManager mm;
 
 	// Use this for initialization
@@ -17,7 +19,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 		infoUnitText = GameObject.Find("infoUnitText").GetComponent<Text>();
 		canvasIU = GameObject.Find("InfoUnit").GetComponent<CanvasGroup>();
 		setActive (false);
-	}
+        sell = GameObject.Find("ButtonSell").GetComponent();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -43,8 +46,6 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasIU.transform.position = newPositionIU;
 			canvasIU.alpha = 1;
 			if (mm.selectedObject != null) {
-				Debug.Log("INFO UNIT_______________");
-				Debug.Log (mm.selectedObject.name);
 				Slot slot = mm.selectedObject.GetComponent<Slot> ();
                 //Price for selling is half of the new price.
                 int sellPrice = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice / 2;
