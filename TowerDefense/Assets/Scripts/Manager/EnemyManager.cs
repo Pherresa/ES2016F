@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour {
 
         lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
 
-        createNewWave();
+        //createNewWave();
 	}
 	
 	// Update is called once per frame

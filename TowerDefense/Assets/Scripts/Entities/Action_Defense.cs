@@ -64,7 +64,7 @@ public class Action_Defense : Tower
 			anims = GetComponentsInChildren<Animation>();
 			break;
 		case TowerType.GHOSTSHIP_MT:
-			anims = GetComponentsInChildren<Animation>();
+			anim = GetComponent<Animation>();
 			break;
         }
     }
@@ -112,7 +112,12 @@ public class Action_Defense : Tower
 
 
 			case TowerType.GHOSTSHIP_MT: 
-				anim["A_GhostShip_idle"].speed = 2f;  
+				anim["A_GhostShip_idle"].speed = 0.25f;  
+				stateTrebuchetIdle = anim["A_GhostShip_idle"];
+				stateTrebuchetIdle.time = 0;
+				stateTrebuchetIdle.enabled = true;
+				anim.Sample();
+				stateTrebuchetIdle.enabled = false; 
 				break;
         }
     }
@@ -132,6 +137,10 @@ public class Action_Defense : Tower
 
 				case TowerType.GHOSTSHIP_MT:
 					generateGhost(15);
+					break;
+
+				case TowerType.ARAGORN_MT:
+					initAragornWarrior();
 					break;
 
             }
@@ -291,13 +300,14 @@ public class Action_Defense : Tower
         {
             checkPhaseAnim();
             // vemos que no sea nulo 
-			switch (valu.type)
-			{ 
-				case TowerType.TREBUCHET_MT:
-					// llamamos la funcion que gira al towers
-					SpinTower.spin(target.transform.position, this.transform);
-					break;
+			if (target != null) {
+				switch (valu.type) { 
+					case TowerType.TREBUCHET_MT:
+						// llamamos la funcion que gira al towers
+						SpinTower.spin (target.transform.position, this.transform);
+						break;
 
+				}
 			}
         }
     }
@@ -385,7 +395,7 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.MERCENARYHUMAN_I;
         }
-        else if (name == "defense4_Aragorn_MT")
+        else if (name == "defender4_Aragorn_MT")
         {
             valu.type = TowerType.ARAGORN_MT;
         }
@@ -572,13 +582,9 @@ public class Action_Defense : Tower
             if (i == 2) newPos.x += 3;
             newPos.y -= 2;
             newPos.z += 2;
-            rohanHorse.transform.position = newPos;
-            //rohanHorse.AddComponent<Rigidbody>();
-            rohanHorse.AddComponent<RohanHorse>();
-            rohanHorse.GetComponent<RohanHorse>().center = this.transform.position;
-            rohanHorse.GetComponent<RohanHorse>().tag = "projectile";
-
-            //rohanHorse.transform.parent = transform;  */
+			rohanHorse.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (rohanHorse); 
         }
 
     }
@@ -606,13 +612,30 @@ public class Action_Defense : Tower
 			newPos.y -= 2;
 			newPos.z += 2;
 			ghost.transform.position = newPos;
-			//rohanHorse.AddComponent<Rigidbody>();
-			ghost.AddComponent<RohanHorse>();
-			ghost.GetComponent<RohanHorse>().center = this.transform.position;
-			ghost.GetComponent<RohanHorse>().tag = "projectile"; 
+			//add the defensewarrior component
+			addDefenseWarriorComponent (ghost);
 		}
 
 	}
 
+	/**
+	 * This function iniciate the behaviour of aragorn as a warrior.
+	 **/
+	void initAragornWarrior() 
+	{ 
+		//add the defensewarrior component
+		addDefenseWarriorComponent(this.gameObject); 
+		Debug.Log ("Aragorn wariior");
+	}
+
+	/**
+	 * This function add the defensewarrior component in a gameobject given.
+	 **/ 
+	void addDefenseWarriorComponent( GameObject obj)
+	{
+		obj.AddComponent<DefenseWarrior> ();
+		obj.gameObject.GetComponent<DefenseWarrior> ().center = this.transform.position;
+		obj.gameObject.GetComponent<DefenseWarrior> ().tag = "projectile"; 
+	}
 }
 
