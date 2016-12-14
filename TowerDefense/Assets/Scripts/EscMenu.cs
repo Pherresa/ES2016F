@@ -21,7 +21,9 @@ public class EscMenu : MonoBehaviour {
     {
         print("exit");
         //mEnablePanel("initMenu");
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(0);
+
     }
     public void mReturnMainMenu()
     {
@@ -29,7 +31,9 @@ public class EscMenu : MonoBehaviour {
     }
 
     public void mSubmit(){
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(0);
+
     }
 
 

@@ -6,6 +6,25 @@ using System;
 
 public class Enemy : MonoBehaviour {
 
+    public enum EnemyType {
+        UNKNOWN,
+        ENT,
+        ORC_MT,
+        OLIPHANT_MT,
+        ELF_I,
+        BATTERINGRAM_MT,
+        HOBBIT_I,
+        ENEMY
+    }
+
+    public struct Value {
+        public float maxlife;
+        public int damage;
+        public int money;
+        public int speed;
+        public EnemyType type;
+    }
+
     public int m_velocity;
     private Queue m_moviments;
     private Vector3 m_movi_actu;
@@ -15,12 +34,13 @@ public class Enemy : MonoBehaviour {
     private RectTransform trans;
 
     public float life;
-    public float maxlife;
-    public int damage;
-    private int money;
+    Value enem;
+
+    private Enemy_Values_Gene gener_va;
 
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
+	public AudioClip soundSword;
 
     private AudioSource source {
         get{
@@ -34,17 +54,25 @@ public class Enemy : MonoBehaviour {
 
     private GameObject explosion;
 
+    void Awake() {
+        gener_va = new Enemy_Values_Gene();
+        getTypeOfEnemy();
+        gener_va.asig_values_enemy(ref enem);
+    }
+
     // Use this for initialization
     void Start () {
-
         soundAttacked = Resources.Load("SoundEffects/bomb") as AudioClip;
 
         soundDeath = Resources.Load("SoundEffects/enemyDead") as AudioClip;
 
+		soundSword = Resources.Load("SoundEffects/soundSword") as AudioClip;
+
         explosion = Resources.Load("Prefabs/Explosion") as GameObject;
-        life = 100f;
-        maxlife = 100f;
-        money = Enemy_Values_Gene.m_medium_enemy("m");
+
+        life = enem.maxlife;
+        //enem.maxlife = 100f;
+        //enem.money = 0;// Enemy_Values_Gene.m_medium_enemy("m");
         //initText();
         m_moviments = new Queue();
         m_moviments.Enqueue(new Vector3(276, 60, 389)); // TEST
@@ -69,9 +97,9 @@ public class Enemy : MonoBehaviour {
 
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
+        //Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         
-        Vector3 positionEx = new Vector3(0.0f, 160.0f, 0.0f);
+        //Vector3 positionEx = new Vector3(0.0f, 160.0f, 0.0f);
         
         trans = textObject.AddComponent<RectTransform>();
         //trans.anchoredPosition = new Vector2(10.0f, 10.0f);
@@ -84,7 +112,7 @@ public class Enemy : MonoBehaviour {
         Font ArialFont = (Font)Resources.GetBuiltinResource (typeof(Font), "Arial.ttf");
         textLife.font = ArialFont;
         textLife.name = "Life";
-        textLife.text = life + "/" + maxlife;
+        textLife.text = life + "/" + enem.maxlife;
         textLife.fontSize = 10;
         textLife.color = Color.red;
  
@@ -99,7 +127,7 @@ public class Enemy : MonoBehaviour {
     void Update () {
 
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
+        //Vector3 w = new Vector3(pos.x, pos.y, 0.0f);
         //textLife.transform.position = pos;
         //trans.position = pos;
 
@@ -121,7 +149,7 @@ public class Enemy : MonoBehaviour {
         {
             playSound(soundDeath);
             Instantiate(explosion, transform.position, transform.rotation);
-            GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(money);
+            GameObject.Find("GameManager").GetComponent<GameManager>().GainAmount(enem.money);
             GameObject.Find("GameManager").GetComponent<GameManager>().updateCurrentScore(5);
             Destroy(gameObject);
             playSound(soundDeath);
@@ -148,7 +176,46 @@ public class Enemy : MonoBehaviour {
 			life -= 50f;
 		}*/
 
-    } 
+    }
 
+    private void getTypeOfEnemy()
+    {
+        String name = this.gameObject.name.Split('(')[0];
+        if (name == "attack4_BatteringRam_MT")
+        {
+            enem.type = EnemyType.BATTERINGRAM_MT;
+        }
+        else if (name == "attack3_Elf_I")
+        {
+            enem.type = EnemyType.ELF_I;
+        }
+        else if (name == "attack1_Ent_I")
+        {
+            enem.type = EnemyType.ENT;
+        }
+        else if (name == "attack4_Hobbit_I")
+        {
+            enem.type = EnemyType.HOBBIT_I;
+        }
+        else if (name == "attack2_Oliphant_MT")
+        {
+            enem.type = EnemyType.OLIPHANT_MT;
+        }
+        else if (name == "attack1_Orc_MT")
+        {
+            enem.type = EnemyType.ORC_MT;
+        }
+        else if (name == "Enemy")
+        {
+            enem.type = EnemyType.ENEMY;
+        }
+        else
+        {
+            enem.type = EnemyType.UNKNOWN;
+        }
+    }
 
+    public Value getValues() {
+        return enem;
+    }
 }
