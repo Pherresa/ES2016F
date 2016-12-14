@@ -478,7 +478,7 @@ GameObject:
   - 4: {fileID: 4000011627316394}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,6 +500,7 @@ GameObject:
   - 114: {fileID: 114000011237356128}
   - 111: {fileID: 111000011122608286}
   - 114: {fileID: 114000011483223704}
+  - 114: {fileID: 114000014202741986}
   m_Layer: 0
   m_Name: attack2_Oliphant_MT
   m_TagString: Enemy
@@ -1959,10 +1960,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: 5
   life: 100
-  maxlife: 100
-  damage: 10
   soundAttacked: {fileID: 8300000, guid: b49194f810b3d714d95a6941518a5897, type: 3}
   soundDeath: {fileID: 8300000, guid: 5272a4888aea45e41a021a5f8567b3f5, type: 3}
+  soundSword: {fileID: 0}
 --- !u!114 &114000011237356128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1976,10 +1976,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: 0
   life: 100
-  maxlife: 100
-  damage: 10
   soundAttacked: {fileID: 0}
   soundDeath: {fileID: 0}
+  soundSword: {fileID: 0}
 --- !u!114 &114000011248005764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2198,6 +2197,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014202741986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012052093880}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0b5d9958a782c4e92960f6ac1991ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 10
+  turnSpeed: 10
+  enemyBody: {fileID: 4000011627316394}
+  enemyCompass: {fileID: 4000012562674144}
 --- !u!137 &137000013483447618
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

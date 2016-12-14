@@ -252,6 +252,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
 
+					//print (prefab.name.Contains ("Gandalf"));
+					if(newUnit.name.Contains("Gandalf")){
+						newUnit.GetComponent<Gandalf> ().startAnimation ();
+					}
+
                 }
                 else
                 {

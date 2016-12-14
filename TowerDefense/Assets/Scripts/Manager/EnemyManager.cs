@@ -130,9 +130,10 @@ public class EnemyManager : MonoBehaviour {
 		GameObject enemy = Instantiate (enemyPrefab);
 		enemy.SetActive (false);
 		enemy.transform.parent = transform;
+		enemy.AddComponent<Elephant> ();
 		//get the thing component on your instantiated object
 		AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-		astarAI.speed = 5;
+		//astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
 		astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 		yield return new WaitForSeconds(duration);
 		enemy.SetActive(true);

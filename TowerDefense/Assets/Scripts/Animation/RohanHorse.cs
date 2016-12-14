@@ -95,15 +95,14 @@ public class RohanHorse : MonoBehaviour {
 	{
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		GameObject auxTarget=null;
-		float tmpDistanceCenter = Mathf.Infinity;
+
 		float tmpDistanceRH = Mathf.Infinity;
-		GameObject tmpEnemy = null;
+
 		float distanceBetweenCenterEnemy =  Mathf.Infinity; 
 		float distanceBetweenRHEnemy = Mathf.Infinity;
 		//bool isNotCollisiongWOR = isNotCollisioningWithOtherRohan (3);
-		Debug.Log("CENTER");
+	
 		Debug.Log (center);
-		float auxDistance = Mathf.Infinity;
 		foreach (GameObject enemy in enemies) { 
 			// 1rst we see if the enemy is inside the circle operation:
 			distanceBetweenCenterEnemy = Vector3.Distance (center, enemy.transform.position);
