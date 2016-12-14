@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011076689724}
-  - 111: {fileID: 111000010875746804}
+  - 95: {fileID: 95000014187815910}
   m_Layer: 0
   m_Name: OrcWarrior
   m_TagString: Untagged
@@ -717,10 +717,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011306774036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.43, y: 0, z: 17.05}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 38.411682, y: 1.9659692, z: 26.57396}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
   - {fileID: 4000010673958984}
   - {fileID: 4000012668292546}
@@ -1109,22 +1109,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013041413104}
   m_Mesh: {fileID: 4300000, guid: b61cd8172ed5172448476d55247db323, type: 3}
---- !u!111 &111000010875746804
-Animation:
+--- !u!95 &95000014187815910
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011306774036}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: b61cd8172ed5172448476d55247db323, type: 3}
-  m_Animations:
-  - {fileID: 7400002, guid: b61cd8172ed5172448476d55247db323, type: 3}
-  - {fileID: 7400004, guid: b61cd8172ed5172448476d55247db323, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: b61cd8172ed5172448476d55247db323, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!137 &137000010083915220
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1188,8 +1189,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: -1.8514634, y: 0.00000011920929, z: 0.306433}
-    m_Extent: {x: 1.5619501, y: 1.5992496, z: 1.193132}
+    m_Center: {x: -1.993952, y: 0.00000011920929, z: -0.15359765}
+    m_Extent: {x: 1.437465, y: 1.8275121, z: 0.7202336}
   m_DirtyAABB: 0
 --- !u!137 &137000010916473116
 SkinnedMeshRenderer:
@@ -1254,8 +1255,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: -3.1244423, y: -0.003846079, z: 0.96059537}
-    m_Extent: {x: 1.674814, y: 0.75601125, z: 1.7182455}
+    m_Center: {x: -3.9040172, y: 0.0002734661, z: 0.17582953}
+    m_Extent: {x: 1.1176193, y: 0.6191298, z: 1.0818675}
   m_DirtyAABB: 0
 --- !u!137 &137000011918864702
 SkinnedMeshRenderer:
@@ -1320,8 +1321,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: 0.65663373, y: 0.0000002682209, z: 0.11337376}
-    m_Extent: {x: 1.349156, y: 0.9897293, z: 1.0518558}
+    m_Center: {x: 0.64998794, y: 0.00000017881393, z: -0.13122565}
+    m_Extent: {x: 1.3318899, y: 0.9897296, z: 0.8136144}
   m_DirtyAABB: 0
 --- !u!137 &137000012273882638
 SkinnedMeshRenderer:
@@ -1386,8 +1387,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: 2.6418233, y: 0.48888946, z: 0.4383946}
-    m_Extent: {x: 1.6628222, y: 0.56933606, z: 1.0800655}
+    m_Center: {x: 3.311567, y: 0.5377927, z: 0.4135864}
+    m_Extent: {x: 1.429784, y: 0.69242287, z: 1.2815206}
   m_DirtyAABB: 0
 --- !u!137 &137000012628553414
 SkinnedMeshRenderer:
@@ -1452,8 +1453,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: -0.7733587, y: -0.17372024, z: 1.1439651}
-    m_Extent: {x: 3.7585306, y: 1.9528242, z: 2.037159}
+    m_Center: {x: -0.85561955, y: 0.07340133, z: 0.24069583}
+    m_Extent: {x: 3.8422656, y: 2.2109852, z: 1.4906498}
   m_DirtyAABB: 0
 --- !u!137 &137000013946698930
 SkinnedMeshRenderer:
@@ -1518,6 +1519,6 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 4000011283518686}
   m_AABB:
-    m_Center: {x: 2.6714847, y: -0.48887205, z: 0.57070786}
-    m_Extent: {x: 1.6934683, y: 0.56877863, z: 1.21124}
+    m_Center: {x: 3.3134208, y: -0.5363476, z: 0.40595746}
+    m_Extent: {x: 1.4335302, y: 0.6899395, z: 1.2656232}
   m_DirtyAABB: 0
