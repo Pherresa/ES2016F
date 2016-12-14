@@ -6,6 +6,7 @@ public class Slot : MonoBehaviour {
 
 	public bool isPath;
 	public bool isOccupied;
+	public bool isWater;
 	public GameObject unit;
 
 	// Use this for initialization
@@ -24,6 +25,9 @@ public class Slot : MonoBehaviour {
 		return isPath;
 	}
 
+	public bool getIsWater(){
+		return isWater;
+	}
 
 	public void SetActive(bool active){
 		gameObject.SetActive(active);

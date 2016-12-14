@@ -100,10 +100,12 @@ public abstract class BaseTower : MonoBehaviour {
         {
             GameObject projectileInstance = Instantiate(projectile);
             //projectileInstance.transform.parent = transform;
-            projectileInstance.transform.localScale = transform.lossyScale;
+            projectileInstance.transform.localScale = 
+                new Vector3(transform.localScale.x * projectile.transform.localScale.x,
+                transform.localScale.y * projectile.transform.localScale.y,
+                transform.localScale.z * projectile.transform.localScale.z);
             projectileInstance.transform.position = projectile.transform.position;// + new Vector3(0f, 3f, 0f);
             projectileInstance.transform.rotation = getFixedProjectileRotation();
-            //projectileInstance.AddComponent<ShootingMove>().setData(target).tag = "projectile";
             projectileInstance.AddComponent<Projectile>().setData(target, getProjectileDuration(), getProjectileSpeed(), getFixedProjectileRotation()).tag = "projectile";
             projectileInstance.tag = "projectile";
             projectile.SetActive(false);
