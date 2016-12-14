@@ -340,6 +340,7 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.OLIPHANT_MT:
                 enemy_lvl2(ref valu);
+                valu.speed = 5;
                 break;
             case Enemy.EnemyType.ORC_MT:
                 enemy_lvl1(ref valu);
