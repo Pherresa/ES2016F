@@ -11,15 +11,28 @@ public abstract class Tower : MonoBehaviour {
         TREBUCHET_MT,
         ROHANBARRACKS_MT,
         ORCARCHER_I,
-        MERCENARYHUMAN_I
+        MERCENARYHUMAN_I,
+        ARAGORN_MT,
+        GANDALF_MT,
+        SARUMAN_I,
+        LURTZ_I,
+        ORCWARRIOR,
+		GHOSTSHIP_MT
+    }
+
+    public struct Values
+    {
+        public int towerPrice;
+        public TowerType type;
+        public float range;
+        public int strenght;
     }
 
     protected GameObject target;
-    protected float range;
-    protected int strenght;
+    
     protected int level;
     protected GameObject projectile;
-    protected TowerType type = TowerType.UNKNOWN;
+    
     protected bool active;
     protected abstract void getTarget();
     protected abstract void shoot();

@@ -35,6 +35,10 @@ public abstract class BaseTower : MonoBehaviour {
 
     protected abstract int getIdleStateHash();
     protected abstract int getAttackStateHash();
+    protected abstract Quaternion getFixedRotation();
+    protected abstract Quaternion getFixedProjectileRotation();
+    protected abstract float getProjectileDuration();
+    protected abstract float getProjectileSpeed();
 
     public void destroyTower() { Destroy(gameObject); }
     public bool isActiveTower() { return active; }
@@ -64,16 +68,18 @@ public abstract class BaseTower : MonoBehaviour {
     {
         if (target != null && getCurrentAnimationStateHash() == getIdleStateHash())
         {
+            projectile.SetActive(true);
             startShootAnimation();
             isShooting = false;
+        } else if (target == null && getCurrentAnimationStateHash() == getIdleStateHash())
+        {
+            projectile.SetActive(true);
         }
     }
 
     private void checkAnimationState()
     {
-        if (animator.IsInTransition(0)
-            && getCurrentAnimationStateHash() == getAttackStateHash()
-            && !isShooting)
+        if (!isShooting && animator.IsInTransition(0) && getCurrentAnimationStateHash() == getAttackStateHash())
         {
             generateProjectile();
             isShooting = true;
@@ -93,11 +99,16 @@ public abstract class BaseTower : MonoBehaviour {
         if(projectile != null)
         {
             GameObject projectileInstance = Instantiate(projectile);
-            projectileInstance.transform.parent = transform;
-            projectileInstance.transform.position = projectile.transform.position;
-            //projectileInstance.AddComponent<ShootingMove>().setData(target).tag = "projectile";
-            projectileInstance.AddComponent<Projectile>().setData(target, 3f, 50f).tag = "projectile";
+            //projectileInstance.transform.parent = transform;
+            projectileInstance.transform.localScale = 
+                new Vector3(transform.localScale.x * projectile.transform.localScale.x,
+                transform.localScale.y * projectile.transform.localScale.y,
+                transform.localScale.z * projectile.transform.localScale.z);
+            projectileInstance.transform.position = projectile.transform.position;// + new Vector3(0f, 3f, 0f);
+            projectileInstance.transform.rotation = getFixedProjectileRotation();
+            projectileInstance.AddComponent<Projectile>().setData(target, getProjectileDuration(), getProjectileSpeed(), getFixedProjectileRotation()).tag = "projectile";
             projectileInstance.tag = "projectile";
+            projectile.SetActive(false);
         }
     }
 
@@ -129,7 +140,16 @@ public abstract class BaseTower : MonoBehaviour {
     {
         if (target != null)
         {
-            SpinTower.spin(target.transform.position, this.transform);
+            Vector3 targetPosition = target.transform.position;
+
+            float turnSpeed = 2f;
+            targetPosition.y = 0;
+
+            // Fix forward vector
+            Quaternion newRotation = Quaternion.LookRotation(transform.position - targetPosition, Vector3.forward) * getFixedRotation();
+            newRotation.x = 0.0f;
+            newRotation.z = 0.0f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
         }
     }
 }
