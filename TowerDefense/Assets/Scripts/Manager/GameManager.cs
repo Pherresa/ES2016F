@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
     {
         if (amount >= FIRST_TURRET_PRICE) //TO DO: COST OF UNIT 1
         {
-            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.red;
+            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.gray;
         }
         else
         {
@@ -239,7 +239,7 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= SECOND_TURRET_PRICE) //TO DO: COST OF UNIT 2
         {
-            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.blue;
+            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
         }
         else
         {
@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= THIRTH_TURRET_PRICE) //TO DO: COST OF UNIT 3
         {
-            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.green;
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
         }
         else
         {
@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= FOURTH_TURRET_PRICE) //TO DO: COST OF UNIT 4
         {
-            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.magenta;
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
         }
         else
         {
@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= FITH_TURRET_PRICE) //TO DO: COST OF UNIT 5
         {
-            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.yellow;
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
         }
         else
         {
