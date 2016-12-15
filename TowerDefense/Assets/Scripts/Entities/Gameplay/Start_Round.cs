@@ -81,7 +81,7 @@ public class Start_Round : MonoBehaviour {
         act_time = (int)time_tmp;
         cnt_time = act_time;
         cont_round++;
-        Debug.Log(cont_round);
+        //Debug.Log(cont_round);
         
         if (type == Escen.ISENGARD)
         {
