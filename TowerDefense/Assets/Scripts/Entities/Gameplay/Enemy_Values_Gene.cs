@@ -85,7 +85,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    private int m_little_tower(string selector)
+    public int m_little_tower(string selector)
     {
         switch (selector)
         {
@@ -102,7 +102,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    private int m_medium_tower(string selector)
+    public int m_medium_tower(string selector)
     {
         switch (selector)
         {
@@ -121,7 +121,7 @@ public class Enemy_Values_Gene{
 
 
 
-    private int m_big_tower(string selector)
+    public int m_big_tower(string selector)
     {
         switch (selector)
         {
@@ -138,7 +138,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    private int m_4_tower(string selector)
+    public int m_4_tower(string selector)
     {
         switch (selector)
         {
@@ -155,7 +155,7 @@ public class Enemy_Values_Gene{
         return 0;
     }
 
-    private int m_5_tower(string selector)
+    public int m_5_tower(string selector)
     {
         switch (selector)
         {
