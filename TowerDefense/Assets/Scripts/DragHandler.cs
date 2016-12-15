@@ -29,6 +29,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Texture red;
     Texture green;
 
+    public bool isNotDraggable;
+
+
     public AudioClip soundDrop;
     public AudioClip soundDragging;
     private AudioSource source {
@@ -72,6 +75,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         gameManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
+    public void setIsNotDraggable(bool b){
+        isNotDraggable = b;
+    }
+
 
     void Update(){
         if(infoShowed){
@@ -107,32 +114,35 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        if (gameManager.amount >= price)
-        {
-            RaycastHit[] hits;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hits = Physics.RaycastAll(ray, 5000f);
-            if (hits != null && hits.Length > 0)
-            {
-                MaybeShowHoverPrefab(hits);
+        if(!isNotDraggable){
 
-                int slotIndex = GetSlotIndex(hits);
-                if (slotIndex != -1)
+            if (gameManager.amount >= price)
+            {
+                RaycastHit[] hits;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                hits = Physics.RaycastAll(ray, 5000f);
+                if (hits != null && hits.Length > 0)
                 {
-                    //Projector p = hoverPrefab.findChuk
+                    MaybeShowHoverPrefab(hits);
+
+                    int slotIndex = GetSlotIndex(hits);
+                    if (slotIndex != -1)
+                    {
+                        //Projector p = hoverPrefab.findChuk
+                        
+                        GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
+                        Slot slotQuad = slotQuadObject.GetComponent<Slot>();
+                        activeSlot = slotQuad;
+                        EnableSlot(slotQuad);
+                    }
+                    else
+                    {
+                        hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
+                        activeSlot = null;
+                        DisableAllSlots();
                     
-                    GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
-                    Slot slotQuad = slotQuadObject.GetComponent<Slot>();
-                    activeSlot = slotQuad;
-                    EnableSlot(slotQuad);
-                }
-                else
-                {
-                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
-                    activeSlot = null;
-                    DisableAllSlots();
-                
-                    alreadyPlayedDraggingSound = false;
+                        alreadyPlayedDraggingSound = false;
+                    }
                 }
             }
         }
