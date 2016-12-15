@@ -22,6 +22,7 @@ GameObject:
   - 33: {fileID: 33000010090330798}
   - 23: {fileID: 23000011507184926}
   - 95: {fileID: 95000010893068750}
+  - 65: {fileID: 65000011061295774}
   m_Layer: 0
   m_Name: attack3P_Elf_I
   m_TagString: Untagged
@@ -78,6 +79,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013476997038}
   m_Mesh: {fileID: 4300000, guid: e498b72d071022e4caac1dd28fa0cf80, type: 3}
+--- !u!65 &65000011061295774
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013476997038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.400875, y: 9.352268, z: 2.1501732}
+  m_Center: {x: -0.32632256, y: -1.1988944, z: -0.09478551}
 --- !u!95 &95000010893068750
 Animator:
   serializedVersion: 3
