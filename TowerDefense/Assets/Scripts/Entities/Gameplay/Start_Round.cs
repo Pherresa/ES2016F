@@ -82,16 +82,16 @@ public class Start_Round : MonoBehaviour {
         cnt_time = act_time;
         cont_round++;
         Debug.Log(cont_round);
-        /* TODo : Round Theme create
+        
         if (type == Escen.ISENGARD)
         {
-            generate_round.createNewWaveIsengard();
+            generate_round.createNewWaveIsengard(cont_round);
         }
         else {
-            generate_round.createNewWaveMinasTirith();
-        }*/
+            generate_round.createNewWaveMinasTirith(cont_round);
+        }
         //Debug.Log("Generate Round");
-        generate_round.createNewWave();
+        //generate_round.createNewWave();
         GameObject.Find("hordsText").GetComponent<Text>().text = actu_round()+"/"+total_round;
 		// After finishing a round, the currentScore is updated
 		// to the finalScoreof the previos round
