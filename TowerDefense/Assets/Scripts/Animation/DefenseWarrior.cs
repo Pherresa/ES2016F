@@ -17,31 +17,33 @@ public class DefenseWarrior : MonoBehaviour {
 
 	private WarriorType warriorType;
 
-    Action_Defense.Values val;
+	Action_Defense.Values val;
 
-    Enemy_Values_Gene generation;
+	Enemy_Values_Gene generation;
 
 	Animation anim;
 	AnimationState stateRunning;
 	AnimationState stateAttacking; 
- 	
+
 	GameObject target;
 	public Vector3 center;
-    public int range;// = Enemy_Constants.T_RANGE_MEDIUM/2;
+	public int range;// = Enemy_Constants.T_RANGE_MEDIUM/2;
 	public int vel;
 	private float durationAnim;
 	private int distActivateAnim;
+	private int distCenterWarrior;
+	private Vector3 dir;
 
 	DateTime timeOnPlay; 
 	private Vector3 newPos; 
 
-    void Awake() { 
+	void Awake() { 
 		assignWarriorType ();
-        generation = new Enemy_Values_Gene(); 
-        generation.asig_values_tower(ref val);
-        range = (int)val.range;
-		 
-    }
+		generation = new Enemy_Values_Gene(); 
+		generation.asig_values_tower(ref val);
+		range = (int)val.range;
+
+	}
 
 
 	// Get warrior tyepe and  tower defense type 
@@ -54,6 +56,7 @@ public class DefenseWarrior : MonoBehaviour {
 			vel = 7; 
 			durationAnim = 1.0f;
 			distActivateAnim = 10;
+			distCenterWarrior = 4;
 
 		} else if (name == "defender4_Aragorn_MT") {
 			warriorType = WarriorType.ARAGORN_WARRIOR_MT;
@@ -61,6 +64,7 @@ public class DefenseWarrior : MonoBehaviour {
 			vel = 5; 
 			durationAnim = 1.0f;
 			distActivateAnim = 8;
+			distCenterWarrior = 1;
 
 		} else if (name == "defense3P_Ghost_MT") {
 			warriorType = WarriorType.GHOST_WARRIOR_MT;
@@ -68,61 +72,83 @@ public class DefenseWarrior : MonoBehaviour {
 			vel = 7;
 			durationAnim = 1.0f;
 			distActivateAnim = 10;
+			distCenterWarrior = 3;
 
 		} else {
 			warriorType = WarriorType.UNKNOWN;
 			vel = 0;
 			durationAnim = 0.0f;
 			distActivateAnim = 0;
+			distCenterWarrior = 1;
 		}
-		 
+
 	}
 
 
- 
+
 
 
 	// Use this for initialization
 	void Start () {
-	
+
 		anim = GetComponent<Animation>();
 		InitAnimation ();  
 	}
 
 
-	
+
 	// Update is called once per frame
 	void Update () {
 
 		target = getTarget ();
 		if(target != null) {
-			Vector3 dir = target.transform.position - this.transform.position; 
-			dir.y = 0f;
+
+			// direction to go
+			dir = target.transform.position - this.transform.position; 
  
-			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
-			 
-			transform.position += transform.forward * Time.deltaTime * vel;
 			if (dir.magnitude < distActivateAnim) {
 				timeOnPlay = DateTime.Now;
 				playAnimation ("attack"); 
 			}
 			else if ((DateTime.Now - timeOnPlay).Seconds > durationAnim) {
-				playAnimation ("run"); 
-			} 
+				playAnimation ("run");
+			}  
+			// warrior moves
+			moveWarrior (dir);
+
 		}
 		else {
-			Vector3 dir = this.center - this.transform.position; 
-			dir.y = 0f;
-			if (dir.magnitude < 0.3f) {
-				this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
-
-				transform.position += transform.forward * Time.deltaTime * vel;
+			// direction to go
+			dir = center - this.transform.position; 
+			if (dir.magnitude > distCenterWarrior) {
 				playAnimation ("run"); 
-			}
+				moveWarrior (dir);
+			} 
 
 
 		}
-	
+
+	}
+
+
+	// Warrior moving
+	void moveWarrior (Vector3 directionToGo) {
+		directionToGo.y = 0.0f;
+		Quaternion newRotation = Quaternion.LookRotation (directionToGo); 
+		// We correct the orientation of the warrior
+		switch (warriorType) {
+		case WarriorType.GHOST_WARRIOR_MT:
+			newRotation = Quaternion.LookRotation (directionToGo, Vector3.forward) * Quaternion.Euler (0f, 180f, 0f); 
+			newRotation.x = 0.0f;
+			newRotation.z = 0.0f;this.transform.rotation = Quaternion.Slerp (this.transform.rotation, newRotation, 0.5f);
+
+			transform.position -= transform.forward * Time.deltaTime * vel;
+			break;
+		default:
+			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, newRotation, 0.5f); 
+			transform.position += transform.forward * Time.deltaTime * vel;
+			break;
+		}
 	}
 
 
@@ -131,15 +157,15 @@ public class DefenseWarrior : MonoBehaviour {
 	{
 		switch (warriorType) 
 		{
-			case WarriorType.ROHAN_HORSE_MT:
-				anim.Play ("A_RHorse_" + nameAnimation); 
-				break;
-			case WarriorType.GHOST_WARRIOR_MT:
-				anim.Play ("A_Ghost_"+nameAnimation); 	
-				break;				
-			case WarriorType.ARAGORN_WARRIOR_MT:
-				anim.Play ("A_Aragorn_"+nameAnimation); 
-				break;
+		case WarriorType.ROHAN_HORSE_MT:
+			anim.Play ("A_RHorse_" + nameAnimation); 
+			break;
+		case WarriorType.GHOST_WARRIOR_MT:
+			anim.Play ("A_Ghost_"+nameAnimation); 	
+			break;				
+		case WarriorType.ARAGORN_WARRIOR_MT:
+			anim.Play ("A_Aragorn_"+nameAnimation); 
+			break;
 		}
 	}
 
@@ -176,7 +202,7 @@ public class DefenseWarrior : MonoBehaviour {
 		return auxTarget;
 	}
 
-		
+
 
 	// 
 	void OnCollisionEnter(Collision col)
@@ -196,13 +222,25 @@ public class DefenseWarrior : MonoBehaviour {
 			Enemy ene = coll.GetComponent<Enemy> ();
 			ene.playSound (ene.soundSword);
 
-            ene.life -= val.strenght; // Enemy_Constants.T_ATTACK_LITTLE;
+			//ene.life -= val.strenght; // Enemy_Constants.T_ATTACK_LITTLE;
+			switch (warriorType) 
+			{
+			case WarriorType.ROHAN_HORSE_MT:
+				ene.life -= val.strenght*2;
+				break;
+			case WarriorType.GHOST_WARRIOR_MT:
+				ene.life -= val.strenght*2; 	
+				break;				
+			case WarriorType.ARAGORN_WARRIOR_MT:
+				ene.life -= val.strenght*4; 
+				break;
+			}
 		}
 
 
 		// We separate horses if they intersect
 		if (coll.gameObject.name.Split('(')[0] == "defense2P_RohanHorse_MT") {
-			
+
 			Vector3 newPosRH;
 			if(Vector3.Distance(this.transform.position, coll.gameObject.transform.position) <= 3f) {
 				newPosRH = this.transform.position;
@@ -227,7 +265,7 @@ public class DefenseWarrior : MonoBehaviour {
 			anim.Sample ();
 			stateRunning.enabled = false;
 
-			anim ["A_RHorse_attack"].speed = 1f;
+			anim ["A_RHorse_attack"].speed = 2f;
 			stateAttacking = anim ["A_RHorse_attack"];
 			stateAttacking.time = 0;
 			stateAttacking.enabled = true;
