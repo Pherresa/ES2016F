@@ -31,6 +31,7 @@ public class Action_Defense : Tower
     private bool isShooting = false;
     //int number = 0;
     bool couroutineStarted = false;
+    public int minTrebuchetRange = 25;
     int s = 3;
     DateTime timeOnPlay;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
@@ -323,7 +324,16 @@ public class Action_Defense : Tower
                 {
                     if (predict == 0)
                     {
-                        getTarget();
+                        // he tenido que crear una funcion especifica para este tipo y asi no consume tantos recursos. En el caso de hacer esta misma comprobacion dentro del forarch de la funcion original
+                        // el juego se relentizaba un poco.
+                        if (valu.type == TowerType.TREBUCHET_MT)
+                        {
+                            getTargetTrebuchet();
+                        }
+                        else
+                        {
+                            getTarget();
+                        }
                         if (target != null)
                         {
                             posIni = target.transform.position;
@@ -475,8 +485,34 @@ public class Action_Defense : Tower
             {
                 tmpDistance = distanceToEnemy;
                 tmpEnemy = enemy;
+            }   
+        }
+        if (tmpEnemy != null && tmpDistance <= valu.range)
+        {   
+            target = tmpEnemy;
+        }
+        else
+        {
+            target = null;
+            predict = 0;
+        }
+    }
+
+    protected void getTargetTrebuchet()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float tmpDistance = Mathf.Infinity;
+        GameObject tmpEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < tmpDistance && distanceToEnemy > minTrebuchetRange)
+            {
+                tmpDistance = distanceToEnemy;
+                tmpEnemy = enemy;
             }
         }
+
         if (tmpEnemy != null && tmpDistance <= valu.range)
         {
             target = tmpEnemy;
