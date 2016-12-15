@@ -8,33 +8,289 @@ using System;
  */
 public class Action_Defense : Tower
 {
-    public int towerPrice;
-    public int towerTama;
+    Values valu;
 
     Animation anim;
     AnimationState stateTrebuchetIdle;
     AnimationState stateTrebuchetAttack;
     AnimationState stateTrebuchetrecharge;
-    private float timer = 1.5f;
+
+    Animation[] anims;
+
+    Enemy_Values_Gene generator_values;
+
+    //private float timer = 1.5f;
     private int predict;
     private Vector3 posIni;
     private int maxFrameToPredict = 5;
-    private int plusToPredictTrebu = 10;
+    private int plusToPredictTrebu = 15;
     private int plusToPredict = 23;
     private int animationPhase = 0;
     private bool nextPhaseAnim = false;
-    private float speed = 2f;
+    //private float speed = 2f;
     private bool isShooting = false;
-    int number = 0;
+    //int number = 0;
     bool couroutineStarted = false;
     int s = 3;
     DateTime timeOnPlay;
     // Funcion constructora por defecto. Inicializa variables.Aqui se debera leer de la BBDD i asignar
     // su valor a los respectivos atributos.
+
+    void Awake() {
+        getTypeOfDefense();
+        generator_values = new Enemy_Values_Gene();
+        generator_values.asig_values_tower(ref valu);
+    }
+
     void Start()
     {
         
+        //getValueTower();
+        loadAnimations();
+        initAnimations();
         iniStates();
+    }
+
+    private void loadAnimations()
+    {
+        switch (valu.type)
+        {
+		case TowerType.TREBUCHET_MT:
+			anim = GetComponent<Animation>();
+			break;
+		case TowerType.MERCENARYHUMAN_I:
+			break;
+		case TowerType.ORCARCHER_I:
+			anims = GetComponentsInChildren<Animation>();
+			break;
+		case TowerType.GHOSTSHIP_MT:
+			anim = GetComponent<Animation>();
+			break;
+        }
+    }
+
+    
+    private void initAnimations()
+    {
+        switch (valu.type)
+        {
+            case TowerType.TREBUCHET_MT:
+                anim["A_Trebuchet_idle"].speed = 1f;
+                stateTrebuchetIdle = anim["A_Trebuchet_idle"];
+                stateTrebuchetIdle.time = 0;
+                stateTrebuchetIdle.enabled = true;
+                anim.Sample();
+                stateTrebuchetIdle.enabled = false;
+
+                anim["A_Trebuchet_attack"].speed = 2.5f;
+                stateTrebuchetAttack = anim["A_Trebuchet_attack"];
+                stateTrebuchetAttack.time = 0;
+                stateTrebuchetAttack.enabled = true;
+                anim.Sample();
+                stateTrebuchetAttack.enabled = false;
+
+                anim["A_Trebuchet_recharge"].speed = 1.5f;
+                stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
+                stateTrebuchetrecharge.time = 0;
+                stateTrebuchetrecharge.enabled = true;
+                anim.Sample();
+                stateTrebuchetrecharge.enabled = false;
+                break;
+
+            case TowerType.MERCENARYHUMAN_I:
+                //anim["A_Mercenary_idle"].speed = 1f;
+                //anim["A_Mercenary_attack"].speed = 2f;
+
+                break;
+
+            case TowerType.ORCARCHER_I:
+                //anim["A_OrcArcher_idle"].speed = 1f;
+                anim["A_OrcArcher_attack"].speed = 2f;
+                //anim["A_OrcArcher_attack"].speed = 2.5f;
+
+                break;
+
+
+			case TowerType.GHOSTSHIP_MT: 
+				anim["A_GhostShip_idle"].speed = 0.25f;  
+				stateTrebuchetIdle = anim["A_GhostShip_idle"];
+				stateTrebuchetIdle.time = 0;
+				stateTrebuchetIdle.enabled = true;
+				anim.Sample();
+				stateTrebuchetIdle.enabled = false; 
+				break;
+        }
+    }
+
+    // inicializador
+    void iniStates()
+    {
+		Debug.Log (valu.type);
+        //BarrackRohanHorse
+        if (active)
+        {
+            switch (valu.type)
+            {
+				case TowerType.ROHANBARRACKS_MT:
+					generateRohanHorses(2);
+					break;
+
+				case TowerType.GHOSTSHIP_MT:
+					generateGhost(15);
+					break;
+
+				case TowerType.ARAGORN_MT:
+					initAragornWarrior();
+					break;
+
+            }
+        }
+    }
+
+    private void checkPhaseAnim()
+    {
+        if (isShooting)
+        {
+            switch (valu.type)
+            {
+                case TowerType.TREBUCHET_MT:
+                    if (animationPhase == 1)
+                    {
+                        timeOnPlay = DateTime.Now;
+                        anim.Play("A_Trebuchet_attack");
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
+                        {
+                            lanzar();
+                            timeOnPlay = DateTime.Now;
+                            anim.Play("A_Trebuchet_recharge");
+                            animationPhase = 3;
+                        }
+                    }
+                    else if (animationPhase == 3)
+                    {
+                        if ((DateTime.Now - timeOnPlay).Seconds > 1f)
+                        {
+                            isShooting = false;
+                            animationPhase = 0;
+                            predict = 0;
+                        }
+                    }
+                    break;
+                case TowerType.MERCENARYHUMAN_I:
+                    if (animationPhase == 1)
+                    {
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_Mercenary_attack");
+                        }
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_attack"].length)
+                            {
+                                lanzar();
+                                timeOnPlay = DateTime.Now;
+                                anim.Play("A_Mercenary_recharge_");
+                                animationPhase = 3;
+                            }
+                        }
+                    }
+                    else if (animationPhase == 3)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_Mercenary_recharge_"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
+                        }
+                    }
+                    break;
+                case TowerType.ORCARCHER_I:
+                    if (animationPhase == 1)
+                    {
+                        lanzar();
+                        foreach (Animation animation in anims)
+                        {
+                            timeOnPlay = DateTime.Now;
+                            animation.Play("A_OrcArcher_attack");
+                        }
+                        animationPhase = 2;
+                    }
+                    else if (animationPhase == 2)
+                    {
+                        foreach (Animation animation in anims)
+                        {
+                            if ((DateTime.Now - timeOnPlay).Seconds > animation["A_OrcArcher_attack"].length)
+                            {
+                                isShooting = false;
+                                animationPhase = 0;
+                                predict = 0;
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            switch (valu.type)
+            {
+                case TowerType.TREBUCHET_MT:
+                    if (!anim.IsPlaying("A_Trebuchet_idle"))
+                    {
+                        anim.Play("A_Trebuchet_idle");
+                    }
+                    break;
+
+                case TowerType.ORCARCHER_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_OrcArcher_idle"))
+                        {
+                            animation.Play("A_OrcArcher_idle");
+                        }
+                    }
+                    break;
+
+                case TowerType.MERCENARYHUMAN_I:
+                    foreach (Animation animation in anims)
+                    {
+                        if (!animation.IsPlaying("A_Mercenary_idle"))
+                        {
+                            animation.Play("A_Mercenary_idle");
+                        }
+                    }
+                    break;
+
+				case TowerType.GHOSTSHIP_MT:
+					anim.Play("A_GhostShip_idle");
+					break;
+            }
+        }
+    }
+
+    private void checkDistanceTarget()
+    {
+        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
+        if (distanceToEnemy > valu.range)
+        {
+            target = null;
+            animationPhase = 0;
+            predict = 0;
+            isShooting = false;
+        }
     }
 
     // Funcion que se executa por cada frame para poder girar correctamente the towers.
@@ -43,98 +299,26 @@ public class Action_Defense : Tower
         if (active)
         {
             checkPhaseAnim();
-            // vemos que no sea nulo
-            if (target != null)
-            {
-                // llamamos la funcion que gira al towers
-                SpinTower.spin(target.transform.position, this.transform);
-            }
-        }
-    }
-    private void initAnimTrebuchet()
-    {
-        if (type==1) {
-            anim["A_Trebuchet_idle"].speed = 1f;
-            stateTrebuchetIdle = anim["A_Trebuchet_idle"];
-            stateTrebuchetIdle.time = 0;
-            stateTrebuchetIdle.enabled = true;
-            anim.Sample();
-            stateTrebuchetIdle.enabled = false;
+            // vemos que no sea nulo 
+			if (target != null) {
+				switch (valu.type) { 
+					case TowerType.TREBUCHET_MT:
+						// llamamos la funcion que gira al towers
+						SpinTower.spin (target.transform.position, this.transform);
+						break;
 
-            anim["A_Trebuchet_attack"].speed = 2.5f;
-            stateTrebuchetAttack = anim["A_Trebuchet_attack"];
-            stateTrebuchetAttack.time = 0;
-            stateTrebuchetAttack.enabled = true;
-            anim.Sample();
-            stateTrebuchetAttack.enabled = false;
-
-            anim["A_Trebuchet_recharge"].speed = 1.5f;
-            stateTrebuchetrecharge = anim["A_Trebuchet_recharge"];
-            stateTrebuchetrecharge.time = 0;
-            stateTrebuchetrecharge.enabled = true;
-            anim.Sample();
-            stateTrebuchetrecharge.enabled = false;
+				}
+			}
         }
     }
 
-    private void checkPhaseAnim()
-    {
-        if (isShooting) {
-            if (type == 1)
-            {
-                if (animationPhase == 1)
-                {
-                    timeOnPlay = DateTime.Now;
-                    anim.Play("A_Trebuchet_attack");
-                    animationPhase = 2;
-                }
-                else if (animationPhase == 2)
-                {
-                    if ((DateTime.Now - timeOnPlay).Seconds > 0.4f)
-                    {
-                        lanzar();
-                        timeOnPlay = DateTime.Now;
-                        anim.Play("A_Trebuchet_recharge");
-                        animationPhase = 3;
-                    }
-                }
-                else if (animationPhase == 3)
-                {
-                    if ((DateTime.Now - timeOnPlay).Seconds > 1f)
-                    {
-                        isShooting = false;
-                        animationPhase = 0;
-                        predict = 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (type == 1 && !anim.IsPlaying("A_Trebuchet_idle"))
-            {
-                anim.Play("A_Trebuchet_idle");
-            }
-        }
-    }
-
-    private void checkDistanceTarget()
-    {
-        float distanceToEnemy = Vector3.Distance(this.transform.position, posIni);
-        if (distanceToEnemy > range)
-        {
-            target = null;
-            animationPhase = 0;
-            predict = 0;
-            isShooting = false;
-        }
-    }
     // funcion que se ejecuta continuamente.
     void FixedUpdate()
     {
         if (active)
         {
-            if (!isShooting) {
+            if (!isShooting)
+            {
                 if (animationPhase == 0)
                 {
                     if (predict == 0)
@@ -154,76 +338,90 @@ public class Action_Defense : Tower
                         }
                     }
                 }
-            }
-            // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
-            if (type != 1 && predict == maxFrameToPredict)
-            {
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                checkDistanceTarget();
+                if (target != null)
                 {
-                    timer = 1.5f;
-                    checkDistanceTarget();
-                    if (target != null)
+                    if (valu.type != TowerType.UNKNOWN && predict == maxFrameToPredict)
                     {
-                        lanzar();
-                        predict = 0;
-                    }
-                    else
-                    {
-                        predict = 0;
+                        shoot();
                     }
                 }
-            }
-            // aqui solo entrara la catapulta por ahora
-            else
-            {
-                if (!isShooting)
+
+
+                // mientras no este puesto las animaciones de las demas torres fuerzo a que pasen por aqui para que disparen
+                /*if (type != TowerType.TREBUCHET_MT && predict == maxFrameToPredict)
                 {
+                    timer -= Time.deltaTime;
+                    if (timer <= 0)
                     {
+                        timer = 1.5f;
                         checkDistanceTarget();
                         if (target != null)
                         {
-                            if (type != 0 && predict == maxFrameToPredict)
-                            {
-                                shoot();
-
-                            }
+                            lanzar();
+                            predict = 0;
+                        }
+                        else
+                        {
+                            predict = 0;
                         }
                     }
                 }
+                // aqui solo entrara la catapulta por ahora
+                else*/
             }
+
         }
     }
 
-
-
-    // inicializador
-    void iniStates()
-    {
-        get_value_tower();
-        getTypeOfDefense();
-        anim = GetComponent<Animation>();
-        initAnimTrebuchet();
-    }
+    
     // para definir el tipo de defensa que es (prefab) buscandolo por el nombre
     private void getTypeOfDefense()
     {
         String name = this.gameObject.name.Split('(')[0];
         if (name == "defense1_Trebuchet_MT")
         {
-            type = 1;
+            valu.type = TowerType.TREBUCHET_MT;
         }
-        if (name == "defense2_RohanBarracks_MT")
+        else if (name == "defense2_RohanBarracks_MT")
         {
-            type = 2;
+            valu.type = TowerType.ROHANBARRACKS_MT;
         }
-        if (name == "defense2_OrcArcher_I")
+        else if (name == "defense2_OrcArcher_I")
         {
-            type = 3;
+            valu.type = TowerType.ORCARCHER_I;
         }
-        if (name == "defense3_MercenaryHuman_I")
+        else if (name == "defense3_MercenaryHuman_I")
         {
-            type = 4;
+            valu.type = TowerType.MERCENARYHUMAN_I;
+        }
+        else if (name == "defender4_Aragorn_MT")
+        {
+            valu.type = TowerType.ARAGORN_MT;
+        }
+        else if (name == "defense5_Gandalf_MT")
+        {
+            valu.type = TowerType.GANDALF_MT;
+        }
+        else if (name == "defense4_Lurtz_I")
+        {
+            valu.type = TowerType.LURTZ_I;
+        }
+        else if (name == "OrcWarrior")
+        {
+            valu.type = TowerType.ORCWARRIOR;
+        }
+        else if (name == "defense1_Saruman_I")
+        {
+            valu.type = TowerType.SARUMAN_I;
+        } 
+		else if (name == "defense3_GhostShip_MT")
+		{
+			valu.type = TowerType.GHOSTSHIP_MT;
+		}
+        else
+        {
+            valu.type = TowerType.UNKNOWN;
         }
     }
     // Para destruir la torre
@@ -248,20 +446,21 @@ public class Action_Defense : Tower
                 predict = maxFrameToPredict;
                 tmp = (target.transform.position - posIni);
                 float distanceToEnemy = Vector3.Distance(target.transform.position, posIni);
-                if (type != 1)
-                {
-                    posIni = target.transform.position + (tmp * plusToPredict);
-                }
-                else
+                if (valu.type == TowerType.TREBUCHET_MT)
                 {
                     posIni = target.transform.position + (tmp * plusToPredictTrebu);
                 }
+                else
+                {
+                    posIni = target.transform.position + (tmp * plusToPredict);
+                }
+
             }
             if (predict != maxFrameToPredict)
             {
                 predict += 1;
             }
-        } 
+        }
     }
     // obtiene el enemigo mas cercano
     protected override void getTarget()
@@ -278,7 +477,7 @@ public class Action_Defense : Tower
                 tmpEnemy = enemy;
             }
         }
-        if (tmpEnemy != null && tmpDistance <= range)
+        if (tmpEnemy != null && tmpDistance <= valu.range)
         {
             target = tmpEnemy;
         }
@@ -304,7 +503,7 @@ public class Action_Defense : Tower
         active = false;
     }
 
-    private void get_value_tower()
+    /*private void getValueTower()
     {
         switch (towerTama)
         {
@@ -328,33 +527,115 @@ public class Action_Defense : Tower
                 break;
         }
         predict = 0;
+    }*/
+
+    public int getTowerPrice()
+    {
+        return valu.towerPrice;
     }
 
     private void lanzar()
     {
-        if (type==1)
+        GameObject p;
+
+        switch (valu.type)
         {
-            GameObject prefab = (GameObject) Resources.Load("Prefabs/defense1P_Rock_MT");
-            GameObject p = Instantiate(prefab);
-            p.AddComponent<Rigidbody>();
-            p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
-            p.AddComponent<ShootingMove>();
-            p.GetComponent<ShootingMove>().pos = posIni;
-            p.GetComponent<ShootingMove>().tag = "projectile";
-        }
-        else
-        {
-            GameObject p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            p.AddComponent<Rigidbody>();
-            Vector3 tmp = this.transform.position;
-            tmp.y += 5f;
-            p.transform.position = tmp;
-            p.transform.localScale = new Vector3(2f, 2f, 2f);
-            p.GetComponent<SphereCollider>().radius = 0.6f;
-            p.AddComponent<ShootingMove>();
-            p.GetComponent<ShootingMove>().pos = posIni;
-            p.GetComponent<ShootingMove>().tag = "projectile";
+            case TowerType.TREBUCHET_MT:
+                p = (GameObject)Resources.Load("Prefabs/defense1P_Rock_MT");
+                p = Instantiate(p);
+                p.AddComponent<Rigidbody>();
+                p.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
+                p.AddComponent<ShootingMove>();
+                p.GetComponent<ShootingMove>().pos = posIni;
+                p.GetComponent<ShootingMove>().tag = "projectile";
+                break;
+
+            default:
+                p = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                p.AddComponent<Rigidbody>();
+                Vector3 tmp = this.transform.position;
+                tmp.y += 5f;
+                p.transform.position = tmp;
+                p.transform.localScale = new Vector3(2f, 2f, 2f);
+                p.GetComponent<SphereCollider>().radius = 0.6f;
+                p.AddComponent<ShootingMove>();
+                p.GetComponent<ShootingMove>().pos = posIni;
+                p.GetComponent<ShootingMove>().tag = "projectile";
+                break;
         }
     }
+
+	/**
+	 * This function generate the rohan horses of the barrack
+	 **/ 
+    void generateRohanHorses(int quantity)
+    {
+		Debug.Log ("----");
+        GameObject rohanHorsePrefab = Resources.Load("Prefabs/defense2P_RohanHorse_MT") as GameObject; 
+		GameObject rohanHorse;
+        Vector3 newPos;
+        for (int i = 0; i < quantity; i++)
+        { 
+			rohanHorse = Instantiate(rohanHorsePrefab);
+            newPos = this.transform.position;
+            if (i == 0) newPos.x -= 3;
+            if (i == 2) newPos.x += 3;
+            newPos.y -= 2;
+            newPos.z += 2;
+			rohanHorse.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (rohanHorse); 
+        }
+
+    }
+
+    public Values getValues() {
+        return valu;
+    }
+
+
+	/**
+	 * This function generate ghost of the ghostShip
+	 **/ 
+	void generateGhost(int quantity)
+	{
+		Debug.Log ("----");
+		GameObject ghostPrefab = Resources.Load("Prefabs/defense3P_Ghost_MT") as GameObject; 
+		GameObject ghost;
+		Vector3 newPos;
+		for (int i = 0; i < quantity; i++)
+		{ 
+			ghost = Instantiate(ghostPrefab);
+			newPos = this.transform.position;
+			if (i == 0) newPos.x -= 3;
+			if (i == 2) newPos.x += 3;
+			newPos.y -= 2;
+			newPos.z += 2;
+			ghost.transform.position = newPos;
+			//add the defensewarrior component
+			addDefenseWarriorComponent (ghost);
+		}
+
+	}
+
+	/**
+	 * This function iniciate the behaviour of aragorn as a warrior.
+	 **/
+	void initAragornWarrior() 
+	{ 
+		//add the defensewarrior component
+		addDefenseWarriorComponent(this.gameObject); 
+		Debug.Log ("Aragorn wariior");
+	}
+
+	/**
+	 * This function add the defensewarrior component in a gameobject given.
+	 **/ 
+	void addDefenseWarriorComponent( GameObject obj)
+	{
+		obj.AddComponent<DefenseWarrior> ();
+		obj.gameObject.GetComponent<DefenseWarrior> ().center = this.transform.position;
+		obj.gameObject.GetComponent<DefenseWarrior> ().tag = "projectile"; 
+	}
 }
 

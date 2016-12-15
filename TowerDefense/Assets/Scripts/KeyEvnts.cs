@@ -60,7 +60,7 @@ public class KeyEvnts : MonoBehaviour {
         {
 
         }
-        // Movement camera
+        /*// Movement camera
         else if (Input.GetKey(KeyCode.Q))
         {
             mainCamera.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
@@ -105,7 +105,7 @@ public class KeyEvnts : MonoBehaviour {
         //
         
 
-        limitsCamera();
+        limitsCamera();*/
 
     }
 
