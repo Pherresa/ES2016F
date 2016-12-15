@@ -70,13 +70,21 @@ public class EnemyManager : MonoBehaviour {
 		// Isengart scene only:
 		else if (scene.name == "IsengardLvl1") {
 
-			// TODO: Orc
+            // TODO: Orc
 
-			// TODO: Elf
+            // TODO: Elf
+            GameObject bRamPrefab = Resources.Load("Prefabs/attack3_Elf_I") as GameObject;
+            GameObject bRam = Instantiate(bRamPrefab);
+            bRam.transform.parent = transform;
+            bRam.transform.position = GameObject.Find("StartCube").transform.position;
+            //bRam.AddComponent<BatteringRam>();
+            //get the thing component on your instantiated object
+            AstarAI3 bRamAstarAI = bRam.GetComponent<AstarAI3>();
+            bRamAstarAI.speed = bRam.GetComponent<Enemy>().getValues().speed;
+            bRamAstarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            // TODO: Hobbit
 
-			// TODO: Hobbit
-
-		}
+        }
 		// ERROR: not recognized
 		else {
 			Debug.Log ("Error scene not exit");
