@@ -415,6 +415,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             case 5:
                 power = evg.m_5_tower("a");
                 cost = evg.m_5_tower("m");
+                enableTowerSlots();
                 break;
             default:
                 print ("Se ha liado parda");
@@ -428,4 +429,20 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         txtPower.text = "Power: " + power.ToString();
 
     }
+
+    void enableTowerSlots(){
+        Slot[] towerSlots = FindObjectsOfType(typeof(Slot)) as Slot[];
+        foreach (Slot tSlot in towerSlots){
+            //print ("towerSlot");
+            if(tSlot.getIsTowerSlot()){
+                
+                tSlot.GetComponent<MeshRenderer> ().enabled = true;
+                tSlot.GetComponent<Renderer> ().material.color = Color.green;
+            }
+            
+
+        }
+    }
+
+
 }
