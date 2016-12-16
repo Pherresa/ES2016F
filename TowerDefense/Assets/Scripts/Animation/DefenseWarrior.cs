@@ -213,9 +213,9 @@ public class DefenseWarrior : MonoBehaviour {
 
 	// Cillision treatment.
 	void OnTriggerEnter(Collider coll) {
-		Debug.Log ("Enemy name dfads");
+		//Debug.Log ("Enemy name dfads");
 
-		Debug.Log (coll.gameObject.name);
+		//Debug.Log (coll.gameObject.name);
 		// Rohan horse damage on the enemy.
 		//if (coll.gameObject.name.Split('(')[0] == "Enemy") {
 		if (coll.gameObject.transform.CompareTag("Enemy")) {	
