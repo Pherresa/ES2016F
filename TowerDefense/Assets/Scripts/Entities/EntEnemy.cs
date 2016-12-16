@@ -11,10 +11,7 @@ public class EntEnemy : BaseEnemy {
         autoRotate = false;
 	}
 
-    protected override Quaternion getFixedRotation()
-    {
-        return Quaternion.Euler(0f, 0f, 0f);
-    }
+   
 
     protected override Quaternion getFixedProjectileRotation()
     {

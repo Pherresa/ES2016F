@@ -13,10 +13,7 @@ public class GenericEnemy : BaseEnemy {
         autoRotate = true;
 	}
 
-    protected override Quaternion getFixedRotation()
-    {
-        return Quaternion.Euler(0f, 180f, 0f);
-    }
+
 
     protected override Quaternion getFixedProjectileRotation()
     {

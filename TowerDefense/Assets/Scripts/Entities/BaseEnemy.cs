@@ -35,7 +35,6 @@ public abstract class BaseEnemy : MonoBehaviour {
     public GameObject projectile;
 
  
-    protected abstract Quaternion getFixedRotation();
     protected abstract Quaternion getFixedProjectileRotation();
     protected abstract float getProjectileDuration();
     protected abstract float getProjectileSpeed();
@@ -67,7 +66,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     public virtual void Update()
     {
-        if (autoRotate) rotate();
+        //if (autoRotate) rotate();
     }
 
     public void shoot()
@@ -131,7 +130,7 @@ public abstract class BaseEnemy : MonoBehaviour {
         }
     }
 
-    private void rotate()
+   /** private void rotate()
     {
         if (target != null)
         {
@@ -146,5 +145,5 @@ public abstract class BaseEnemy : MonoBehaviour {
             newRotation.z = 0.0f;
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
         }
-    }
+    }**/
 }

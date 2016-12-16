@@ -333,6 +333,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010295699816}
+  - 114: {fileID: 114000013011533636}
   m_Layer: 0
   m_Name: defense5_OrcWarrior_I
   m_TagString: Untagged
@@ -3647,6 +3648,17 @@ MonoBehaviour:
   range: 20
   strenght: 10
   projectile: {fileID: 1000010163663012}
+--- !u!114 &114000013011533636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010873986238}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137000010022471396
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
