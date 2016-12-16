@@ -7,6 +7,7 @@ public class Slot : MonoBehaviour {
 	public bool isPath;
 	public bool isOccupied;
 	public bool isWater;
+	public bool isTowerSlot;
 	public GameObject unit;
 
 	// Use this for initialization
@@ -19,6 +20,11 @@ public class Slot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+
+	public bool getIsTowerSlot(){
+		return isTowerSlot;
 	}
 
 	public bool getIsPath(){

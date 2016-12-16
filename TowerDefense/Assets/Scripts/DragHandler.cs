@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
+
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -26,6 +28,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     GameObject ablePrefab;
     Texture red;
     Texture green;
+
+    public bool isNotDraggable;
+
 
     public AudioClip soundDrop;
     public AudioClip soundDragging;
@@ -70,6 +75,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         gameManager  = GameObject.FindObjectOfType<GameManager>();
     }
 
+    public void setIsNotDraggable(bool b){
+        isNotDraggable = b;
+    }
+
 
     void Update(){
         if(infoShowed){
@@ -105,32 +114,35 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
      */
     public void OnDrag(PointerEventData eventData)
     {
-        if (gameManager.amount >= price)
-        {
-            RaycastHit[] hits;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hits = Physics.RaycastAll(ray, 5000f);
-            if (hits != null && hits.Length > 0)
-            {
-                MaybeShowHoverPrefab(hits);
+        if(!isNotDraggable){
 
-                int slotIndex = GetSlotIndex(hits);
-                if (slotIndex != -1)
+            if (gameManager.amount >= price)
+            {
+                RaycastHit[] hits;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                hits = Physics.RaycastAll(ray, 5000f);
+                if (hits != null && hits.Length > 0)
                 {
-                    //Projector p = hoverPrefab.findChuk
+                    MaybeShowHoverPrefab(hits);
+
+                    int slotIndex = GetSlotIndex(hits);
+                    if (slotIndex != -1)
+                    {
+                        //Projector p = hoverPrefab.findChuk
+                        
+                        GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
+                        Slot slotQuad = slotQuadObject.GetComponent<Slot>();
+                        activeSlot = slotQuad;
+                        EnableSlot(slotQuad);
+                    }
+                    else
+                    {
+                        hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
+                        activeSlot = null;
+                        DisableAllSlots();
                     
-                    GameObject slotQuadObject = hits[slotIndex].collider.gameObject;
-                    Slot slotQuad = slotQuadObject.GetComponent<Slot>();
-                    activeSlot = slotQuad;
-                    EnableSlot(slotQuad);
-                }
-                else
-                {
-                    hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
-                    activeSlot = null;
-                    DisableAllSlots();
-                
-                    alreadyPlayedDraggingSound = false;
+                        alreadyPlayedDraggingSound = false;
+                    }
                 }
             }
         }
@@ -291,6 +303,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                     activeSlot.isOccupied = true;
                     activeSlot.unit = newUnit;
                     activeSlot.GetComponent<MeshRenderer>().enabled = false;
+					//print (prefab.name.Contains ("Gandalf"));
+					if(newUnit.name.Contains("Gandalf")){
+						newUnit.GetComponent<Gandalf> ().startAnimation ();
+					}
 
                     }
                     else
@@ -354,32 +370,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void buttonClicked(int index){
 
-/*
-        timeLeft=2.0f;
-        float incx = 40.0f;
-        float incy = 100.0f;
-
-        GameObject boton1 = null;
-        GameObject info = GameObject.Find("ToBuyInfo");
 
 
-
-        if (index==1){
-            boton1 = GameObject.Find("ButtonUnit1");
-        }
-        
-        if(index==2){
-            boton1 = GameObject.Find("ButtonUnit1");
-            incx +=115.0f;
-
-        }
-
-
-        Vector3 v = boton1.transform.position;
-        //info.transform.position = new Vector3(50.0f, 150.0f, 0.0f);
-        info.transform.position = new Vector3(v.x+incx, v.y, v.z);
-        infoShowed = true;
-*/
         float xbase = GameObject.Find("ButtonUnit1").transform.position.x - 55.0f;
 
 
@@ -391,5 +383,66 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         infoShowed = true;
 
+        //GameObject unitName = GameObject.Find("Unitname");
+        //Text txt = unitName.GetComponent<Text>();
+        Text txt = GameObject.Find("Unit name").GetComponent<Text>();
+        txt.text = prefab.name;
+        print(prefab.name);
+        //unitName.GetComponent<Text>().text = prefab.name;
+
+        Enemy_Values_Gene evg = new Enemy_Values_Gene();
+
+        int power = 0;
+        int cost = 0;
+
+        switch(index){
+            case 1:
+                power = evg.m_little_tower("a");
+                cost = evg.m_little_tower("m");
+                break;
+            case 2:
+                power = evg.m_medium_tower("a");
+                cost = evg.m_medium_tower("m");
+                break;
+            case 3:
+                power = evg.m_big_tower("a");
+                cost = evg.m_big_tower("m");
+                break;
+            case 4:
+                power = evg.m_4_tower("a");
+                cost = evg.m_4_tower("m");
+                break;
+            case 5:
+                power = evg.m_5_tower("a");
+                cost = evg.m_5_tower("m");
+                enableTowerSlots();
+                break;
+            default:
+                print ("Se ha liado parda");
+                break;
+        }
+
+        Text txtCost = GameObject.Find("TextCost").GetComponent<Text>();
+        txtCost.text = "Cost: " + cost.ToString();
+
+        Text txtPower = GameObject.Find("TextPower").GetComponent<Text>();
+        txtPower.text = "Power: " + power.ToString();
+
     }
+
+    void enableTowerSlots(){
+        Slot[] towerSlots = FindObjectsOfType(typeof(Slot)) as Slot[];
+        foreach (Slot tSlot in towerSlots){
+            //print ("towerSlot");
+            if(tSlot.getIsTowerSlot()){
+                
+                tSlot.GetComponent<MeshRenderer> ().enabled = true;
+                tSlot.GetComponent<Renderer> ().material.color = Color.green;
+            }
+            
+
+        }
+    }
+
+
 }

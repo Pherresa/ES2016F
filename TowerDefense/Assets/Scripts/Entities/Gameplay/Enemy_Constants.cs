@@ -47,7 +47,7 @@ public class Enemy_Constants{
     // General
     private int time = 60;
     private float time_decrease = 0.9f;
-    private int wallet = 200;
+    private int wallet = 600;
 
     // Main Tower
 

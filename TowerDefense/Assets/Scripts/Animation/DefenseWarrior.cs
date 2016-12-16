@@ -111,7 +111,15 @@ public class DefenseWarrior : MonoBehaviour {
 			} 
 		}
 		else {
-			playAnimation ("run"); 
+			Vector3 dir = this.center - this.transform.position; 
+			dir.y = 0f;
+			if (dir.magnitude < 0.3f) {
+				this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
+
+				transform.position += transform.forward * Time.deltaTime * vel;
+				playAnimation ("run"); 
+			}
+
 
 		}
 	

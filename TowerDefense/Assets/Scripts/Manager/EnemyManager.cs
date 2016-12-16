@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour {
 
         lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
 
-        createNewWave();
+        //createNewWave();
 	}
 	
 	// Update is called once per frame
@@ -24,13 +24,83 @@ public class EnemyManager : MonoBehaviour {
         }*/
 	}
 
-    public void createNewWaveIsengard() {
-        // TODO : Round Isengard
+    public void createNewWaveIsengard(int a_r) {
+        System.Random dado = new System.Random();
+        gameValues = new Game(FindObjectOfType<GameManager>());
+        GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
+        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack1_Ent_I");
+        GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_Hobbit_I");
+        
+        for (int i = 0; i < 7 + (int)(a_r*2-1); i++)
+        {
+            double n = dado.NextDouble();
+            //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+            GameObject enemy;//= Instantiate(enemyPrefab);
+            if (n < 0.8f - (0.1 * a_r))
+            {
+                enemy = Instantiate(enemyPrefab1);
+            }
+            else if (n < 0.9f - (0.1 * a_r))
+            {
+                enemy = Instantiate(enemyPrefab2);
+            }
+            else {
+                enemy = Instantiate(enemyPrefab3);
+            }
+            enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
+            //get the thing component on your instantiated object
+            AstarAI astarAI = enemy.GetComponent<AstarAI>();
+            astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+        }
     }
 
-    public void createNewWaveMinasTirith() {
-        // TODO : Round MT
+    public void createNewWaveMinasTirith(int a_r) {
+        System.Random dado = new System.Random();
+        gameValues = new Game(FindObjectOfType<GameManager>());
+        bool battery = false;
+        GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack1_Orc_MT");
+        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack2_Oliphant_MT");
+        GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_BatteringRam_MT");
+        
+        for (int i = 0; i < 7 + (int)(a_r * 2 - 1); i++)
+        {
+            double n = dado.NextDouble();
+            //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+            GameObject enemy;//= Instantiate(enemyPrefab);
+            if (n < 0.8f - (0.1 * a_r))
+            {
+                enemy = Instantiate(enemyPrefab1);
+            }
+            else if (n < 0.9f - (0.1 * a_r))
+            {
+                enemy = Instantiate(enemyPrefab2);
+            }
+            else
+            {
+                enemy = Instantiate(enemyPrefab3);
+                battery = true;
+            }
+            enemy.transform.parent = transform;
+            enemy.transform.position = transform.position;
+            //get the thing component on your instantiated object
+            if (!battery)
+            {
+                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            }
+            else {
+                AstarAI2 astarAI2 = enemy.GetComponent<AstarAI2>();
+                astarAI2.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI2.target = GameObject.FindGameObjectWithTag("Target").transform;
+                battery = false;
+            }
+            
+        }
     }
+
 
     public void createNewWave()
     {
@@ -136,9 +206,10 @@ public class EnemyManager : MonoBehaviour {
 		GameObject enemy = Instantiate (enemyPrefab);
 		enemy.SetActive (false);
 		enemy.transform.parent = transform;
+		enemy.AddComponent<Elephant> ();
 		//get the thing component on your instantiated object
 		AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-		astarAI.speed = 5;
+		//astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
 		astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 		yield return new WaitForSeconds(duration);
 		enemy.SetActive(true);
