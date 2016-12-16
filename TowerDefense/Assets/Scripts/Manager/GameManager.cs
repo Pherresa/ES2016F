@@ -233,9 +233,12 @@ public class GameManager : MonoBehaviour
     {
         if (amount >= FIRST_TURRET_PRICE) //TO DO: COST OF UNIT 1
         {
+
+
             DragHandler dh = GameObject.Find("ButtonUnit1").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
             //GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.red;
+
         }
         else
         {
@@ -246,9 +249,13 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= SECOND_TURRET_PRICE) //TO DO: COST OF UNIT 2
         {
+
+            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
+
             DragHandler dh = GameObject.Find("ButtonUnit2").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
             //GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.blue;
+
         }
         else
         {
@@ -259,9 +266,13 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= THIRTH_TURRET_PRICE) //TO DO: COST OF UNIT 3
         {
+
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
+
             DragHandler dh = GameObject.Find("ButtonUnit3").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
             //GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.green;
+
         }
         else
         {
@@ -273,9 +284,13 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= FOURTH_TURRET_PRICE) //TO DO: COST OF UNIT 4
         {
+
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
+
             DragHandler dh = GameObject.Find("ButtonUnit4").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
             //GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.magenta;
+
         }
         else
         {
@@ -286,9 +301,13 @@ public class GameManager : MonoBehaviour
         }
         if (amount >= FITH_TURRET_PRICE) //TO DO: COST OF UNIT 5
         {
+
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+
             //GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.yellow;
             DragHandler dh = GameObject.Find("ButtonUnit5").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
+
         }
         else
         {
