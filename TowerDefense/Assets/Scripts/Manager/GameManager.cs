@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
 
     public void GainAmount(int a)
     {
+        Debug.Log("Gain Amount");
         amount += a;
         UpdateAmountText();
         UpdateAvailableUnits();
