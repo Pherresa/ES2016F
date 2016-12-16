@@ -7,9 +7,14 @@ public abstract class BaseEnemy : MonoBehaviour {
     
     public enum EnemyType
     {
+        ENT,
         UNKNOWN
     }
+    protected int walkStateHash = Animator.StringToHash("Base Layer.walk");
+    protected int attackStateHash = Animator.StringToHash("Base Layer.attack");
 
+    
+    
     //FLAGS
     protected bool autoRotate = true;
     protected int shootStateHash = Animator.StringToHash("Shoot");
@@ -23,15 +28,13 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     //External vars
     public EnemyType type = EnemyType.UNKNOWN;
-    public float range;
     public int strenght;
 
     //Common vars
     protected GameObject target;
     public GameObject projectile;
 
-    protected abstract int getWalkStateHash();
-    protected abstract int getAttackStateHash();
+ 
     protected abstract Quaternion getFixedRotation();
     protected abstract Quaternion getFixedProjectileRotation();
     protected abstract float getProjectileDuration();
@@ -44,6 +47,9 @@ public abstract class BaseEnemy : MonoBehaviour {
     public void disable() { active = false; }
     public int getCurrentAnimationStateHash() { return animator != null ? animator.GetCurrentAnimatorStateInfo(0).fullPathHash : -1; }
     public int getNextAnimationStateHash() { return animator != null ? animator.GetNextAnimatorStateInfo(0).fullPathHash : -1; }
+
+    public int getWalkStateHash() { return walkStateHash; }
+    public int getAttackStateHash() { return attackStateHash; }
 
     public virtual void Start()
     {

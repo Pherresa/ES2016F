@@ -4,12 +4,7 @@ using System;
 
 public class GenericEnemy : BaseEnemy {
 
-    int walkStateHash = Animator.StringToHash("Base Layer.A_XXX_walk");
-    int rechargeStateHash = Animator.StringToHash("Base Layer.A_XXX_recharge");
-    int attackStateHash = Animator.StringToHash("Base Layer.A_XXX_attack");
-
-    protected override int getWalkStateHash() { return walkStateHash; }
-    protected override int getAttackStateHash() { return attackStateHash; }
+ 
 
     // Use this for initialization
     public override void Start () {
