@@ -159,7 +159,6 @@ public class Enemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-		 
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
@@ -167,7 +166,15 @@ public class Enemy : MonoBehaviour {
             //print(col.gameObject.name);
             life -= 50f;
         }
-		/*
+        if (col.gameObject.tag == "projectile_Saru")
+        {
+            
+            playSound(soundAttacked);
+            //Debug.Log(col.gameObject.GetComponent<ShootingBall>().getDamage());
+            life -= col.gameObject.GetComponent<ShootingBall>().getDamage();
+            Destroy(col.gameObject);
+        }
+        /*
 		if (col.gameObject.tag == "rohanHorse")
 		{
 			//Destroy(this.gameObject);
