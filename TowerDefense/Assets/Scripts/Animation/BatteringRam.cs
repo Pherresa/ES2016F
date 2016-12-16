@@ -21,8 +21,8 @@ public class BatteringRam : MonoBehaviour {
 		newPos = transform.position ; 
 		target = GameObject.FindGameObjectWithTag("Target"); 
 
-		//target_animation = new Vector3 (-60.89f, 0f, 64.25f);
-		target_animation = new Vector3 (-76f, 0f, 79f);
+		target_animation = new Vector3 (-60.89f, 0f, 64.25f);
+		//target_animation = new Vector3 (-76f, 0f, 79f);
  
 	}
 

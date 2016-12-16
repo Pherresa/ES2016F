@@ -55,7 +55,7 @@ public class DefenseWarrior : MonoBehaviour {
 			val.type = Tower.TowerType.ROHANBARRACKS_MT;
 			vel = 7; 
 			durationAnim = 1.0f;
-			distActivateAnim = 10;
+			distActivateAnim = 7;
 			distCenterWarrior = 4;
 
 		} else if (name == "defender4_Aragorn_MT") {
@@ -63,7 +63,7 @@ public class DefenseWarrior : MonoBehaviour {
 			val.type = Tower.TowerType.ARAGORN_MT;
 			vel = 5; 
 			durationAnim = 1.0f;
-			distActivateAnim = 8;
+			distActivateAnim = 6;
 			distCenterWarrior = 1;
 
 		} else if (name == "defense3P_Ghost_MT") {
@@ -71,7 +71,7 @@ public class DefenseWarrior : MonoBehaviour {
 			val.type = Tower.TowerType.GHOSTSHIP_MT;
 			vel = 7;
 			durationAnim = 1.0f;
-			distActivateAnim = 10;
+			distActivateAnim = 7;
 			distCenterWarrior = 3;
 
 		} else {
@@ -109,12 +109,14 @@ public class DefenseWarrior : MonoBehaviour {
 			if (dir.magnitude < distActivateAnim) {
 				timeOnPlay = DateTime.Now;
 				playAnimation ("attack"); 
+				damageEnemy(target.GetComponent<Enemy> ()); 
 			}
 			else if ((DateTime.Now - timeOnPlay).Seconds > durationAnim) {
 				playAnimation ("run");
+				moveWarrior (dir);
 			}  
 			// warrior moves
-			moveWarrior (dir);
+
 
 		}
 		else {
@@ -219,22 +221,8 @@ public class DefenseWarrior : MonoBehaviour {
 		// Rohan horse damage on the enemy.
 		//if (coll.gameObject.name.Split('(')[0] == "Enemy") {
 		if (coll.gameObject.transform.CompareTag("Enemy")) {	
-			Enemy ene = coll.GetComponent<Enemy> ();
-			ene.playSound (ene.soundSword);
-
-			//ene.life -= val.strenght; // Enemy_Constants.T_ATTACK_LITTLE;
-			switch (warriorType) 
-			{
-			case WarriorType.ROHAN_HORSE_MT:
-				ene.life -= val.strenght*2;
-				break;
-			case WarriorType.GHOST_WARRIOR_MT:
-				ene.life -= val.strenght*2; 	
-				break;				
-			case WarriorType.ARAGORN_WARRIOR_MT:
-				ene.life -= val.strenght*4; 
-				break;
-			}
+			//Enemy ene = coll.GetComponent<Enemy> ();
+			//damageEnemy (ene);
 		}
 
 
@@ -250,6 +238,27 @@ public class DefenseWarrior : MonoBehaviour {
 
 		}
 	}
+
+	// damage enemy
+	void damageEnemy(Enemy ene) 
+	{ 
+		ene.playSound (ene.soundSword);
+
+		//ene.life -= val.strenght; // Enemy_Constants.T_ATTACK_LITTLE;
+		switch (warriorType) 
+		{
+		case WarriorType.ROHAN_HORSE_MT:
+			ene.life -= val.strenght;
+			break;
+		case WarriorType.GHOST_WARRIOR_MT:
+			ene.life -= val.strenght; 	
+			break;				
+		case WarriorType.ARAGORN_WARRIOR_MT:
+			ene.life -= val.strenght; 
+			break;
+		}
+	}
+
 
 
 	// We initiate the rohan horses animation 
