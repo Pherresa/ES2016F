@@ -9,30 +9,24 @@ public class BatteringRam : MonoBehaviour {
 	AnimationState stateBRamMoving;
 	AnimationState stateBRamAttacking; 
 
-	GameObject target;
-	public Vector3 center;
-	public int range = 60;
-
-	DateTime timeOnPlay;
-	byte animationPhase;
-	private Vector3 newPos;
-	private Vector3 newForward;
-	private Transform model;
+	GameObject target; 
+ 
+	private Vector3 newPos;  
+	private Vector3 target_animation;
 
 	// Use this for initialization
-	void Start () {
-		//model = this.transform.GetChild (0);
-		//anim = model.GetComponent<Animation> ();
+	void Start () { 
 		anim =  this.transform.GetChild (0).GetChild(0).GetComponent<Animation>();
-		InitAnimation ();
-		animationPhase = 0;  
-		newPos = transform.position ;
-		//newForward = transform.forward;
-		//transform.forward = Quaternion.Euler (0f, -90f, 0f) * newForward; 
+		InitAnimation (); 
+		newPos = transform.position ; 
+		target = GameObject.FindGameObjectWithTag("Target"); 
 
+		target_animation = new Vector3 (-60.89f, 0f, 64.25f);
+		//target_animation = new Vector3 (-76f, 0f, 79f);
+ 
 	}
 
-	//
+	// Initiate Animation
 	void InitAnimation() {
 
 		anim ["A_Battering_moving"].speed = 1f;
@@ -54,38 +48,31 @@ public class BatteringRam : MonoBehaviour {
 	void Update () {
 
 		if (Vector3.Distance (newPos, transform.position) > 1) {
-			this.transform.GetChild (0).gameObject.SetActive (true);
-			//transform.forward = Quaternion.Euler (0f, -90f, 0f) * newForward; 
+			this.transform.GetChild (0).gameObject.SetActive (true);  
 		}
-		target = GameObject.FindGameObjectWithTag("Target");
+
 		if(target != null) {
-			Vector3 dir = target.transform.position - this.transform.position;
-			/*dir.y = 0f;
-
-			this.transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (dir), 0.5f);
-			//towerTransform.rotation = Quaternion.Slerp(towerTransform.rotation, Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
-
-			transform.position += transform.forward * Time.deltaTime * 7f;
-			*/ 
-			if (dir.magnitude < 10) {
-				Debug.Log ("BATTERING1");
+			Vector3 dir = target_animation - this.transform.position; 
+			//Debug.Log ("BRAM");
+			//Debug.Log (target_animation.ToString());
+			//Debug.Log (this.transform.position.ToString());
+			//Debug.Log (dir.magnitude);
+			if (dir.magnitude < 30) {
+				//Debug.Log ("BATTERING1");
 				anim.Play("A_Battering_attack");
-				//animationPhase = 0;
+				//moveBRamNow (dir);
 			}
-			else {
-				//Debug.Log ("BATTERING2");  
-				//Debug.Log (anim ["A_Battering_moving"].name);
-				//Debug.Log (anim.name);
+			else { 
 				anim.Play("A_Battering_moving");
 			}
 
 		}
-		else {
-			//Debug.Log ("BATTERING3");
+		else { 
 			anim.Play("A_Battering_moving"); 
 
 		}
 
 	}
+ 
 
 }

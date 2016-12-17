@@ -4,18 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class EscMenu : MonoBehaviour {
 
-
-
-
     
     public void mContinueGame()
     {   
-		
         Time.timeScale = 1.0f;
-        
-	
-
-	
+        GameObject tmp = GameObject.Find("escMenu");
+        tmp.SetActive(false);
     }
 
     public void mSaveGame() 
@@ -27,7 +21,9 @@ public class EscMenu : MonoBehaviour {
     {
         print("exit");
         //mEnablePanel("initMenu");
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(0);
+
     }
     public void mReturnMainMenu()
     {
@@ -35,7 +31,9 @@ public class EscMenu : MonoBehaviour {
     }
 
     public void mSubmit(){
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene(0);
+
     }
 
 

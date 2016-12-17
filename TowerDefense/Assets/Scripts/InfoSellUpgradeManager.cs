@@ -8,6 +8,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	private CanvasGroup canvasSU;
 	private Text infoUnitText;
 	private CanvasGroup canvasIU;
+    private CanvasGroup HUDCanvas;
+    private int sellPrice;
 	MouseManager mm;
 
 	// Use this for initialization
@@ -17,7 +19,10 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 		infoUnitText = GameObject.Find("infoUnitText").GetComponent<Text>();
 		canvasIU = GameObject.Find("InfoUnit").GetComponent<CanvasGroup>();
 		setActive (false);
-	}
+        sellPrice = 0;
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.RemoveAllListeners();
+        GameObject.Find("ButtonSell").GetComponent<Button>().onClick.AddListener(sellSelected);
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -33,6 +38,8 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.alpha = 1;
 			canvasSU.interactable = true;
 			canvasSU.blocksRaycasts = true;
+            canvasIU.interactable = true;
+            canvasIU.blocksRaycasts = true;
 
 			Vector3 newPositionSU = Camera.main.WorldToScreenPoint (mm.selectedObject.transform.position);
 			Vector3 newPositionIU = newPositionSU;
@@ -43,32 +50,20 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasIU.transform.position = newPositionIU;
 			canvasIU.alpha = 1;
 			if (mm.selectedObject != null) {
-				Debug.Log("INFO UNIT_______________");
-				Debug.Log (mm.selectedObject.name);
 				Slot slot = mm.selectedObject.GetComponent<Slot> ();
-				String attack = "XXX";
-				String money = "XXX";
-				if (slot.unit != null) {
-					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 1) {
-						 attack = Enemy_Values_Gene.m_little_tower("a").ToString();
-						 money = Enemy_Values_Gene.m_little_tower("m").ToString();
-					}
-					if (slot.unit.GetComponent<Action_Defense> ().towerTama == 2) {
-						 attack = Enemy_Values_Gene.m_medium_tower("a").ToString();
-						 money = Enemy_Values_Gene.m_medium_tower("m").ToString();
-					}
+                //Price for selling is half of the new price.
+                sellPrice = slot.unit.GetComponent<Action_Defense>().getValues().towerPrice / 2;
+                String attack = slot.unit.GetComponent<Action_Defense>().getValues().strenght.ToString();
+                String money = sellPrice.ToString();
+                if (slot.unit != null) {
 					infoUnitText.text =
 						"Attack: +" +
 						attack +
 						"\nSell: +" +
 						money;
-					//TODO SHOW RANGE!
-					//range = Enemy_Values_Gene.m_medium_tower("r")
 				} 
-
-
 			} else {
-				Debug.Log ("Nothing Selected");
+				Debug.Log ("Nothing Selected IN SET ACTIVE");
 			}
 
 		} else {
@@ -76,10 +71,13 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.interactable = false;
 			canvasSU.blocksRaycasts = false;
 			canvasIU.alpha = 0;
+            canvasIU.interactable = false;
+            canvasIU.blocksRaycasts = false;
 		}
 	}
 
 	public void sellSelected(){
+        Debug.Log("Selling");
 		if (mm.selectedObject != null) {
 			Debug.Log ("Sell");
 			Slot slot = mm.selectedObject.GetComponent<Slot> ();
@@ -88,11 +86,11 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			} 
 			slot.unit = null;
 			slot.isOccupied = false;
-
+            GameObject.FindObjectOfType<GameManager>().GainAmount(sellPrice);
 			//TODO: Money Depending on the unit
 			//GameObject.FindObjectOfType<LifeAmountManager> ().GainAmount(20);
 		} else {
-			Debug.Log ("Nothing Selected");
+			Debug.Log ("Nothing Selected in SELL DETECTED");
 		}
 	}
 
