@@ -9,22 +9,21 @@ public class BatteringRam : MonoBehaviour {
 	AnimationState stateBRamMoving;
 	AnimationState stateBRamAttacking; 
 
-	GameObject target;
-	public Vector3 center;
-	public int range = 60;
-
-	DateTime timeOnPlay; 
-	private Vector3 newPos;
-	private Vector3 newForward;
-	private Transform model;
+	GameObject target; 
+ 
+	private Vector3 newPos;  
+	private Vector3 target_animation;
 
 	// Use this for initialization
 	void Start () { 
 		anim =  this.transform.GetChild (0).GetChild(0).GetComponent<Animation>();
 		InitAnimation (); 
 		newPos = transform.position ; 
-		target = GameObject.FindGameObjectWithTag("Target");
+		target = GameObject.FindGameObjectWithTag("Target"); 
 
+		target_animation = new Vector3 (-60.89f, 0f, 64.25f);
+		//target_animation = new Vector3 (-76f, 0f, 79f);
+ 
 	}
 
 	// Initiate Animation
@@ -53,10 +52,15 @@ public class BatteringRam : MonoBehaviour {
 		}
 
 		if(target != null) {
-			Vector3 dir = target.transform.position - this.transform.position; 
-			if (dir.magnitude < 10) {
-				Debug.Log ("BATTERING1");
-				anim.Play("A_Battering_attack"); 
+			Vector3 dir = target_animation - this.transform.position; 
+			//Debug.Log ("BRAM");
+			//Debug.Log (target_animation.ToString());
+			//Debug.Log (this.transform.position.ToString());
+			//Debug.Log (dir.magnitude);
+			if (dir.magnitude < 30) {
+				//Debug.Log ("BATTERING1");
+				anim.Play("A_Battering_attack");
+				//moveBRamNow (dir);
 			}
 			else { 
 				anim.Play("A_Battering_moving");
@@ -69,5 +73,6 @@ public class BatteringRam : MonoBehaviour {
 		}
 
 	}
+ 
 
 }
