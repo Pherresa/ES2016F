@@ -45,7 +45,7 @@ public class Enemy_Constants{
     private int t_money_5 = 2700;
 
     // General
-    private int time = 60;
+    private int time = 10;
     private float time_decrease = 0.9f;
     private int wallet = 600;
 

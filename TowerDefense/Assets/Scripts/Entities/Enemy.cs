@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
         ELF_I,
         BATTERINGRAM_MT,
         HOBBIT_I,
+        NAZGUL,
         ENEMY
     }
 
@@ -204,6 +205,10 @@ public class Enemy : MonoBehaviour {
         else if (name == "attack1_Orc_MT")
         {
             enem.type = EnemyType.ORC_MT;
+        }
+        else if (name == "attack3_NazgulV_MT")
+        {
+            enem.type = EnemyType.NAZGUL;
         }
         else if (name == "Enemy")
         {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Nazgul : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class Nazgul : MonoBehaviour {
     private bool final = false;
     private bool final2 = false;
     GameObject enemy;
+    DateTime timeOnPlay;
 
     private Animation anima;
     private AnimationState anima_st;
@@ -46,12 +48,13 @@ public class Nazgul : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 position_aprox = new Vector3((int)Mathf.Round(this.transform.position.x), (int)Mathf.Round(this.transform.position.y), (int)Mathf.Round(this.transform.position.z)); // We round the value, otherwise in certain cases may not work
+        
         if (s_r.actu_round() >= s_r.total_round)
         {
             m_movi_actu = GameObject.Find("StartCube").transform.position;
             final = true;
         }
-        if (position_aprox == m_movi_actu)
+        if (position_aprox == m_movi_actu || (m_movi_actu-position_aprox).magnitude < 10)
         {
             if (!final)
             {
@@ -62,14 +65,16 @@ public class Nazgul : MonoBehaviour {
                 //this.gameObject.SetActive(false);
                 this.gameObject.transform.position = new Vector3(0,-50,0);
                 Debug.Log("asd");
-                GameObject enemyPrefab = (GameObject) Resources.Load("Prefabs/attack3_Nazgul_MT");
+                GameObject enemyPrefab = (GameObject) Resources.Load("Prefabs/attack3_NazgulV_MT");
                 enemy = Instantiate(enemyPrefab);
                 enemy.transform.parent = GameObject.Find("EnemyManager").transform;
                 //get the thing component on your instantiated object
-                
-                AstarAI2 astarAI = enemy.GetComponent<AstarAI2>();
+                Vector3 p_ini=GameObject.Find("StartCube").transform.position;
+                enemy.transform.position = new Vector3(p_ini.x, p_ini.y, p_ini.z);
+                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                astarAI.speed = 5;
                 astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
-                anima=enemy.GetComponent<Animation>();
+                anima= enemy.GetComponentInChildren<Transform>().Find("body").GetComponent<Animation>();
                 //anima = this.GetComponent<Animation>();
                 anima["A_Nazgul_moving"].speed = 0.5f;
                 anima_st = anima["A_Nazgul_moving"];
@@ -103,10 +108,16 @@ public class Nazgul : MonoBehaviour {
         }
         else {
             Vector3 dir = GameObject.FindGameObjectWithTag("Target").transform.transform.position - enemy.transform.position;
-            dir.y = 0f;
-            enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, Quaternion.LookRotation(dir), 0.5f);
-            anima.Play("A_Nazgul_moving");
-            
+            if (dir.magnitude < 34) {
+                Debug.Log("ataque");
+                enemy.tag = "Untagged";
+                enemy.GetComponent<AstarAI>().enabled = false;
+                timeOnPlay = DateTime.Now;
+                //(DateTime.Now - timeOnPlay).Seconds > 1f)
+            }
+            else {
+                anima.Play("A_Nazgul_moving");
+            }
         }
     }
 }
