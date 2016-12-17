@@ -843,7 +843,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000013072244248
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -1148,14 +1148,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012086898058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.076458, y: -0.00000011920929, z: -31.425812}
+  m_LocalPosition: {x: 25.176323, y: 0.019404622, z: -86.16344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000010074525730}
   - {fileID: 4000013638190434}
   - {fileID: 4000011130782712}
-  - {fileID: 4000012766689306}
   - {fileID: 4000014192236232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1700,14 +1699,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013072244248}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5.167618, y: 0, z: 0.8141937}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: -180, z: 0}
   m_Children:
   - {fileID: 4000011365048742}
-  m_Father: {fileID: 4000010334394598}
-  m_RootOrder: 3
+  m_Father: {fileID: 4000014192236232}
+  m_RootOrder: 0
 --- !u!4 &4000012861598668
 Transform:
   m_ObjectHideFlags: 1
@@ -2046,13 +2045,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011624472394}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
-  m_Children: []
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000012766689306}
   m_Father: {fileID: 4000010334394598}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &4000014281464388
 Transform:
   m_ObjectHideFlags: 1
@@ -2481,13 +2481,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 6.34
-  m_Radius: 1.97
+  m_Height: 5.15
+  m_Radius: 0.95
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 5.21, y: 3.32, z: 0.13}
+  m_Center: {x: 0, y: 2.75, z: 0}
 --- !u!222 &222000010080878278
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour {
             {
                 enemy = Instantiate(enemyPrefab1);
             }
-            else if (n < 0.9f - (0.1 * a_r))
+            else if (true)//n < 0.9f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab2);
             }
