@@ -10,11 +10,14 @@ public class Nazgul : MonoBehaviour {
     private Start_Round s_r;
     private bool final = false;
     private bool final2 = false;
+    private bool charge = false;
+    private bool fire = false;
     GameObject enemy;
     DateTime timeOnPlay;
 
     private Animation anima;
     private AnimationState anima_st;
+    private AnimationState anima_at;
 
 
     // Use this for initialization
@@ -43,6 +46,8 @@ public class Nazgul : MonoBehaviour {
         anima_st.enabled = true;
         anima.Sample();
         anima_st.enabled = false;
+
+
     }
 	
 	// Update is called once per frame
@@ -64,7 +69,7 @@ public class Nazgul : MonoBehaviour {
             else{
                 //this.gameObject.SetActive(false);
                 this.gameObject.transform.position = new Vector3(0,-50,0);
-                Debug.Log("asd");
+                //Debug.Log("asd");
                 GameObject enemyPrefab = (GameObject) Resources.Load("Prefabs/attack3_NazgulV_MT");
                 enemy = Instantiate(enemyPrefab);
                 enemy.transform.parent = GameObject.Find("EnemyManager").transform;
@@ -83,21 +88,13 @@ public class Nazgul : MonoBehaviour {
                 anima.Sample();
                 anima_st.enabled = false;
                 final2 = true;
-                //Destroy(this.gameObject);
-                /*
-                gameObject.transform.parent = GameObject.Find("EnemyManager").transform;
-                if (this.gameObject.GetComponent<Enemy>() == null) {
-                    this.gameObject.AddComponent<Enemy>();
-                    this.gameObject.GetComponent<Enemy>().life = 1000;
-                }
-                if (this.gameObject.GetComponent<AstarAI>() == null)
-                {
-                    AstarAI asd = GameObject.Find("Enemy(Clone)").GetComponent<AstarAI>();
-                    this.gameObject.;
-                }
-                //this.gameObject.AddComponent<AstarAI>();
-                //this.gameObject.GetComponent<AstarAI>().target= GameObject.FindGameObjectWithTag("Target").transform;*/
 
+                anima["A_Nazgul_attack"].speed = 0.8f;
+                anima_at = anima["A_Nazgul_attack"];
+                anima_at.time = 0;
+                anima_at.enabled = true;
+                anima.Sample();
+                anima_at.enabled = false;
             }
         }
         if (!final2)
@@ -107,16 +104,56 @@ public class Nazgul : MonoBehaviour {
             anima.Play("A_Nazgul_moving");
         }
         else {
-            Vector3 dir = GameObject.FindGameObjectWithTag("Target").transform.transform.position - enemy.transform.position;
-            if (dir.magnitude < 34) {
-                Debug.Log("ataque");
-                enemy.tag = "Untagged";
-                enemy.GetComponent<AstarAI>().enabled = false;
-                timeOnPlay = DateTime.Now;
-                //(DateTime.Now - timeOnPlay).Seconds > 1f)
+            if (enemy != null)
+            {
+                Vector3 dir = GameObject.FindGameObjectWithTag("Target").transform.transform.position - enemy.transform.position;
+                if (dir.magnitude < 34 && !fire)
+                {
+                    if (!charge)
+                    {
+                        //Debug.Log("ataque");
+                        enemy.tag = "Untagged";
+                        enemy.GetComponent<AstarAI>().enabled = false;
+                        timeOnPlay = DateTime.Now;
+                        anima.Play("A_Nazgul_attack");
+                        charge = true;
+                    }
+                    else
+                    {
+                        enemy.transform.LookAt(GameObject.FindGameObjectWithTag("Target").transform.transform.position);
+                        if ((DateTime.Now - timeOnPlay).Seconds > 0.9f)
+                        {
+                            enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").GetComponent<MeshRenderer>().enabled = true;
+                        }
+                        if ((DateTime.Now - timeOnPlay).Seconds > 1f)
+                        {
+                            //Debug.Log("Disparo");
+
+
+                            /*GameObject proj = (GameObject)Resources.Load("Prefabs/attack3P_Elf_I");
+
+                            proj = Instantiate(proj);
+                            proj.AddComponent<Rigidbody>();
+                            proj.transform.position = this.gameObject.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
+                            proj.AddComponent<ShootingMove>();
+                            proj.GetComponent<ShootingMove>().pos = GameObject.FindGameObjectWithTag("Target").transform.transform.position;
+                            //proj.GetComponent<ShootingMove>().tag = "projectile";
+                            */
+                            enemy.GetComponent<AstarAI>().enabled = true;
+                            fire = true;
+                            //GameObject.Find("GameManager").GetComponent<GameManager>().LoseLife(this.gameObject.GetComponent<Enemy>().getValues().damage);
+                        }
+                    }
+
+                }
+                else
+                {
+                    anima.Play("A_Nazgul_moving");
+                }
             }
-            else {
-                anima.Play("A_Nazgul_moving");
+            else
+            {
+                Destroy(this.gameObject);
             }
         }
     }
