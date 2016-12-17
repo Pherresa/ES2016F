@@ -350,6 +350,8 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.NAZGUL:
                 enemy_lvl3(ref valu);
+                valu.damage = 50;
+                valu.speed = 10;
                 break;
             default:
                 valu.damage = 0;

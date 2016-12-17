@@ -77,7 +77,7 @@ public class Nazgul : MonoBehaviour {
                 Vector3 p_ini=GameObject.Find("StartCube").transform.position;
                 enemy.transform.position = new Vector3(p_ini.x, p_ini.y, p_ini.z);
                 AstarAI astarAI = enemy.GetComponent<AstarAI>();
-                astarAI.speed = 5;
+                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
                 astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
                 anima= enemy.GetComponentInChildren<Transform>().Find("body").GetComponent<Animation>();
                 //anima = this.GetComponent<Animation>();
@@ -123,25 +123,27 @@ public class Nazgul : MonoBehaviour {
                         enemy.transform.LookAt(GameObject.FindGameObjectWithTag("Target").transform.transform.position);
                         if ((DateTime.Now - timeOnPlay).Seconds > 0.9f)
                         {
-                            enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").GetComponent<MeshRenderer>().enabled = true;
+                            Debug.Log("Fire");
+                            //enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").GetComponent<MeshRenderer>().enabled = true;
+                            GameObject proj = (GameObject)Resources.Load("Prefabs/attack3P_NazgulFire_MT");
+
+                            proj = Instantiate(proj);
+                            proj.transform.position = enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
+                            proj.AddComponent<ShootingBall>();
+                            proj.GetComponent<ShootingBall>().setTarget(new Vector3(-65.89f, 7.22f, 79.08f));
+                            proj.GetComponent<ShootingBall>().setVel(1);
                         }
                         if ((DateTime.Now - timeOnPlay).Seconds > 1f)
                         {
                             //Debug.Log("Disparo");
 
 
-                            /*GameObject proj = (GameObject)Resources.Load("Prefabs/attack3P_Elf_I");
-
-                            proj = Instantiate(proj);
-                            proj.AddComponent<Rigidbody>();
-                            proj.transform.position = this.gameObject.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
-                            proj.AddComponent<ShootingMove>();
-                            proj.GetComponent<ShootingMove>().pos = GameObject.FindGameObjectWithTag("Target").transform.transform.position;
+                           
                             //proj.GetComponent<ShootingMove>().tag = "projectile";
-                            */
+
                             enemy.GetComponent<AstarAI>().enabled = true;
                             fire = true;
-                            //GameObject.Find("GameManager").GetComponent<GameManager>().LoseLife(this.gameObject.GetComponent<Enemy>().getValues().damage);
+                            GameObject.Find("GameManager").GetComponent<GameManager>().LoseLife(enemy.GetComponent<Enemy>().getValues().damage);
                         }
                     }
 
