@@ -68,7 +68,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             Slots = FindObjectsOfType(typeof(Slot)) as Slot[];
         }
-        price =hoverPrefab.GetComponent<Action_Defense>().getValues().towerPrice;
+        price = hoverPrefab.GetComponent<Action_Defense>().getValues().towerPrice;
         Destroy(hoverPrefab);
 
         //prefabActionDefense = prefab.GetComponent<Action_Defense>();

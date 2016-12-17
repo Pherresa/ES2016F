@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b61cd8172ed5172448476d55247db323
-timeCreated: 1480883144
+timeCreated: 1481637280
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -88,7 +88,10 @@ ModelImporter:
     4300012: shirt
     4300014: shield
     7400000: Default Take
+    7400002: A_OrcWarrior_attack
+    7400004: A_OrcWarrior_idle
     9500000: //RootNode
+    11100000: //RootNode
     13700000: body
     13700002: boot_L
     13700004: boot_R
@@ -109,13 +112,209 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_OrcWarrior_attack
+      takeName: A_OrcWarrior_attack
+      firstFrame: -1
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/hit_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L/leg2_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L/leg2_L/foot_L
+        weight: 1
+      - path: Armature/hit_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R/leg2_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R/leg2_R/foot_R
+        weight: 1
+      - path: Armature/spine_low
+        weight: 1
+      - path: Armature/spine_low/spine_middle
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L/hand_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L/hand_L/fingers_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R/hand_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R/hand_R/fingers_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head/ear_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head/ear_R
+        weight: 1
+      - path: body
+        weight: 1
+      - path: boot_L
+        weight: 1
+      - path: boot_R
+        weight: 1
+      - path: helmet
+        weight: 1
+      - path: pants
+        weight: 1
+      - path: scimitar
+        weight: 1
+      - path: shield
+        weight: 1
+      - path: shirt
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: A_OrcWarrior_idle
+      takeName: A_OrcWarrior_idle
+      firstFrame: -1
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/hit_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L/leg2_L
+        weight: 1
+      - path: Armature/hit_L/leg1_L/leg2_L/foot_L
+        weight: 1
+      - path: Armature/hit_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R/leg2_R
+        weight: 1
+      - path: Armature/hit_R/leg1_R/leg2_R/foot_R
+        weight: 1
+      - path: Armature/spine_low
+        weight: 1
+      - path: Armature/spine_low/spine_middle
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L/hand_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_L/arm2_L/arm3_L/hand_L/fingers_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R/hand_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/arm1_R/arm2_R/arm3_R/hand_R/fingers_R
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head/ear_L
+        weight: 1
+      - path: Armature/spine_low/spine_middle/spine_high/neck/head/ear_R
+        weight: 1
+      - path: body
+        weight: 1
+      - path: boot_L
+        weight: 1
+      - path: boot_R
+        weight: 1
+      - path: helmet
+        weight: 1
+      - path: pants
+        weight: 1
+      - path: scimitar
+        weight: 1
+      - path: shield
+        weight: 1
+      - path: shirt
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
