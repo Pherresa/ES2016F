@@ -26,15 +26,15 @@ public class Enemy_Constants{
 
 
     // Tower
-    private int t_range_little = 50;
-    private int t_range_medium = 40;
-    private int t_range_big = 60;
-    private int t_range_4 = 60;
-    private int t_range_5 = 60;
+    private int t_range_little = 40;
+    private int t_range_medium = 60;
+    private int t_range_big = 100;
+    private int t_range_4 = 110;
+    private int t_range_5 = 120;
 
     private int t_attack_little = 10;
     private int t_attack_medium = 20;
-    private int t_attack_big = 30;
+    private int t_attack_big = 35;
     private int t_attack_4 = 150;
     private int t_attack_5 = 250;
 
