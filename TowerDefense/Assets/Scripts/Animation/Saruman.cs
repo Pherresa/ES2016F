@@ -51,8 +51,8 @@ public class Saruman : MonoBehaviour {
             }
         }else{ // stop animation, no enemies
             stateSarumanAttacking.time = 0;
-            anim.Play("ArmatureAction_001");
-            anim.Stop("ArmatureAction_001");
+            anim.Play();
+            //anim.Stop("ArmatureAction_001");
         }
     }
 
