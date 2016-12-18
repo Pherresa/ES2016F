@@ -16,7 +16,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public bool waterUnit;
 
     public bool specialTower;
-    public bool specialTowerEnoughMoney;
+    bool specialTowerEnoughMoney;
+
+    public String unitName;
 
     public GameObject prefab;
     GameObject hoverPrefab;
@@ -398,8 +400,8 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         //GameObject unitName = GameObject.Find("Unitname");
         //Text txt = unitName.GetComponent<Text>();
         Text txt = GameObject.Find("Unit name").GetComponent<Text>();
-        txt.text = prefab.name;
-        print(prefab.name);
+        txt.text = unitName;
+        //print(prefab.name);
         //unitName.GetComponent<Text>().text = prefab.name;
 
         Enemy_Values_Gene evg = new Enemy_Values_Gene();
