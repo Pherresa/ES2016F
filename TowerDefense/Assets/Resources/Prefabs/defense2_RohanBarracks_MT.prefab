@@ -603,8 +603,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010072805438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 3.5, z: 2.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013285079420}
@@ -1461,10 +1461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
-  strenght: 0
-  towerPrice: 50
-  towerTama: 0
 --- !u!198 &198000011426990406
 ParticleSystem:
   m_ObjectHideFlags: 1
