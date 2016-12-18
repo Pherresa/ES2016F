@@ -121,17 +121,26 @@ public class Nazgul : MonoBehaviour {
                     else
                     {
                         enemy.transform.LookAt(GameObject.FindGameObjectWithTag("Target").transform.transform.position);
-                        if ((DateTime.Now - timeOnPlay).Seconds > 0.9f)
+                        if ((DateTime.Now - timeOnPlay).Seconds > 0.5f)
                         {
                             Debug.Log("Fire");
                             //enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").GetComponent<MeshRenderer>().enabled = true;
                             GameObject proj = (GameObject)Resources.Load("Prefabs/attack3P_NazgulFire_MT");
-
-                            proj = Instantiate(proj);
-                            proj.transform.position = enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
-                            proj.AddComponent<ShootingBall>();
-                            proj.GetComponent<ShootingBall>().setTarget(new Vector3(-65.89f, 7.22f, 79.08f));
-                            proj.GetComponent<ShootingBall>().setVel(0.2f);
+                            //GameObject proj2 = (GameObject)Resources.Load("Prefabs/attack3P_NazgulFire_MT");
+                            for(int i=0; i<10; i++)
+                            {
+                                proj = Instantiate(proj);
+                                proj.transform.position = enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
+                                proj.AddComponent<ShootingBall>();
+                                proj.GetComponent<ShootingBall>().setTarget(new Vector3(-67.94f, -0.93f, 73.98f));//-65.89f, 7.22f, 79.08f));
+                                proj.GetComponent<ShootingBall>().setVel(0.05f);
+                            }
+                            /*
+                            proj2 = Instantiate(proj2);
+                            proj2.transform.position = enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("helmet").transform.position;
+                            proj2.AddComponent<ShootingBall>();
+                            proj2.GetComponent<ShootingBall>().setTarget(new Vector3(-65.89f, 7.22f, 79.08f));
+                            proj2.GetComponent<ShootingBall>().setVel(0.01f);*/
                         }
                         if ((DateTime.Now - timeOnPlay).Seconds > 1f)
                         {
