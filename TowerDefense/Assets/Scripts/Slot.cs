@@ -121,7 +121,13 @@ public class Slot : MonoBehaviour {
 
 		if(newUnit.name.Contains("Gandalf")){
 			newUnit.GetComponent<Gandalf> ().startAnimation ();
+            newUnit.transform.Rotate(0,140,0);
 		}
+        else{
+            newUnit.transform.Rotate(0,120,0);
+        }
+
+
 
 
     }

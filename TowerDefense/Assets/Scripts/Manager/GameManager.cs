@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         checkLife();
+        l = 2*l;
         life -= l;
         
         if (life <= valu.get_MtLife() - valu.get_MtLife() * 0.25 && life >= valu.get_MtLife() - valu.get_MtLife() * 0.5)
