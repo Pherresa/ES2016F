@@ -331,6 +331,7 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.ELF_I:
                 enemy_lvl1(ref valu);
+                valu.speed = 12;
                 break;
             case Enemy.EnemyType.ENT:
                 enemy_lvl3(ref valu);
