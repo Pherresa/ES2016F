@@ -43,8 +43,8 @@ public class Saruman : MonoBehaviour {
                 pro_i = Instantiate(pro);
                 pro_i.transform.position = this.transform.GetChild(this.transform.childCount - 2).transform.position;
                 pro_i.AddComponent<ShootingBall>();
-                pro_i.GetComponent<ShootingBall>().setTarget(target);
-                Debug.Log(this.gameObject.GetComponent<Action_Defense>().getValues().strenght);
+                pro_i.GetComponent<ShootingBall>().setTarget(target.transform.position);
+                //Debug.Log(this.gameObject.GetComponent<Action_Defense>().getValues().strenght);
                 pro_i.GetComponent<ShootingBall>().setDamage(this.gameObject.GetComponent<Action_Defense>().getValues().strenght);
                 pro_i.GetComponent<ShootingBall>().tag = "projectile_Saru";
                 charge = true;

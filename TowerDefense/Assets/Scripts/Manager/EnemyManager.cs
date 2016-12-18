@@ -26,6 +26,7 @@ public class EnemyManager : MonoBehaviour {
 
     public void createNewWaveIsengard(int a_r) {
         System.Random dado = new System.Random();
+        bool elf = false;
         gameValues = new Game(FindObjectOfType<GameManager>());
         GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
         GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack1_Ent_I");
@@ -39,6 +40,8 @@ public class EnemyManager : MonoBehaviour {
             if (n < 0.8f - (0.1 * a_r))
             {
                 enemy = Instantiate(enemyPrefab1);
+                elf = true;
+
             }
             else if (n < 0.9f - (0.1 * a_r))
             {
@@ -47,12 +50,26 @@ public class EnemyManager : MonoBehaviour {
             else {
                 enemy = Instantiate(enemyPrefab3);
             }
-            enemy.transform.parent = transform;
-            enemy.transform.position = transform.position;
-            //get the thing component on your instantiated object
-            AstarAI astarAI = enemy.GetComponent<AstarAI>();
-            astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
-            astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            if (elf)
+            {
+                enemy.transform.parent = transform;
+                enemy.transform.position = transform.position;
+                //get the thing component on your instantiated object
+                AstarAI3 astarAI = enemy.GetComponent<AstarAI3>();
+                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+                elf = false;
+            }
+            else
+            {
+                enemy.transform.parent = transform;
+                enemy.transform.position = transform.position;
+                //get the thing component on your instantiated object
+                AstarAI astarAI = enemy.GetComponent<AstarAI>();
+                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+            }
+            
         }
     }
 

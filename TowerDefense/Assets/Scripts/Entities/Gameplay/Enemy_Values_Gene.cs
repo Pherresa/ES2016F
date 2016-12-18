@@ -302,6 +302,7 @@ public class Enemy_Values_Gene{
                 break;
             case Tower.TowerType.SARUMAN_I:
                 tower_lvl5(ref valu);
+                valu.strenght = 5000;
                 break;
             case Tower.TowerType.ORCWARRIOR:
                 tower_lvl2(ref valu);
