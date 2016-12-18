@@ -302,6 +302,7 @@ public class Enemy_Values_Gene{
                 break;
             case Tower.TowerType.SARUMAN_I:
                 tower_lvl5(ref valu);
+                valu.strenght = 5000;
                 break;
             case Tower.TowerType.ORCWARRIOR:
                 tower_lvl2(ref valu);
@@ -331,6 +332,7 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.ELF_I:
                 enemy_lvl1(ref valu);
+                valu.speed = 12;
                 break;
             case Enemy.EnemyType.ENT:
                 enemy_lvl3(ref valu);
@@ -347,6 +349,11 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.ENEMY:
                 enemy_lvl1(ref valu);
+                break;
+            case Enemy.EnemyType.NAZGUL:
+                enemy_lvl3(ref valu);
+                valu.damage = 50;
+                valu.speed = 10;
                 break;
             default:
                 valu.damage = 0;

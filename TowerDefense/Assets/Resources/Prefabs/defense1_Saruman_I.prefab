@@ -203,6 +203,7 @@ GameObject:
   - 4: {fileID: 4000011930628264}
   - 111: {fileID: 111000011131991416}
   - 114: {fileID: 114000010272560948}
+  - 114: {fileID: 114000011730020654}
   m_Layer: 0
   m_Name: defense1_Saruman_I
   m_TagString: WallEnemy
@@ -466,7 +467,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013477951796}
-  m_LocalRotation: {x: 0.69670165, y: 0.30174118, z: 0.5717207, w: 0.31095767}
+  m_LocalRotation: {x: 0.6967016, y: 0.30174115, z: 0.57172066, w: 0.31095764}
   m_LocalPosition: {x: -0.37005797, y: 0.00000004386902, z: -0.000000027418137}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -646,7 +647,7 @@ Animation:
   - {fileID: 7400002, guid: afc599e242343c448bdb24721f539dc4, type: 3}
   - {fileID: 7400004, guid: afc599e242343c448bdb24721f539dc4, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 1
 --- !u!114 &114000010272560948
@@ -658,6 +659,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000011730020654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013265565604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a01b504b77422048852883674cdded1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!137 &137000011891516606

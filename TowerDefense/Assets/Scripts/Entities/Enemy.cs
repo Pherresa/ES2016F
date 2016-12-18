@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
         ELF_I,
         BATTERINGRAM_MT,
         HOBBIT_I,
+        NAZGUL,
         ENEMY
     }
 
@@ -159,7 +160,6 @@ public class Enemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-		 
         if (col.gameObject.tag == "projectile")
         {
             //Destroy(this.gameObject);
@@ -167,7 +167,15 @@ public class Enemy : MonoBehaviour {
             //print(col.gameObject.name);
             life -= 50f;
         }
-		/*
+        if (col.gameObject.tag == "projectile_Saru")
+        {
+            
+            playSound(soundAttacked);
+            //Debug.Log(col.gameObject.GetComponent<ShootingBall>().getDamage());
+            life -= col.gameObject.GetComponent<ShootingBall>().getDamage();
+            Destroy(col.gameObject);
+        }
+        /*
 		if (col.gameObject.tag == "rohanHorse")
 		{
 			//Destroy(this.gameObject);
@@ -204,6 +212,10 @@ public class Enemy : MonoBehaviour {
         else if (name == "attack1_Orc_MT")
         {
             enem.type = EnemyType.ORC_MT;
+        }
+        else if (name == "attack3_NazgulV_MT")
+        {
+            enem.type = EnemyType.NAZGUL;
         }
         else if (name == "Enemy")
         {
