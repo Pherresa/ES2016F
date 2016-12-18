@@ -14,6 +14,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<link rel="stylesheet" href="assets/css/gallery.css" />
+		<link rel="icon" type="image/png" href="images/logo.png" />
 	</head>
 	<body id="home">
 
@@ -34,6 +35,7 @@
 							<li><a href="#intro" class="active">About</a></li>
 							<!-- <li><a href="#videos">Videos</a></li> -->
 							<li><a href="#screen">Screenshots</a></li>
+							<li><a href="#aboutus">About us</a></li>
 							<li><a href="#download">Downloads</a></li>
 						</ul>
 					</nav>
@@ -49,7 +51,7 @@
 											<h2>About the game</h2>
 										</header>
 										<p>When you start a new play, you have to take the most important decision, play with the Mordor horde
-										or thr Rohan's army. </br> Depending on the decision you take you will have one game or another </p>
+										or thr Rohan's army. </br> Depending on the decision you take, you will have one game or another </p>
 										<p>
 											This game is a Tower Defense, your objective is that the enemy hordes do not destroy your main tower,
 											to achieve this, you have to learn to play with the terrain and the economy, to be able to put defense towers on the map.
@@ -58,7 +60,7 @@
 											Are you ready?
 										</p>
 									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+									<span class="image"><img src="images/MT_vs_Isengard2.png" alt=""  /></span>
 								</div>
 							</section>
 
@@ -94,83 +96,173 @@
 						<!-- Second Section -->
 							<section id="screen" class="main special">
 								<h2>Screenshots</h2>
+								<h3>Minas Tirith</h3>
 								<div class="box alt">
 									<div class="row uniform">
-										<div class="12u$"><span class="image fit"><img src="images/pic04.jpg" alt="" onclick="openModal();currentSlide(1)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/lurtz.png" alt="" onclick="openModal();currentSlide(2)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/mercenary.png" alt="" onclick="openModal();currentSlide(3)" /></span></div>
-										<div class="4u$"><span class="image fit"><img src="images/model_Aragorn_MT.png" alt="" onclick="openModal();currentSlide(4)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/model_gandalf_MT.png" alt="" onclick="openModal();currentSlide(5)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/model_nazgul_MT.png" alt="" onclick="openModal();currentSlide(6)" /></span></div>
-										<div class="4u$"><span class="image fit"><img src="images/model_tower_MT.png" alt="" onclick="openModal();currentSlide(7)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/rohan.png" alt="" onclick="openModal();currentSlide(8)" /></span></div>
-										<div class="4u"><span class="image fit"><img src="images/shield.png" alt="" onclick="openModal();currentSlide(9)" /></span></div>
-										<div class="4u$"><span class="image fit"><img src="images/shield_orcs.png" alt="" onclick="openModal();currentSlide(10)" /></span></div>
+										<div class="12u$"><span class="image fit"><img src="images/web_nazgul1.png" alt="" onclick="openModal('myModal');currentSlide(1)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/barco.png" alt="" onclick="openModal('myModal');currentSlide(2)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/aragorn2.png" alt="" onclick="openModal('myModal');currentSlide(3)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/model_Aragorn_MT.png" alt="" onclick="openModal('myModal');currentSlide(4)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/model_gandalf_MT.png" alt="" onclick="openModal'myModal'();currentSlide(5)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/model_nazgul_MT.png" alt="" onclick="openModal('myModal');currentSlide(6)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/model_tower_MT.png" alt="" onclick="openModal('myModal');currentSlide(7)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/rohan.png" alt="" onclick="openModal('myModal');currentSlide(8)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/shield.png" alt="" onclick="openModal('myModal');currentSlide(9)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/MT_gameplay_1.png" alt="" onclick="openModal('myModal');currentSlide(10)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/MT_gameplay_2.png" alt="" onclick="openModal('myModal');currentSlide(11)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/MT_gameplay_3.png" alt="" onclick="openModal('myModal');currentSlide(12)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/MT_gameplay_4.png" alt="" onclick="openModal('myModal');currentSlide(13)" /></span></div>
 									</div>
 								</div>
 
 								<div id="myModal" class="modal">
-									<span class="close cursor" onclick="closeModal()">&times;</span>
+									<span class="close cursor" onclick="closeModal('myModal')">&times;</span>
+									<div class="modal-content modal-content-horizontal">
+
+										<div class="mySlides">
+											<div class="numbertext">1 / 13</div>
+											<img src="images/web_nazgul1.png" style="width:100%">
+										</div>
+
+									</div>
 									<div class="modal-content">
 
+
 										<div class="mySlides">
-											<div class="numbertext">1 / 10</div>
-											<img src="images/pic04.jpg" style="width:100%">
+											<div class="numbertext">2 / 13</div>
+											<img src="images/barco.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">2 / 10</div>
-											<img src="images/lurtz.png" style="width:100%">
+											<div class="numbertext">3 / 13</div>
+											<img src="images/aragorn2.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">3 / 10</div>
-											<img src="images/mercenary.png" style="width:100%">
-										</div>
-
-										<div class="mySlides">
-											<div class="numbertext">4 / 10</div>
+											<div class="numbertext">4 / 13</div>
 											<img src="images/model_Aragorn_MT.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">5 / 10</div>
+											<div class="numbertext">5 / 13</div>
 											<img src="images/model_gandalf_MT.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">6 / 10</div>
+											<div class="numbertext">6 / 13</div>
 											<img src="images/model_nazgul_MT.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">7 / 10</div>
+											<div class="numbertext">7 / 13</div>
 											<img src="images/model_tower_MT.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">8 / 10</div>
+											<div class="numbertext">8 / 13</div>
 											<img src="images/rohan.png" style="width:100%">
 										</div>
 
 										<div class="mySlides">
-											<div class="numbertext">9 / 10</div>
+											<div class="numbertext">9 / 13</div>
 											<img src="images/shield.png" style="width:100%">
 										</div>
 
+									</div>
+
+									<div class="modal-content modal-content-horizontal">
 										<div class="mySlides">
-											<div class="numbertext">10 / 10</div>
-											<img src="images/shield_orcs.png" style="width:100%">
+											<div class="numbertext">10 / 13</div>
+											<img src="images/MT_gameplay_1.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">11 / 13</div>
+											<img src="images/MT_gameplay_2.png" style="width:100%">
 										</div>
 
-										<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-										<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
+										<div class="mySlides">
+											<div class="numbertext">12 / 13</div>
+											<img src="images/MT_gameplay_3.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">13 / 13</div>
+											<img src="images/MT_gameplay_4.png" style="width:100%">
+										</div>
+									</div>
+									<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									<a class="next" onclick="plusSlides(1)">&#10095;</a>
+								</div>
+								<br />
+								<h3>Isengard</h3>
+								<div class="box alt">
+									<div class="row uniform">
+										<div class="4u"><span class="image fit"><img src="images/Isengard_Tower.png" alt="" onclick="openModal('myModal2');currentSlide(14)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/mercenary.png" alt="" onclick="openModal('myModal2');currentSlide(15)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/model_Saruman.png" alt="" onclick="openModal('myModal2');currentSlide(16)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/Isengard_gameplay_1.png" alt="" onclick="openModal('myModal2');currentSlide(17)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/Isengard_gameplay_2.png" alt="" onclick="openModal('myModal2');currentSlide(18)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/Isengard_gameplay_3.png" alt="" onclick="openModal('myModal2');currentSlide(19)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/Isengard_gameplay_4.png" alt="" onclick="openModal('myModal2');currentSlide(20)" /></span></div>
+										<div class="4u"><span class="image fit"><img src="images/Isengard_gameplay_5.png" alt="" onclick="openModal('myModal2');currentSlide(21)" /></span></div>
+										<div class="4u$"><span class="image fit"><img src="images/Isengard_gameplay_6.png" alt="" onclick="openModal('myModal2');currentSlide(22)" /></span></div>
 									</div>
 								</div>
+
+								<div id="myModal2" class="modal">
+									<span class="close cursor" onclick="closeModal('myModal2')">&times;</span>
+
+									<div class="modal-content">
+
+
+										<div class="mySlides">
+											<div class="numbertext">1 / 10</div>
+											<img src="images/Isengard_Tower.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">2 / 10</div>
+											<img src="images/mercenary.png" style="width:100%">
+										</div>
+
+										<div class="mySlides">
+											<div class="numbertext">3 / 10</div>
+											<img src="images/model_Saruman.png" style="width:100%">
+										</div>
+									</div>
+									<div class="modal-content modal-content-horizontal">
+										<div class="mySlides">
+											<div class="numbertext">4 / 10</div>
+											<img src="images/Isengard_gameplay_1.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">5 / 10</div>
+											<img src="images/Isengard_gameplay_2.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">6 / 10</div>
+											<img src="images/Isengard_gameplay_3.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">7 / 10</div>
+											<img src="images/Isengard_gameplay_4.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">8 / 10</div>
+											<img src="images/Isengard_gameplay_5.png" style="width:100%">
+										</div>
+										<div class="mySlides">
+											<div class="numbertext">9 / 10</div>
+											<img src="images/Isengard_gameplay_6.png" style="width:100%">
+										</div>
+									</div>
+									<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									<a class="next" onclick="plusSlides(1)">&#10095;</a>
+								</div>
 							</section>
-							<!-- <section id="screen" class="main special">
+
+							<!-- About us  -->
+
+							<section id="aboutus" class="main special">
 								<header class="major">
 									<h2>Ipsum consequat</h2>
 									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
@@ -204,7 +296,7 @@
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer>
-							</section> -->
+							</section>
 
 						<!-- Get Started -->
 							<section id="download" class="main special">
@@ -266,13 +358,13 @@
 			<script src="assets/js/main.js"></script>
 
 			<script>
-				function openModal() {
-					document.getElementById('myModal').style.display = "block";
+				function openModal(modalName) {
+					document.getElementById(modalName).style.display = "block";
 					$("#nav").hide();
 				}
 
-				function closeModal() {
-					document.getElementById('myModal').style.display = "none";
+				function closeModal(modalName) {
+					document.getElementById(modalName).style.display = "none";
 					$("#nav").show();
 				}
 
