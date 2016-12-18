@@ -131,7 +131,7 @@ public class Nazgul : MonoBehaviour {
                             proj.transform.position = enemy.GetComponentInChildren<Transform>().Find("body").GetComponentInChildren<Transform>().Find("Sphere").transform.position;
                             proj.AddComponent<ShootingBall>();
                             proj.GetComponent<ShootingBall>().setTarget(new Vector3(-65.89f, 7.22f, 79.08f));
-                            proj.GetComponent<ShootingBall>().setVel(1);
+                            proj.GetComponent<ShootingBall>().setVel(0.2f);
                         }
                         if ((DateTime.Now - timeOnPlay).Seconds > 1f)
                         {

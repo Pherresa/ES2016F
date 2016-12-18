@@ -7,7 +7,7 @@ public class ShootingBall : MonoBehaviour
     Vector3 objec;
     int damage;
 
-    int velo;
+    float velo;
 
     // Use this for initialization
     void Start()
@@ -41,7 +41,7 @@ public class ShootingBall : MonoBehaviour
         damage = d;
     }
 
-    public void setVel(int v)
+    public void setVel(float v)
     {
         velo = v;
     }
