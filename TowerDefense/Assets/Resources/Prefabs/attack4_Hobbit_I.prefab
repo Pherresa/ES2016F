@@ -171,6 +171,7 @@ GameObject:
   - 4: {fileID: 4000013273671512}
   - 33: {fileID: 33000012082756204}
   - 23: {fileID: 23000010082626974}
+  - 65: {fileID: 65000010696573072}
   m_Layer: 0
   m_Name: rock
   m_TagString: Untagged
@@ -392,7 +393,6 @@ GameObject:
   - 114: {fileID: 114000011746279326}
   - 114: {fileID: 114000014241278032}
   - 114: {fileID: 114000010480733922}
-  - 135: {fileID: 135000010720444022}
   m_Layer: 0
   m_Name: attack4_Hobbit_I
   m_TagString: Enemy
@@ -830,7 +830,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000014165275204
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -1038,11 +1038,12 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: -0.0000000054329927, z: -0.0000000029634524,
     w: 0.7071067}
   m_LocalPosition: {x: -0.00000029802322, y: 0.0000001192093, z: 0.00000011920929}
-  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000013358535384}
   m_Father: {fileID: 4000014234527360}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &4000010783542100
 Transform:
   m_ObjectHideFlags: 1
@@ -1503,7 +1504,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000014234527360}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &4000013314986158
 Transform:
   m_ObjectHideFlags: 1
@@ -1526,13 +1527,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014165275204}
-  m_LocalRotation: {x: 0.00000005960465, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.016928777, y: 0.016928777, z: 0.016928777}
+  m_LocalRotation: {x: 0.7071069, y: 0.0000000054329927, z: 0.0000000029634522, w: 0.70710665}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.005642926, y: 0.0056429254, z: 0.0056429254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011837565786}
-  m_Father: {fileID: 4000014234527360}
+  m_Father: {fileID: 4000010743893488}
   m_RootOrder: 0
 --- !u!4 &4000013508082196
 Transform:
@@ -1637,11 +1638,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012031403442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.883125, y: 1.7127423, z: 61.637802}
+  m_LocalPosition: {x: -34.777298, y: 0, z: -40.727604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000013358535384}
   - {fileID: 4000010743893488}
   - {fileID: 224000013390902918}
   - {fileID: 4000013273671512}
@@ -1697,6 +1697,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010482206796}
   m_Mesh: {fileID: 4300004, guid: cc73b4823a27e7c46860fc77f3c980be, type: 3}
+--- !u!65 &65000010696573072
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010482206796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.371752, y: 11.309844, z: 12.121372}
+  m_Center: {x: -0.015099975, y: -0.24959849, z: -0.29451108}
 --- !u!95 &95000013458655720
 Animator:
   serializedVersion: 3
@@ -1960,18 +1972,6 @@ MonoBehaviour:
   turnSpeed: 10
   enemyBody: {fileID: 4000013358535384}
   enemyCompass: {fileID: 4000010743893488}
---- !u!135 &135000010720444022
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012031403442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137000011837692378
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2077,13 +2077,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.4
+  m_Height: 2.45
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 1.15, z: 0}
 --- !u!222 &222000011746484612
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -2172,10 +2172,10 @@ RectTransform:
   - {fileID: 224000012204455560}
   - {fileID: 224000011724644316}
   m_Father: {fileID: 4000014234527360}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.23, y: 1.62}
+  m_AnchoredPosition: {x: -0.23, y: 3.762}
   m_SizeDelta: {x: 0.5, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013617804390
