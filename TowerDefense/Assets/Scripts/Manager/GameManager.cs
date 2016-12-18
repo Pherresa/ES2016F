@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
      */
     private void checkLife()
     {
-        if (life < 0)
+        if (life <= 0)
         {
             start_round.setGameOver();
             Die();
@@ -206,8 +206,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         endMenu.SetActive(true);
         Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
+        Text infoText = GameObject.Find("infoText").GetComponent<Text>();
         string txt = "Your final score is " + currentScore.ToString();
         finalScoreText.text = txt;
+        infoText.text = "YOU LOSE";
         //Time.timeScale = 0;
     }
 
@@ -228,7 +230,22 @@ public class GameManager : MonoBehaviour
         UpdateTimeText();
         UpdateScoreText();
         UpdateAvailableUnits();
+        CheckWin();
     }
+
+    void CheckWin(){
+        if(final_round && life>0){
+            Time.timeScale = 0.0f;
+            endMenu.SetActive(true);
+            Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
+            Text infoText = GameObject.Find("infoText").GetComponent<Text>();
+            string txt = "Your final score is " + currentScore.ToString();
+            finalScoreText.text = txt;
+            infoText.text = "YOU WIN";
+        }
+    }
+
+
 
     void UpdateAvailableUnits()
     {
