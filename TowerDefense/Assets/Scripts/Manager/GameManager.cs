@@ -17,10 +17,10 @@ public class GameManager : MonoBehaviour
     public int amount = 200; // TODO: Initial money value?
     public int finalScore = 0;
 
-	public int currentScore = 0; // TODO: TEAM_D show in the play window
-	// This will use to reset the score 
-	// after finishing a round (Start_Round.cs)
-	public int currentScoreNextRound = 0; 
+    public int currentScore = 0; // TODO: TEAM_D show in the play window
+    // This will use to reset the score 
+    // after finishing a round (Start_Round.cs)
+    public int currentScoreNextRound = 0; 
 
     private float startTime; // Used for the timer
     private int minuteCount;
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void setRemainingTime(float r)
     {
-		remainingTime = r;
+        remainingTime = r;
     }
 
     public void UpdateLifeText()
@@ -227,6 +227,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateTimeText();
         UpdateScoreText();
+        UpdateAvailableUnits();
     }
 
     void UpdateAvailableUnits()
@@ -237,12 +238,12 @@ public class GameManager : MonoBehaviour
 
             DragHandler dh = GameObject.Find("ButtonUnit1").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
-            //GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.red;
+            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.white;
 
         }
         else
         {
-           // GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit1").GetComponent<Image>().color = Color.gray;
             DragHandler dh = GameObject.Find("ButtonUnit1").GetComponent<DragHandler>();
             dh.setIsNotDraggable(true);
             //GameObject.Find("ButtonUnit1").GetComponent<Button>().enabled = false;
@@ -250,7 +251,7 @@ public class GameManager : MonoBehaviour
         if (amount >= SECOND_TURRET_PRICE) //TO DO: COST OF UNIT 2
         {
 
-           // GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit2").GetComponent<Image>().color = Color.white;
 
             DragHandler dh = GameObject.Find("ButtonUnit2").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
@@ -267,7 +268,7 @@ public class GameManager : MonoBehaviour
         if (amount >= THIRTH_TURRET_PRICE) //TO DO: COST OF UNIT 3
         {
 
-            //GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.white;
 
             DragHandler dh = GameObject.Find("ButtonUnit3").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
@@ -276,112 +277,125 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit3").GetComponent<Image>().color = Color.gray;
             //GameObject.Find("ButtonUnit3").GetComponent<Button>().enabled = false;
 
             DragHandler dh = GameObject.Find("ButtonUnit3").GetComponent<DragHandler>();
             dh.setIsNotDraggable(true);
+
+
+
         }
         if (amount >= FOURTH_TURRET_PRICE) //TO DO: COST OF UNIT 4
         {
 
-           // GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.white;
 
             DragHandler dh = GameObject.Find("ButtonUnit4").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
             //GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.magenta;
-
+            if (dh.getIsSpecialTower()){
+                dh.setSpecialTowerEnoughMoney(true);
+            }
         }
         else
         {
-            //GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit4").GetComponent<Image>().color = Color.gray;
             //GameObject.Find("ButtonUnit4").GetComponent<Button>().enabled = false;
             DragHandler dh = GameObject.Find("ButtonUnit4").GetComponent<DragHandler>();
             dh.setIsNotDraggable(true);
+            if (dh.getIsSpecialTower()){
+                dh.setSpecialTowerEnoughMoney(false);
+            }
         }
         if (amount >= FITH_TURRET_PRICE) //TO DO: COST OF UNIT 5
         {
 
-            //GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.white;
 
             //GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.yellow;
             DragHandler dh = GameObject.Find("ButtonUnit5").GetComponent<DragHandler>();
             dh.setIsNotDraggable(false);
-
+            if (dh.getIsSpecialTower()){
+                dh.setSpecialTowerEnoughMoney(true);
+            }
         }
         else
         {
-            //GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
+            GameObject.Find("ImageUnit5").GetComponent<Image>().color = Color.gray;
             //GameObject.Find("ButtonUnit5").GetComponent<Button>().enabled = false;
             DragHandler dh = GameObject.Find("ButtonUnit5").GetComponent<DragHandler>();
             dh.setIsNotDraggable(true);
+            if (dh.getIsSpecialTower()){
+                dh.setSpecialTowerEnoughMoney(false);
+            }
         }
 
     }
 
 
-	public void set_final_round(bool e) {
+    public void set_final_round(bool e) {
         final_round = e;
     }
 
 
-	/**
-	 * The formula will calculate after the player die or after the player finished a specific level (round).
-	 * This will depend to the life's player, time's remaining, money' remaining and the objects you bought.
-	 */
-	public int calculateFinalScore(){
+    /**
+     * The formula will calculate after the player die or after the player finished a specific level (round).
+     * This will depend to the life's player, time's remaining, money' remaining and the objects you bought.
+     */
+    public int calculateFinalScore(){
 
-		// weight value: we give 5 to balance the final score, most reality
-		int weight = 5;
+        // weight value: we give 5 to balance the final score, most reality
+        int weight = 5;
 
-		// life parameter we will use it also for the formula -> life 
-		// the time remaining is important too  -> timeremaining  
-		// player's money remaining is used too -> amount
+        // life parameter we will use it also for the formula -> life 
+        // the time remaining is important too  -> timeremaining  
+        // player's money remaining is used too -> amount
 
-		// objects that players bougth aslo -> priceObjects 
-		Debug.Log ("Price objects Final");
-		int priceObjects = calculatePriceBoughtObjects(); //  Get the price of the bought objects 
+        // objects that players bougth aslo -> priceObjects 
+        Debug.Log ("Price objects Final");
+        int priceObjects = calculatePriceBoughtObjects(); //  Get the price of the bought objects 
 
-		// the level also is a good parameter to obtain the final score -> level 
-		Start_Round st = GameObject.FindObjectOfType<Start_Round>();
-		int level = 1; 					// Get the level of the game 
-									    // We do +1 because it's start in 0.
-		if (st != null) {level += st.actu_round();}
+        // the level also is a good parameter to obtain the final score -> level 
+        Start_Round st = GameObject.FindObjectOfType<Start_Round>();
+        int level = 1;                  // Get the level of the game 
+                                        // We do +1 because it's start in 0.
+        if (st != null) {level += st.actu_round();}
 
 
-		Debug.Log ("remainingRime");
-		Debug.Log((int)(remainingTime));
+        Debug.Log ("remainingRime");
+        Debug.Log((int)(remainingTime));
 
-		// We save the value of the finalScore becuase in the next 
-		// round this score will be the current score of the player.
-		// So now we can define the formula: 
-		currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
+        // We save the value of the finalScore becuase in the next 
+        // round this score will be the current score of the player.
+        // So now we can define the formula: 
+        currentScoreNextRound = weight * level * (life + ((int)(remainingTime))) + amount + priceObjects + currentScore;
         finalScore = currentScoreNextRound;
-		return currentScoreNextRound;
-	}
+        return currentScoreNextRound;
+    }
 
-	/**
-	 * Calculates the price of bought objects.
-	 */
-	public int calculatePriceBoughtObjects() {
-		Action_Defense[] objects = (Action_Defense[])GameObject.FindObjectsOfType<Action_Defense> ();
-		Debug.Log ("Price objects 0");
-		int priceObjects = 0;
-		for (int i = 0; i < objects.Length; i++) {
-			Debug.Log (objects [i].getTowerPrice());
-			priceObjects += objects [i].getTowerPrice();
-		}
-		return priceObjects / 2;
-	}
+    /**
+     * Calculates the price of bought objects.
+     */
+    public int calculatePriceBoughtObjects() {
+        Action_Defense[] objects = (Action_Defense[])GameObject.FindObjectsOfType<Action_Defense> ();
+        Debug.Log ("Price objects 0");
+        int priceObjects = 0;
+        for (int i = 0; i < objects.Length; i++) {
+            Debug.Log (objects [i].getTowerPrice());
+            priceObjects += objects [i].getTowerPrice();
+        }
+        return priceObjects / 2;
+    }
 
 
-	/**
-	 * Update value of current score
-	 * 
-	 */
-	public void updateCurrentScore( int value ) {
-		this.currentScore += value;
-	}
+    /**
+     * Update value of current score
+     * 
+     */
+    public void updateCurrentScore( int value ) {
+        this.currentScore += value;
+    }
 
 
 }

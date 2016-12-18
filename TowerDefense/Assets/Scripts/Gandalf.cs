@@ -38,7 +38,7 @@ public class Gandalf : MonoBehaviour
 	public void startAnimation(){
 		if (attacking) {
 
-			StartCoroutine (waitToAttack (5));
+			StartCoroutine (waitToAttack (50));
 		}
 		
 	}
