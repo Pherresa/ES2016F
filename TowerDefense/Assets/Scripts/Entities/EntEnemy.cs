@@ -20,7 +20,7 @@ public class EntEnemy : BaseEnemy {
 
     protected override float getProjectileDuration()
     {
-        return 5f; //secs
+        return 2f; //secs
     }
 
     protected override float getProjectileSpeed()
