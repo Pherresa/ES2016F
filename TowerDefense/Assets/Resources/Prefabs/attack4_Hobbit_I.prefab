@@ -393,7 +393,7 @@ GameObject:
   - 114: {fileID: 114000011746279326}
   - 114: {fileID: 114000014241278032}
   - 114: {fileID: 114000010480733922}
-  - 65: {fileID: 65000011016171008}
+  - 136: {fileID: 136000013007555168}
   m_Layer: 0
   m_Name: attack4_Hobbit_I
   m_TagString: Enemy
@@ -1639,7 +1639,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012031403442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.777298, y: 0, z: -40.727604}
+  m_LocalPosition: {x: -26.050278, y: 0, z: 20.49704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1710,18 +1710,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.371752, y: 11.309844, z: 12.121372}
   m_Center: {x: -0.015099975, y: -0.24959849, z: -0.29451108}
---- !u!65 &65000011016171008
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012031403442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95000013458655720
 Animator:
   serializedVersion: 3
@@ -1985,6 +1973,19 @@ MonoBehaviour:
   turnSpeed: 10
   enemyBody: {fileID: 4000013358535384}
   enemyCompass: {fileID: 4000010743893488}
+--- !u!136 &136000013007555168
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012031403442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3.865642
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.94, z: 0}
 --- !u!137 &137000011837692378
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
