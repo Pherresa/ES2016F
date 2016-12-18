@@ -393,6 +393,7 @@ GameObject:
   - 114: {fileID: 114000011746279326}
   - 114: {fileID: 114000014241278032}
   - 114: {fileID: 114000010480733922}
+  - 65: {fileID: 65000011016171008}
   m_Layer: 0
   m_Name: attack4_Hobbit_I
   m_TagString: Enemy
@@ -1709,6 +1710,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.371752, y: 11.309844, z: 12.121372}
   m_Center: {x: -0.015099975, y: -0.24959849, z: -0.29451108}
+--- !u!65 &65000011016171008
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012031403442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95000013458655720
 Animator:
   serializedVersion: 3
