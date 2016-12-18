@@ -616,6 +616,7 @@ GameObject:
   - 114: {fileID: 114000012256893202}
   - 95: {fileID: 95000011837317986}
   - 114: {fileID: 114000012527114950}
+  - 136: {fileID: 136000011024184226}
   m_Layer: 0
   m_Name: attack1_Ent_I
   m_TagString: Enemy
@@ -1148,8 +1149,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012086898058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.544, y: 0, z: -12.60392}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -92.495, y: 1.2294495, z: 69.330536}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000010074525730}
@@ -2365,6 +2366,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136000011024184226
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012086898058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137000011549225292
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

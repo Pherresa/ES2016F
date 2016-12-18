@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class EntEnemy : BaseEnemy {
+public class HobbitEnemy : BaseEnemy {
 
     // Use this for initialization
     public override void Start () {
@@ -25,11 +25,11 @@ public class EntEnemy : BaseEnemy {
 
     protected override float getProjectileSpeed()
     {
-        return 50f;
+        return 25f;
     }
 
     protected override int getNumAttacks()
     {
-        return 1;
+        return 3;
     }
 }

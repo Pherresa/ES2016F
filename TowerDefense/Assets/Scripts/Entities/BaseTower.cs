@@ -73,7 +73,7 @@ public abstract class BaseTower : MonoBehaviour {
             isShooting = false;
         } else if (target == null && getCurrentAnimationStateHash() == getIdleStateHash())
         {
-            projectile.SetActive(true);
+            projectile.SetActive(false);
         }
     }
 

@@ -57,11 +57,11 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     public virtual void FixedUpdate()
     {
-        if (currentAttackCount < getNumAttacks()) { 
+        
             getTarget();
             shoot();
             checkAnimationState();
-        }
+        
     }
 
     public virtual void Update()
@@ -73,9 +73,12 @@ public abstract class BaseEnemy : MonoBehaviour {
     {
         if (target != null && getCurrentAnimationStateHash() == getWalkStateHash())
         {
-            projectile.SetActive(true);
-            startShootAnimation();
-            isShooting = false;
+            if (currentAttackCount < getNumAttacks())
+            {
+                projectile.SetActive(true);
+                startShootAnimation();
+                isShooting = false;
+            }
         } else if (target == null && getCurrentAnimationStateHash() == getWalkStateHash())
         {
             projectile.SetActive(true);
@@ -88,7 +91,7 @@ public abstract class BaseEnemy : MonoBehaviour {
         {
             generateProjectile();
             isShooting = true;
-            currentAttackCount++;
+            //currentAttackCount++;
         }
     }
 
@@ -105,8 +108,8 @@ public abstract class BaseEnemy : MonoBehaviour {
         if(projectile != null)
         {
             GameObject projectileInstance = Instantiate(projectile);
-            //projectileInstance.transform.parent = transform;
-            projectileInstance.transform.localScale = transform.lossyScale;
+            projectileInstance.transform.parent = transform;
+           // projectileInstance.transform.localScale = transform.localScale;
             projectileInstance.transform.position = projectile.transform.position;// + new Vector3(0f, 3f, 0f);
             projectileInstance.transform.rotation = getFixedProjectileRotation();
             //projectileInstance.AddComponent<ShootingMove>().setData(target).tag = "projectile";
@@ -120,7 +123,7 @@ public abstract class BaseEnemy : MonoBehaviour {
     {
         GameObject mTower = GameObject.FindGameObjectWithTag("MainTower");
         float distanceToMainTower = Vector3.Distance(transform.position, mTower.transform.position);
-        if (distanceToMainTower < 10f)
+        if (distanceToMainTower <= 50f)
         {
             target = mTower;
         }

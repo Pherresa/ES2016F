@@ -163,7 +163,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1000010482206796
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -391,6 +391,8 @@ GameObject:
   - 114: {fileID: 114000014093200708}
   - 114: {fileID: 114000011746279326}
   - 114: {fileID: 114000014241278032}
+  - 114: {fileID: 114000010480733922}
+  - 135: {fileID: 135000010720444022}
   m_Layer: 0
   m_Name: attack4_Hobbit_I
   m_TagString: Enemy
@@ -1237,7 +1239,7 @@ Transform:
   - {fileID: 4000010279184598}
   - {fileID: 4000010783542100}
   m_Father: {fileID: 4000013358535384}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &4000011859815660
 Transform:
   m_ObjectHideFlags: 1
@@ -1495,13 +1497,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010482206796}
-  m_LocalRotation: {x: -0.4328289, y: -0.22822018, z: 0.40676174, w: 0.77143997}
-  m_LocalPosition: {x: 11.28189, y: 0.0020578918, z: 13.556925}
-  m_LocalScale: {x: 0.0130955195, y: 0.0130955195, z: 0.013095519}
+  m_LocalRotation: {x: -0.43282884, y: -0.22822021, z: 0.40676174, w: 0.77143997}
+  m_LocalPosition: {x: 0.19098663, y: 0.000034809113, z: 0.22950363}
+  m_LocalScale: {x: 0.00022169118, y: 0.00022169115, z: 0.00022169112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000013358535384}
-  m_RootOrder: 0
+  m_Father: {fileID: 4000014234527360}
+  m_RootOrder: 3
 --- !u!4 &4000013314986158
 Transform:
   m_ObjectHideFlags: 1
@@ -1529,7 +1531,6 @@ Transform:
   m_LocalScale: {x: 0.016928777, y: 0.016928777, z: 0.016928777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000013273671512}
   - {fileID: 4000011837565786}
   m_Father: {fileID: 4000014234527360}
   m_RootOrder: 0
@@ -1636,13 +1637,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012031403442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.023377, y: 2.0100002, z: 26.747948}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -88.883125, y: 1.7127423, z: 61.637802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013358535384}
   - {fileID: 4000010743893488}
   - {fileID: 224000013390902918}
+  - {fileID: 4000013273671512}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &4000014252487842
@@ -1712,6 +1714,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010480733922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012031403442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90b401ab8d4a214081434a482091b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  strenght: 20
+  projectile: {fileID: 1000010482206796}
 --- !u!114 &114000011354994714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1944,6 +1960,18 @@ MonoBehaviour:
   turnSpeed: 10
   enemyBody: {fileID: 4000013358535384}
   enemyCompass: {fileID: 4000010743893488}
+--- !u!135 &135000010720444022
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012031403442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137000011837692378
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
