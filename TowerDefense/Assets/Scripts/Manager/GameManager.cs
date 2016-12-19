@@ -235,7 +235,10 @@ public class GameManager : MonoBehaviour
     }
 
     void CheckWin(){
-        if(final_round && life>0){
+        enemiesToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        int a = enemiesToDestroy.Length;
+        if(final_round && life>0 && a==0){
             Time.timeScale = 0.0f;
             endMenu.SetActive(true);
             Text finalScoreText = GameObject.Find("finalScoreText").GetComponent<Text>();
