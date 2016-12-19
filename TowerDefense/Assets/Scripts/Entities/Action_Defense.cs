@@ -409,7 +409,7 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.ARAGORN_MT;
         }
-        else if (name == "defense5_Gandalf_MT")
+        else if (name == "defender5_Gandalf_MT")
         {
             valu.type = TowerType.GANDALF_MT;
         }

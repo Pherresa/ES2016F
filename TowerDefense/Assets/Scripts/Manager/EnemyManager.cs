@@ -128,6 +128,7 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
         }
+        if(a_r > 4) generateElephant();
     }
 
 
