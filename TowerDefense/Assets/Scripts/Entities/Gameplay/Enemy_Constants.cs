@@ -14,10 +14,10 @@ public class Enemy_Constants{
     private int attack_big = 5;
     private int attack_4 = 10;
 
-    private int speed_little = 16;
-    private int speed_medium = 15;
-    private int speed_big = 12;
-    private int speed_4 = 10;
+    private int speed_little = 7;
+    private int speed_medium = 7;
+    private int speed_big = 7;
+    private int speed_4 = 7;
 
     private  int money_little = 25;
     private int money_medium = 50;
