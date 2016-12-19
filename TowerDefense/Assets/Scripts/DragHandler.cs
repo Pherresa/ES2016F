@@ -15,6 +15,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public bool waterUnit;
 
+    public bool specialTower;
+    public bool specialTowerEnoughMoney;
+
     public GameObject prefab;
     GameObject hoverPrefab;
     public Slot[] Slots;
@@ -77,6 +80,15 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void setIsNotDraggable(bool b){
         isNotDraggable = b;
+    }
+
+    public bool getIsSpecialTower(){
+        return specialTower;
+    }
+
+
+    public void setSpecialTowerEnoughMoney(bool b){
+        specialTowerEnoughMoney = b;
     }
 
 
@@ -156,21 +168,21 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             if (slot.name.Equals(availableSlot.name))
             {
-				if(availableSlot.getIsPath() || availableSlot.isOccupied || (waterUnit && !availableSlot.getIsWater()) || (!waterUnit && availableSlot.getIsWater())){
-					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
-					availableSlot.GetComponent<Renderer> ().material.color = Color.red;
+                if(availableSlot.getIsPath() || availableSlot.isOccupied || (waterUnit && !availableSlot.getIsWater()) || (!waterUnit && availableSlot.getIsWater())){
+                    availableSlot.GetComponent<MeshRenderer> ().enabled = true;
+                    availableSlot.GetComponent<Renderer> ().material.color = Color.red;
                     hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.red;
                 }
-				else{
-					availableSlot.GetComponent<MeshRenderer> ().enabled = true;
-					availableSlot.GetComponent<Renderer> ().material.color = Color.green;
+                else{
+                    availableSlot.GetComponent<MeshRenderer> ().enabled = true;
+                    availableSlot.GetComponent<Renderer> ().material.color = Color.green;
                     hoverPrefab.GetComponentsInChildren<Projector>()[1].material.color = Color.green;
                     if (!alreadyPlayedDraggingSound)
                     {
                         playSound(soundDragging);
                         alreadyPlayedDraggingSound = true;
                     }
-				}
+                }
 
             }
             else
@@ -278,35 +290,35 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 else{
                     if (!activeSlot.getIsPath() && !activeSlot.isOccupied && !activeSlot.getIsWater()){
                     
-                    Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
-                    GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
-                    Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
+                        Vector3 quadCentre = GetQuadCentre(activeSlot.gameObject);
+                        GameObject newUnit = (GameObject)Instantiate(prefab, quadCentre, Quaternion.identity);
+                        Action_Defense actionDefense = newUnit.GetComponent<Action_Defense>();
 
-                    actionDefense.activate();
-                    gameManager.LoseAmount(newUnit.GetComponent<Action_Defense>().getTowerPrice());
+                        actionDefense.activate();
+                        gameManager.LoseAmount(newUnit.GetComponent<Action_Defense>().getTowerPrice());
 
-                    foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
-                    {
-                        particleSystem.Play();
-                    }
+                        foreach (ParticleSystem particleSystem in newUnit.GetComponentsInChildren<ParticleSystem>())
+                        {
+                            particleSystem.Play();
+                        }
 
-                    GameObject aura = Instantiate(auraPrefab);
+                        GameObject aura = Instantiate(auraPrefab);
 
-                    //prefabActionDefense.initTowerValues();
-                    aura.GetComponent<Projector>().orthographicSize = newUnit.GetComponent<Action_Defense>().getValues().range;//prefabActionDefense.range; 
-                    aura.GetComponent<Projector>().enabled = false;
-                    aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
-                    aura.transform.parent = newUnit.transform;
+                        //prefabActionDefense.initTowerValues();
+                        aura.GetComponent<Projector>().orthographicSize = newUnit.GetComponent<Action_Defense>().getValues().range;//prefabActionDefense.range; 
+                        aura.GetComponent<Projector>().enabled = false;
+                        aura.transform.position = newUnit.transform.position + new Vector3(0.0f, 30.0f, 0.0f);
+                        aura.transform.parent = newUnit.transform;
 
-                    playSound(soundDrop);
+                        playSound(soundDrop);
 
-                    activeSlot.isOccupied = true;
-                    activeSlot.unit = newUnit;
-                    activeSlot.GetComponent<MeshRenderer>().enabled = false;
-					//print (prefab.name.Contains ("Gandalf"));
-					if(newUnit.name.Contains("Gandalf")){
-						newUnit.GetComponent<Gandalf> ().startAnimation ();
-					}
+                        activeSlot.isOccupied = true;
+                        activeSlot.unit = newUnit;
+                        activeSlot.GetComponent<MeshRenderer>().enabled = false;
+                        //print (prefab.name.Contains ("Gandalf"));
+                        if(newUnit.name.Contains("Gandalf")){
+                            newUnit.GetComponent<Gandalf> ().startAnimation ();
+                        }
 
                     }
                     else
@@ -411,11 +423,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             case 4:
                 power = evg.m_4_tower("a");
                 cost = evg.m_4_tower("m");
+                if (specialTower && specialTowerEnoughMoney){
+                    enableTowerSlots();
+                }
                 break;
             case 5:
                 power = evg.m_5_tower("a");
                 cost = evg.m_5_tower("m");
-                enableTowerSlots();
+                if (specialTower && specialTowerEnoughMoney){
+                    enableTowerSlots();
+                }
+                
                 break;
             default:
                 print ("Se ha liado parda");
@@ -434,10 +452,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         Slot[] towerSlots = FindObjectsOfType(typeof(Slot)) as Slot[];
         foreach (Slot tSlot in towerSlots){
             //print ("towerSlot");
-            if(tSlot.getIsTowerSlot()){
+            if(tSlot.getIsTowerSlot() && !tSlot.getIsOccupied()){
                 
+                tSlot.setPrefab(prefab);
                 tSlot.GetComponent<MeshRenderer> ().enabled = true;
                 tSlot.GetComponent<Renderer> ().material.color = Color.green;
+
             }
             
 

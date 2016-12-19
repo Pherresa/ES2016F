@@ -26,7 +26,7 @@ public class OrcArcherTower : BaseTower {
 
     protected override Quaternion getFixedProjectileRotation()
     {
-        return Quaternion.Euler(90f, 0f, 0f);
+        return Quaternion.Euler(0f, 0f, 0f);
     }
 
     protected override float getProjectileDuration()

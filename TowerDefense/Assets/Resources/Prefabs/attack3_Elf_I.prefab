@@ -532,6 +532,7 @@ GameObject:
   - 114: {fileID: 114000010825801056}
   - 114: {fileID: 114000010661016422}
   - 114: {fileID: 114000010275831874}
+  - 136: {fileID: 136000013953736882}
   m_Layer: 0
   m_Name: attack3_Elf_I
   m_TagString: Enemy
@@ -1609,6 +1610,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penalty: 1000
   randomStep: 10
+--- !u!136 &136000013953736882
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012948240114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137000010038140880
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
