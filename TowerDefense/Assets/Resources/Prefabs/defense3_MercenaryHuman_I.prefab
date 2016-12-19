@@ -1491,6 +1491,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011686959584}
   - 114: {fileID: 114000012283358514}
+  - 65: {fileID: 65000012432518456}
   m_Layer: 0
   m_Name: defense3_MercenaryHuman_I
   m_TagString: Untagged
@@ -8768,6 +8769,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65000012432518456
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012045868116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1.2, z: 5.1}
+  m_Center: {x: 0.15, y: 0.6, z: -0.05}
 --- !u!65 &65000013532502142
 BoxCollider:
   m_ObjectHideFlags: 1

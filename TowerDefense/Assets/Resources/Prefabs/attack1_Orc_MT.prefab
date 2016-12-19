@@ -474,7 +474,8 @@ GameObject:
   - 114: {fileID: 114000010042128050}
   - 114: {fileID: 114000011423871512}
   - 114: {fileID: 114000010816781708}
-  - 111: {fileID: 111000014000942622}
+  - 111: {fileID: 111000011034196476}
+  - 114: {fileID: 114000013228734436}
   m_Layer: 0
   m_Name: attack1_Orc_MT
   m_TagString: Enemy
@@ -1173,28 +1174,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012811041824}
   m_RootOrder: 8
+--- !u!111 &111000011034196476
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013090707422}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 1
 --- !u!111 &111000012073366810
 Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014088796656}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: c67faf476d095f541881a1f74a31d15f, type: 3}
-  - {fileID: 7400000, guid: 71405605e7349ec49aae842bcbfac3dd, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 1
---- !u!111 &111000014000942622
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013090707422}
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
@@ -1394,6 +1393,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penalty: 1000
   randomStep: 10
+--- !u!114 &114000013228734436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013090707422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1689a0a11e3f37b458b8a70dd48fdd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013400238128
 MonoBehaviour:
   m_ObjectHideFlags: 1

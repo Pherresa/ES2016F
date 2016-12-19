@@ -558,6 +558,7 @@ GameObject:
   - 114: {fileID: 114000012596351934}
   - 95: {fileID: 95000012473293474}
   - 114: {fileID: 114000011219540546}
+  - 136: {fileID: 136000012370396952}
   m_Layer: 0
   m_Name: defense4_Lurtz_I
   m_TagString: WallEnemy
@@ -2577,6 +2578,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b42b6cbb24b0944af65cdcc47f024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136000012370396952
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012045868116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137000010773261228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
