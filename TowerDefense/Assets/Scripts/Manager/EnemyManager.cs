@@ -24,53 +24,58 @@ public class EnemyManager : MonoBehaviour {
         }*/
     }
 
-    public void createNewWaveIsengard(int a_r) {
-        System.Random dado = new System.Random();
-        bool elf = false;
-        gameValues = new Game(FindObjectOfType<GameManager>());
-        GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
-        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack1_Ent_I");
-        GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_Hobbit_I");
-        
-        for (int i = 0; i < 7 + (int)(a_r*2-1); i++)
-        {
-            double n = dado.NextDouble();
-            //GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
-            GameObject enemy;//= Instantiate(enemyPrefab);
-            if (n < 0.8f - (0.1 * a_r))
-            {
-                enemy = Instantiate(enemyPrefab1);
-                elf = true;
+	IEnumerator createUnits(int a_r)
+	{
+		System.Random dado = new System.Random();
+		bool elf = false;
+		gameValues = new Game(FindObjectOfType<GameManager>());
+		GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack3_Elf_I");
+		GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack1_Ent_I");
+		GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_Hobbit_I");
 
-            }
-            else if (n < 0.9f - (0.1 * a_r))
-            {
-                enemy = Instantiate(enemyPrefab2);
-            }
-            else {
-                enemy = Instantiate(enemyPrefab3);
-            }
-            if (elf)
-            {
-                enemy.transform.parent = transform;
-                enemy.transform.position = transform.position;
-                //get the thing component on your instantiated object
-                AstarAI3 astarAI = enemy.GetComponent<AstarAI3>();
-                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
-                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
-                elf = false;
-            }
-            else
-            {
-                enemy.transform.parent = transform;
-                enemy.transform.position = transform.position;
-                //get the thing component on your instantiated object
-                AstarAI astarAI = enemy.GetComponent<AstarAI>();
-                astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
-                astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
-            }
-            
-        }
+		for (int i = 0; i < 7 + (int)(a_r*2-1); i++)
+		{
+			double n = dado.NextDouble();
+			//GameObject enemyPrefab = Resources.Load("Prefabs/Enemy") as GameObject;
+			GameObject enemy;//= Instantiate(enemyPrefab);
+			if (n < 0.8f - (0.1 * a_r))
+			{
+				enemy = Instantiate(enemyPrefab1);
+				elf = true;
+
+			}
+			else if (n < 0.9f - (0.1 * a_r))
+			{
+				enemy = Instantiate(enemyPrefab2);
+			}
+			else {
+				enemy = Instantiate(enemyPrefab3);
+			}
+			if (elf)
+			{
+				enemy.transform.parent = transform;
+				enemy.transform.position = transform.position;
+				//get the thing component on your instantiated object
+				AstarAI3 astarAI = enemy.GetComponent<AstarAI3>();
+				astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+				astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+				elf = false;
+			}
+			else
+			{
+				enemy.transform.parent = transform;
+				enemy.transform.position = transform.position;
+				//get the thing component on your instantiated object
+				AstarAI astarAI = enemy.GetComponent<AstarAI>();
+				astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+				astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+			}
+			yield return new WaitForSeconds(1f);
+		}
+	}
+
+    public void createNewWaveIsengard(int a_r) {
+		StartCoroutine (createUnits (a_r));
     }
 
     public void createNewWaveMinasTirith(int a_r) {
