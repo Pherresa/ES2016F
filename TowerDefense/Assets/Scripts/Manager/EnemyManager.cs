@@ -119,13 +119,15 @@ public class EnemyManager : MonoBehaviour {
 					AstarAI astarAI = enemy.GetComponent<AstarAI>();
 					astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
 					astarAI.target = GameObject.FindGameObjectWithTag("Target").transform;
+                    astarAI.turnSpeed = 10;
 				}
 				else
 				{
 					AstarAI2 astarAI2 = enemy.GetComponent<AstarAI2>();
 					astarAI2.speed = enemy.GetComponent<Enemy>().getValues().speed;
 					astarAI2.target = GameObject.FindGameObjectWithTag("Target").transform;
-					battery = false;
+                    astarAI2.turnSpeed = 10;
+                    battery = false;
 				}
 			}
 			yield return new WaitForSeconds(1f);

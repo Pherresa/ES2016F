@@ -332,7 +332,6 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.ELF_I:
                 enemy_lvl1(ref valu);
-                valu.speed = 12;
                 break;
             case Enemy.EnemyType.ENT:
                 enemy_lvl3(ref valu);
@@ -342,7 +341,6 @@ public class Enemy_Values_Gene{
                 break;
             case Enemy.EnemyType.OLIPHANT_MT:
                 enemy_lvl2(ref valu);
-                valu.speed = 5;
                 break;
             case Enemy.EnemyType.ORC_MT:
                 enemy_lvl1(ref valu);
@@ -353,7 +351,7 @@ public class Enemy_Values_Gene{
             case Enemy.EnemyType.NAZGUL:
                 enemy_lvl3(ref valu);
                 valu.damage = 50;
-                valu.speed = 10;
+                valu.maxlife = 2000;
                 break;
             default:
                 valu.damage = 0;
