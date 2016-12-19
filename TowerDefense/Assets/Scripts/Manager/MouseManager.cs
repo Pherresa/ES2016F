@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class MouseManager : MonoBehaviour {
@@ -8,9 +9,9 @@ public class MouseManager : MonoBehaviour {
 	public GameObject overObject;
 	// Use this for initialization
 	void Start () {
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//ray from the camera to the mouse position
@@ -55,11 +56,11 @@ public class MouseManager : MonoBehaviour {
 					deselect (selectedObject);
 				}
 				selectedObject = pressedObject;
-				selectedObject.GetComponent<MeshRenderer> ().enabled = true;
-				selectedObject.GetComponent<Renderer> ().material.color = Color.green;
-                selectedObject.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = true;
+				//selectedObject.GetComponent<MeshRenderer> ().enabled = true;
+				//selectedObject.GetComponent<Renderer> ().material.color = Color.green;
+				//selectedObject.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = true;
 
-                Debug.Log (selectedObject.name+" Selected");
+				Debug.Log (selectedObject.name+" Selected");
 			} else {
 				if (selectedObject != null) {
 					deselect (selectedObject);
@@ -71,17 +72,19 @@ public class MouseManager : MonoBehaviour {
 	}
 
 	void deselect(GameObject obj){
-		obj.GetComponent<MeshRenderer> ().enabled = false;
-        obj.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = false;
-    }
+		//obj.GetComponent<MeshRenderer> ().enabled = false;
+		//obj.GetComponent<Slot>().unit.GetComponentInChildren<Projector>().enabled = false;
+		return;
+	}
 
-	bool checkSelectable(GameObject obj){
+	bool checkSelectable(GameObject obj){ //check if the pressedObject is an unoccupied slot or a defender
 		if (pressedObject.name.StartsWith ("Slot")) {
 			return pressedObject.GetComponent<Slot> ().isOccupied;
 		} else { 
-			return false;
+			return pressedObject.name.StartsWith ("def");
 		}
 	}
 
 
 }
+
