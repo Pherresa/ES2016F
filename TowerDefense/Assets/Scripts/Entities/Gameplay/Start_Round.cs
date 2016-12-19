@@ -31,7 +31,7 @@ public class Start_Round : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        total_round = 10;
+        total_round = 5;
         values = new Enemy_Values_Gene();
         cont_round = 0;
         indicator_time = GameObject.Find("GameManager").GetComponent<GameManager>();

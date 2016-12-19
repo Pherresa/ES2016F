@@ -14,15 +14,15 @@ public class EnemyManager : MonoBehaviour {
         lifeAmountManager = GameObject.FindObjectOfType<GameManager>();
 
         //createNewWave();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    /*if(lifeAmountManager.remainingTime <= 0.9f)
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        /*if(lifeAmountManager.remainingTime <= 0.9f)
         {
             createNewWave();
         }*/
-	}
+    }
 
     public void createNewWaveIsengard(int a_r) {
         System.Random dado = new System.Random();
@@ -79,7 +79,7 @@ public class EnemyManager : MonoBehaviour {
         bool battery = false;
         bool elephant = false;
         GameObject enemyPrefab1 = (GameObject)Resources.Load("Prefabs/attack1_Orc_MT");
-        //GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack2_Oliphant_MT");
+        GameObject enemyPrefab2 = (GameObject)Resources.Load("Prefabs/attack2_Oliphant_MT");
         GameObject enemyPrefab3 = (GameObject)Resources.Load("Prefabs/attack4_BatteringRam_MT");
         
         for (int i = 0; i < 7 + (int)(a_r * 2 - 1); i++)
@@ -93,12 +93,14 @@ public class EnemyManager : MonoBehaviour {
             }
             else if (n < 0.9f - (0.1 * a_r))
             {
-                elephant = true;
-                enemy = null;
+                elephant = false; //true
+                enemy = Instantiate(enemyPrefab2);
+                StartCoroutine(Delay(4f + (float)(i * 3), enemy)); //Delay nuevo
             }
             else
             {
                 enemy = Instantiate(enemyPrefab3);
+                StartCoroutine(Delay(4f + (float)(i * 3), enemy)); //Delay nuevo
                 battery = true;
             }
             if (elephant)
@@ -129,59 +131,69 @@ public class EnemyManager : MonoBehaviour {
     }
 
 
+    //Funcion nueva!!
+   //Funcion de Delay nueva para que no se apelotonen los enemigos
+   private IEnumerator Delay(float duration, GameObject instanPrefab)
+    {
+        instanPrefab.SetActive(false);
+        yield return new WaitForSeconds(duration);
+        instanPrefab.SetActive(true);
+    }
+
+
     public void createNewWave()
     {
  
 
-		/**
-		 * For now this is the same for this two scene.
-		 * TODO: Add all the model enemy (except BRAM)
-		 * TODO: Thiw will dissapear!!!!!!
-		 **/
-		// Save game values before new wave
+        /**
+         * For now this is the same for this two scene.
+         * TODO: Add all the model enemy (except BRAM)
+         * TODO: Thiw will dissapear!!!!!!
+         **/
+        // Save game values before new wave
 
 
-		gameValues = new Game (FindObjectOfType<GameManager> ());
-	
+        gameValues = new Game (FindObjectOfType<GameManager> ());
+    
 
-		/**
-		 * We deffirenciate which model goes to each scene
-		 **/
-		Scene scene = SceneManager.GetActiveScene ();
-		Debug.Log ("Active scene is '" + scene.name + "'.");// name of scene
+        /**
+         * We deffirenciate which model goes to each scene
+         **/
+        Scene scene = SceneManager.GetActiveScene ();
+        Debug.Log ("Active scene is '" + scene.name + "'.");// name of scene
 
-		// Tirith scene only:
-		if (scene.name == "TirithLvl1") {
-
-
-			// We generate Bettering Ram:
-			generateOneBatteringRam ();
+        // Tirith scene only:
+        if (scene.name == "TirithLvl1") {
 
 
-
-			// TODO: OLiphant
-			generateElephant ();
-		
-
-		} 
-		// Isengart scene only:
-		else if (scene.name == "IsengardLvl1") {
-
-			// TODO: Orc
-
-			// TODO: Elf
-
-			// TODO: Hobbit
-
-		}
-		// ERROR: not recognized
-		else {
-			Debug.Log ("Error scene not exit");
-		}
+            // We generate Bettering Ram:
+            generateOneBatteringRam ();
 
 
 
-	}
+            // TODO: OLiphant
+            generateElephant ();
+        
+
+        } 
+        // Isengart scene only:
+        else if (scene.name == "IsengardLvl1") {
+
+            // TODO: Orc
+
+            // TODO: Elf
+
+            // TODO: Hobbit
+
+        }
+        // ERROR: not recognized
+        else {
+            Debug.Log ("Error scene not exit");
+        }
+
+
+
+    }
 
     //Destroy all the defenses and enemies in the actual round
     public void Reset()
@@ -200,45 +212,45 @@ public class EnemyManager : MonoBehaviour {
     }
 
 
-	/**
-	 * This fuction generate a Battering ram object.
-	 **/
-	public void generateOneBatteringRam() {
+    /**
+     * This fuction generate a Battering ram object.
+     **/
+    public void generateOneBatteringRam() {
 
-		// Creating battering ram as an enemy 
-		GameObject bRamPrefab = Resources.Load ("Prefabs/attack4_BatteringRam_MT") as GameObject;
-		GameObject bRam = Instantiate (bRamPrefab); 
-		bRam.transform.parent = transform;
-		bRam.AddComponent<BatteringRam> ();
-		//get the thing component on your instantiated object
-		AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2> ();
-		bRamAstarAI.speed = bRam.GetComponent<Enemy>().getValues().speed;
-		bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
+        // Creating battering ram as an enemy 
+        GameObject bRamPrefab = Resources.Load ("Prefabs/attack4_BatteringRam_MT") as GameObject;
+        GameObject bRam = Instantiate (bRamPrefab); 
+        bRam.transform.parent = transform;
+        bRam.AddComponent<BatteringRam> ();
+        //get the thing component on your instantiated object
+        AstarAI2 bRamAstarAI = bRam.GetComponent<AstarAI2> ();
+        bRamAstarAI.speed = bRam.GetComponent<Enemy>().getValues().speed;
+        bRamAstarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
 
-	}
-
-
-	public void generateElephant() {
-		
-
-		StartCoroutine(TemporarilyDeactivate(4));
-
-	}
-
-	private IEnumerator TemporarilyDeactivate(float duration) {
+    }
 
 
-		GameObject enemyPrefab = Resources.Load ("Prefabs/attack2_Oliphant_MT") as GameObject;
-	
-		GameObject enemy = Instantiate (enemyPrefab);
-		enemy.SetActive (false);
-		enemy.transform.parent = transform;
-		enemy.AddComponent<Elephant> ();
-		//get the thing component on your instantiated object
-		AstarAI astarAI = enemy.GetComponent<AstarAI> ();
-		astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
-		astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
-		yield return new WaitForSeconds(duration);
-		enemy.SetActive(true);
-	}
+    public void generateElephant() {
+        
+
+        StartCoroutine(TemporarilyDeactivate(4));
+
+    }
+
+    private IEnumerator TemporarilyDeactivate(float duration) {
+
+
+        GameObject enemyPrefab = Resources.Load ("Prefabs/attack2_Oliphant_MT") as GameObject;
+    
+        GameObject enemy = Instantiate (enemyPrefab);
+        enemy.SetActive (false);
+        enemy.transform.parent = transform;
+        enemy.AddComponent<Elephant> ();
+        //get the thing component on your instantiated object
+        AstarAI astarAI = enemy.GetComponent<AstarAI> ();
+        astarAI.speed = enemy.GetComponent<Enemy>().getValues().speed;
+        astarAI.target = GameObject.FindGameObjectWithTag ("Target").transform;
+        yield return new WaitForSeconds(duration);
+        enemy.SetActive(true);
+    }
 }
