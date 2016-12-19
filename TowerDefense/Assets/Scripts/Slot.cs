@@ -73,8 +73,8 @@ public class Slot : MonoBehaviour {
 
     	else{
 
-        	GameObject.Find("ButtonSell").GetComponent<Button>().onClick.RemoveAllListeners();
-        	GameObject.Find("ButtonSell").GetComponent<Button>().onClick.AddListener(sell_obj);
+        	//GameObject.Find("ButtonSell").GetComponent<Button>().onClick.RemoveAllListeners();
+        	//GameObject.Find("ButtonSell").GetComponent<Button>().onClick.AddListener(sell_obj);
         }
     }
 

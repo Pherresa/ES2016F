@@ -12,6 +12,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	private CanvasGroup HUDCanvas;
 	private int sellPrice;
 	GameObject auraPrefab;
+	GameObject selectedObject;
 	MouseManager mm;
 
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	void Update () {
 		if (mm.selectedObject != null){
 			setActive (true);
+			selectedObject = mm.selectedObject;
 		} else {
 			setActive (false);
 		}
@@ -48,6 +50,7 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 				canvasSU.alpha = 1;
 				canvasSU.interactable = true;
 				canvasSU.blocksRaycasts = true;
+				canvasIU.alpha = 1;
 				canvasIU.interactable = true;
 				canvasIU.blocksRaycasts = true;
 
@@ -86,17 +89,17 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 			canvasSU.interactable = false;
 			canvasSU.blocksRaycasts = false;
 			canvasIU.alpha = 0;
-			canvasIU.interactable = false;
-			canvasIU.blocksRaycasts = false;
+			//canvasIU.interactable = false;
+			//canvasIU.blocksRaycasts = false;
 		}
 	}
 
 	public void sellSelected(){
 		Debug.Log("Selling");
-		if (mm.selectedObject != null) {
+		if (selectedObject != null) {
 			Debug.Log ("Sell");
-			Destroy (mm.selectedObject);
-			mm.selectedObject = null;
+			Destroy (selectedObject);
+			selectedObject = null;
 			//TODO Free Slot
 			//slot.isOccupied = false;
 			GameObject.FindObjectOfType<GameManager>().GainAmount(sellPrice);
