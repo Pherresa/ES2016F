@@ -417,7 +417,7 @@ public class Action_Defense : Tower
         {
             valu.type = TowerType.LURTZ_I;
         }
-        else if (name == "OrcWarrior")
+        else if (name == "defense5_OrcWarrior_I")
         {
             valu.type = TowerType.ORCWARRIOR;
         }
