@@ -42,6 +42,9 @@ public class Enemy : MonoBehaviour {
     public AudioClip soundAttacked;
     public AudioClip soundDeath;
 	public AudioClip soundSword;
+	DateTime timeOnPlay;
+	Vector3 pos_previous; 
+	Vector3 pos_init; 
 
     private AudioSource source {
         get{
@@ -58,7 +61,9 @@ public class Enemy : MonoBehaviour {
     void Awake() {
         gener_va = new Enemy_Values_Gene();
         getTypeOfEnemy();
-        gener_va.asig_values_enemy(ref enem);
+		gener_va.asig_values_enemy(ref enem);
+		pos_previous = this.transform.position;
+		pos_init = this.transform.position;
     }
 
     // Use this for initialization
@@ -82,6 +87,8 @@ public class Enemy : MonoBehaviour {
         m_moviments.Enqueue(new Vector3(155, 60, 412)); // TEST
         m_movi_actu = (Vector3)m_moviments.Dequeue();
         this.gameObject.AddComponent<Collider>();
+
+		timeOnPlay = DateTime.Now;
     }
 
 
@@ -140,6 +147,8 @@ public class Enemy : MonoBehaviour {
         }
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
+
+		checkEnemyPosition ();
 
         checkLife();
     }
@@ -230,4 +239,22 @@ public class Enemy : MonoBehaviour {
     public Value getValues() {
         return enem;
     }
+
+	private void checkEnemyPosition()
+	{ 
+
+		if ((DateTime.Now - timeOnPlay).Seconds > 1.5f) {
+
+			if (Vector3.Distance (pos_previous, this.transform.position) < 0.1 && Vector3.Distance(pos_init,pos_previous) > 5f) {
+
+				playSound(soundDeath);
+				Instantiate(explosion, transform.position, transform.rotation);
+				Destroy (this.gameObject);
+			} else {
+				pos_previous = this.transform.position;
+			}
+
+		}
+
+	}
 }
