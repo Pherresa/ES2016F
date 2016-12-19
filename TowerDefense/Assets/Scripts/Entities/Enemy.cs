@@ -240,6 +240,7 @@ public class Enemy : MonoBehaviour {
         return enem;
     }
 
+	// Check if enemy is moving or not. if not it will be destroyed
 	private void checkEnemyPosition()
 	{ 
 
