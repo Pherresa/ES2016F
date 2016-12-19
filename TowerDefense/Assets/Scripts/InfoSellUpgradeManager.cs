@@ -31,8 +31,12 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (mm.selectedObject != null){
-			setActive (true);
-			selectedObject = mm.selectedObject;
+			if (mm.selectedObject.name.StartsWith ("def")) {
+				setActive (true);
+				selectedObject = mm.selectedObject;
+			} else {
+				setActive (false);
+			}
 		} else {
 			setActive (false);
 		}
@@ -98,6 +102,17 @@ public class InfoSellUpgradeManager : MonoBehaviour {
 		Debug.Log("Selling");
 		if (selectedObject != null) {
 			Debug.Log ("Sell");
+			Slot[] slots = FindObjectsOfType<Slot> ();
+			for (int i = 0; i < slots.Length; i++) {
+				if (slots[i].unit != null) {
+					if (slots [i].unit.Equals (selectedObject)) {
+						slots [i].isOccupied = false;
+						Debug.Log ("---------------");
+						Debug.Log (slots [i].name);
+						Debug.Log ("---------------");
+					}
+				}
+			}
 			Destroy (selectedObject);
 			selectedObject = null;
 			//TODO Free Slot
