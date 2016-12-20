@@ -4,22 +4,19 @@ using System.Collections;
 public class Enemy_Constants{
 
     // Enemy
-    private int life_little = 100;
-    private int life_medium = 200;
-    private int life_big = 400;
-    private int life_4 = 500;
+    private int life_little = 300;
 
-    private int attack_little = 1;
-    private int attack_medium = 2;
-    private int attack_big = 5;
-    private int attack_4 = 10;
+	private int attack_little = 5;
+    private int attack_medium = 10;
+    private int attack_big = 20;
+    private int attack_4 = 40;
 
     private int speed_little = 7;
     private int speed_medium = 7;
     private int speed_big = 7;
     private int speed_4 = 7;
 
-    private  int money_little = 25;
+    private int money_little = 25;
     private int money_medium = 50;
     private int money_big = 75;
     private int money_4 = 100;
