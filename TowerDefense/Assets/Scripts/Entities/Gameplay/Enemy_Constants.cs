@@ -5,6 +5,9 @@ public class Enemy_Constants{
 
     // Enemy
     private int life_little = 300;
+    private int life_medium = 500;
+    private int life_big = 750;
+    private int life_4 = 1200;
 
 	private int attack_little = 5;
     private int attack_medium = 10;
