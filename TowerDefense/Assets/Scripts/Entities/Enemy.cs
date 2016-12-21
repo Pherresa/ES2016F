@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour {
         transform.LookAt(m_movi_actu);
         this.transform.Translate(Vector3.forward * m_velocity * Time.deltaTime);
 
-		checkEnemyPosition ();
+		//checkEnemyPosition ();
 
         checkLife();
     }
@@ -244,7 +244,7 @@ public class Enemy : MonoBehaviour {
 	private void checkEnemyPosition()
 	{ 
 
-		if ((DateTime.Now - timeOnPlay).Seconds > 1.5f) {
+		if ((DateTime.Now - timeOnPlay).Seconds > 30f) {
 
 			if (Vector3.Distance (pos_previous, this.transform.position) < 0.1 && Vector3.Distance(pos_init,pos_previous) > 5f) {
 
@@ -255,7 +255,7 @@ public class Enemy : MonoBehaviour {
 				pos_previous = this.transform.position;
 			}
 
-		}
+		} 
 
 	}
 }
